@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ $# -ne 1 ]]; then
+  echo "Usage: pipeline/inspect-candidate CANDIDATE_ID" >&2
+  exit 2
+fi
+
+candidate_id="$1"
+evaluation_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+candidate_csv="$evaluation_root/benchmark/candidates.csv"
+
+if [[ -f "$evaluation_root/.env" ]]; then
+  set -a
+  source "$evaluation_root/.env"
+  set +a
+fi
+
+if [[ -z "${RC_ROOT:-}" ]]; then
+  echo "ERROR: RC_ROOT is not set." >&2
+  echo "Define it in $evaluation_root/.env or export it." >&2
+  exit 1
+fi
+
+if [[ ! -d "$RC_ROOT/.git" ]]; then
+  echo "ERROR: RC_ROOT is not a Git repository: $RC_ROOT" >&2
+  exit 1
+fi
+
+buildspec_path="$(
+  python3 - "$candidate_csv" "$candidate_id" <<'PY'
+import csv
+import sys
+
+csv_path = sys.argv[1]
+candidate_id = sys.argv[2]
+
+with open(csv_path, newline="", encoding="utf-8") as stream:
+    for row in csv.DictReader(stream):
+        if row["candidate_id"] == candidate_id:
+            print(row["buildspec_path"])
+            raise SystemExit(0)
+
+print(f"Candidate not found: {candidate_id}", file=sys.stderr)
+raise SystemExit(1)
+PY
+)"
+
+full_path="$RC_ROOT/$buildspec_path"
+
+if [[ ! -f "$full_path" ]]; then
+  echo "ERROR: Build specification does not exist: $full_path" >&2
+  exit 1
+fi
+
+echo "Candidate ID: $candidate_id"
+echo "Path:         $buildspec_path"
+echo "SHA-256:      $(sha256sum "$full_path" | awk '{print $1}')"
+echo
+sed -n '1,220p' "$full_path"
