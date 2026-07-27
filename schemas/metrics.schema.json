@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Pilot run metrics",
+  "type": "object",
+  "required": ["run_id", "build_exit_code", "wall_clock_seconds"],
+  "properties": {
+    "run_id": {"type": "string", "format": "uuid"},
+    "build_exit_code": {"type": "integer"},
+    "wall_clock_seconds": {"type": "number", "minimum": 0},
+    "peak_rss_kib": {"type": ["integer", "null"], "minimum": 0},
+    "artifact_equivalence": {"type": ["boolean", "null"]},
+    "test_equivalence": {"type": ["boolean", "null"]},
+    "dependency_equivalence": {"type": ["boolean", "null"]}
+  },
+  "additionalProperties": true
+}

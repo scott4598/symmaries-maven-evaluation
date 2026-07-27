@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "prepare-cache is a scaffold. Implement and test before use." >&2
+exit 2

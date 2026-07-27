@@ -1,0 +1,1 @@
+candidate_id,buildspec_path,buildspec_sha256,group_id,artifact_id,version,build_tool,maven_version,jdk_version,git_repository,git_revision,source_distribution,build_command,reference_repository,container_compatible,special_shell_command,status

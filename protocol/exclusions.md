@@ -1,0 +1,17 @@
+# Exclusion Policy
+
+Record exclusions in `benchmark/exclusions.csv`; do not silently delete candidates.
+
+Initial pilot exclusion categories:
+- NON_MAVEN
+- SPECIAL_SHELL_BUILD
+- PRIVATE_CREDENTIALS_REQUIRED
+- INTERACTIVE_OR_EXTERNAL_SERVICE
+- NATIVE_OR_SPECIAL_HARDWARE
+- DEPLOYMENT_OR_SIGNING
+- SOURCE_UNAVAILABLE
+- DEPENDENCY_UNAVAILABLE
+- UNSTABLE_BUILD
+- TIMEOUT
+- RESOURCE_LIMIT
+- OTHER_DOCUMENTED

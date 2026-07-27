@@ -1,0 +1,10 @@
+<settings>
+  <mirrors>
+    <mirror>
+      <id>pilot-nexus</id>
+      <name>Controlled pilot repository</name>
+      <url>http://nexus:8081/repository/pilot-public/</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+  </mirrors>
+</settings>

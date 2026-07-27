@@ -1,0 +1,8 @@
+id: S1
+nexus_enabled: false
+symmaries_loaded: false
+analysis_enabled: false
+reuse_enabled: false
+local_maven_state: L0
+nexus_state: N0
+summary_store_state: Y0

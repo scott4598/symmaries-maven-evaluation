@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Pilot project manifest",
+  "type": "object",
+  "required": ["project_id", "buildspec_path", "buildspec_sha256", "source_revision"],
+  "properties": {
+    "project_id": {"type": "string", "minLength": 1},
+    "buildspec_path": {"type": "string", "minLength": 1},
+    "buildspec_sha256": {"type": "string", "pattern": "^[a-fA-F0-9]{64}$"},
+    "source_revision": {"type": "string", "minLength": 1},
+    "group_id": {"type": "string"},
+    "artifact_id": {"type": "string"},
+    "version": {"type": "string"},
+    "maven_version": {"type": "string"},
+    "jdk_version": {"type": "string"},
+    "profile": {"type": "object", "additionalProperties": true}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,17 @@
+# Generated results and logs
+results/*
+!results/.gitkeep
+*.log
+
+# Local clones and workspaces
+work/
+reproducible-central/
+
+# Secrets and local environment
+.env
+*.local
+
+# IDE and OS
+.idea/
+.vscode/
+.DS_Store

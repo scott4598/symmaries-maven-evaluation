@@ -1,0 +1,4 @@
+services: {}
+
+# Add pinned Nexus, Symmaries, storage, worker and monitoring services.
+# Use image digests rather than floating tags for released experiments.

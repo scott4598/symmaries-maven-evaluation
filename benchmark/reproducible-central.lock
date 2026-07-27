@@ -1,0 +1,4 @@
+repository: https://github.com/jvm-repo-rebuild/reproducible-central.git
+commit: REPLACE_WITH_FULL_COMMIT_SHA
+commit_date: REPLACE_WITH_COMMIT_DATE
+collected_at: REPLACE_WITH_COLLECTION_TIMESTAMP

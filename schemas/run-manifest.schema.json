@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Pilot run manifest",
+  "type": "object",
+  "required": ["run_id", "project_id", "treatment", "repetition", "source_revision"],
+  "properties": {
+    "run_id": {"type": "string", "format": "uuid"},
+    "project_id": {"type": "string", "minLength": 1},
+    "treatment": {"enum": ["B0", "B1", "S0", "S1", "S2"]},
+    "repetition": {"type": "integer", "minimum": 1},
+    "source_revision": {"type": "string", "minLength": 1},
+    "local_cache_state": {"enum": ["L0", "L1"]},
+    "nexus_cache_state": {"enum": ["N0", "N1"]},
+    "summary_store_state": {"enum": ["Y0", "Y1"]}
+  },
+  "additionalProperties": true
+}
