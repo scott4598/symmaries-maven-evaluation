@@ -1,0 +1,2 @@
+candidate_id,cohort,attempt,status,exit_code,started_at,completed_at,duration_seconds,buildcompare_path,buildcompare_ko,failure_category,log_path,notes
+RCM-02178,primary,1,PASS_EXACT,0,2026-07-28T15:42:13Z,2026-07-28T15:42:25Z,12,content/com/semanticcms/semanticcms-parent/semanticcms-parent-2.1.0.buildcompare,0,,results/reproduction/logs/RCM-02178-attempt-1.log,Upstream Reproducible Central smoke test using sudo Docker access
