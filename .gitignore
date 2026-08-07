@@ -15,3 +15,30 @@ reproducible-central/
 .idea/
 .vscode/
 .DS_Store
+
+# Local credentials
+config/pilot-local.env
+.env
+*.token
+
+# Generated workspaces and results
+work/
+results/
+benchmark/full-screening-results.csv
+benchmark/full-screening-summary.tsv
+benchmark/compatibility/attempt-*/
+
+# Local caches
+.m2/
+__pycache__/
+*.pyc
+
+# Temporary files
+tmp/
+config/candidate-build-environments.json
+config/settings-pilot-host.xml
+config/pilot-local.env
+benchmark/full-screening-results.csv
+benchmark/full-screening-summary.tsv
+results/
+work/

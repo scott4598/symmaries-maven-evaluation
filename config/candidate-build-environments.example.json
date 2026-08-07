@@ -1,0 +1,210 @@
+{
+  "RCM-00039": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-00129": {
+    "java_home": "/usr/lib/jvm/java-8-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-00215": {
+    "java_home": "/usr/lib/jvm/java-8-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-00389": {
+    "java_home": "/usr/lib/jvm/java-8-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-00434": {
+    "java_home": "/usr/lib/jvm/java-8-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-01209": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-01235": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-01278": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-01281": {
+    "java_home": "/usr/lib/jvm/java-8-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-01684": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-01726": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-01850": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-01886": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-01890": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-02151": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-02526": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-02653": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-02733": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-02805": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-02985": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-03801": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-05436": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-05502": {
+    "java_home": "/usr/lib/jvm/java-8-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-05702": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-05899": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-06468": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-06557": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-07031": {
+    "java_home": "/usr/lib/jvm/java-8-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-07075": {
+    "java_home": "/usr/lib/jvm/java-8-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-07217": {
+    "java_home": "/usr/lib/jvm/java-8-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-07229": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-07309": {
+    "java_home": "/usr/lib/jvm/java-8-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-07348": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-07392": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-07404": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-07489": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-07502": {
+    "java_home": "/usr/lib/jvm/java-8-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-07820": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-08745": {
+    "java_home": "/usr/lib/jvm/java-8-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-08833": {
+    "java_home": "/usr/lib/jvm/java-8-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-08968": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-09012": {
+    "java_home": "/usr/lib/jvm/java-8-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-09029": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-09188": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-09417": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-09476": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-10294": {
+    "java_home": "/usr/lib/jvm/java-8-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-10503": {
+    "java_home": "/usr/lib/jvm/java-8-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-10565": {
+    "java_home": "/usr/lib/jvm/java-8-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-10727": {
+    "java_home": "/usr/lib/jvm/java-8-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "RCM-10804": {
+    "java_home": "/usr/lib/jvm/java-8-openjdk-amd64",
+    "maven": "mvn"
+  },
+  "default": {
+    "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "maven": "mvn"
+  }
+}
