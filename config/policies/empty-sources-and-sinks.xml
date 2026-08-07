@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Generic pilot policy.
+  This policy intentionally declares no application-specific sources or sinks.
+-->
+<riflspec>
+  <interfacespec/>
+  <domains/>
+</riflspec>
