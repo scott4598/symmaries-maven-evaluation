@@ -1,0 +1,30 @@
+Device 2 scenario-pipeline transfer
+
+Combined D2-qualified population:
+  78 candidates
+
+Smoke candidates:
+  RCM-01420
+  RCM-01341
+  RCM-00141
+
+Scenarios:
+  B0 - no plugin
+  C0 - baseline analysis request
+  W0 - identical rerun
+  I1 - one mutated method, RCM-01420 only
+
+Current smoke outcome:
+  RCM-01420 B0 PASS
+  RCM-01420 C0 backend failure, diagnosis required
+  RCM-01420 W0 backend failure, diagnosis required
+  RCM-01420 I1 PASS as full analysis
+  I1 did not receive reuse_of and therefore did not exercise -pa reuse
+
+Required policy:
+  config/policies/empty-sources-and-sinks.xml
+
+Required secstub conditions:
+  benchmark/combined-d2-passes/secstubs/
+
+Secrets and local infrastructure configuration are intentionally excluded.

@@ -1,0 +1,2 @@
+candidate_id,target_id,relative_source_path,method_label,old_literal,new_literal,mutation_kind,enabled,notes
+RCM-01420,M001,cosmos-osgi-runtime/src/main/java/com/github/veithen/cosmos/osgi/runtime/FrameworkImpl.java,literal-return-line-58,return 0L;,return 1L;,return-literal-substitution,true,Unique numeric return statement verified in selected module

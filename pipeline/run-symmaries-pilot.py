@@ -217,51 +217,6 @@ def resolve_build_environment(
     environment = os.environ.copy()
 
     java_home = selected.get("java_home", "")
-    
-    maven_version_output = (
-        subprocess.check_output(
-            [
-                maven_executable,
-                "-version",
-            ],
-            env=child_environment,
-            cwd=working_directory,
-            text=True,
-            stderr=subprocess.STDOUT,
-        )
-    )
-
-    maven_version = (
-        maven_version_output
-        .splitlines()[0]
-        .strip()
-    )
-
-    java_version_output = (
-        subprocess.check_output(
-            [
-                str(
-                    Path(
-                        child_environment[
-                            "JAVA_HOME"
-                        ]
-                    )
-                    / "bin"
-                    / "java"
-                ),
-                "-version",
-            ],
-            env=child_environment,
-            text=True,
-            stderr=subprocess.STDOUT,
-        )
-    )
-
-    java_version = (
-        java_version_output
-        .splitlines()[0]
-        .strip()
-    )
 
     if java_home:
         java_home_path = Path(java_home)
@@ -397,6 +352,7 @@ def prepare_maven_repository(
     seed_repository: Path,
     destination: Path,
     cache_state: str,
+    plugin_required: bool,
 ) -> None:
     if destination.exists():
         shutil.rmtree(destination)
@@ -419,8 +375,9 @@ def prepare_maven_repository(
 
         return
 
-    # Cold scenarios still require the locally developed pilot plugin.
-    # Dependencies other than the plugin itself resolve through Nexus.
+    if not plugin_required:
+        return
+
     plugin_relative = Path(
         "com/symmaries/"
         "symmaries-maven-plugin/"
@@ -582,6 +539,276 @@ def classify(
 
     return "PASS", ""
 
+def candidate_has_enabled_mutation_target(
+    candidate_id: str,
+    manifest_path: Path,
+) -> bool:
+    if not manifest_path.is_file():
+        return False
+
+    with manifest_path.open(
+        newline="",
+        encoding="utf-8",
+    ) as stream:
+        return any(
+            row.get(
+                "candidate_id",
+                "",
+            ).strip() == candidate_id
+            and row.get(
+                "enabled",
+                "",
+            ).strip().lower() == "true"
+            for row in csv.DictReader(stream)
+        )
+
+def apply_manifest_mutations(
+    candidate_id: str,
+    scenario_id: str,
+    workspace: Path,
+    manifest_path: Path,
+    mutation_count: int,
+    mutation_percentage: float | None,
+    report_path: Path,
+) -> dict[str, object]:
+    if mutation_count <= 0 and mutation_percentage is None:
+        return {
+            "eligible_targets": 0,
+            "selected_targets": 0,
+            "actual_percentage": 0.0,
+        }
+
+    if not manifest_path.is_file():
+        raise RuntimeError(
+            "Mutation manifest is missing: "
+            + str(manifest_path)
+        )
+
+    with manifest_path.open(
+        newline="",
+        encoding="utf-8",
+    ) as stream:
+        targets = [
+            row
+            for row in csv.DictReader(stream)
+            if row.get(
+                "candidate_id",
+                "",
+            ).strip() == candidate_id
+            and row.get(
+                "enabled",
+                "",
+            ).strip().lower() == "true"
+        ]
+
+    targets.sort(
+        key=lambda row: row["target_id"]
+    )
+
+    if not targets:
+        raise RuntimeError(
+            "No enabled mutation targets for "
+            + candidate_id
+        )
+
+    if mutation_percentage is not None:
+        requested = max(
+            1,
+            round(
+                len(targets)
+                * mutation_percentage
+                / 100.0
+            ),
+        )
+    else:
+        requested = mutation_count
+
+    selected_count = min(
+        requested,
+        len(targets),
+    )
+
+    selected = targets[
+        :selected_count
+    ]
+
+    report_rows = []
+
+    for target in selected:
+        relative_path = Path(
+            target[
+                "relative_source_path"
+            ]
+        )
+
+        source_path = (
+            workspace
+            / relative_path
+        )
+
+        if not source_path.is_file():
+            raise RuntimeError(
+                "Mutation source is missing: "
+                + str(source_path)
+            )
+
+        original_bytes = (
+            source_path.read_bytes()
+        )
+
+        original_sha256 = (
+            hashlib.sha256(
+                original_bytes
+            ).hexdigest()
+        )
+
+        text = original_bytes.decode(
+            "utf-8"
+        )
+
+        old_literal = target[
+            "old_literal"
+        ]
+
+        new_literal = target[
+            "new_literal"
+        ]
+
+        occurrences = text.count(
+            old_literal
+        )
+
+        if occurrences != 1:
+            raise RuntimeError(
+                "Expected exactly one occurrence "
+                f"of {old_literal!r} in "
+                f"{source_path}; found "
+                f"{occurrences}"
+            )
+
+        mutated = text.replace(
+            old_literal,
+            new_literal,
+            1,
+        )
+
+        source_path.write_text(
+            mutated,
+            encoding="utf-8",
+        )
+
+        mutated_sha256 = (
+            hashlib.sha256(
+                source_path.read_bytes()
+            ).hexdigest()
+        )
+
+        if (
+            original_sha256
+            == mutated_sha256
+        ):
+            raise RuntimeError(
+                "Mutation did not alter "
+                + str(source_path)
+            )
+
+        report_rows.append({
+            "candidate_id": candidate_id,
+            "scenario_id": scenario_id,
+            "target_id": target[
+                "target_id"
+            ],
+            "relative_source_path": (
+                str(relative_path)
+            ),
+            "method_label": target[
+                "method_label"
+            ],
+            "mutation_kind": target[
+                "mutation_kind"
+            ],
+            "old_literal": old_literal,
+            "new_literal": new_literal,
+            "source_sha256_before": (
+                original_sha256
+            ),
+            "source_sha256_after": (
+                mutated_sha256
+            ),
+        })
+
+    report_path.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    fields = [
+        "candidate_id",
+        "scenario_id",
+        "target_id",
+        "relative_source_path",
+        "method_label",
+        "mutation_kind",
+        "old_literal",
+        "new_literal",
+        "source_sha256_before",
+        "source_sha256_after",
+    ]
+
+    with report_path.open(
+        "w",
+        newline="",
+        encoding="utf-8",
+    ) as stream:
+        writer = csv.DictWriter(
+            stream,
+            fieldnames=fields,
+        )
+
+        writer.writeheader()
+        writer.writerows(
+            report_rows
+        )
+
+    actual_percentage = (
+        100.0
+        * selected_count
+        / len(targets)
+    )
+
+    metadata = {
+        "candidate_id": candidate_id,
+        "scenario_id": scenario_id,
+        "eligible_targets": len(
+            targets
+        ),
+        "selected_targets": (
+            selected_count
+        ),
+        "requested_count": (
+            mutation_count
+        ),
+        "requested_percentage": (
+            mutation_percentage
+        ),
+        "actual_percentage": (
+            actual_percentage
+        ),
+    }
+
+    report_path.with_suffix(
+        ".json"
+    ).write_text(
+        json.dumps(
+            metadata,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    return metadata
 
 def main() -> int:
     parser = argparse.ArgumentParser()
@@ -669,14 +896,14 @@ def main() -> int:
         "--rerun",
         action="store_true",
     )
-    
+
     parser.add_argument(
         "--build-environments",
         default=(
             "config/"
             "candidate-build-environments.json"
-    ),
-)
+        ),
+    )
 
     args = parser.parse_args()
 
@@ -690,14 +917,6 @@ def main() -> int:
             file=sys.stderr,
         )
         return 2
-
-    if not sudo_ready():
-        print(
-            "ERROR: sudo credential unavailable. "
-            "Run sudo -v.",
-            file=sys.stderr,
-        )
-        return 3
 
     rc_root = Path(
         os.environ["RC_ROOT"]
@@ -748,12 +967,12 @@ def main() -> int:
     seed_repository = (
         evaluation_root / args.maven_seed
     )
-    
+
     build_environment_path = (
         evaluation_root
         / args.build_environments
-    ).resolve()    
-    
+    ).resolve()
+
     fallback_policy = (
         evaluation_root
         / args.fallback_policy
@@ -765,7 +984,7 @@ def main() -> int:
             f"{fallback_policy}",
             file=sys.stderr,
         )
-        return 2    
+        return 2
 
     results_root = (
         evaluation_root / args.results_root
@@ -776,7 +995,7 @@ def main() -> int:
         / "work"
         / "pilot"
     )
-    
+
     if not build_environment_path.is_file():
         print(
             "ERROR: build-environment configuration "
@@ -784,7 +1003,7 @@ def main() -> int:
             f"{build_environment_path}",
             file=sys.stderr,
         )
-        return 2    
+        return 2
 
     for selected in selection_rows:
         if (
@@ -848,6 +1067,48 @@ def main() -> int:
             ):
                 continue
 
+            mutation_count = int(
+                scenario.get(
+                    "mutation_count",
+                    "0",
+                ).strip()
+                or "0"
+            )
+
+            mutation_percentage_text = (
+                scenario.get(
+                    "mutation_percentage",
+                    "",
+                ).strip()
+            )
+
+            mutation_required = (
+                mutation_count > 0
+                or bool(
+                    mutation_percentage_text
+                )
+            )
+
+            mutation_manifest_path = (
+                evaluation_root
+                / "config"
+                / "scenario-mutation-targets.csv"
+            )
+
+            if (
+                mutation_required
+                and not candidate_has_enabled_mutation_target(
+                    candidate_id,
+                    mutation_manifest_path,
+                )
+            ):
+                print(
+                    f"SKIP {candidate_id} "
+                    f"{scenario_id}: no enabled "
+                    "mutation target"
+                )
+                continue
+
             key = (
                 candidate_id,
                 scenario_id,
@@ -903,7 +1164,7 @@ def main() -> int:
             maven_executable = ""
             maven_version = ""
             java_version = ""
-            child_environment = os.environ.copy()            
+            child_environment = os.environ.copy()
             policy_source = ""
             policy_path = None
             policy_sha256 = ""
@@ -911,16 +1172,57 @@ def main() -> int:
             copied_metadata = []
             copied_summaries = []
 
+            mutation_metadata = {
+                "eligible_targets": 0,
+                "selected_targets": 0,
+                "actual_percentage": 0.0,
+            }
+
             try:
                 prepare_workspace(
                     source_checkout,
                     workspace,
                 )
 
+                mutation_percentage = (
+                    float(
+                        mutation_percentage_text
+                    )
+                    if mutation_percentage_text
+                    else None
+                )
+
+                mutation_metadata = (
+                    apply_manifest_mutations(
+                        candidate_id=candidate_id,
+                        scenario_id=scenario_id,
+                        workspace=workspace,
+                        manifest_path=(
+                            mutation_manifest_path
+                        ),
+                        mutation_count=mutation_count,
+                        mutation_percentage=(
+                            mutation_percentage
+                        ),
+                        report_path=(
+                            run_root
+                            / "mutation-report.csv"
+                        ),
+                    )
+                )
+
+                plugin_enabled = (
+                    scenario[
+                        "symmaries_enabled"
+                    ].lower()
+                    == "true"
+                )
+
                 prepare_maven_repository(
                     seed_repository,
                     maven_repo,
                     scenario["cache_state"],
+                    plugin_enabled,
                 )
 
                 module_path = module[
@@ -940,7 +1242,7 @@ def main() -> int:
                         "Selected module has no pom.xml: "
                         f"{working_directory}"
                     )
-                 
+
                 (
                     maven_executable,
                     child_environment,
@@ -948,8 +1250,55 @@ def main() -> int:
                     candidate_id,
                     working_directory,
                     build_environment_path,
-                )                 
-                 
+                )
+
+                maven_version_output = (
+                    subprocess.check_output(
+                        [
+                            maven_executable,
+                            "-version",
+                        ],
+                        cwd=working_directory,
+                        env=child_environment,
+                        text=True,
+                        stderr=subprocess.STDOUT,
+                    )
+                )
+
+                maven_version = (
+                    maven_version_output
+                    .splitlines()[0]
+                    .strip()
+                )
+
+                java_executable = (
+                    Path(
+                        child_environment[
+                            "JAVA_HOME"
+                        ]
+                    )
+                    / "bin"
+                    / "java"
+                )
+
+                java_version_output = (
+                    subprocess.check_output(
+                        [
+                            str(java_executable),
+                            "-version",
+                        ],
+                        env=child_environment,
+                        text=True,
+                        stderr=subprocess.STDOUT,
+                    )
+                )
+
+                java_version = (
+                    java_version_output
+                    .splitlines()[0]
+                    .strip()
+                )
+
                 (
                     policy_source,
                     policy_path,
@@ -957,7 +1306,7 @@ def main() -> int:
                 ) = resolve_candidate_policy(
                     working_directory,
                     fallback_policy,
-                )            
+                )
 
                 original_arguments = shlex.split(
                     sample["build_command"]
@@ -977,12 +1326,6 @@ def main() -> int:
                         + sample["build_command"]
                     )
 
-                plugin_enabled = (
-                    scenario[
-                        "symmaries_enabled"
-                    ].lower()
-                    == "true"
-                )
 
                 command = [
                     "timeout",
@@ -1013,7 +1356,7 @@ def main() -> int:
                         (
                             "-Dsymmaries.policyFile="
                             + str(policy_path)
-                        ),                        
+                        ),
                         (
                             "-Dsymmaries.force="
                             + scenario["force_scan"]
@@ -1183,7 +1526,7 @@ def main() -> int:
                     f"exit_code={exit_code}",
                     f"status={status}",
                     f"maven_version={maven_version}",
-                    f"java_version={java_version}",                    
+                    f"java_version={java_version}",
                     (
                         "failure_category="
                         f"{failure_category}"
@@ -1197,7 +1540,7 @@ def main() -> int:
                     (
                         "java_home="
                         f"{child_environment.get('JAVA_HOME', '')}"
-                    ),                    
+                    ),
                     (
                         "module_path="
                         f"{module['module_path']}"
@@ -1233,6 +1576,18 @@ def main() -> int:
                     (
                         "jar_sha256="
                         f"{jar_sha256}"
+                    ),
+                    (
+                        "mutation_target_count="
+                        f"{mutation_metadata.get('selected_targets', 0)}"
+                    ),
+                    (
+                        "mutation_eligible_count="
+                        f"{mutation_metadata.get('eligible_targets', 0)}"
+                    ),
+                    (
+                        "mutation_actual_percentage="
+                        f"{mutation_metadata.get('actual_percentage', 0.0)}"
                     ),
                 ]) + "\n",
                 encoding="utf-8",
