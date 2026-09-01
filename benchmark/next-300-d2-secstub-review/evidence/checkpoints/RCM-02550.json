@@ -1,0 +1,56 @@
+{
+  "findings": [
+    {
+      "caller_class": "eu.europa.ted.eforms.sdk.component.SdkComponentDescriptor",
+      "caller_method": "public eu.europa.ted.eforms.sdk.component.SdkComponentDescriptor(java.lang.String, eu.europa.ted.eforms.sdk.component.SdkComponentType, java.lang.Class<T>)",
+      "candidate": "RCM-02550",
+      "category": "reflection",
+      "descriptor": "()[Ljava/lang/reflect/Constructor;",
+      "evidence": "75: invokevirtual #29                 // Method java/lang/Class.getDeclaredConstructors:()[Ljava/lang/reflect/Constructor;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02550/D1/attempt-1/workspace/target/eforms-core-java-1.1.0.jar",
+      "name": "getDeclaredConstructors",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "eu.europa.ted.eforms.sdk.component.SdkComponentDescriptor",
+      "caller_method": "public eu.europa.ted.eforms.sdk.component.SdkComponentDescriptor(java.lang.String, eu.europa.ted.eforms.sdk.component.SdkComponentType, java.lang.Class<T>)",
+      "candidate": "RCM-02550",
+      "category": "reflection",
+      "descriptor": "([Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "137: invokevirtual #37                 // Method java/lang/reflect/Constructor.newInstance:([Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02550/D1/attempt-1/workspace/target/eforms-core-java-1.1.0.jar",
+      "name": "newInstance",
+      "owner": "java/lang/reflect/Constructor"
+    },
+    {
+      "caller_class": "eu.europa.ted.maven.listener.ConsoleTransferListener",
+      "caller_method": "public eu.europa.ted.maven.listener.ConsoleTransferListener()",
+      "candidate": "RCM-02550",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "9: invokespecial #3                  // Method java/util/concurrent/ConcurrentHashMap.\"<init>\":()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02550/D1/attempt-1/workspace/target/eforms-core-java-1.1.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/ConcurrentHashMap"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-02550",
+    "classes_discovered": 28,
+    "classes_failed": 0,
+    "classes_scanned": 28,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T14:19:08Z",
+    "discovered_jars": 2,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 6.415,
+    "error": "",
+    "findings": 3,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02550/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T14:19:02Z",
+    "status": "COMPLETE",
+    "unique_jars": 2,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

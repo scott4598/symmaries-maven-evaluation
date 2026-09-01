@@ -1,0 +1,67 @@
+{
+  "findings": [
+    {
+      "caller_class": "io.wcm.maven.plugins.nodejs.mojo.Task",
+      "caller_method": "public io.wcm.maven.plugins.nodejs.mojo.Task()",
+      "candidate": "RCM-05634",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "33: invokevirtual #42                 // Method java/lang/Thread.start:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-05634/D1/attempt-1/workspace/target/nodejs-maven-plugin-3.0.6.jar",
+      "name": "start",
+      "owner": "java/lang/Thread"
+    },
+    {
+      "caller_class": "io.wcm.maven.plugins.nodejs.mojo.Task",
+      "caller_method": "public io.wcm.maven.plugins.nodejs.mojo.Task()",
+      "candidate": "RCM-05634",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "37: invokevirtual #42                 // Method java/lang/Thread.start:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-05634/D1/attempt-1/workspace/target/nodejs-maven-plugin-3.0.6.jar",
+      "name": "start",
+      "owner": "java/lang/Thread"
+    },
+    {
+      "caller_class": "io.wcm.maven.plugins.nodejs.mojo.Task",
+      "caller_method": "public io.wcm.maven.plugins.nodejs.mojo.Task()",
+      "candidate": "RCM-05634",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "41: invokevirtual #43                 // Method java/lang/Thread.join:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-05634/D1/attempt-1/workspace/target/nodejs-maven-plugin-3.0.6.jar",
+      "name": "join",
+      "owner": "java/lang/Thread"
+    },
+    {
+      "caller_class": "io.wcm.maven.plugins.nodejs.mojo.Task",
+      "caller_method": "public io.wcm.maven.plugins.nodejs.mojo.Task()",
+      "candidate": "RCM-05634",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "45: invokevirtual #43                 // Method java/lang/Thread.join:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-05634/D1/attempt-1/workspace/target/nodejs-maven-plugin-3.0.6.jar",
+      "name": "join",
+      "owner": "java/lang/Thread"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-05634",
+    "classes_discovered": 12,
+    "classes_failed": 0,
+    "classes_scanned": 12,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T14:25:41Z",
+    "discovered_jars": 1,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 2.739,
+    "error": "",
+    "findings": 4,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-05634/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T14:25:38Z",
+    "status": "COMPLETE",
+    "unique_jars": 1,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

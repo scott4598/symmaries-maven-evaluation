@@ -1,0 +1,100 @@
+{
+  "findings": [
+    {
+      "caller_class": "org.mybatis.spring.SqlSessionTemplate",
+      "caller_method": "public org.mybatis.spring.SqlSessionTemplate(org.apache.ibatis.session.SqlSessionFactory, org.apache.ibatis.session.ExecutorType, org.springframework.dao.support.PersistenceExceptionTranslator)",
+      "candidate": "RCM-10193",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/ClassLoader;[Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;",
+      "evidence": "54: invokestatic  #77                 // Method java/lang/reflect/Proxy.newProxyInstance:(Ljava/lang/ClassLoader;[Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10193/D1/attempt-1/workspace/target/mybatis-spring-3.0.1.jar",
+      "name": "newProxyInstance",
+      "owner": "java/lang/reflect/Proxy"
+    },
+    {
+      "caller_class": "org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor",
+      "caller_method": "private org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor(org.mybatis.spring.SqlSessionTemplate)",
+      "candidate": "RCM-10193",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "30: invokevirtual #33                 // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10193/D1/attempt-1/workspace/target/mybatis-spring-3.0.1.jar",
+      "name": "invoke",
+      "owner": "java/lang/reflect/Method"
+    },
+    {
+      "caller_class": "org.mybatis.spring.batch.MyBatisPagingItemReader",
+      "caller_method": "protected void doReadPage()",
+      "candidate": "RCM-10193",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "144: invokespecial #129                // Method java/util/concurrent/CopyOnWriteArrayList.\"<init>\":()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10193/D1/attempt-1/workspace/target/mybatis-spring-3.0.1.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/CopyOnWriteArrayList"
+    },
+    {
+      "caller_class": "org.mybatis.spring.config.MapperScannerBeanDefinitionParser",
+      "caller_method": "protected org.springframework.beans.factory.support.AbstractBeanDefinition parseInternal(org.w3c.dom.Element, org.springframework.beans.factory.xml.ParserContext)",
+      "candidate": "RCM-10193",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;)Ljava/lang/Class;",
+      "evidence": "44: invokevirtual #49                 // Method java/lang/ClassLoader.loadClass:(Ljava/lang/String;)Ljava/lang/Class;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10193/D1/attempt-1/workspace/target/mybatis-spring-3.0.1.jar",
+      "name": "loadClass",
+      "owner": "java/lang/ClassLoader"
+    },
+    {
+      "caller_class": "org.mybatis.spring.config.MapperScannerBeanDefinitionParser",
+      "caller_method": "protected org.springframework.beans.factory.support.AbstractBeanDefinition parseInternal(org.w3c.dom.Element, org.springframework.beans.factory.xml.ParserContext)",
+      "candidate": "RCM-10193",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;)Ljava/lang/Class;",
+      "evidence": "80: invokevirtual #49                 // Method java/lang/ClassLoader.loadClass:(Ljava/lang/String;)Ljava/lang/Class;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10193/D1/attempt-1/workspace/target/mybatis-spring-3.0.1.jar",
+      "name": "loadClass",
+      "owner": "java/lang/ClassLoader"
+    },
+    {
+      "caller_class": "org.mybatis.spring.config.MapperScannerBeanDefinitionParser",
+      "caller_method": "protected org.springframework.beans.factory.support.AbstractBeanDefinition parseInternal(org.w3c.dom.Element, org.springframework.beans.factory.xml.ParserContext)",
+      "candidate": "RCM-10193",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;)Ljava/lang/Class;",
+      "evidence": "116: invokevirtual #49                 // Method java/lang/ClassLoader.loadClass:(Ljava/lang/String;)Ljava/lang/Class;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10193/D1/attempt-1/workspace/target/mybatis-spring-3.0.1.jar",
+      "name": "loadClass",
+      "owner": "java/lang/ClassLoader"
+    },
+    {
+      "caller_class": "org.mybatis.spring.config.MapperScannerBeanDefinitionParser",
+      "caller_method": "protected org.springframework.beans.factory.support.AbstractBeanDefinition parseInternal(org.w3c.dom.Element, org.springframework.beans.factory.xml.ParserContext)",
+      "candidate": "RCM-10193",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;)Ljava/lang/Class;",
+      "evidence": "164: invokevirtual #49                 // Method java/lang/ClassLoader.loadClass:(Ljava/lang/String;)Ljava/lang/Class;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10193/D1/attempt-1/workspace/target/mybatis-spring-3.0.1.jar",
+      "name": "loadClass",
+      "owner": "java/lang/ClassLoader"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-10193",
+    "classes_discovered": 30,
+    "classes_failed": 0,
+    "classes_scanned": 30,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T15:41:52Z",
+    "discovered_jars": 1,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 6.812,
+    "error": "",
+    "findings": 7,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10193/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T15:41:45Z",
+    "status": "COMPLETE",
+    "unique_jars": 1,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

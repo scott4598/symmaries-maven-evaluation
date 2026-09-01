@@ -1,0 +1,6 @@
+candidate_id,module_path,artifact_selector,mapping_status,notes
+RCM-00029,.,main,D1_VERIFIED_JAR,reproducible-build-maven-plugin-0.17.0.jar
+RCM-00045,logback-core-db,main,D1_VERIFIED_JAR,logback-core-db-1.2.11.1.jar
+RCM-00141,mariaDB4j,main,D1_VERIFIED_JAR,mariaDB4j-3.3.1.jar
+RCM-01180,.,main,D1_VERIFIED_JAR,jfr-jdbctemplate-3.0.0.jar
+RCM-01182,.,main,D1_VERIFIED_JAR,jfr-maven-extension-0.2.0.jar

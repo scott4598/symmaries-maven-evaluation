@@ -1,0 +1,18 @@
+boolean java.util.concurrent.ConcurrentMap:containsKey(java.lang.Object){-<~;return *;}
+int java.util.concurrent.LinkedBlockingQueue:drainTo(java.util.Collection,int){-<~;return *;}
+int java.util.concurrent.LinkedBlockingQueue:size(){-<~;return *;}
+java.lang.Class java.lang.ClassLoader:loadClass(java.lang.String){-<~;return *;}
+java.lang.Object java.lang.reflect.Constructor:newInstance(java.lang.Object[]){-<~;return *;}
+java.lang.Object java.util.concurrent.ConcurrentMap:get(java.lang.Object){-<~;return *;}
+java.lang.Object java.util.concurrent.ConcurrentMap:putIfAbsent(java.lang.Object,java.lang.Object){-<~;return *;}
+java.lang.Object java.util.concurrent.ConcurrentMap:remove(java.lang.Object){-<~;return *;}
+java.lang.reflect.Constructor java.lang.Class:getConstructor(java.lang.Class[]){-<~;return *;}
+java.lang.reflect.Constructor java.lang.Class:getDeclaredConstructor(java.lang.Class[]){-<~;return *;}
+java.lang.reflect.Method java.lang.Class:getDeclaredMethod(java.lang.String,java.lang.Class[]){-<~;return *;}
+java.util.concurrent.ConcurrentHashMap$KeySetView java.util.concurrent.ConcurrentHashMap:newKeySet(){-<~;return *;}
+java.util.concurrent.ConcurrentHashMap(){-<~;.*<~@;}
+java.util.concurrent.CopyOnWriteArrayList(){-<~;.*<~@;}
+java.util.concurrent.LinkedBlockingQueue(){-<~;.*<~@;}
+void java.lang.reflect.Constructor:setAccessible(boolean){-<~;}
+void java.lang.reflect.Method:setAccessible(boolean){-<~;}
+void java.util.concurrent.LinkedBlockingQueue:clear(){-<~;}

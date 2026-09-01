@@ -1,0 +1,67 @@
+{
+  "findings": [
+    {
+      "caller_class": "internal.console.properties.x.PowerShellConsoleProvider",
+      "caller_method": "internal.console.properties.x.PowerShellConsoleProvider(java.util.function.BiConsumer<java.io.IOException, java.lang.String[]>)",
+      "candidate": "RCM-01214",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "9: invokespecial #116                // Method java/util/concurrent/atomic/AtomicReference.\"<init>\":()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01214/D1/attempt-1/workspace/target/java-console-properties-1.4.1.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/atomic/AtomicReference"
+    },
+    {
+      "caller_class": "internal.console.properties.x.PowerShellConsoleProvider",
+      "caller_method": "public java.lang.String getExecutable()",
+      "candidate": "RCM-01214",
+      "category": "concurrency",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "4: invokevirtual #128                // Method java/util/concurrent/atomic/AtomicReference.get:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01214/D1/attempt-1/workspace/target/java-console-properties-1.4.1.jar",
+      "name": "get",
+      "owner": "java/util/concurrent/atomic/AtomicReference"
+    },
+    {
+      "caller_class": "internal.console.properties.x.PowerShellConsoleProvider",
+      "caller_method": "public java.lang.String getExecutable()",
+      "candidate": "RCM-01214",
+      "category": "concurrency",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "23: invokevirtual #128                // Method java/util/concurrent/atomic/AtomicReference.get:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01214/D1/attempt-1/workspace/target/java-console-properties-1.4.1.jar",
+      "name": "get",
+      "owner": "java/util/concurrent/atomic/AtomicReference"
+    },
+    {
+      "caller_class": "internal.console.properties.x.PowerShellConsoleProvider",
+      "caller_method": "public java.lang.String getExecutable()",
+      "candidate": "RCM-01214",
+      "category": "concurrency",
+      "descriptor": "(Ljava/lang/Object;)V",
+      "evidence": "54: invokevirtual #135                // Method java/util/concurrent/atomic/AtomicReference.set:(Ljava/lang/Object;)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01214/D1/attempt-1/workspace/target/java-console-properties-1.4.1.jar",
+      "name": "set",
+      "owner": "java/util/concurrent/atomic/AtomicReference"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-01214",
+    "classes_discovered": 87,
+    "classes_failed": 0,
+    "classes_scanned": 87,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T14:04:35Z",
+    "discovered_jars": 1,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 19.521,
+    "error": "",
+    "findings": 4,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01214/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T14:04:16Z",
+    "status": "COMPLETE",
+    "unique_jars": 1,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

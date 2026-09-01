@@ -1,0 +1,9 @@
+total=5
+runner_FAIL_BUILD=2
+runner_PASS=3
+terminal_done=3
+terminal_failed=2
+category_FRONTEND_ASM_BYTECODE_LIMIT=2
+category_PASS=3
+adjustable_NO=3
+adjustable_TOOL_UPDATE=2

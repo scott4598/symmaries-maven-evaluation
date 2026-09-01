@@ -1,0 +1,22 @@
+{
+  "findings": [],
+  "statistics": {
+    "candidate": "RCM-07668",
+    "classes_discovered": 42,
+    "classes_failed": 0,
+    "classes_scanned": 42,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T15:24:24Z",
+    "discovered_jars": 1,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 9.287,
+    "error": "",
+    "findings": 0,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07668/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T15:24:15Z",
+    "status": "COMPLETE",
+    "unique_jars": 1,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

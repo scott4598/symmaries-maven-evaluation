@@ -1,0 +1,34 @@
+{
+  "findings": [
+    {
+      "caller_class": "org.complate.core.renderer.ComplateThreadLocalRenderer",
+      "caller_method": "public org.complate.core.renderer.ComplateThreadLocalRenderer(java.util.function.Supplier<org.complate.core.ComplateRenderer>)",
+      "candidate": "RCM-09227",
+      "category": "concurrency",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "4: invokevirtual #6                  // Method java/lang/ThreadLocal.get:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-09227/D1/attempt-1/workspace/core/target/complate-core-0.3.0.jar",
+      "name": "get",
+      "owner": "java/lang/ThreadLocal"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-09227",
+    "classes_discovered": 15,
+    "classes_failed": 0,
+    "classes_scanned": 15,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T15:28:36Z",
+    "discovered_jars": 3,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 3.214,
+    "error": "",
+    "findings": 1,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-09227/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T15:28:33Z",
+    "status": "COMPLETE",
+    "unique_jars": 3,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

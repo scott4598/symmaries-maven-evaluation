@@ -1,0 +1,45 @@
+{
+  "findings": [
+    {
+      "caller_class": "com.github.marschall.jfr.jdbc.ObjectIdGenerator",
+      "caller_method": "static long nextId()",
+      "candidate": "RCM-01178",
+      "category": "concurrency",
+      "descriptor": "()J",
+      "evidence": "3: invokevirtual #20                 // Method java/util/concurrent/atomic/AtomicLong.incrementAndGet:()J",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01178/D1/attempt-1/workspace/target/jfr-jdbc-0.5.0.jar",
+      "name": "incrementAndGet",
+      "owner": "java/util/concurrent/atomic/AtomicLong"
+    },
+    {
+      "caller_class": "com.github.marschall.jfr.jdbc.ObjectIdGenerator",
+      "caller_method": "static long nextId()",
+      "candidate": "RCM-01178",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "4: invokespecial #26                 // Method java/util/concurrent/atomic/AtomicLong.\"<init>\":()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01178/D1/attempt-1/workspace/target/jfr-jdbc-0.5.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/atomic/AtomicLong"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-01178",
+    "classes_discovered": 17,
+    "classes_failed": 0,
+    "classes_scanned": 17,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T14:04:11Z",
+    "discovered_jars": 1,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 3.999,
+    "error": "",
+    "findings": 2,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01178/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T14:04:07Z",
+    "status": "COMPLETE",
+    "unique_jars": 1,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

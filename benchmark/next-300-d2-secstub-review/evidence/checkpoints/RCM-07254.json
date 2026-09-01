@@ -1,0 +1,155 @@
+{
+  "findings": [
+    {
+      "caller_class": "org.apache.maven.plugins.dependency.exclusion.Coordinates",
+      "caller_method": "private static java.nio.file.Path createPathProxy(java.lang.String)",
+      "candidate": "RCM-07254",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/ClassLoader;[Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;",
+      "evidence": "20: invokestatic  #95                 // Method java/lang/reflect/Proxy.newProxyInstance:(Ljava/lang/ClassLoader;[Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07254/D1/attempt-1/workspace/target/maven-dependency-plugin-3.7.1.jar",
+      "name": "newProxyInstance",
+      "owner": "java/lang/reflect/Proxy"
+    },
+    {
+      "caller_class": "org.apache.maven.plugins.dependency.resolvers.ResolveDependenciesMojo",
+      "caller_method": "private org.apache.maven.plugins.dependency.resolvers.ResolveDependenciesMojo$ModuleDescriptor getModuleDescriptor(java.io.File)",
+      "candidate": "RCM-07254",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;)Ljava/lang/Class;",
+      "evidence": "5: invokestatic  #261                // Method java/lang/Class.forName:(Ljava/lang/String;)Ljava/lang/Class;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07254/D1/attempt-1/workspace/target/maven-dependency-plugin-3.7.1.jar",
+      "name": "forName",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.apache.maven.plugins.dependency.resolvers.ResolveDependenciesMojo",
+      "caller_method": "private org.apache.maven.plugins.dependency.resolvers.ResolveDependenciesMojo$ModuleDescriptor getModuleDescriptor(java.io.File)",
+      "candidate": "RCM-07254",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "evidence": "29: invokevirtual #275                // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07254/D1/attempt-1/workspace/target/maven-dependency-plugin-3.7.1.jar",
+      "name": "getMethod",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.apache.maven.plugins.dependency.resolvers.ResolveDependenciesMojo",
+      "caller_method": "private org.apache.maven.plugins.dependency.resolvers.ResolveDependenciesMojo$ModuleDescriptor getModuleDescriptor(java.io.File)",
+      "candidate": "RCM-07254",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "53: invokevirtual #283                // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07254/D1/attempt-1/workspace/target/maven-dependency-plugin-3.7.1.jar",
+      "name": "invoke",
+      "owner": "java/lang/reflect/Method"
+    },
+    {
+      "caller_class": "org.apache.maven.plugins.dependency.resolvers.ResolveDependenciesMojo",
+      "caller_method": "private org.apache.maven.plugins.dependency.resolvers.ResolveDependenciesMojo$ModuleDescriptor getModuleDescriptor(java.io.File)",
+      "candidate": "RCM-07254",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "evidence": "66: invokevirtual #275                // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07254/D1/attempt-1/workspace/target/maven-dependency-plugin-3.7.1.jar",
+      "name": "getMethod",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.apache.maven.plugins.dependency.resolvers.ResolveDependenciesMojo",
+      "caller_method": "private org.apache.maven.plugins.dependency.resolvers.ResolveDependenciesMojo$ModuleDescriptor getModuleDescriptor(java.io.File)",
+      "candidate": "RCM-07254",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "79: invokevirtual #283                // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07254/D1/attempt-1/workspace/target/maven-dependency-plugin-3.7.1.jar",
+      "name": "invoke",
+      "owner": "java/lang/reflect/Method"
+    },
+    {
+      "caller_class": "org.apache.maven.plugins.dependency.resolvers.ResolveDependenciesMojo",
+      "caller_method": "private org.apache.maven.plugins.dependency.resolvers.ResolveDependenciesMojo$ModuleDescriptor getModuleDescriptor(java.io.File)",
+      "candidate": "RCM-07254",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "evidence": "123: invokevirtual #275                // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07254/D1/attempt-1/workspace/target/maven-dependency-plugin-3.7.1.jar",
+      "name": "getMethod",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.apache.maven.plugins.dependency.resolvers.ResolveDependenciesMojo",
+      "caller_method": "private org.apache.maven.plugins.dependency.resolvers.ResolveDependenciesMojo$ModuleDescriptor getModuleDescriptor(java.io.File)",
+      "candidate": "RCM-07254",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "136: invokevirtual #283                // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07254/D1/attempt-1/workspace/target/maven-dependency-plugin-3.7.1.jar",
+      "name": "invoke",
+      "owner": "java/lang/reflect/Method"
+    },
+    {
+      "caller_class": "org.apache.maven.plugins.dependency.resolvers.ResolveDependenciesMojo",
+      "caller_method": "private org.apache.maven.plugins.dependency.resolvers.ResolveDependenciesMojo$ModuleDescriptor getModuleDescriptor(java.io.File)",
+      "candidate": "RCM-07254",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "evidence": "153: invokevirtual #275                // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07254/D1/attempt-1/workspace/target/maven-dependency-plugin-3.7.1.jar",
+      "name": "getMethod",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.apache.maven.plugins.dependency.resolvers.ResolveDependenciesMojo",
+      "caller_method": "private org.apache.maven.plugins.dependency.resolvers.ResolveDependenciesMojo$ModuleDescriptor getModuleDescriptor(java.io.File)",
+      "candidate": "RCM-07254",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "166: invokevirtual #283                // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07254/D1/attempt-1/workspace/target/maven-dependency-plugin-3.7.1.jar",
+      "name": "invoke",
+      "owner": "java/lang/reflect/Method"
+    },
+    {
+      "caller_class": "org.apache.maven.plugins.dependency.resolvers.ResolveDependenciesMojo",
+      "caller_method": "private org.apache.maven.plugins.dependency.resolvers.ResolveDependenciesMojo$ModuleDescriptor getModuleDescriptor(java.io.File)",
+      "candidate": "RCM-07254",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "evidence": "201: invokevirtual #275                // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07254/D1/attempt-1/workspace/target/maven-dependency-plugin-3.7.1.jar",
+      "name": "getMethod",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.apache.maven.plugins.dependency.resolvers.ResolveDependenciesMojo",
+      "caller_method": "private org.apache.maven.plugins.dependency.resolvers.ResolveDependenciesMojo$ModuleDescriptor getModuleDescriptor(java.io.File)",
+      "candidate": "RCM-07254",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "215: invokevirtual #283                // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07254/D1/attempt-1/workspace/target/maven-dependency-plugin-3.7.1.jar",
+      "name": "invoke",
+      "owner": "java/lang/reflect/Method"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-07254",
+    "classes_discovered": 72,
+    "classes_failed": 0,
+    "classes_scanned": 72,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T15:14:57Z",
+    "discovered_jars": 1,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 16.62,
+    "error": "",
+    "findings": 12,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07254/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T15:14:41Z",
+    "status": "COMPLETE",
+    "unique_jars": 1,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

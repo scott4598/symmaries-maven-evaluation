@@ -1,0 +1,6 @@
+NAME                                 READY   RESTARTS   LAST_REASON   LAST_FINISHED
+symproto-api-64d6464496-kvjxr        true    12         Error         2026-08-07T15:16:04Z
+symproto-nexus-7f4c4c7f75-47ktm      true    0          <none>        <none>
+symproto-postgres-5df545bc4d-rcrr2   true    4          Unknown       2026-08-07T15:15:48Z
+symproto-worker-68c6c9ccf6-87hmq     true    0          <none>        <none>
+symproto-worker-68c6c9ccf6-rzz6b     true    0          <none>        <none>

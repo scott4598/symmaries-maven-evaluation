@@ -1,0 +1,4 @@
+candidate	input_path	started_at	completed_at	status	discovered_jars	unique_jars	duplicate_jars	unreadable_jars	classes_discovered	classes_scanned	classes_timed_out	classes_failed	findings	elapsed_seconds	error
+RCM-00029	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-00029/D1/attempt-1/workspace	2026-08-10T12:39:05Z	2026-08-10T12:39:12Z	COMPLETE	3	3	0	0	28	28	0	0	0	6.615	
+RCM-00045	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-00045/D1/attempt-1/workspace	2026-08-10T12:39:12Z	2026-08-10T12:39:19Z	COMPLETE	3	3	0	0	29	29	0	0	6	6.679	
+RCM-00141	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-00141/D1/attempt-1/workspace	2026-08-10T12:39:19Z	2026-08-10T12:40:01Z	PARTIAL_FAILURE	7	7	0	0	182	181	0	1	39	42.039	

@@ -1,0 +1,4 @@
+candidate_id,jdk_requested,status,exit_code,duration_seconds,failure_category,maven_version,java_version,java_home,module_path,log_path
+RCM-07217,8,PASS,0,17.843,,[1mApache Maven 3.6.3[m,"openjdk version ""1.8.0_492""",/usr/lib/jvm/java-8-openjdk-amd64,.,results/d1-validation-runs/RCM-07217/D1/attempt-4/maven.log
+RCM-05899,21,PASS,0,15.561,,[1mApache Maven 3.6.3[m,"openjdk version ""21.0.11"" 2026-04-21",/usr/lib/jvm/java-21-openjdk-amd64,.,results/d1-validation-runs/RCM-05899/D1/attempt-4/maven.log
+RCM-06809,17,FAIL_BUILD,1,284.565,MAVEN_OR_PLUGIN_FAILURE,[1mApache Maven 3.6.3[m,"openjdk version ""17.0.19"" 2026-04-21",/usr/lib/jvm/java-17-openjdk-amd64,.,results/d1-validation-runs/RCM-06809/D1/attempt-4/maven.log

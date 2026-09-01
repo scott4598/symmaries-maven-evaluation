@@ -41,6 +41,16 @@ RESULT_FIELDS = [
     "fail_on_error",
     "scan_id",
     "scan_status",
+    "predecessor_scenario",
+    "previous_scan_id",
+    "expected_reuse_mode",
+    "reuse_mode",
+    "reuse_of",
+    "incremental",
+    "server_config_key",
+    "method_hash_schema",
+    "pa_archive_schema",
+    "server_message",
     "deduplicated",
     "jar_sha256",
     "result_zip",
@@ -1055,6 +1065,15 @@ def main() -> int:
             )
             continue
 
+        candidate_scan_ids = {
+            row["scenario_id"]: row["scan_id"]
+            for row in load_csv(results_path)
+            if row.get("candidate_id") == candidate_id
+            and row.get("attempt") == str(args.attempt)
+            and row.get("scan_status") == "done"
+            and row.get("scan_id")
+        }
+
         for scenario in scenario_rows:
             scenario_id = scenario[
                 "scenario_id"
@@ -1065,6 +1084,39 @@ def main() -> int:
                 and scenario_id
                 not in wanted_scenarios
             ):
+                continue
+
+            predecessor_scenario = scenario.get(
+                "predecessor_scenario",
+                "",
+            ).strip()
+            expected_reuse_mode = scenario.get(
+                "expected_reuse_mode",
+                "",
+            ).strip()
+            previous_scan_id = ""
+
+            if predecessor_scenario:
+                previous_scan_id = candidate_scan_ids.get(
+                    predecessor_scenario,
+                    "",
+                )
+                if not previous_scan_id:
+                    print(
+                        f"SKIP {candidate_id} {scenario_id}: "
+                        f"completed predecessor {predecessor_scenario} "
+                        "is unavailable"
+                    )
+                    continue
+
+            if (
+                scenario.get("force_scan", "false").lower() == "true"
+                and previous_scan_id
+            ):
+                print(
+                    f"SKIP {candidate_id} {scenario_id}: force_scan=true "
+                    "cannot be combined with a predecessor"
+                )
                 continue
 
             mutation_count = int(
@@ -1171,6 +1223,13 @@ def main() -> int:
             metadata_files = []
             copied_metadata = []
             copied_summaries = []
+            reuse_mode = ""
+            reuse_of = ""
+            incremental = ""
+            server_config_key = ""
+            method_hash_schema = ""
+            pa_archive_schema = ""
+            server_message = ""
 
             mutation_metadata = {
                 "eligible_targets": 0,
@@ -1379,6 +1438,12 @@ def main() -> int:
                         ),
                     ])
 
+                    if previous_scan_id:
+                        command.append(
+                            "-Dsymmaries.previousScanId="
+                            + previous_scan_id
+                        )
+
                 command_text = shlex.join(command)
 
                 child_environment["PATH"] = (
@@ -1514,6 +1579,52 @@ def main() -> int:
                         "",
                     )
                 )
+                reuse_mode = str(
+                    metadata_content.get("reuse_mode", "")
+                    or ""
+                )
+                reuse_of = str(
+                    metadata_content.get("reuse_of", "")
+                    or ""
+                )
+                incremental = str(
+                    metadata_content.get("incremental", "")
+                ).lower()
+                server_config_key = str(
+                    metadata_content.get("config_key", "")
+                    or ""
+                )
+                method_hash_schema = str(
+                    metadata_content.get("method_hash_schema", "")
+                    or ""
+                )
+                pa_archive_schema = str(
+                    metadata_content.get("pa_archive_schema", "")
+                    or ""
+                )
+                server_message = str(
+                    metadata_content.get(
+                        "server_message",
+                        metadata_content.get("message", ""),
+                    )
+                    or ""
+                )
+
+            if (
+                status == "PASS"
+                and scan_id
+                and scan_status == "done"
+            ):
+                candidate_scan_ids[scenario_id] = scan_id
+
+            if (
+                status == "PASS"
+                and expected_reuse_mode
+                and expected_reuse_mode != "none"
+                and reuse_mode != expected_reuse_mode
+            ):
+                status = "FAIL_EVIDENCE"
+                failure_category = "UNEXPECTED_REUSE_MODE"
 
             environment_path.write_text(
                 "\n".join([
@@ -1569,6 +1680,16 @@ def main() -> int:
                         "scan_status="
                         f"{scan_status}"
                     ),
+                    f"predecessor_scenario={predecessor_scenario}",
+                    f"previous_scan_id={previous_scan_id}",
+                    f"expected_reuse_mode={expected_reuse_mode}",
+                    f"reuse_mode={reuse_mode}",
+                    f"reuse_of={reuse_of}",
+                    f"incremental={incremental}",
+                    f"server_config_key={server_config_key}",
+                    f"method_hash_schema={method_hash_schema}",
+                    f"pa_archive_schema={pa_archive_schema}",
+                    f"server_message={server_message}",
                     (
                         "deduplicated="
                         f"{deduplicated}"
@@ -1656,6 +1777,16 @@ def main() -> int:
                     ],
                     "scan_id": scan_id,
                     "scan_status": scan_status,
+                    "predecessor_scenario": predecessor_scenario,
+                    "previous_scan_id": previous_scan_id,
+                    "expected_reuse_mode": expected_reuse_mode,
+                    "reuse_mode": reuse_mode,
+                    "reuse_of": reuse_of,
+                    "incremental": incremental,
+                    "server_config_key": server_config_key,
+                    "method_hash_schema": method_hash_schema,
+                    "pa_archive_schema": pa_archive_schema,
+                    "server_message": server_message,
                     "deduplicated": deduplicated,
                     "jar_sha256": jar_sha256,
                     "result_zip": (

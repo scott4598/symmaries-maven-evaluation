@@ -1,0 +1,4 @@
+candidate_id,status,exit_code,duration_seconds,scan_id,scan_status,failure_category,log_path
+RCM-00029,PASS,0,114.934,a9d4a17e-c5c8-43db-8d28-4d6db0c39cfc,done,,results/next-300-d2-smoke-runs/RCM-00029/D2/attempt-1/maven.log
+RCM-00141,PASS,0,27.929,a47883a2-9a2f-432f-b7e8-19e9d64a1157,done,,results/next-300-d2-smoke-runs/RCM-00141/D2/attempt-1/maven.log
+RCM-00045,PASS,0,321.047,0de04f06-e752-4668-bc3d-5b96bd1c8731,done,,results/next-300-d2-smoke-runs/RCM-00045/D2/attempt-1/maven.log

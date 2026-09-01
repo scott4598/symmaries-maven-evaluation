@@ -1,0 +1,204 @@
+[Sat Aug  8 20:56:29 2026] Memory cgroup out of memory: Killed process 377293 (syrs) total-vm:3075756kB, anon-rss:3035180kB, file-rss:2080kB, shmem-rss:0kB, UID:0 pgtables:6056kB oom_score_adj:952
+[Sat Aug  8 20:56:29 2026] Memory cgroup out of memory: Killed process 336652 (python3) total-vm:66088kB, anon-rss:24876kB, file-rss:15488kB, shmem-rss:0kB, UID:0 pgtables:168kB oom_score_adj:952
+[Sat Aug  8 20:56:29 2026] Memory cgroup out of memory: Killed process 377292 (syrs) total-vm:291216kB, anon-rss:75508kB, file-rss:2176kB, shmem-rss:0kB, UID:0 pgtables:256kB oom_score_adj:952
+[Sat Aug  8 20:56:29 2026] Memory cgroup out of memory: Killed process 377293 (syrs) total-vm:3075756kB, anon-rss:3035180kB, file-rss:2080kB, shmem-rss:0kB, UID:0 pgtables:6056kB oom_score_adj:952
+[Sat Aug  8 21:56:22 2026] syrs invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=952
+[Sat Aug  8 21:56:22 2026] Memory cgroup out of memory: Killed process 402727 (syrs) total-vm:3076792kB, anon-rss:3035812kB, file-rss:1952kB, shmem-rss:0kB, UID:0 pgtables:6052kB oom_score_adj:952
+[Sat Aug  8 21:56:22 2026] Memory cgroup out of memory: Killed process 336411 (python3) total-vm:66656kB, anon-rss:25488kB, file-rss:12800kB, shmem-rss:0kB, UID:0 pgtables:164kB oom_score_adj:952
+[Sat Aug  8 21:56:22 2026] Memory cgroup out of memory: Killed process 402726 (syrs) total-vm:291216kB, anon-rss:75500kB, file-rss:2048kB, shmem-rss:0kB, UID:0 pgtables:252kB oom_score_adj:952
+[Sat Aug  8 21:56:22 2026] Memory cgroup out of memory: Killed process 402727 (syrs) total-vm:3076792kB, anon-rss:3035812kB, file-rss:1952kB, shmem-rss:0kB, UID:0 pgtables:6052kB oom_score_adj:952
+[Sat Aug  8 22:56:41 2026] syrs invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=952
+[Sat Aug  8 22:56:41 2026] Memory cgroup out of memory: Killed process 450566 (syrs) total-vm:3087436kB, anon-rss:3046360kB, file-rss:2208kB, shmem-rss:0kB, UID:0 pgtables:6068kB oom_score_adj:952
+[Sat Aug  8 22:56:41 2026] Memory cgroup out of memory: Killed process 404696 (python3) total-vm:57512kB, anon-rss:16504kB, file-rss:12288kB, shmem-rss:0kB, UID:0 pgtables:148kB oom_score_adj:952
+[Sat Aug  8 22:56:41 2026] Memory cgroup out of memory: Killed process 450565 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:2048kB, shmem-rss:0kB, UID:0 pgtables:256kB oom_score_adj:952
+[Sat Aug  8 22:56:41 2026] Memory cgroup out of memory: Killed process 450566 (syrs) total-vm:3087436kB, anon-rss:3046360kB, file-rss:2208kB, shmem-rss:0kB, UID:0 pgtables:6068kB oom_score_adj:952
+[Sat Aug  8 23:56:04 2026] syrs invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=952
+[Sat Aug  8 23:56:04 2026] Memory cgroup out of memory: Killed process 485620 (syrs) total-vm:3083184kB, anon-rss:3041336kB, file-rss:1568kB, shmem-rss:0kB, UID:0 pgtables:6072kB oom_score_adj:952
+[Sat Aug  8 23:56:04 2026] Memory cgroup out of memory: Killed process 377686 (python3) total-vm:59300kB, anon-rss:18600kB, file-rss:3328kB, shmem-rss:0kB, UID:0 pgtables:152kB oom_score_adj:952
+[Sat Aug  8 23:56:04 2026] Memory cgroup out of memory: Killed process 485619 (syrs) total-vm:291216kB, anon-rss:75508kB, file-rss:1792kB, shmem-rss:0kB, UID:0 pgtables:268kB oom_score_adj:952
+[Sat Aug  8 23:56:04 2026] Memory cgroup out of memory: Killed process 485620 (syrs) total-vm:3083184kB, anon-rss:3041336kB, file-rss:1568kB, shmem-rss:0kB, UID:0 pgtables:6072kB oom_score_adj:952
+[Sun Aug  9 00:56:08 2026] syrs invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=952
+[Sun Aug  9 00:56:08 2026] Memory cgroup out of memory: Killed process 502526 (syrs) total-vm:3088648kB, anon-rss:3048152kB, file-rss:1824kB, shmem-rss:0kB, UID:0 pgtables:6080kB oom_score_adj:952
+[Sun Aug  9 00:56:08 2026] Memory cgroup out of memory: Killed process 451770 (python3) total-vm:57512kB, anon-rss:16496kB, file-rss:11776kB, shmem-rss:0kB, UID:0 pgtables:152kB oom_score_adj:952
+[Sun Aug  9 00:56:08 2026] Memory cgroup out of memory: Killed process 502523 (syrs) total-vm:291216kB, anon-rss:75452kB, file-rss:1920kB, shmem-rss:0kB, UID:0 pgtables:268kB oom_score_adj:952
+[Sun Aug  9 00:56:08 2026] Memory cgroup out of memory: Killed process 502526 (syrs) total-vm:3088648kB, anon-rss:3048152kB, file-rss:1824kB, shmem-rss:0kB, UID:0 pgtables:6080kB oom_score_adj:952
+[Sun Aug  9 01:56:32 2026] syrs invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=952
+[Sun Aug  9 01:56:32 2026] Memory cgroup out of memory: Killed process 510775 (syrs) total-vm:3087916kB, anon-rss:3048188kB, file-rss:2208kB, shmem-rss:0kB, UID:0 pgtables:6076kB oom_score_adj:952
+[Sun Aug  9 01:56:32 2026] Memory cgroup out of memory: Killed process 502757 (python3) total-vm:57508kB, anon-rss:16556kB, file-rss:11904kB, shmem-rss:0kB, UID:0 pgtables:148kB oom_score_adj:952
+[Sun Aug  9 01:56:32 2026] Memory cgroup out of memory: Killed process 510774 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:1920kB, shmem-rss:0kB, UID:0 pgtables:260kB oom_score_adj:952
+[Sun Aug  9 01:56:32 2026] Memory cgroup out of memory: Killed process 510775 (syrs) total-vm:3087916kB, anon-rss:3048188kB, file-rss:2208kB, shmem-rss:0kB, UID:0 pgtables:6076kB oom_score_adj:952
+[Sun Aug  9 02:57:16 2026] syrs invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=952
+[Sun Aug  9 02:57:16 2026] Memory cgroup out of memory: Killed process 519352 (syrs) total-vm:3088824kB, anon-rss:3048104kB, file-rss:1696kB, shmem-rss:0kB, UID:0 pgtables:6084kB oom_score_adj:952
+[Sun Aug  9 02:57:16 2026] Memory cgroup out of memory: Killed process 510962 (python3) total-vm:57512kB, anon-rss:16604kB, file-rss:11904kB, shmem-rss:0kB, UID:0 pgtables:148kB oom_score_adj:952
+[Sun Aug  9 02:57:16 2026] Memory cgroup out of memory: Killed process 519351 (syrs) total-vm:291216kB, anon-rss:75508kB, file-rss:2048kB, shmem-rss:0kB, UID:0 pgtables:264kB oom_score_adj:952
+[Sun Aug  9 02:57:16 2026] Memory cgroup out of memory: Killed process 519352 (syrs) total-vm:3088824kB, anon-rss:3048104kB, file-rss:1696kB, shmem-rss:0kB, UID:0 pgtables:6084kB oom_score_adj:952
+[Sun Aug  9 03:57:11 2026] syrs invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=952
+[Sun Aug  9 03:57:11 2026] Memory cgroup out of memory: Killed process 528372 (syrs) total-vm:3088092kB, anon-rss:3047304kB, file-rss:2208kB, shmem-rss:0kB, UID:0 pgtables:6084kB oom_score_adj:952
+[Sun Aug  9 03:57:11 2026] Memory cgroup out of memory: Killed process 519708 (python3) total-vm:57508kB, anon-rss:16656kB, file-rss:11776kB, shmem-rss:0kB, UID:0 pgtables:144kB oom_score_adj:952
+[Sun Aug  9 03:57:11 2026] Memory cgroup out of memory: Killed process 528371 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:2048kB, shmem-rss:0kB, UID:0 pgtables:264kB oom_score_adj:952
+[Sun Aug  9 03:57:11 2026] Memory cgroup out of memory: Killed process 528372 (syrs) total-vm:3088092kB, anon-rss:3047304kB, file-rss:2208kB, shmem-rss:0kB, UID:0 pgtables:6084kB oom_score_adj:952
+[Sun Aug  9 04:56:52 2026] syrs invoked oom-killer: gfp_mask=0xcc0(GFP_KERNEL), order=0, oom_score_adj=952
+[Sun Aug  9 04:56:52 2026] Memory cgroup out of memory: Killed process 537063 (syrs) total-vm:3085648kB, anon-rss:3044680kB, file-rss:1952kB, shmem-rss:0kB, UID:0 pgtables:6076kB oom_score_adj:952
+[Sun Aug  9 04:56:52 2026] Memory cgroup out of memory: Killed process 528682 (python3) total-vm:57508kB, anon-rss:16508kB, file-rss:11904kB, shmem-rss:0kB, UID:0 pgtables:152kB oom_score_adj:952
+[Sun Aug  9 04:56:52 2026] Memory cgroup out of memory: Killed process 537062 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:1920kB, shmem-rss:0kB, UID:0 pgtables:256kB oom_score_adj:952
+[Sun Aug  9 04:56:52 2026] Memory cgroup out of memory: Killed process 537063 (syrs) total-vm:3085648kB, anon-rss:3044680kB, file-rss:1952kB, shmem-rss:0kB, UID:0 pgtables:6076kB oom_score_adj:952
+[Sun Aug  9 05:56:50 2026] syrs invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=952
+[Sun Aug  9 05:56:50 2026] Memory cgroup out of memory: Killed process 545382 (syrs) total-vm:3085388kB, anon-rss:3044576kB, file-rss:2080kB, shmem-rss:0kB, UID:0 pgtables:6072kB oom_score_adj:952
+[Sun Aug  9 05:56:50 2026] Memory cgroup out of memory: Killed process 537321 (python3) total-vm:57512kB, anon-rss:16616kB, file-rss:11776kB, shmem-rss:0kB, UID:0 pgtables:144kB oom_score_adj:952
+[Sun Aug  9 05:56:50 2026] Memory cgroup out of memory: Killed process 545381 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:1920kB, shmem-rss:0kB, UID:0 pgtables:260kB oom_score_adj:952
+[Sun Aug  9 05:56:50 2026] Memory cgroup out of memory: Killed process 545382 (syrs) total-vm:3085388kB, anon-rss:3044576kB, file-rss:2080kB, shmem-rss:0kB, UID:0 pgtables:6072kB oom_score_adj:952
+[Sun Aug  9 06:57:15 2026] syrs invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=952
+[Sun Aug  9 06:57:15 2026] Memory cgroup out of memory: Killed process 553903 (syrs) total-vm:3086692kB, anon-rss:3046248kB, file-rss:1312kB, shmem-rss:0kB, UID:0 pgtables:6068kB oom_score_adj:952
+[Sun Aug  9 06:57:15 2026] Memory cgroup out of memory: Killed process 486306 (python3) total-vm:57512kB, anon-rss:16340kB, file-rss:2944kB, shmem-rss:0kB, UID:0 pgtables:152kB oom_score_adj:952
+[Sun Aug  9 06:57:15 2026] Memory cgroup out of memory: Killed process 553902 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:1536kB, shmem-rss:0kB, UID:0 pgtables:256kB oom_score_adj:952
+[Sun Aug  9 06:57:15 2026] Memory cgroup out of memory: Killed process 553903 (syrs) total-vm:3086692kB, anon-rss:3046248kB, file-rss:1312kB, shmem-rss:0kB, UID:0 pgtables:6068kB oom_score_adj:952
+[Sun Aug  9 07:56:56 2026] syrs invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=952
+[Sun Aug  9 07:56:56 2026] Memory cgroup out of memory: Killed process 562545 (syrs) total-vm:3086892kB, anon-rss:3048184kB, file-rss:1568kB, shmem-rss:0kB, UID:0 pgtables:6080kB oom_score_adj:952
+[Sun Aug  9 07:56:56 2026] Memory cgroup out of memory: Killed process 554201 (python3) total-vm:57512kB, anon-rss:16660kB, file-rss:3200kB, shmem-rss:0kB, UID:0 pgtables:148kB oom_score_adj:952
+[Sun Aug  9 07:56:56 2026] Memory cgroup out of memory: Killed process 562544 (syrs) total-vm:291216kB, anon-rss:75616kB, file-rss:1536kB, shmem-rss:0kB, UID:0 pgtables:260kB oom_score_adj:952
+[Sun Aug  9 07:56:56 2026] Memory cgroup out of memory: Killed process 562545 (syrs) total-vm:3086892kB, anon-rss:3048184kB, file-rss:1568kB, shmem-rss:0kB, UID:0 pgtables:6080kB oom_score_adj:952
+[Sun Aug  9 08:57:27 2026] syrs invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=952
+[Sun Aug  9 08:57:27 2026] Memory cgroup out of memory: Killed process 570804 (syrs) total-vm:3087184kB, anon-rss:3046376kB, file-rss:2208kB, shmem-rss:0kB, UID:0 pgtables:6076kB oom_score_adj:952
+[Sun Aug  9 08:57:27 2026] Memory cgroup out of memory: Killed process 545673 (python3) total-vm:57512kB, anon-rss:16644kB, file-rss:11776kB, shmem-rss:0kB, UID:0 pgtables:148kB oom_score_adj:952
+[Sun Aug  9 08:57:27 2026] Memory cgroup out of memory: Killed process 570803 (syrs) total-vm:291216kB, anon-rss:75408kB, file-rss:1920kB, shmem-rss:0kB, UID:0 pgtables:252kB oom_score_adj:952
+[Sun Aug  9 08:57:27 2026] Memory cgroup out of memory: Killed process 570804 (syrs) total-vm:3087184kB, anon-rss:3046376kB, file-rss:2208kB, shmem-rss:0kB, UID:0 pgtables:6076kB oom_score_adj:952
+[Sun Aug  9 09:57:34 2026] syrs invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=952
+[Sun Aug  9 09:57:34 2026] Memory cgroup out of memory: Killed process 579131 (syrs) total-vm:3088572kB, anon-rss:3048236kB, file-rss:1440kB, shmem-rss:0kB, UID:0 pgtables:6072kB oom_score_adj:952
+[Sun Aug  9 09:57:34 2026] Memory cgroup out of memory: Killed process 562757 (python3) total-vm:57512kB, anon-rss:16592kB, file-rss:3200kB, shmem-rss:0kB, UID:0 pgtables:152kB oom_score_adj:952
+[Sun Aug  9 09:57:34 2026] Memory cgroup out of memory: Killed process 579130 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:1536kB, shmem-rss:0kB, UID:0 pgtables:260kB oom_score_adj:952
+[Sun Aug  9 09:57:34 2026] Memory cgroup out of memory: Killed process 579131 (syrs) total-vm:3088572kB, anon-rss:3048236kB, file-rss:1440kB, shmem-rss:0kB, UID:0 pgtables:6072kB oom_score_adj:952
+[Sun Aug  9 10:57:55 2026] syrs invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=952
+[Sun Aug  9 10:57:55 2026] Memory cgroup out of memory: Killed process 587379 (syrs) total-vm:3088448kB, anon-rss:3047688kB, file-rss:2080kB, shmem-rss:0kB, UID:0 pgtables:6076kB oom_score_adj:952
+[Sun Aug  9 10:57:55 2026] Memory cgroup out of memory: Killed process 571108 (python3) total-vm:57512kB, anon-rss:16384kB, file-rss:11776kB, shmem-rss:0kB, UID:0 pgtables:148kB oom_score_adj:952
+[Sun Aug  9 10:57:55 2026] Memory cgroup out of memory: Killed process 587378 (syrs) total-vm:291216kB, anon-rss:75500kB, file-rss:2048kB, shmem-rss:0kB, UID:0 pgtables:252kB oom_score_adj:952
+[Sun Aug  9 10:57:55 2026] Memory cgroup out of memory: Killed process 587379 (syrs) total-vm:3088448kB, anon-rss:3047688kB, file-rss:2080kB, shmem-rss:0kB, UID:0 pgtables:6076kB oom_score_adj:952
+[Sun Aug  9 11:58:04 2026] syrs invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=952
+[Sun Aug  9 11:58:04 2026] Memory cgroup out of memory: Killed process 595864 (syrs) total-vm:3087976kB, anon-rss:3047216kB, file-rss:2336kB, shmem-rss:0kB, UID:0 pgtables:6080kB oom_score_adj:952
+[Sun Aug  9 11:58:04 2026] Memory cgroup out of memory: Killed process 587592 (python3) total-vm:57512kB, anon-rss:16516kB, file-rss:11904kB, shmem-rss:0kB, UID:0 pgtables:152kB oom_score_adj:952
+[Sun Aug  9 11:58:04 2026] Memory cgroup out of memory: Killed process 595863 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:1792kB, shmem-rss:0kB, UID:0 pgtables:252kB oom_score_adj:952
+[Sun Aug  9 11:58:04 2026] Memory cgroup out of memory: Killed process 595864 (syrs) total-vm:3087976kB, anon-rss:3047216kB, file-rss:2336kB, shmem-rss:0kB, UID:0 pgtables:6080kB oom_score_adj:952
+[Sun Aug  9 12:57:19 2026] syrs invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=952
+[Sun Aug  9 12:57:19 2026] Memory cgroup out of memory: Killed process 604292 (syrs) total-vm:3088672kB, anon-rss:3047828kB, file-rss:1824kB, shmem-rss:0kB, UID:0 pgtables:6084kB oom_score_adj:952
+[Sun Aug  9 12:57:19 2026] Memory cgroup out of memory: Killed process 579361 (python3) total-vm:57512kB, anon-rss:16532kB, file-rss:3072kB, shmem-rss:0kB, UID:0 pgtables:148kB oom_score_adj:952
+[Sun Aug  9 12:57:19 2026] Memory cgroup out of memory: Killed process 604291 (syrs) total-vm:291216kB, anon-rss:75508kB, file-rss:1536kB, shmem-rss:0kB, UID:0 pgtables:260kB oom_score_adj:952
+[Sun Aug  9 12:57:19 2026] Memory cgroup out of memory: Killed process 604292 (syrs) total-vm:3088672kB, anon-rss:3047828kB, file-rss:1824kB, shmem-rss:0kB, UID:0 pgtables:6084kB oom_score_adj:952
+[Sun Aug  9 13:58:05 2026] syrs invoked oom-killer: gfp_mask=0xcc0(GFP_KERNEL), order=0, oom_score_adj=952
+[Sun Aug  9 13:58:05 2026] Memory cgroup out of memory: Killed process 612502 (syrs) total-vm:3087876kB, anon-rss:3047188kB, file-rss:2080kB, shmem-rss:0kB, UID:0 pgtables:6072kB oom_score_adj:952
+[Sun Aug  9 13:58:05 2026] Memory cgroup out of memory: Killed process 596217 (python3) total-vm:57512kB, anon-rss:16456kB, file-rss:11904kB, shmem-rss:0kB, UID:0 pgtables:152kB oom_score_adj:952
+[Sun Aug  9 13:58:05 2026] Memory cgroup out of memory: Killed process 612501 (syrs) total-vm:291216kB, anon-rss:75508kB, file-rss:2048kB, shmem-rss:0kB, UID:0 pgtables:252kB oom_score_adj:952
+[Sun Aug  9 13:58:05 2026] Memory cgroup out of memory: Killed process 612502 (syrs) total-vm:3087876kB, anon-rss:3047188kB, file-rss:2080kB, shmem-rss:0kB, UID:0 pgtables:6072kB oom_score_adj:952
+[Sun Aug  9 14:57:38 2026] syrs invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=952
+[Sun Aug  9 14:57:38 2026] Memory cgroup out of memory: Killed process 621135 (syrs) total-vm:3087696kB, anon-rss:3047564kB, file-rss:1824kB, shmem-rss:0kB, UID:0 pgtables:6072kB oom_score_adj:952
+[Sun Aug  9 14:57:38 2026] Memory cgroup out of memory: Killed process 604505 (python3) total-vm:57512kB, anon-rss:16660kB, file-rss:3200kB, shmem-rss:0kB, UID:0 pgtables:148kB oom_score_adj:952
+[Sun Aug  9 14:57:38 2026] Memory cgroup out of memory: Killed process 621134 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:1536kB, shmem-rss:0kB, UID:0 pgtables:256kB oom_score_adj:952
+[Sun Aug  9 14:57:38 2026] Memory cgroup out of memory: Killed process 621135 (syrs) total-vm:3087696kB, anon-rss:3047564kB, file-rss:1824kB, shmem-rss:0kB, UID:0 pgtables:6072kB oom_score_adj:952
+[Sun Aug  9 15:57:37 2026] syrs invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=952
+[Sun Aug  9 15:57:37 2026] Memory cgroup out of memory: Killed process 632218 (syrs) total-vm:3084920kB, anon-rss:3047932kB, file-rss:1568kB, shmem-rss:0kB, UID:0 pgtables:6076kB oom_score_adj:952
+[Sun Aug  9 15:57:37 2026] Memory cgroup out of memory: Killed process 621655 (python3) total-vm:57512kB, anon-rss:16608kB, file-rss:3200kB, shmem-rss:0kB, UID:0 pgtables:152kB oom_score_adj:952
+[Sun Aug  9 15:57:37 2026] Memory cgroup out of memory: Killed process 632217 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:1792kB, shmem-rss:0kB, UID:0 pgtables:256kB oom_score_adj:952
+[Sun Aug  9 15:57:37 2026] Memory cgroup out of memory: Killed process 632218 (syrs) total-vm:3084920kB, anon-rss:3047932kB, file-rss:1568kB, shmem-rss:0kB, UID:0 pgtables:6076kB oom_score_adj:952
+[Sun Aug  9 16:58:31 2026] syrs invoked oom-killer: gfp_mask=0xcc0(GFP_KERNEL), order=0, oom_score_adj=952
+[Sun Aug  9 16:58:31 2026] Memory cgroup out of memory: Killed process 650454 (syrs) total-vm:3083916kB, anon-rss:3043124kB, file-rss:7456kB, shmem-rss:0kB, UID:0 pgtables:6064kB oom_score_adj:952
+[Sun Aug  9 16:58:31 2026] Memory cgroup out of memory: Killed process 640643 (python3) total-vm:57512kB, anon-rss:16668kB, file-rss:15104kB, shmem-rss:0kB, UID:0 pgtables:152kB oom_score_adj:952
+[Sun Aug  9 16:58:31 2026] Memory cgroup out of memory: Killed process 650453 (syrs) total-vm:291216kB, anon-rss:75508kB, file-rss:13184kB, shmem-rss:0kB, UID:0 pgtables:256kB oom_score_adj:952
+[Sun Aug  9 16:58:31 2026] Memory cgroup out of memory: Killed process 650454 (syrs) total-vm:3083916kB, anon-rss:3043124kB, file-rss:7456kB, shmem-rss:0kB, UID:0 pgtables:6064kB oom_score_adj:952
+[Sun Aug  9 17:58:45 2026] syrs invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=952
+[Sun Aug  9 17:58:45 2026] Memory cgroup out of memory: Killed process 725606 (syrs) total-vm:3085240kB, anon-rss:3047960kB, file-rss:7584kB, shmem-rss:0kB, UID:0 pgtables:6084kB oom_score_adj:952
+[Sun Aug  9 17:58:45 2026] Memory cgroup out of memory: Killed process 650888 (python3) total-vm:57512kB, anon-rss:16516kB, file-rss:15232kB, shmem-rss:0kB, UID:0 pgtables:152kB oom_score_adj:952
+[Sun Aug  9 17:58:45 2026] Memory cgroup out of memory: Killed process 725581 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:13312kB, shmem-rss:0kB, UID:0 pgtables:260kB oom_score_adj:952
+[Sun Aug  9 17:58:45 2026] Memory cgroup out of memory: Killed process 725606 (syrs) total-vm:3085240kB, anon-rss:3047960kB, file-rss:7584kB, shmem-rss:0kB, UID:0 pgtables:6084kB oom_score_adj:952
+[Sun Aug  9 18:57:51 2026] syrs invoked oom-killer: gfp_mask=0xcc0(GFP_KERNEL), order=0, oom_score_adj=952
+[Sun Aug  9 18:57:51 2026] Memory cgroup out of memory: Killed process 1090344 (syrs) total-vm:3083844kB, anon-rss:3043016kB, file-rss:8096kB, shmem-rss:0kB, UID:0 pgtables:6072kB oom_score_adj:952
+[Sun Aug  9 18:57:51 2026] Memory cgroup out of memory: Killed process 640402 (python3) total-vm:57512kB, anon-rss:16532kB, file-rss:14848kB, shmem-rss:0kB, UID:0 pgtables:148kB oom_score_adj:952
+[Sun Aug  9 18:57:51 2026] Memory cgroup out of memory: Killed process 1090325 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:13440kB, shmem-rss:0kB, UID:0 pgtables:260kB oom_score_adj:952
+[Sun Aug  9 18:57:51 2026] Memory cgroup out of memory: Killed process 1090344 (syrs) total-vm:3083844kB, anon-rss:3043016kB, file-rss:8096kB, shmem-rss:0kB, UID:0 pgtables:6072kB oom_score_adj:952
+[Sun Aug  9 19:58:37 2026] syrs invoked oom-killer: gfp_mask=0xcc0(GFP_KERNEL), order=0, oom_score_adj=952
+[Sun Aug  9 19:58:37 2026] Memory cgroup out of memory: Killed process 1456821 (syrs) total-vm:3081852kB, anon-rss:3042252kB, file-rss:8096kB, shmem-rss:0kB, UID:0 pgtables:6064kB oom_score_adj:952
+[Sun Aug  9 19:58:37 2026] Memory cgroup out of memory: Killed process 1097718 (python3) total-vm:57512kB, anon-rss:16512kB, file-rss:14592kB, shmem-rss:0kB, UID:0 pgtables:144kB oom_score_adj:952
+[Sun Aug  9 19:58:37 2026] Memory cgroup out of memory: Killed process 1456795 (syrs) total-vm:291216kB, anon-rss:75544kB, file-rss:13312kB, shmem-rss:0kB, UID:0 pgtables:252kB oom_score_adj:952
+[Sun Aug  9 19:58:37 2026] Memory cgroup out of memory: Killed process 1456821 (syrs) total-vm:3081852kB, anon-rss:3042252kB, file-rss:8096kB, shmem-rss:0kB, UID:0 pgtables:6064kB oom_score_adj:952
+[Sun Aug  9 20:58:39 2026] syrs invoked oom-killer: gfp_mask=0xcc0(GFP_KERNEL), order=0, oom_score_adj=952
+[Sun Aug  9 20:58:39 2026] Memory cgroup out of memory: Killed process 1822052 (syrs) total-vm:3088768kB, anon-rss:3047684kB, file-rss:7968kB, shmem-rss:0kB, UID:0 pgtables:6076kB oom_score_adj:952
+[Sun Aug  9 20:58:39 2026] Memory cgroup out of memory: Killed process 1468562 (python3) total-vm:57512kB, anon-rss:16376kB, file-rss:14464kB, shmem-rss:0kB, UID:0 pgtables:152kB oom_score_adj:952
+[Sun Aug  9 20:58:39 2026] Memory cgroup out of memory: Killed process 1822027 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:13312kB, shmem-rss:0kB, UID:0 pgtables:256kB oom_score_adj:952
+[Sun Aug  9 20:58:39 2026] Memory cgroup out of memory: Killed process 1822052 (syrs) total-vm:3088768kB, anon-rss:3047684kB, file-rss:7968kB, shmem-rss:0kB, UID:0 pgtables:6076kB oom_score_adj:952
+[Sun Aug  9 21:57:59 2026] syrs invoked oom-killer: gfp_mask=0xcc0(GFP_KERNEL), order=0, oom_score_adj=952
+[Sun Aug  9 21:57:59 2026] Memory cgroup out of memory: Killed process 2177286 (syrs) total-vm:3083288kB, anon-rss:3042380kB, file-rss:8096kB, shmem-rss:0kB, UID:0 pgtables:6064kB oom_score_adj:952
+[Sun Aug  9 21:57:59 2026] Memory cgroup out of memory: Killed process 1833650 (python3) total-vm:57512kB, anon-rss:16532kB, file-rss:14592kB, shmem-rss:0kB, UID:0 pgtables:148kB oom_score_adj:952
+[Sun Aug  9 21:57:59 2026] Memory cgroup out of memory: Killed process 2177264 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:13312kB, shmem-rss:0kB, UID:0 pgtables:248kB oom_score_adj:952
+[Sun Aug  9 21:57:59 2026] Memory cgroup out of memory: Killed process 2177286 (syrs) total-vm:3083288kB, anon-rss:3042380kB, file-rss:8096kB, shmem-rss:0kB, UID:0 pgtables:6064kB oom_score_adj:952
+[Sun Aug  9 22:58:13 2026] syrs invoked oom-killer: gfp_mask=0xcc0(GFP_KERNEL), order=0, oom_score_adj=952
+[Sun Aug  9 22:58:13 2026] Memory cgroup out of memory: Killed process 2504849 (syrs) total-vm:3083328kB, anon-rss:3042204kB, file-rss:7968kB, shmem-rss:0kB, UID:0 pgtables:6064kB oom_score_adj:952
+[Sun Aug  9 22:58:13 2026] Memory cgroup out of memory: Killed process 2184256 (python3) total-vm:57512kB, anon-rss:16576kB, file-rss:14592kB, shmem-rss:0kB, UID:0 pgtables:144kB oom_score_adj:952
+[Sun Aug  9 22:58:13 2026] Memory cgroup out of memory: Killed process 2504826 (syrs) total-vm:291216kB, anon-rss:75508kB, file-rss:13312kB, shmem-rss:0kB, UID:0 pgtables:256kB oom_score_adj:952
+[Sun Aug  9 22:58:13 2026] Memory cgroup out of memory: Killed process 2504849 (syrs) total-vm:3083328kB, anon-rss:3042204kB, file-rss:7968kB, shmem-rss:0kB, UID:0 pgtables:6064kB oom_score_adj:952
+[Sun Aug  9 23:58:08 2026] syrs invoked oom-killer: gfp_mask=0xcc0(GFP_KERNEL), order=0, oom_score_adj=952
+[Sun Aug  9 23:58:08 2026] Memory cgroup out of memory: Killed process 2832107 (syrs) total-vm:3087204kB, anon-rss:3046356kB, file-rss:8096kB, shmem-rss:0kB, UID:0 pgtables:6080kB oom_score_adj:952
+[Sun Aug  9 23:58:08 2026] Memory cgroup out of memory: Killed process 2511874 (python3) total-vm:57512kB, anon-rss:16588kB, file-rss:14848kB, shmem-rss:0kB, UID:0 pgtables:144kB oom_score_adj:952
+[Sun Aug  9 23:58:08 2026] Memory cgroup out of memory: Killed process 2832084 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:13312kB, shmem-rss:0kB, UID:0 pgtables:264kB oom_score_adj:952
+[Sun Aug  9 23:58:08 2026] Memory cgroup out of memory: Killed process 2832107 (syrs) total-vm:3087204kB, anon-rss:3046356kB, file-rss:8096kB, shmem-rss:0kB, UID:0 pgtables:6080kB oom_score_adj:952
+[Mon Aug 10 00:58:23 2026] syrs invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=952
+[Mon Aug 10 00:58:23 2026] Memory cgroup out of memory: Killed process 3155929 (syrs) total-vm:3089320kB, anon-rss:3048124kB, file-rss:7584kB, shmem-rss:0kB, UID:0 pgtables:6084kB oom_score_adj:952
+[Mon Aug 10 00:58:23 2026] Memory cgroup out of memory: Killed process 738962 (python3) total-vm:57508kB, anon-rss:16536kB, file-rss:15104kB, shmem-rss:0kB, UID:0 pgtables:148kB oom_score_adj:952
+[Mon Aug 10 00:58:23 2026] Memory cgroup out of memory: Killed process 3155915 (syrs) total-vm:291216kB, anon-rss:75500kB, file-rss:13312kB, shmem-rss:0kB, UID:0 pgtables:256kB oom_score_adj:952
+[Mon Aug 10 00:58:23 2026] Memory cgroup out of memory: Killed process 3155929 (syrs) total-vm:3089320kB, anon-rss:3048124kB, file-rss:7584kB, shmem-rss:0kB, UID:0 pgtables:6084kB oom_score_adj:952
+[Mon Aug 10 01:59:24 2026] syrs invoked oom-killer: gfp_mask=0xcc0(GFP_KERNEL), order=0, oom_score_adj=952
+[Mon Aug 10 01:59:24 2026] Memory cgroup out of memory: Killed process 3481799 (syrs) total-vm:3088036kB, anon-rss:3048060kB, file-rss:7584kB, shmem-rss:0kB, UID:0 pgtables:6076kB oom_score_adj:952
+[Mon Aug 10 01:59:24 2026] Memory cgroup out of memory: Killed process 3162945 (python3) total-vm:57512kB, anon-rss:16332kB, file-rss:15104kB, shmem-rss:0kB, UID:0 pgtables:152kB oom_score_adj:952
+[Mon Aug 10 01:59:24 2026] Memory cgroup out of memory: Killed process 3481776 (syrs) total-vm:291216kB, anon-rss:75408kB, file-rss:13312kB, shmem-rss:0kB, UID:0 pgtables:256kB oom_score_adj:952
+[Mon Aug 10 01:59:24 2026] Memory cgroup out of memory: Killed process 3481799 (syrs) total-vm:3088036kB, anon-rss:3048060kB, file-rss:7584kB, shmem-rss:0kB, UID:0 pgtables:6076kB oom_score_adj:952
+[Mon Aug 10 02:59:02 2026] syrs invoked oom-killer: gfp_mask=0xcc0(GFP_KERNEL), order=0, oom_score_adj=952
+[Mon Aug 10 02:59:02 2026] Memory cgroup out of memory: Killed process 3807066 (syrs) total-vm:3083508kB, anon-rss:3042140kB, file-rss:8096kB, shmem-rss:0kB, UID:0 pgtables:6064kB oom_score_adj:952
+[Mon Aug 10 02:59:02 2026] Memory cgroup out of memory: Killed process 2838335 (python3) total-vm:57512kB, anon-rss:16272kB, file-rss:14464kB, shmem-rss:0kB, UID:0 pgtables:156kB oom_score_adj:952
+[Mon Aug 10 02:59:02 2026] Memory cgroup out of memory: Killed process 3807041 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:13184kB, shmem-rss:0kB, UID:0 pgtables:256kB oom_score_adj:952
+[Mon Aug 10 02:59:02 2026] Memory cgroup out of memory: Killed process 3807066 (syrs) total-vm:3083508kB, anon-rss:3042140kB, file-rss:8096kB, shmem-rss:0kB, UID:0 pgtables:6064kB oom_score_adj:952
+[Mon Aug 10 03:58:27 2026] syrs invoked oom-killer: gfp_mask=0xcc0(GFP_KERNEL), order=0, oom_score_adj=952
+[Mon Aug 10 03:58:27 2026] Memory cgroup out of memory: Killed process 4132361 (syrs) total-vm:3086944kB, anon-rss:3046532kB, file-rss:8096kB, shmem-rss:0kB, UID:0 pgtables:6076kB oom_score_adj:952
+[Mon Aug 10 03:58:27 2026] Memory cgroup out of memory: Killed process 3817311 (python3) total-vm:57512kB, anon-rss:16476kB, file-rss:14464kB, shmem-rss:0kB, UID:0 pgtables:140kB oom_score_adj:952
+[Mon Aug 10 03:58:27 2026] Memory cgroup out of memory: Killed process 4132337 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:13184kB, shmem-rss:0kB, UID:0 pgtables:256kB oom_score_adj:952
+[Mon Aug 10 03:58:27 2026] Memory cgroup out of memory: Killed process 4132361 (syrs) total-vm:3086944kB, anon-rss:3046532kB, file-rss:8096kB, shmem-rss:0kB, UID:0 pgtables:6076kB oom_score_adj:952
+[Mon Aug 10 04:58:29 2026] syrs invoked oom-killer: gfp_mask=0xcc0(GFP_KERNEL), order=0, oom_score_adj=952
+[Mon Aug 10 04:58:29 2026] Memory cgroup out of memory: Killed process 272551 (syrs) total-vm:3088936kB, anon-rss:3048184kB, file-rss:7968kB, shmem-rss:0kB, UID:0 pgtables:6072kB oom_score_adj:952
+[Mon Aug 10 04:58:29 2026] Memory cgroup out of memory: Killed process 4138503 (python3) total-vm:57512kB, anon-rss:16496kB, file-rss:14848kB, shmem-rss:0kB, UID:0 pgtables:152kB oom_score_adj:952
+[Mon Aug 10 04:58:29 2026] Memory cgroup out of memory: Killed process 272529 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:13440kB, shmem-rss:0kB, UID:0 pgtables:256kB oom_score_adj:952
+[Mon Aug 10 04:58:29 2026] Memory cgroup out of memory: Killed process 272551 (syrs) total-vm:3088936kB, anon-rss:3048184kB, file-rss:7968kB, shmem-rss:0kB, UID:0 pgtables:6072kB oom_score_adj:952
+[Mon Aug 10 05:58:34 2026] syrs invoked oom-killer: gfp_mask=0xcc0(GFP_KERNEL), order=0, oom_score_adj=952
+[Mon Aug 10 05:58:34 2026] Memory cgroup out of memory: Killed process 636308 (syrs) total-vm:3086856kB, anon-rss:3046396kB, file-rss:8096kB, shmem-rss:0kB, UID:0 pgtables:6076kB oom_score_adj:952
+[Mon Aug 10 05:58:34 2026] Memory cgroup out of memory: Killed process 278872 (python3) total-vm:57512kB, anon-rss:16388kB, file-rss:14592kB, shmem-rss:0kB, UID:0 pgtables:144kB oom_score_adj:952
+[Mon Aug 10 05:58:34 2026] Memory cgroup out of memory: Killed process 636279 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:13312kB, shmem-rss:0kB, UID:0 pgtables:260kB oom_score_adj:952
+[Mon Aug 10 05:58:34 2026] Memory cgroup out of memory: Killed process 636308 (syrs) total-vm:3086856kB, anon-rss:3046396kB, file-rss:8096kB, shmem-rss:0kB, UID:0 pgtables:6076kB oom_score_adj:952
+[Mon Aug 10 06:59:46 2026] syrs invoked oom-killer: gfp_mask=0xcc0(GFP_KERNEL), order=0, oom_score_adj=952
+[Mon Aug 10 06:59:46 2026] Memory cgroup out of memory: Killed process 999215 (syrs) total-vm:3088596kB, anon-rss:3047676kB, file-rss:8096kB, shmem-rss:0kB, UID:0 pgtables:6084kB oom_score_adj:952
+[Mon Aug 10 06:59:46 2026] Memory cgroup out of memory: Killed process 643359 (python3) total-vm:57512kB, anon-rss:16364kB, file-rss:14592kB, shmem-rss:0kB, UID:0 pgtables:152kB oom_score_adj:952
+[Mon Aug 10 06:59:46 2026] Memory cgroup out of memory: Killed process 999192 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:13184kB, shmem-rss:0kB, UID:0 pgtables:260kB oom_score_adj:952
+[Mon Aug 10 06:59:46 2026] Memory cgroup out of memory: Killed process 999215 (syrs) total-vm:3088596kB, anon-rss:3047676kB, file-rss:8096kB, shmem-rss:0kB, UID:0 pgtables:6084kB oom_score_adj:952
+[Mon Aug 10 07:58:47 2026] syrs invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=952
+[Mon Aug 10 07:58:47 2026] Memory cgroup out of memory: Killed process 1350525 (syrs) total-vm:3083488kB, anon-rss:3042436kB, file-rss:7456kB, shmem-rss:0kB, UID:0 pgtables:6064kB oom_score_adj:952
+[Mon Aug 10 07:58:47 2026] Memory cgroup out of memory: Killed process 3493878 (python3) total-vm:57512kB, anon-rss:16588kB, file-rss:15232kB, shmem-rss:0kB, UID:0 pgtables:140kB oom_score_adj:952
+[Mon Aug 10 07:58:47 2026] Memory cgroup out of memory: Killed process 1350502 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:13312kB, shmem-rss:0kB, UID:0 pgtables:260kB oom_score_adj:952
+[Mon Aug 10 07:58:47 2026] Memory cgroup out of memory: Killed process 1350525 (syrs) total-vm:3083488kB, anon-rss:3042436kB, file-rss:7456kB, shmem-rss:0kB, UID:0 pgtables:6064kB oom_score_adj:952
+[Mon Aug 10 08:58:48 2026] syrs invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=952
+[Mon Aug 10 08:58:48 2026] Memory cgroup out of memory: Killed process 1705314 (syrs) total-vm:3085064kB, anon-rss:3048160kB, file-rss:7456kB, shmem-rss:0kB, UID:0 pgtables:6072kB oom_score_adj:952
+[Mon Aug 10 08:58:48 2026] Memory cgroup out of memory: Killed process 1357136 (python3) total-vm:57512kB, anon-rss:16604kB, file-rss:15360kB, shmem-rss:0kB, UID:0 pgtables:148kB oom_score_adj:952
+[Mon Aug 10 08:58:48 2026] Memory cgroup out of memory: Killed process 1705276 (syrs) total-vm:291216kB, anon-rss:75508kB, file-rss:13440kB, shmem-rss:0kB, UID:0 pgtables:252kB oom_score_adj:952
+[Mon Aug 10 08:58:48 2026] Memory cgroup out of memory: Killed process 1705314 (syrs) total-vm:3085064kB, anon-rss:3048160kB, file-rss:7456kB, shmem-rss:0kB, UID:0 pgtables:6072kB oom_score_adj:952
+[Mon Aug 10 09:59:54 2026] syrs invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=952
+[Mon Aug 10 09:59:54 2026] Memory cgroup out of memory: Killed process 2062266 (syrs) total-vm:3083476kB, anon-rss:3042532kB, file-rss:7584kB, shmem-rss:0kB, UID:0 pgtables:6068kB oom_score_adj:952
+[Mon Aug 10 09:59:54 2026] Memory cgroup out of memory: Killed process 1712021 (python3) total-vm:57512kB, anon-rss:16544kB, file-rss:14976kB, shmem-rss:0kB, UID:0 pgtables:148kB oom_score_adj:952
+[Mon Aug 10 09:59:54 2026] Memory cgroup out of memory: Killed process 2062242 (syrs) total-vm:291216kB, anon-rss:75448kB, file-rss:13184kB, shmem-rss:0kB, UID:0 pgtables:260kB oom_score_adj:952
+[Mon Aug 10 09:59:54 2026] Memory cgroup out of memory: Killed process 2062266 (syrs) total-vm:3083476kB, anon-rss:3042532kB, file-rss:7584kB, shmem-rss:0kB, UID:0 pgtables:6068kB oom_score_adj:952
+[Mon Aug 10 10:59:42 2026] syrs invoked oom-killer: gfp_mask=0xcc0(GFP_KERNEL), order=0, oom_score_adj=952
+[Mon Aug 10 10:59:42 2026] Memory cgroup out of memory: Killed process 2413834 (syrs) total-vm:3083484kB, anon-rss:3042388kB, file-rss:7456kB, shmem-rss:0kB, UID:0 pgtables:6068kB oom_score_adj:952
+[Mon Aug 10 10:59:42 2026] Memory cgroup out of memory: Killed process 2075470 (python3) total-vm:57512kB, anon-rss:16504kB, file-rss:15232kB, shmem-rss:0kB, UID:0 pgtables:152kB oom_score_adj:952
+[Mon Aug 10 10:59:42 2026] Memory cgroup out of memory: Killed process 2413810 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:13312kB, shmem-rss:0kB, UID:0 pgtables:264kB oom_score_adj:952
+[Mon Aug 10 10:59:42 2026] Memory cgroup out of memory: Killed process 2413834 (syrs) total-vm:3083484kB, anon-rss:3042388kB, file-rss:7456kB, shmem-rss:0kB, UID:0 pgtables:6068kB oom_score_adj:952
+[Mon Aug 10 11:59:33 2026] syrs invoked oom-killer: gfp_mask=0xcc0(GFP_KERNEL), order=0, oom_score_adj=952
+[Mon Aug 10 11:59:33 2026] Memory cgroup out of memory: Killed process 2768324 (syrs) total-vm:3083340kB, anon-rss:3042496kB, file-rss:7456kB, shmem-rss:0kB, UID:0 pgtables:6064kB oom_score_adj:952
+[Mon Aug 10 11:59:33 2026] Memory cgroup out of memory: Killed process 2424231 (python3) total-vm:57508kB, anon-rss:16512kB, file-rss:15104kB, shmem-rss:0kB, UID:0 pgtables:156kB oom_score_adj:952
+[Mon Aug 10 11:59:33 2026] Memory cgroup out of memory: Killed process 2768299 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:13312kB, shmem-rss:0kB, UID:0 pgtables:256kB oom_score_adj:952
+[Mon Aug 10 11:59:33 2026] Memory cgroup out of memory: Killed process 2768324 (syrs) total-vm:3083340kB, anon-rss:3042496kB, file-rss:7456kB, shmem-rss:0kB, UID:0 pgtables:6064kB oom_score_adj:952
+[Mon Aug 10 12:59:43 2026] syrs invoked oom-killer: gfp_mask=0xcc0(GFP_KERNEL), order=0, oom_score_adj=952
+[Mon Aug 10 12:59:43 2026] Memory cgroup out of memory: Killed process 3125863 (syrs) total-vm:3088756kB, anon-rss:3048364kB, file-rss:8096kB, shmem-rss:0kB, UID:0 pgtables:6076kB oom_score_adj:952
+[Mon Aug 10 12:59:43 2026] Memory cgroup out of memory: Killed process 1013087 (python3) total-vm:57508kB, anon-rss:16624kB, file-rss:14592kB, shmem-rss:0kB, UID:0 pgtables:144kB oom_score_adj:952
+[Mon Aug 10 12:59:43 2026] Memory cgroup out of memory: Killed process 3125842 (syrs) total-vm:291216kB, anon-rss:75504kB, file-rss:13184kB, shmem-rss:0kB, UID:0 pgtables:256kB oom_score_adj:952
+[Mon Aug 10 12:59:43 2026] Memory cgroup out of memory: Killed process 3125863 (syrs) total-vm:3088756kB, anon-rss:3048364kB, file-rss:8096kB, shmem-rss:0kB, UID:0 pgtables:6076kB oom_score_adj:952

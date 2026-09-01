@@ -1,0 +1,3 @@
+void java.io.PrintStream:println (java.lang.String) { -<~ }
+int java.lang.String:length () { -<~; return new(@) }
+

@@ -1,0 +1,133 @@
+{
+  "findings": [
+    {
+      "caller_class": "org.chabala.brick.controllab.KeepAliveMonitor",
+      "caller_method": "org.chabala.brick.controllab.KeepAliveMonitor(org.chabala.brick.controllab.SerialPortWriter, java.time.Duration)",
+      "candidate": "RCM-08872",
+      "category": "concurrency",
+      "descriptor": "(Ljava/util/concurrent/ThreadFactory;)Ljava/util/concurrent/ScheduledExecutorService;",
+      "evidence": "58: invokestatic  #21                 // Method java/util/concurrent/Executors.newSingleThreadScheduledExecutor:(Ljava/util/concurrent/ThreadFactory;)Ljava/util/concurrent/ScheduledExecutorService;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08872/D1/attempt-1/workspace/target/brick-control-lab-0.2.2.jar",
+      "name": "newSingleThreadScheduledExecutor",
+      "owner": "java/util/concurrent/Executors"
+    },
+    {
+      "caller_class": "org.chabala.brick.controllab.KeepAliveMonitor",
+      "caller_method": "void reset()",
+      "candidate": "RCM-08872",
+      "category": "concurrency",
+      "descriptor": "(Z)Z",
+      "evidence": "5: invokeinterface #25,  2           // InterfaceMethod java/util/concurrent/ScheduledFuture.cancel:(Z)Z",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08872/D1/attempt-1/workspace/target/brick-control-lab-0.2.2.jar",
+      "name": "cancel",
+      "owner": "java/util/concurrent/ScheduledFuture"
+    },
+    {
+      "caller_class": "org.chabala.brick.controllab.KeepAliveMonitor",
+      "caller_method": "private void scheduleTask()",
+      "candidate": "RCM-08872",
+      "category": "concurrency",
+      "descriptor": "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;",
+      "evidence": "22: invokeinterface #28,  7           // InterfaceMethod java/util/concurrent/ScheduledExecutorService.scheduleAtFixedRate:(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08872/D1/attempt-1/workspace/target/brick-control-lab-0.2.2.jar",
+      "name": "scheduleAtFixedRate",
+      "owner": "java/util/concurrent/ScheduledExecutorService"
+    },
+    {
+      "caller_class": "org.chabala.brick.controllab.KeepAliveMonitor",
+      "caller_method": "public void close()",
+      "candidate": "RCM-08872",
+      "category": "concurrency",
+      "descriptor": "()Ljava/util/List;",
+      "evidence": "11: invokeinterface #33,  1           // InterfaceMethod java/util/concurrent/ScheduledExecutorService.shutdownNow:()Ljava/util/List;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08872/D1/attempt-1/workspace/target/brick-control-lab-0.2.2.jar",
+      "name": "shutdownNow",
+      "owner": "java/util/concurrent/ScheduledExecutorService"
+    },
+    {
+      "caller_class": "org.chabala.brick.controllab.KeepAliveMonitor$NamedDaemonThreadFactory",
+      "caller_method": "org.chabala.brick.controllab.KeepAliveMonitor$NamedDaemonThreadFactory(java.lang.String)",
+      "candidate": "RCM-08872",
+      "category": "concurrency",
+      "descriptor": "()Ljava/util/concurrent/ThreadFactory;",
+      "evidence": "5: invokestatic  #2                  // Method java/util/concurrent/Executors.defaultThreadFactory:()Ljava/util/concurrent/ThreadFactory;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08872/D1/attempt-1/workspace/target/brick-control-lab-0.2.2.jar",
+      "name": "defaultThreadFactory",
+      "owner": "java/util/concurrent/Executors"
+    },
+    {
+      "caller_class": "org.chabala.brick.controllab.KeepAliveMonitor$NamedDaemonThreadFactory",
+      "caller_method": "public java.lang.Thread newThread(java.lang.Runnable)",
+      "candidate": "RCM-08872",
+      "category": "concurrency",
+      "descriptor": "(Ljava/lang/Runnable;)Ljava/lang/Thread;",
+      "evidence": "5: invokeinterface #5,  2            // InterfaceMethod java/util/concurrent/ThreadFactory.newThread:(Ljava/lang/Runnable;)Ljava/lang/Thread;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08872/D1/attempt-1/workspace/target/brick-control-lab-0.2.2.jar",
+      "name": "newThread",
+      "owner": "java/util/concurrent/ThreadFactory"
+    },
+    {
+      "caller_class": "org.chabala.brick.controllab.SerialListener",
+      "caller_method": "org.chabala.brick.controllab.SerialListener(org.chabala.brick.controllab.SerialPort, org.chabala.brick.controllab.InputManager)",
+      "candidate": "RCM-08872",
+      "category": "concurrency",
+      "descriptor": "(I)V",
+      "evidence": "26: invokespecial #7                  // Method java/util/concurrent/CountDownLatch.\"<init>\":(I)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08872/D1/attempt-1/workspace/target/brick-control-lab-0.2.2.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/CountDownLatch"
+    },
+    {
+      "caller_class": "org.chabala.brick.controllab.SerialListener",
+      "caller_method": "public boolean isHandshakeSeen()",
+      "candidate": "RCM-08872",
+      "category": "concurrency",
+      "descriptor": "(JLjava/util/concurrent/TimeUnit;)Z",
+      "evidence": "10: invokevirtual #21                 // Method java/util/concurrent/CountDownLatch.await:(JLjava/util/concurrent/TimeUnit;)Z",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08872/D1/attempt-1/workspace/target/brick-control-lab-0.2.2.jar",
+      "name": "await",
+      "owner": "java/util/concurrent/CountDownLatch"
+    },
+    {
+      "caller_class": "org.chabala.brick.controllab.SerialListener",
+      "caller_method": "public boolean isHandshakeSeen()",
+      "candidate": "RCM-08872",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "35: invokevirtual #26                 // Method java/lang/Thread.interrupt:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08872/D1/attempt-1/workspace/target/brick-control-lab-0.2.2.jar",
+      "name": "interrupt",
+      "owner": "java/lang/Thread"
+    },
+    {
+      "caller_class": "org.chabala.brick.controllab.SerialListener",
+      "caller_method": "private void setHandshakeSeen()",
+      "candidate": "RCM-08872",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "9: invokevirtual #27                 // Method java/util/concurrent/CountDownLatch.countDown:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08872/D1/attempt-1/workspace/target/brick-control-lab-0.2.2.jar",
+      "name": "countDown",
+      "owner": "java/util/concurrent/CountDownLatch"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-08872",
+    "classes_discovered": 36,
+    "classes_failed": 0,
+    "classes_scanned": 36,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T15:27:56Z",
+    "discovered_jars": 1,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 7.873,
+    "error": "",
+    "findings": 10,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08872/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T15:27:49Z",
+    "status": "COMPLETE",
+    "unique_jars": 1,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

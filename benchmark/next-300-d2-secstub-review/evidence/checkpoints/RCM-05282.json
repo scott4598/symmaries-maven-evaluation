@@ -1,0 +1,56 @@
+{
+  "findings": [
+    {
+      "caller_class": "org.jboss.jandex.AnnotationOverlayImpl",
+      "caller_method": "org.jboss.jandex.AnnotationOverlayImpl(org.jboss.jandex.IndexView, boolean, boolean, boolean, java.util.Collection<org.jboss.jandex.AnnotationTransformation>)",
+      "candidate": "RCM-05282",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "9: invokespecial #56                 // Method java/util/concurrent/ConcurrentHashMap.\"<init>\":()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-05282/D1/attempt-1/workspace/core/target/jandex-3.2.3-RC1.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/ConcurrentHashMap"
+    },
+    {
+      "caller_class": "org.jboss.jandex.JandexReflection",
+      "caller_method": "private static java.lang.Class<?> load(org.jboss.jandex.DotName)",
+      "candidate": "RCM-05282",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;",
+      "evidence": "23: invokestatic  #148                // Method java/lang/Class.forName:(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-05282/D1/attempt-1/workspace/core/target/jandex-3.2.3-RC1.jar",
+      "name": "forName",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.jboss.jandex.Utils",
+      "caller_method": "private static void lambda$unfold$0(java.lang.Class, java.util.Map, java.lang.Object, java.util.List)",
+      "candidate": "RCM-05282",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/Class;I)Ljava/lang/Object;",
+      "evidence": "7: invokestatic  #162                // Method java/lang/reflect/Array.newInstance:(Ljava/lang/Class;I)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-05282/D1/attempt-1/workspace/core/target/jandex-3.2.3-RC1.jar",
+      "name": "newInstance",
+      "owner": "java/lang/reflect/Array"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-05282",
+    "classes_discovered": 203,
+    "classes_failed": 0,
+    "classes_scanned": 203,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T14:24:44Z",
+    "discovered_jars": 3,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 46.974,
+    "error": "",
+    "findings": 3,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-05282/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T14:23:57Z",
+    "status": "COMPLETE",
+    "unique_jars": 3,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

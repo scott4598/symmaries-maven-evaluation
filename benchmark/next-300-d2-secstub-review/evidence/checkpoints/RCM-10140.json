@@ -1,0 +1,133 @@
+{
+  "findings": [
+    {
+      "caller_class": "org.mybatis.dynamic.sql.delete.render.DeleteRenderer",
+      "caller_method": "private org.mybatis.dynamic.sql.delete.render.DeleteRenderer(org.mybatis.dynamic.sql.delete.render.DeleteRenderer$Builder)",
+      "candidate": "RCM-10140",
+      "category": "concurrency",
+      "descriptor": "(I)V",
+      "evidence": "10: invokespecial #14                 // Method java/util/concurrent/atomic/AtomicInteger.\"<init>\":(I)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10140/D1/attempt-1/workspace/target/mybatis-dynamic-sql-1.5.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/atomic/AtomicInteger"
+    },
+    {
+      "caller_class": "org.mybatis.dynamic.sql.insert.render.GeneralInsertValuePhraseVisitor",
+      "caller_method": "public org.mybatis.dynamic.sql.insert.render.GeneralInsertValuePhraseVisitor(org.mybatis.dynamic.sql.render.RenderingStrategy)",
+      "candidate": "RCM-10140",
+      "category": "concurrency",
+      "descriptor": "(I)V",
+      "evidence": "10: invokespecial #9                  // Method java/util/concurrent/atomic/AtomicInteger.\"<init>\":(I)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10140/D1/attempt-1/workspace/target/mybatis-dynamic-sql-1.5.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/atomic/AtomicInteger"
+    },
+    {
+      "caller_class": "org.mybatis.dynamic.sql.render.RenderingStrategy",
+      "caller_method": "public java.lang.String formatParameterMapKey(java.util.concurrent.atomic.AtomicInteger)",
+      "candidate": "RCM-10140",
+      "category": "concurrency",
+      "descriptor": "()I",
+      "evidence": "13: invokevirtual #16                 // Method java/util/concurrent/atomic/AtomicInteger.getAndIncrement:()I",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10140/D1/attempt-1/workspace/target/mybatis-dynamic-sql-1.5.0.jar",
+      "name": "getAndIncrement",
+      "owner": "java/util/concurrent/atomic/AtomicInteger"
+    },
+    {
+      "caller_class": "org.mybatis.dynamic.sql.select.render.MultiSelectRenderer",
+      "caller_method": "private org.mybatis.dynamic.sql.select.render.MultiSelectRenderer(org.mybatis.dynamic.sql.select.render.MultiSelectRenderer$Builder)",
+      "candidate": "RCM-10140",
+      "category": "concurrency",
+      "descriptor": "(I)V",
+      "evidence": "10: invokespecial #14                 // Method java/util/concurrent/atomic/AtomicInteger.\"<init>\":(I)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10140/D1/attempt-1/workspace/target/mybatis-dynamic-sql-1.5.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/atomic/AtomicInteger"
+    },
+    {
+      "caller_class": "org.mybatis.dynamic.sql.select.render.SelectRenderer",
+      "caller_method": "private org.mybatis.dynamic.sql.select.render.SelectRenderer(org.mybatis.dynamic.sql.select.render.SelectRenderer$Builder)",
+      "candidate": "RCM-10140",
+      "category": "concurrency",
+      "descriptor": "(I)V",
+      "evidence": "45: invokespecial #43                 // Method java/util/concurrent/atomic/AtomicInteger.\"<init>\":(I)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10140/D1/attempt-1/workspace/target/mybatis-dynamic-sql-1.5.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/atomic/AtomicInteger"
+    },
+    {
+      "caller_class": "org.mybatis.dynamic.sql.update.render.UpdateRenderer",
+      "caller_method": "private org.mybatis.dynamic.sql.update.render.UpdateRenderer(org.mybatis.dynamic.sql.update.render.UpdateRenderer$Builder)",
+      "candidate": "RCM-10140",
+      "category": "concurrency",
+      "descriptor": "(I)V",
+      "evidence": "10: invokespecial #14                 // Method java/util/concurrent/atomic/AtomicInteger.\"<init>\":(I)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10140/D1/attempt-1/workspace/target/mybatis-dynamic-sql-1.5.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/atomic/AtomicInteger"
+    },
+    {
+      "caller_class": "org.mybatis.dynamic.sql.where.WhereModel",
+      "caller_method": "public java.util.Optional<org.mybatis.dynamic.sql.where.render.WhereClauseProvider> render(org.mybatis.dynamic.sql.render.RenderingStrategy)",
+      "candidate": "RCM-10140",
+      "category": "concurrency",
+      "descriptor": "(I)V",
+      "evidence": "16: invokespecial #39                 // Method java/util/concurrent/atomic/AtomicInteger.\"<init>\":(I)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10140/D1/attempt-1/workspace/target/mybatis-dynamic-sql-1.5.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/atomic/AtomicInteger"
+    },
+    {
+      "caller_class": "org.mybatis.dynamic.sql.where.WhereModel",
+      "caller_method": "public java.util.Optional<org.mybatis.dynamic.sql.where.render.WhereClauseProvider> render(org.mybatis.dynamic.sql.render.RenderingStrategy, org.mybatis.dynamic.sql.render.TableAliasCalculator)",
+      "candidate": "RCM-10140",
+      "category": "concurrency",
+      "descriptor": "(I)V",
+      "evidence": "16: invokespecial #39                 // Method java/util/concurrent/atomic/AtomicInteger.\"<init>\":(I)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10140/D1/attempt-1/workspace/target/mybatis-dynamic-sql-1.5.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/atomic/AtomicInteger"
+    },
+    {
+      "caller_class": "org.mybatis.dynamic.sql.where.WhereModel",
+      "caller_method": "public java.util.Optional<org.mybatis.dynamic.sql.where.render.WhereClauseProvider> render(org.mybatis.dynamic.sql.render.RenderingStrategy, java.lang.String)",
+      "candidate": "RCM-10140",
+      "category": "concurrency",
+      "descriptor": "(I)V",
+      "evidence": "16: invokespecial #39                 // Method java/util/concurrent/atomic/AtomicInteger.\"<init>\":(I)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10140/D1/attempt-1/workspace/target/mybatis-dynamic-sql-1.5.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/atomic/AtomicInteger"
+    },
+    {
+      "caller_class": "org.mybatis.dynamic.sql.where.WhereModel",
+      "caller_method": "public java.util.Optional<org.mybatis.dynamic.sql.where.render.WhereClauseProvider> render(org.mybatis.dynamic.sql.render.RenderingStrategy, org.mybatis.dynamic.sql.render.TableAliasCalculator, java.lang.String)",
+      "candidate": "RCM-10140",
+      "category": "concurrency",
+      "descriptor": "(I)V",
+      "evidence": "16: invokespecial #39                 // Method java/util/concurrent/atomic/AtomicInteger.\"<init>\":(I)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10140/D1/attempt-1/workspace/target/mybatis-dynamic-sql-1.5.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/atomic/AtomicInteger"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-10140",
+    "classes_discovered": 520,
+    "classes_failed": 0,
+    "classes_scanned": 520,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T15:41:45Z",
+    "discovered_jars": 1,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 119.394,
+    "error": "",
+    "findings": 10,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10140/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T15:39:46Z",
+    "status": "COMPLETE",
+    "unique_jars": 1,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

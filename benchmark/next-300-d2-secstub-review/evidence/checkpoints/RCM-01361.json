@@ -1,0 +1,34 @@
+{
+  "findings": [
+    {
+      "caller_class": "com.github.sitture.envconfig.VaultConfiguration",
+      "caller_method": "private static void retryUntilMaxMaxRetries(io.github.jopenlibs.vault.VaultException, int, int)",
+      "candidate": "RCM-01361",
+      "category": "concurrency",
+      "descriptor": "(J)V",
+      "evidence": "31: invokevirtual #31                 // Method java/util/concurrent/TimeUnit.sleep:(J)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01361/D1/attempt-1/workspace/target/env-config-1.9.0.jar",
+      "name": "sleep",
+      "owner": "java/util/concurrent/TimeUnit"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-01361",
+    "classes_discovered": 14,
+    "classes_failed": 0,
+    "classes_scanned": 14,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T14:06:48Z",
+    "discovered_jars": 1,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 3.182,
+    "error": "",
+    "findings": 1,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01361/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T14:06:45Z",
+    "status": "COMPLETE",
+    "unique_jars": 1,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

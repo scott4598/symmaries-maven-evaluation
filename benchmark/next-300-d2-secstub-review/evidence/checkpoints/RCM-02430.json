@@ -1,0 +1,155 @@
+{
+  "findings": [
+    {
+      "caller_class": "org.apache.commons.validator.ValidatorAction",
+      "caller_method": "public org.apache.commons.validator.ValidatorAction()",
+      "candidate": "RCM-02430",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "95: invokevirtual #87                 // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02430/D1/attempt-1/workspace/target/gwt-commons-validator-1.10.1-0.jar",
+      "name": "invoke",
+      "owner": "java/lang/reflect/Method"
+    },
+    {
+      "caller_class": "org.apache.commons.validator.ValidatorAction",
+      "caller_method": "private java.lang.Object[] getParameterValues(java.util.Map<java.lang.String, ? super java.lang.Object>)",
+      "candidate": "RCM-02430",
+      "category": "reflection",
+      "descriptor": "([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;",
+      "evidence": "37: invokevirtual #249                // Method java/lang/Class.getConstructor:([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02430/D1/attempt-1/workspace/target/gwt-commons-validator-1.10.1-0.jar",
+      "name": "getConstructor",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.apache.commons.validator.ValidatorAction",
+      "caller_method": "private java.lang.Object[] getParameterValues(java.util.Map<java.lang.String, ? super java.lang.Object>)",
+      "candidate": "RCM-02430",
+      "category": "reflection",
+      "descriptor": "([Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "44: invokevirtual #253                // Method java/lang/reflect/Constructor.newInstance:([Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02430/D1/attempt-1/workspace/target/gwt-commons-validator-1.10.1-0.jar",
+      "name": "newInstance",
+      "owner": "java/lang/reflect/Constructor"
+    },
+    {
+      "caller_class": "org.apache.commons.validator.ValidatorAction",
+      "caller_method": "protected synchronized void loadJavascriptFunction()",
+      "candidate": "RCM-02430",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;)Ljava/lang/Class;",
+      "evidence": "56: invokevirtual #346                // Method java/lang/ClassLoader.loadClass:(Ljava/lang/String;)Ljava/lang/Class;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02430/D1/attempt-1/workspace/target/gwt-commons-validator-1.10.1-0.jar",
+      "name": "loadClass",
+      "owner": "java/lang/ClassLoader"
+    },
+    {
+      "caller_class": "org.apache.commons.validator.ValidatorAction",
+      "caller_method": "protected synchronized void loadJavascriptFunction()",
+      "candidate": "RCM-02430",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;)Ljava/lang/Class;",
+      "evidence": "14: invokevirtual #346                // Method java/lang/ClassLoader.loadClass:(Ljava/lang/String;)Ljava/lang/Class;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02430/D1/attempt-1/workspace/target/gwt-commons-validator-1.10.1-0.jar",
+      "name": "loadClass",
+      "owner": "java/lang/ClassLoader"
+    },
+    {
+      "caller_class": "org.apache.commons.validator.ValidatorAction",
+      "caller_method": "protected synchronized void loadJavascriptFunction()",
+      "candidate": "RCM-02430",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "evidence": "21: invokevirtual #356                // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02430/D1/attempt-1/workspace/target/gwt-commons-validator-1.10.1-0.jar",
+      "name": "getMethod",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.apache.commons.validator.routines.IBANValidator",
+      "caller_method": "private java.util.concurrent.ConcurrentMap<java.lang.String, org.apache.commons.validator.routines.IBANValidator$Validator> createValidators(org.apache.commons.validator.routines.IBANValidator$Validator[])",
+      "candidate": "RCM-02430",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "4: invokespecial #30                 // Method java/util/concurrent/ConcurrentHashMap.\"<init>\":()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02430/D1/attempt-1/workspace/target/gwt-commons-validator-1.10.1-0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/ConcurrentHashMap"
+    },
+    {
+      "caller_class": "org.apache.commons.validator.routines.IBANValidator",
+      "caller_method": "private java.util.concurrent.ConcurrentMap<java.lang.String, org.apache.commons.validator.routines.IBANValidator$Validator> createValidators(org.apache.commons.validator.routines.IBANValidator$Validator[])",
+      "candidate": "RCM-02430",
+      "category": "concurrency",
+      "descriptor": "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "38: invokeinterface #37,  3           // InterfaceMethod java/util/concurrent/ConcurrentMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02430/D1/attempt-1/workspace/target/gwt-commons-validator-1.10.1-0.jar",
+      "name": "put",
+      "owner": "java/util/concurrent/ConcurrentMap"
+    },
+    {
+      "caller_class": "org.apache.commons.validator.routines.IBANValidator",
+      "caller_method": "private java.util.concurrent.ConcurrentMap<java.lang.String, org.apache.commons.validator.routines.IBANValidator$Validator> createValidators(org.apache.commons.validator.routines.IBANValidator$Validator[])",
+      "candidate": "RCM-02430",
+      "category": "concurrency",
+      "descriptor": "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "78: invokeinterface #37,  3           // InterfaceMethod java/util/concurrent/ConcurrentMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02430/D1/attempt-1/workspace/target/gwt-commons-validator-1.10.1-0.jar",
+      "name": "put",
+      "owner": "java/util/concurrent/ConcurrentMap"
+    },
+    {
+      "caller_class": "org.apache.commons.validator.routines.IBANValidator",
+      "caller_method": "public org.apache.commons.validator.routines.IBANValidator$Validator getValidator(java.lang.String)",
+      "candidate": "RCM-02430",
+      "category": "concurrency",
+      "descriptor": "(Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "26: invokeinterface #64,  2           // InterfaceMethod java/util/concurrent/ConcurrentMap.get:(Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02430/D1/attempt-1/workspace/target/gwt-commons-validator-1.10.1-0.jar",
+      "name": "get",
+      "owner": "java/util/concurrent/ConcurrentMap"
+    },
+    {
+      "caller_class": "org.apache.commons.validator.routines.IBANValidator",
+      "caller_method": "public org.apache.commons.validator.routines.IBANValidator$Validator setValidator(java.lang.String, int, java.lang.String)",
+      "candidate": "RCM-02430",
+      "category": "concurrency",
+      "descriptor": "(Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "26: invokeinterface #89,  2           // InterfaceMethod java/util/concurrent/ConcurrentMap.remove:(Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02430/D1/attempt-1/workspace/target/gwt-commons-validator-1.10.1-0.jar",
+      "name": "remove",
+      "owner": "java/util/concurrent/ConcurrentMap"
+    },
+    {
+      "caller_class": "org.apache.commons.validator.routines.IBANValidator",
+      "caller_method": "public org.apache.commons.validator.routines.IBANValidator$Validator setValidator(org.apache.commons.validator.routines.IBANValidator$Validator)",
+      "candidate": "RCM-02430",
+      "category": "concurrency",
+      "descriptor": "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "26: invokeinterface #37,  3           // InterfaceMethod java/util/concurrent/ConcurrentMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02430/D1/attempt-1/workspace/target/gwt-commons-validator-1.10.1-0.jar",
+      "name": "put",
+      "owner": "java/util/concurrent/ConcurrentMap"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-02430",
+    "classes_discovered": 88,
+    "classes_failed": 0,
+    "classes_scanned": 88,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T14:08:12Z",
+    "discovered_jars": 1,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 20.73,
+    "error": "",
+    "findings": 12,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02430/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T14:07:51Z",
+    "status": "COMPLETE",
+    "unique_jars": 1,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

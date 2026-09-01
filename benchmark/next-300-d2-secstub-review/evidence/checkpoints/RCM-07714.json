@@ -1,0 +1,232 @@
+{
+  "findings": [
+    {
+      "caller_class": "org.apache.maven.shared.utils.cli.CommandLineUtils$2",
+      "caller_method": "org.apache.maven.shared.utils.cli.CommandLineUtils$2()",
+      "candidate": "RCM-07714",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "294: invokevirtual #141                // Method java/lang/Thread.run:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07714/D1/attempt-1/workspace/target/maven-shared-utils-3.4.2.jar",
+      "name": "run",
+      "owner": "java/lang/Thread"
+    },
+    {
+      "caller_class": "org.apache.maven.shared.utils.cli.CommandLineUtils$2",
+      "caller_method": "org.apache.maven.shared.utils.cli.CommandLineUtils$2()",
+      "candidate": "RCM-07714",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "313: invokevirtual #141                // Method java/lang/Thread.run:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07714/D1/attempt-1/workspace/target/maven-shared-utils-3.4.2.jar",
+      "name": "run",
+      "owner": "java/lang/Thread"
+    },
+    {
+      "caller_class": "org.apache.maven.shared.utils.cli.CommandLineUtils$2",
+      "caller_method": "org.apache.maven.shared.utils.cli.CommandLineUtils$2()",
+      "candidate": "RCM-07714",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "327: invokevirtual #150                // Method java/lang/Thread.interrupt:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07714/D1/attempt-1/workspace/target/maven-shared-utils-3.4.2.jar",
+      "name": "interrupt",
+      "owner": "java/lang/Thread"
+    },
+    {
+      "caller_class": "org.apache.maven.shared.utils.cli.CommandLineUtils$2",
+      "caller_method": "org.apache.maven.shared.utils.cli.CommandLineUtils$2()",
+      "candidate": "RCM-07714",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "387: invokevirtual #141                // Method java/lang/Thread.run:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07714/D1/attempt-1/workspace/target/maven-shared-utils-3.4.2.jar",
+      "name": "run",
+      "owner": "java/lang/Thread"
+    },
+    {
+      "caller_class": "org.apache.maven.shared.utils.cli.CommandLineUtils$2",
+      "caller_method": "org.apache.maven.shared.utils.cli.CommandLineUtils$2()",
+      "candidate": "RCM-07714",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "406: invokevirtual #141                // Method java/lang/Thread.run:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07714/D1/attempt-1/workspace/target/maven-shared-utils-3.4.2.jar",
+      "name": "run",
+      "owner": "java/lang/Thread"
+    },
+    {
+      "caller_class": "org.apache.maven.shared.utils.cli.StreamPollFeeder",
+      "caller_method": "public void run()",
+      "candidate": "RCM-07714",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "124: invokevirtual #74                 // Method java/lang/Thread.interrupt:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07714/D1/attempt-1/workspace/target/maven-shared-utils-3.4.2.jar",
+      "name": "interrupt",
+      "owner": "java/lang/Thread"
+    },
+    {
+      "caller_class": "org.apache.maven.shared.utils.cli.StreamPollFeeder",
+      "caller_method": "public void waitUntilDone()",
+      "candidate": "RCM-07714",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "40: invokevirtual #74                 // Method java/lang/Thread.interrupt:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07714/D1/attempt-1/workspace/target/maven-shared-utils-3.4.2.jar",
+      "name": "interrupt",
+      "owner": "java/lang/Thread"
+    },
+    {
+      "caller_class": "org.apache.maven.shared.utils.cli.javatool.AbstractJavaTool",
+      "caller_method": "private java.lang.String findToolchainExecutable()",
+      "candidate": "RCM-07714",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "evidence": "18: invokevirtual #200                // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07714/D1/attempt-1/workspace/target/maven-shared-utils-3.4.2.jar",
+      "name": "getMethod",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.apache.maven.shared.utils.cli.javatool.AbstractJavaTool",
+      "caller_method": "private java.lang.String findToolchainExecutable()",
+      "candidate": "RCM-07714",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "38: invokevirtual #204                // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07714/D1/attempt-1/workspace/target/maven-shared-utils-3.4.2.jar",
+      "name": "invoke",
+      "owner": "java/lang/reflect/Method"
+    },
+    {
+      "caller_class": "org.apache.maven.shared.utils.introspection.ClassMap",
+      "caller_method": "private static java.lang.reflect.Method[] getAccessibleMethods(java.lang.Class<?>)",
+      "candidate": "RCM-07714",
+      "category": "reflection",
+      "descriptor": "()[Ljava/lang/reflect/Method;",
+      "evidence": "1: invokevirtual #153                // Method java/lang/Class.getMethods:()[Ljava/lang/reflect/Method;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07714/D1/attempt-1/workspace/target/maven-shared-utils-3.4.2.jar",
+      "name": "getMethods",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.apache.maven.shared.utils.introspection.ClassMap",
+      "caller_method": "private static java.lang.reflect.Method getPublicMethod(java.lang.Class<?>, java.lang.String, java.lang.Class<?>...)",
+      "candidate": "RCM-07714",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "evidence": "12: invokevirtual #200                // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07714/D1/attempt-1/workspace/target/maven-shared-utils-3.4.2.jar",
+      "name": "getMethod",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.apache.maven.shared.utils.introspection.ClassMap$MethodInfo",
+      "caller_method": "org.apache.maven.shared.utils.introspection.ClassMap$MethodInfo(java.lang.reflect.Method)",
+      "candidate": "RCM-07714",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "evidence": "10: invokevirtual #35                 // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07714/D1/attempt-1/workspace/target/maven-shared-utils-3.4.2.jar",
+      "name": "getMethod",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.apache.maven.shared.utils.introspection.ReflectionValueExtractor",
+      "caller_method": "private org.apache.maven.shared.utils.introspection.ReflectionValueExtractor()",
+      "candidate": "RCM-07714",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "54: invokevirtual #99                 // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07714/D1/attempt-1/workspace/target/maven-shared-utils-3.4.2.jar",
+      "name": "invoke",
+      "owner": "java/lang/reflect/Method"
+    },
+    {
+      "caller_class": "org.apache.maven.shared.utils.introspection.ReflectionValueExtractor",
+      "caller_method": "private org.apache.maven.shared.utils.introspection.ReflectionValueExtractor()",
+      "candidate": "RCM-07714",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "73: invokevirtual #99                 // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07714/D1/attempt-1/workspace/target/maven-shared-utils-3.4.2.jar",
+      "name": "invoke",
+      "owner": "java/lang/reflect/Method"
+    },
+    {
+      "caller_class": "org.apache.maven.shared.utils.introspection.ReflectionValueExtractor",
+      "caller_method": "private org.apache.maven.shared.utils.introspection.ReflectionValueExtractor()",
+      "candidate": "RCM-07714",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "105: invokevirtual #99                 // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07714/D1/attempt-1/workspace/target/maven-shared-utils-3.4.2.jar",
+      "name": "invoke",
+      "owner": "java/lang/reflect/Method"
+    },
+    {
+      "caller_class": "org.apache.maven.shared.utils.io.FileUtils",
+      "caller_method": "public static boolean deleteLegacyStyle(java.io.File)",
+      "candidate": "RCM-07714",
+      "category": "concurrency",
+      "descriptor": "(J)V",
+      "evidence": "64: invokestatic  #471                // Method java/lang/Thread.sleep:(J)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07714/D1/attempt-1/workspace/target/maven-shared-utils-3.4.2.jar",
+      "name": "sleep",
+      "owner": "java/lang/Thread"
+    },
+    {
+      "caller_class": "org.apache.maven.shared.utils.logging.MessageUtils",
+      "caller_method": "static void access$100()",
+      "candidate": "RCM-07714",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;)Ljava/lang/Class;",
+      "evidence": "14: invokestatic  #124                // Method java/lang/Class.forName:(Ljava/lang/String;)Ljava/lang/Class;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07714/D1/attempt-1/workspace/target/maven-shared-utils-3.4.2.jar",
+      "name": "forName",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.apache.maven.shared.utils.xml.Xpp3DomBuilder",
+      "caller_method": "private static org.xml.sax.XMLReader instantiate(java.lang.String)",
+      "candidate": "RCM-07714",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;)Ljava/lang/Class;",
+      "evidence": "7: invokevirtual #117                // Method java/lang/ClassLoader.loadClass:(Ljava/lang/String;)Ljava/lang/Class;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07714/D1/attempt-1/workspace/target/maven-shared-utils-3.4.2.jar",
+      "name": "loadClass",
+      "owner": "java/lang/ClassLoader"
+    },
+    {
+      "caller_class": "org.apache.maven.shared.utils.xml.Xpp3DomBuilder",
+      "caller_method": "private static org.xml.sax.XMLReader instantiate(java.lang.String)",
+      "candidate": "RCM-07714",
+      "category": "reflection",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "12: invokevirtual #123                // Method java/lang/Class.newInstance:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07714/D1/attempt-1/workspace/target/maven-shared-utils-3.4.2.jar",
+      "name": "newInstance",
+      "owner": "java/lang/Class"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-07714",
+    "classes_discovered": 78,
+    "classes_failed": 0,
+    "classes_scanned": 78,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T15:24:46Z",
+    "discovered_jars": 1,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 17.846,
+    "error": "",
+    "findings": 19,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07714/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T15:24:28Z",
+    "status": "COMPLETE",
+    "unique_jars": 1,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

@@ -1,0 +1,45 @@
+{
+  "findings": [
+    {
+      "caller_class": "org.apache.commons.fileupload2.core.DiskFileItem",
+      "caller_method": "private static java.lang.String getUniqueId()",
+      "candidate": "RCM-06505",
+      "category": "concurrency",
+      "descriptor": "()I",
+      "evidence": "6: invokevirtual #55                 // Method java/util/concurrent/atomic/AtomicInteger.getAndIncrement:()I",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06505/D1/attempt-1/workspace/commons-fileupload2-core/target/commons-fileupload2-core-2.0.0-M4.jar",
+      "name": "getAndIncrement",
+      "owner": "java/util/concurrent/atomic/AtomicInteger"
+    },
+    {
+      "caller_class": "org.apache.commons.fileupload2.core.DiskFileItem",
+      "caller_method": "public org.apache.commons.fileupload2.core.FileItemHeadersProvider setHeaders(org.apache.commons.fileupload2.core.FileItemHeaders)",
+      "candidate": "RCM-06505",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "26: invokespecial #378                // Method java/util/concurrent/atomic/AtomicInteger.\"<init>\":()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06505/D1/attempt-1/workspace/commons-fileupload2-core/target/commons-fileupload2-core-2.0.0-M4.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/atomic/AtomicInteger"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-06505",
+    "classes_discovered": 48,
+    "classes_failed": 0,
+    "classes_scanned": 48,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T14:48:34Z",
+    "discovered_jars": 5,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 10.803,
+    "error": "",
+    "findings": 2,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06505/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T14:48:23Z",
+    "status": "COMPLETE",
+    "unique_jars": 5,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

@@ -1,0 +1,1 @@
+int java.util.concurrent.LinkedBlockingQueue:drainTo(java.util.Collection,int){-<~;return *;}

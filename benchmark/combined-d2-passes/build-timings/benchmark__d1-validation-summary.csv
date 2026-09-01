@@ -1,0 +1,25 @@
+candidate_id,jdk_requested,status,exit_code,duration_seconds,failure_category,maven_version,java_version,java_home,module_path,log_path
+RCM-07217,8,PASS,0,17.098,,[1mApache Maven 3.6.3[m,"openjdk version ""1.8.0_492""",/usr/lib/jvm/java-8-openjdk-amd64,.,results/d1-validation-runs/RCM-07217/D1/attempt-1/maven.log
+RCM-07392,21,PASS,0,26.3,,[1mApache Maven 3.6.3[m,"openjdk version ""21.0.11"" 2026-04-21",/usr/lib/jvm/java-21-openjdk-amd64,.,results/d1-validation-runs/RCM-07392/D1/attempt-1/maven.log
+RCM-10228,17,PASS,0,516.293,,Apache Maven 3.8.6 (84538c9988a25aec085021c365c560670ad80f63),"openjdk version ""17.0.19"" 2026-04-21",/usr/lib/jvm/java-17-openjdk-amd64,.,results/d1-validation-runs/RCM-10228/D1/attempt-1/maven.log
+RCM-07075,8,PASS,0,37.614,,[1mApache Maven 3.6.3[m,"openjdk version ""1.8.0_492""",/usr/lib/jvm/java-8-openjdk-amd64,.,results/d1-validation-runs/RCM-07075/D1/attempt-1/maven.log
+RCM-07031,8,PASS,0,40.23,,[1mApache Maven 3.6.3[m,"openjdk version ""1.8.0_492""",/usr/lib/jvm/java-8-openjdk-amd64,.,results/d1-validation-runs/RCM-07031/D1/attempt-1/maven.log
+RCM-07502,8,PASS,0,22.388,,[1mApache Maven 3.6.3[m,"openjdk version ""1.8.0_492""",/usr/lib/jvm/java-8-openjdk-amd64,.,results/d1-validation-runs/RCM-07502/D1/attempt-1/maven.log
+RCM-10446,17,PASS,0,25.884,,[1mApache Maven 3.6.3[m,"openjdk version ""17.0.19"" 2026-04-21",/usr/lib/jvm/java-17-openjdk-amd64,.,results/d1-validation-runs/RCM-10446/D1/attempt-1/maven.log
+RCM-10565,8,PASS,0,5.81,,[1mApache Maven 3.6.3[m,"openjdk version ""1.8.0_492""",/usr/lib/jvm/java-8-openjdk-amd64,.,results/d1-validation-runs/RCM-10565/D1/attempt-1/maven.log
+RCM-10481,17,PASS,0,10.151,,[1mApache Maven 3.6.3[m,"openjdk version ""17.0.19"" 2026-04-21",/usr/lib/jvm/java-17-openjdk-amd64,.,results/d1-validation-runs/RCM-10481/D1/attempt-1/maven.log
+RCM-02733,21,PASS,0,32.839,,Apache Maven 3.9.15 (98b2cdbfdb5f1ac8781f537ea9acccaed7922349),"openjdk version ""21.0.11"" 2026-04-21",/usr/lib/jvm/java-21-openjdk-amd64,.,results/d1-validation-runs/RCM-02733/D1/attempt-1/maven.log
+RCM-08664,11,PASS,0,37.282,,[1mApache Maven 3.6.3[m,"openjdk version ""11.0.31"" 2026-04-21",/usr/lib/jvm/java-11-openjdk-amd64,.,results/d1-validation-runs/RCM-08664/D1/attempt-1/maven.log
+RCM-07203,17,PASS,0,19.739,,[1mApache Maven 3.6.3[m,"openjdk version ""17.0.19"" 2026-04-21",/usr/lib/jvm/java-17-openjdk-amd64,.,results/d1-validation-runs/RCM-07203/D1/attempt-1/maven.log
+RCM-10727,8,PASS,0,11.978,,[1mApache Maven 3.6.3[m,"openjdk version ""1.8.0_492""",/usr/lib/jvm/java-8-openjdk-amd64,.,results/d1-validation-runs/RCM-10727/D1/attempt-1/maven.log
+RCM-06669,11,PASS,0,41.089,,[1mApache Maven 3.6.3[m,"openjdk version ""11.0.31"" 2026-04-21",/usr/lib/jvm/java-11-openjdk-amd64,.,results/d1-validation-runs/RCM-06669/D1/attempt-1/maven.log
+RCM-09452,11,PASS,0,8.91,,[1mApache Maven 3.6.3[m,"openjdk version ""11.0.31"" 2026-04-21",/usr/lib/jvm/java-11-openjdk-amd64,.,results/d1-validation-runs/RCM-09452/D1/attempt-1/maven.log
+RCM-10471,17,PASS,0,8.289,,[1mApache Maven 3.6.3[m,"openjdk version ""17.0.19"" 2026-04-21",/usr/lib/jvm/java-17-openjdk-amd64,.,results/d1-validation-runs/RCM-10471/D1/attempt-1/maven.log
+RCM-07309,8,PASS,0,16.849,,[1mApache Maven 3.6.3[m,"openjdk version ""1.8.0_492""",/usr/lib/jvm/java-8-openjdk-amd64,.,results/d1-validation-runs/RCM-07309/D1/attempt-1/maven.log
+RCM-08097,11,PASS,0,17.686,,[1mApache Maven 3.6.3[m,"openjdk version ""11.0.31"" 2026-04-21",/usr/lib/jvm/java-11-openjdk-amd64,.,results/d1-validation-runs/RCM-08097/D1/attempt-1/maven.log
+RCM-07348,21,PASS,0,16.804,,[1mApache Maven 3.6.3[m,"openjdk version ""21.0.11"" 2026-04-21",/usr/lib/jvm/java-21-openjdk-amd64,.,results/d1-validation-runs/RCM-07348/D1/attempt-1/maven.log
+RCM-10804,8,PASS,0,30.223,,[1mApache Maven 3.6.3[m,"openjdk version ""1.8.0_492""",/usr/lib/jvm/java-8-openjdk-amd64,.,results/d1-validation-runs/RCM-10804/D1/attempt-1/maven.log
+RCM-01281,8,PASS,0,19.923,,[1mApache Maven 3.6.3[m,"openjdk version ""1.8.0_492""",/usr/lib/jvm/java-8-openjdk-amd64,.,results/d1-validation-runs/RCM-01281/D1/attempt-1/maven.log
+RCM-02653,21,PASS,0,11.936,,Apache Maven 3.9.10 (5f519b97e944483d878815739f519b2eade0a91d),"openjdk version ""21.0.11"" 2026-04-21",/usr/lib/jvm/java-21-openjdk-amd64,.,results/d1-validation-runs/RCM-02653/D1/attempt-1/maven.log
+RCM-09997,17,PASS,0,8.644,,[1mApache Maven 3.6.3[m,"openjdk version ""17.0.19"" 2026-04-21",/usr/lib/jvm/java-17-openjdk-amd64,.,results/d1-validation-runs/RCM-09997/D1/attempt-1/maven.log
+RCM-10415,17,PASS,0,6.918,,[1mApache Maven 3.6.3[m,"openjdk version ""17.0.19"" 2026-04-21",/usr/lib/jvm/java-17-openjdk-amd64,.,results/d1-validation-runs/RCM-10415/D1/attempt-1/maven.log

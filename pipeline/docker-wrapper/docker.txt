@@ -1,0 +1,126 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+docker_bin="/usr/bin/docker"
+
+if [[ "${1:-}" != "run" ]]; then
+    exec "$docker_bin" "$@"
+fi
+
+filtered=("run")
+
+host_mapping_present=false
+api_key_env_present=false
+nexus_username_env_present=false
+nexus_password_env_present=false
+
+expecting_add_host_value=false
+expecting_env_value=false
+
+for argument in "${@:2}"; do
+    if [[ "$expecting_add_host_value" == true ]]; then
+        if [[ "$argument" == "host.docker.internal:host-gateway" ]]; then
+            host_mapping_present=true
+        fi
+
+        filtered+=("$argument")
+        expecting_add_host_value=false
+        continue
+    fi
+
+    if [[ "$expecting_env_value" == true ]]; then
+        case "$argument" in
+            SYMMARIES_API_KEY|SYMMARIES_API_KEY=*)
+                api_key_env_present=true
+                ;;
+            SYMPROTO_NEXUS_USERNAME|SYMPROTO_NEXUS_USERNAME=*)
+                nexus_username_env_present=true
+                ;;
+            SYMPROTO_NEXUS_PASSWORD|SYMPROTO_NEXUS_PASSWORD=*)
+                nexus_password_env_present=true
+                ;;
+        esac
+
+        filtered+=("$argument")
+        expecting_env_value=false
+        continue
+    fi
+
+    case "$argument" in
+        -it|-ti|-i|-t|--interactive|--tty)
+            ;;
+
+        --add-host)
+            filtered+=("$argument")
+            expecting_add_host_value=true
+            ;;
+
+        --add-host=host.docker.internal:host-gateway)
+            host_mapping_present=true
+            filtered+=("$argument")
+            ;;
+
+        --env|-e)
+            filtered+=("$argument")
+            expecting_env_value=true
+            ;;
+
+        --env=SYMMARIES_API_KEY|--env=SYMMARIES_API_KEY=*)
+            api_key_env_present=true
+            filtered+=("$argument")
+            ;;
+
+        --env=SYMPROTO_NEXUS_USERNAME|--env=SYMPROTO_NEXUS_USERNAME=*)
+            nexus_username_env_present=true
+            filtered+=("$argument")
+            ;;
+
+        --env=SYMPROTO_NEXUS_PASSWORD|--env=SYMPROTO_NEXUS_PASSWORD=*)
+            nexus_password_env_present=true
+            filtered+=("$argument")
+            ;;
+
+        *)
+            filtered+=("$argument")
+            ;;
+    esac
+done
+
+injected=("run")
+
+if [[ "$host_mapping_present" == false ]]; then
+    injected+=(
+        "--add-host"
+        "host.docker.internal:host-gateway"
+    )
+fi
+
+if [[ "$api_key_env_present" == false && -n "${SYMMARIES_API_KEY:-}" ]]; then
+    injected+=(
+        "--env"
+        "SYMMARIES_API_KEY"
+    )
+fi
+
+if [[ "$nexus_username_env_present" == false && -n "${SYMPROTO_NEXUS_USERNAME:-}" ]]; then
+    injected+=(
+        "--env"
+        "SYMPROTO_NEXUS_USERNAME"
+    )
+fi
+
+if [[ "$nexus_password_env_present" == false && -n "${SYMPROTO_NEXUS_PASSWORD:-}" ]]; then
+    injected+=(
+        "--env"
+        "SYMPROTO_NEXUS_PASSWORD"
+    )
+fi
+
+injected+=("${filtered[@]:1}")
+
+exec sudo -n \
+    --preserve-env=SYMMARIES_API_KEY \
+    --preserve-env=SYMPROTO_NEXUS_USERNAME \
+    --preserve-env=SYMPROTO_NEXUS_PASSWORD \
+    "$docker_bin" \
+    "${injected[@]}"

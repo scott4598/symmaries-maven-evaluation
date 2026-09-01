@@ -1,0 +1,133 @@
+{
+  "findings": [
+    {
+      "caller_class": "org.apache.sling.feature.maven.ProjectHelper",
+      "caller_method": "public static org.apache.maven.artifact.Artifact getOrResolveArtifact(org.apache.maven.project.MavenProject, org.apache.maven.execution.MavenSession, org.apache.maven.artifact.handler.manager.ArtifactHandlerManager, org.apache.maven.artifact.resolver.ArtifactResolver, org.apache.sling.feature.ArtifactId)",
+      "candidate": "RCM-08673",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "21: invokespecial #122                // Method java/util/concurrent/ConcurrentHashMap.\"<init>\":()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08673/D1/attempt-1/workspace/target/slingfeature-maven-plugin-1.6.6.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/ConcurrentHashMap"
+    },
+    {
+      "caller_class": "org.apache.sling.feature.maven.mojos.AttachFeaturesMojo",
+      "caller_method": "public org.apache.sling.feature.maven.mojos.AttachFeaturesMojo()",
+      "candidate": "RCM-08673",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "4: invokespecial #102                // Method java/util/concurrent/ConcurrentHashMap.\"<init>\":()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08673/D1/attempt-1/workspace/target/slingfeature-maven-plugin-1.6.6.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/ConcurrentHashMap"
+    },
+    {
+      "caller_class": "org.apache.sling.feature.maven.mojos.FeatureLauncherMojo",
+      "caller_method": "public org.apache.sling.feature.maven.mojos.FeatureLauncherMojo()",
+      "candidate": "RCM-08673",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;)Ljava/lang/Class;",
+      "evidence": "8: invokevirtual #101                // Method java/lang/ClassLoader.loadClass:(Ljava/lang/String;)Ljava/lang/Class;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08673/D1/attempt-1/workspace/target/slingfeature-maven-plugin-1.6.6.jar",
+      "name": "loadClass",
+      "owner": "java/lang/ClassLoader"
+    },
+    {
+      "caller_class": "org.apache.sling.feature.maven.mojos.FeatureLauncherMojo",
+      "caller_method": "public org.apache.sling.feature.maven.mojos.FeatureLauncherMojo()",
+      "candidate": "RCM-08673",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "evidence": "24: invokevirtual #104                // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08673/D1/attempt-1/workspace/target/slingfeature-maven-plugin-1.6.6.jar",
+      "name": "getMethod",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.apache.sling.feature.maven.mojos.FeatureLauncherMojo",
+      "caller_method": "public org.apache.sling.feature.maven.mojos.FeatureLauncherMojo()",
+      "candidate": "RCM-08673",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "38: invokevirtual #106                // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08673/D1/attempt-1/workspace/target/slingfeature-maven-plugin-1.6.6.jar",
+      "name": "invoke",
+      "owner": "java/lang/reflect/Method"
+    },
+    {
+      "caller_class": "org.apache.sling.feature.maven.mojos.UpdateVersionsMojo",
+      "caller_method": "private org.apache.sling.feature.maven.mojos.UpdateVersionsMojo$ArtifactHolder createArtifactHolder(org.apache.sling.feature.Artifact, org.apache.sling.feature.maven.mojos.UpdateVersionsMojo$Scope, java.lang.String)",
+      "candidate": "RCM-08673",
+      "category": "concurrency",
+      "descriptor": "(I)Ljava/util/concurrent/ExecutorService;",
+      "evidence": "60: invokestatic  #193                // Method java/util/concurrent/Executors.newFixedThreadPool:(I)Ljava/util/concurrent/ExecutorService;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08673/D1/attempt-1/workspace/target/slingfeature-maven-plugin-1.6.6.jar",
+      "name": "newFixedThreadPool",
+      "owner": "java/util/concurrent/Executors"
+    },
+    {
+      "caller_class": "org.apache.sling.feature.maven.mojos.UpdateVersionsMojo",
+      "caller_method": "private org.apache.sling.feature.maven.mojos.UpdateVersionsMojo$ArtifactHolder createArtifactHolder(org.apache.sling.feature.Artifact, org.apache.sling.feature.maven.mojos.UpdateVersionsMojo$Scope, java.lang.String)",
+      "candidate": "RCM-08673",
+      "category": "concurrency",
+      "descriptor": "(Ljava/util/Collection;)Ljava/util/List;",
+      "evidence": "66: invokeinterface #194,  2          // InterfaceMethod java/util/concurrent/ExecutorService.invokeAll:(Ljava/util/Collection;)Ljava/util/List;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08673/D1/attempt-1/workspace/target/slingfeature-maven-plugin-1.6.6.jar",
+      "name": "invokeAll",
+      "owner": "java/util/concurrent/ExecutorService"
+    },
+    {
+      "caller_class": "org.apache.sling.feature.maven.mojos.UpdateVersionsMojo",
+      "caller_method": "private org.apache.sling.feature.maven.mojos.UpdateVersionsMojo$ArtifactHolder createArtifactHolder(org.apache.sling.feature.Artifact, org.apache.sling.feature.maven.mojos.UpdateVersionsMojo$Scope, java.lang.String)",
+      "candidate": "RCM-08673",
+      "category": "concurrency",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "106: invokeinterface #196,  1          // InterfaceMethod java/util/concurrent/Future.get:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08673/D1/attempt-1/workspace/target/slingfeature-maven-plugin-1.6.6.jar",
+      "name": "get",
+      "owner": "java/util/concurrent/Future"
+    },
+    {
+      "caller_class": "org.apache.sling.feature.maven.mojos.UpdateVersionsMojo",
+      "caller_method": "private org.apache.sling.feature.maven.mojos.UpdateVersionsMojo$ArtifactHolder createArtifactHolder(org.apache.sling.feature.Artifact, org.apache.sling.feature.maven.mojos.UpdateVersionsMojo$Scope, java.lang.String)",
+      "candidate": "RCM-08673",
+      "category": "concurrency",
+      "descriptor": "()Ljava/util/List;",
+      "evidence": "116: invokeinterface #197,  1          // InterfaceMethod java/util/concurrent/ExecutorService.shutdownNow:()Ljava/util/List;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08673/D1/attempt-1/workspace/target/slingfeature-maven-plugin-1.6.6.jar",
+      "name": "shutdownNow",
+      "owner": "java/util/concurrent/ExecutorService"
+    },
+    {
+      "caller_class": "org.apache.sling.feature.maven.mojos.UpdateVersionsMojo",
+      "caller_method": "private org.apache.sling.feature.maven.mojos.UpdateVersionsMojo$ArtifactHolder createArtifactHolder(org.apache.sling.feature.Artifact, org.apache.sling.feature.maven.mojos.UpdateVersionsMojo$Scope, java.lang.String)",
+      "candidate": "RCM-08673",
+      "category": "concurrency",
+      "descriptor": "()Ljava/util/List;",
+      "evidence": "172: invokeinterface #197,  1          // InterfaceMethod java/util/concurrent/ExecutorService.shutdownNow:()Ljava/util/List;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08673/D1/attempt-1/workspace/target/slingfeature-maven-plugin-1.6.6.jar",
+      "name": "shutdownNow",
+      "owner": "java/util/concurrent/ExecutorService"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-08673",
+    "classes_discovered": 78,
+    "classes_failed": 0,
+    "classes_scanned": 78,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T15:27:11Z",
+    "discovered_jars": 1,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 18.658,
+    "error": "",
+    "findings": 10,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08673/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T15:26:52Z",
+    "status": "COMPLETE",
+    "unique_jars": 1,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

@@ -1,0 +1,6 @@
+attempt=1
+total=118
+status_FAIL_BUILD=60
+status_FAIL_TIMEOUT=1
+status_NO_RESULT=3
+status_PASS=54

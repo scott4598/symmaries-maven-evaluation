@@ -1,0 +1,210 @@
+{
+  "findings": [
+    {
+      "caller_class": "eu.maveniverse.maven.toolrunner.shared.Config$Builder",
+      "caller_method": "public eu.maveniverse.maven.toolrunner.shared.Config$Builder timeout(long, java.util.concurrent.TimeUnit)",
+      "candidate": "RCM-03010",
+      "category": "concurrency",
+      "descriptor": "(J)J",
+      "evidence": "3: invokevirtual #36                 // Method java/util/concurrent/TimeUnit.toMillis:(J)J",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03010/D1/attempt-1/workspace/shared/target/shared-0.2.0.jar",
+      "name": "toMillis",
+      "owner": "java/util/concurrent/TimeUnit"
+    },
+    {
+      "caller_class": "eu.maveniverse.maven.toolrunner.shared.internal.DefaultToolManager",
+      "caller_method": "<unknown>",
+      "candidate": "RCM-03010",
+      "category": "concurrency",
+      "descriptor": "(J)J",
+      "evidence": "232: invokevirtual #162                // Method java/util/concurrent/TimeUnit.toMillis:(J)J",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03010/D1/attempt-1/workspace/shared/target/shared-0.2.0.jar",
+      "name": "toMillis",
+      "owner": "java/util/concurrent/TimeUnit"
+    },
+    {
+      "caller_class": "eu.maveniverse.maven.toolrunner.shared.internal.DefaultToolManager",
+      "caller_method": "<unknown>",
+      "candidate": "RCM-03010",
+      "category": "concurrency",
+      "descriptor": "(Z)V",
+      "evidence": "256: invokespecial #181                // Method java/util/concurrent/atomic/AtomicBoolean.\"<init>\":(Z)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03010/D1/attempt-1/workspace/shared/target/shared-0.2.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/atomic/AtomicBoolean"
+    },
+    {
+      "caller_class": "eu.maveniverse.maven.toolrunner.shared.internal.DefaultToolManager",
+      "caller_method": "public void registerProvider(eu.maveniverse.maven.toolrunner.shared.spi.ToolProvider)",
+      "candidate": "RCM-03010",
+      "category": "concurrency",
+      "descriptor": "(ZZ)Z",
+      "evidence": "6: invokevirtual #290                // Method java/util/concurrent/atomic/AtomicBoolean.compareAndSet:(ZZ)Z",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03010/D1/attempt-1/workspace/shared/target/shared-0.2.0.jar",
+      "name": "compareAndSet",
+      "owner": "java/util/concurrent/atomic/AtomicBoolean"
+    },
+    {
+      "caller_class": "eu.maveniverse.maven.toolrunner.shared.support.ProcessBuilderExecutor",
+      "caller_method": "private eu.maveniverse.maven.toolrunner.shared.support.ProcessBuilderExecutor()",
+      "candidate": "RCM-03010",
+      "category": "concurrency",
+      "descriptor": "(JLjava/util/concurrent/TimeUnit;)Z",
+      "evidence": "199: invokevirtual #147                // Method java/util/concurrent/CountDownLatch.await:(JLjava/util/concurrent/TimeUnit;)Z",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03010/D1/attempt-1/workspace/shared/target/shared-0.2.0.jar",
+      "name": "await",
+      "owner": "java/util/concurrent/CountDownLatch"
+    },
+    {
+      "caller_class": "eu.maveniverse.maven.toolrunner.shared.support.ProcessBuilderExecutor",
+      "caller_method": "private static java.util.concurrent.CountDownLatch pump(java.lang.Process, eu.maveniverse.maven.toolrunner.shared.ToolExecution)",
+      "candidate": "RCM-03010",
+      "category": "concurrency",
+      "descriptor": "(I)V",
+      "evidence": "5: invokespecial #204                // Method java/util/concurrent/CountDownLatch.\"<init>\":(I)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03010/D1/attempt-1/workspace/shared/target/shared-0.2.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/CountDownLatch"
+    },
+    {
+      "caller_class": "eu.maveniverse.maven.toolrunner.shared.support.ProcessBuilderExecutor",
+      "caller_method": "private static java.util.concurrent.CountDownLatch pump(java.lang.Process, eu.maveniverse.maven.toolrunner.shared.ToolExecution)",
+      "candidate": "RCM-03010",
+      "category": "concurrency",
+      "descriptor": "()Ljava/util/concurrent/ThreadLocalRandom;",
+      "evidence": "21: invokestatic  #207                // Method java/util/concurrent/ThreadLocalRandom.current:()Ljava/util/concurrent/ThreadLocalRandom;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03010/D1/attempt-1/workspace/shared/target/shared-0.2.0.jar",
+      "name": "current",
+      "owner": "java/util/concurrent/ThreadLocalRandom"
+    },
+    {
+      "caller_class": "eu.maveniverse.maven.toolrunner.shared.support.ProcessBuilderExecutor",
+      "caller_method": "private static java.util.concurrent.CountDownLatch pump(java.lang.Process, eu.maveniverse.maven.toolrunner.shared.ToolExecution)",
+      "candidate": "RCM-03010",
+      "category": "concurrency",
+      "descriptor": "()I",
+      "evidence": "24: invokevirtual #213                // Method java/util/concurrent/ThreadLocalRandom.nextInt:()I",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03010/D1/attempt-1/workspace/shared/target/shared-0.2.0.jar",
+      "name": "nextInt",
+      "owner": "java/util/concurrent/ThreadLocalRandom"
+    },
+    {
+      "caller_class": "eu.maveniverse.maven.toolrunner.shared.support.ProcessBuilderExecutor",
+      "caller_method": "private static java.util.concurrent.CountDownLatch pump(java.lang.Process, eu.maveniverse.maven.toolrunner.shared.ToolExecution)",
+      "candidate": "RCM-03010",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "83: invokevirtual #237                // Method java/lang/Thread.start:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03010/D1/attempt-1/workspace/shared/target/shared-0.2.0.jar",
+      "name": "start",
+      "owner": "java/lang/Thread"
+    },
+    {
+      "caller_class": "eu.maveniverse.maven.toolrunner.shared.support.ProcessBuilderExecutor",
+      "caller_method": "private static java.util.concurrent.CountDownLatch pump(java.lang.Process, eu.maveniverse.maven.toolrunner.shared.ToolExecution)",
+      "candidate": "RCM-03010",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "135: invokevirtual #237                // Method java/lang/Thread.start:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03010/D1/attempt-1/workspace/shared/target/shared-0.2.0.jar",
+      "name": "start",
+      "owner": "java/lang/Thread"
+    },
+    {
+      "caller_class": "eu.maveniverse.maven.toolrunner.shared.support.ProcessBuilderExecutor",
+      "caller_method": "private static java.util.concurrent.CountDownLatch pump(java.lang.Process, eu.maveniverse.maven.toolrunner.shared.ToolExecution)",
+      "candidate": "RCM-03010",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "187: invokevirtual #237                // Method java/lang/Thread.start:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03010/D1/attempt-1/workspace/shared/target/shared-0.2.0.jar",
+      "name": "start",
+      "owner": "java/lang/Thread"
+    },
+    {
+      "caller_class": "eu.maveniverse.maven.toolrunner.shared.support.ProcessBuilderExecutor",
+      "caller_method": "private static void lambda$pump$3(java.lang.Process, eu.maveniverse.maven.toolrunner.shared.ToolExecution, java.util.concurrent.CountDownLatch)",
+      "candidate": "RCM-03010",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "66: invokevirtual #283                // Method java/util/concurrent/CountDownLatch.countDown:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03010/D1/attempt-1/workspace/shared/target/shared-0.2.0.jar",
+      "name": "countDown",
+      "owner": "java/util/concurrent/CountDownLatch"
+    },
+    {
+      "caller_class": "eu.maveniverse.maven.toolrunner.shared.support.ProcessBuilderExecutor",
+      "caller_method": "private static void lambda$pump$3(java.lang.Process, eu.maveniverse.maven.toolrunner.shared.ToolExecution, java.util.concurrent.CountDownLatch)",
+      "candidate": "RCM-03010",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "85: invokevirtual #283                // Method java/util/concurrent/CountDownLatch.countDown:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03010/D1/attempt-1/workspace/shared/target/shared-0.2.0.jar",
+      "name": "countDown",
+      "owner": "java/util/concurrent/CountDownLatch"
+    },
+    {
+      "caller_class": "eu.maveniverse.maven.toolrunner.shared.support.ProcessBuilderExecutor",
+      "caller_method": "private static void lambda$pump$2(eu.maveniverse.maven.toolrunner.shared.ToolExecution, java.lang.Process, java.util.concurrent.CountDownLatch)",
+      "candidate": "RCM-03010",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "66: invokevirtual #283                // Method java/util/concurrent/CountDownLatch.countDown:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03010/D1/attempt-1/workspace/shared/target/shared-0.2.0.jar",
+      "name": "countDown",
+      "owner": "java/util/concurrent/CountDownLatch"
+    },
+    {
+      "caller_class": "eu.maveniverse.maven.toolrunner.shared.support.ProcessBuilderExecutor",
+      "caller_method": "private static void lambda$pump$2(eu.maveniverse.maven.toolrunner.shared.ToolExecution, java.lang.Process, java.util.concurrent.CountDownLatch)",
+      "candidate": "RCM-03010",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "85: invokevirtual #283                // Method java/util/concurrent/CountDownLatch.countDown:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03010/D1/attempt-1/workspace/shared/target/shared-0.2.0.jar",
+      "name": "countDown",
+      "owner": "java/util/concurrent/CountDownLatch"
+    },
+    {
+      "caller_class": "eu.maveniverse.maven.toolrunner.shared.support.ProcessBuilderExecutor",
+      "caller_method": "private static void lambda$pump$1(eu.maveniverse.maven.toolrunner.shared.ToolExecution, java.lang.Process, java.util.concurrent.CountDownLatch)",
+      "candidate": "RCM-03010",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "66: invokevirtual #283                // Method java/util/concurrent/CountDownLatch.countDown:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03010/D1/attempt-1/workspace/shared/target/shared-0.2.0.jar",
+      "name": "countDown",
+      "owner": "java/util/concurrent/CountDownLatch"
+    },
+    {
+      "caller_class": "eu.maveniverse.maven.toolrunner.shared.support.ProcessBuilderExecutor",
+      "caller_method": "private static void lambda$pump$1(eu.maveniverse.maven.toolrunner.shared.ToolExecution, java.lang.Process, java.util.concurrent.CountDownLatch)",
+      "candidate": "RCM-03010",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "85: invokevirtual #283                // Method java/util/concurrent/CountDownLatch.countDown:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03010/D1/attempt-1/workspace/shared/target/shared-0.2.0.jar",
+      "name": "countDown",
+      "owner": "java/util/concurrent/CountDownLatch"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-03010",
+    "classes_discovered": 42,
+    "classes_failed": 0,
+    "classes_scanned": 42,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T14:19:30Z",
+    "discovered_jars": 9,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 9.336,
+    "error": "",
+    "findings": 17,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03010/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T14:19:20Z",
+    "status": "COMPLETE",
+    "unique_jars": 9,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

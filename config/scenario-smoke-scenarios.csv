@@ -1,5 +1,5 @@
-scenario_id,nexus_routing,symmaries_enabled,ingestion_path,force_scan,submit_only,fail_on_error,cache_state,workspace_state,mutation_count,mutation_percentage
-B0,true,false,none,false,false,true,warm,clean,0,
-C0,true,true,api,false,false,true,warm,clean,0,
-W0,true,true,api,false,false,true,warm,clean,0,
-I1,true,true,api,false,false,true,warm,clean,1,
+scenario_id,nexus_routing,symmaries_enabled,ingestion_path,force_scan,submit_only,fail_on_error,cache_state,workspace_state,mutation_count,mutation_percentage,predecessor_scenario,expected_reuse_mode
+B0,true,false,none,false,false,true,warm,clean,0,,,none
+C0,true,true,api,true,false,true,warm,clean,0,,,full-analysis
+W0,true,true,api,false,false,true,warm,clean,0,,C0,previous-analysis
+I1,true,true,api,false,false,true,warm,clean,1,,C0,previous-analysis

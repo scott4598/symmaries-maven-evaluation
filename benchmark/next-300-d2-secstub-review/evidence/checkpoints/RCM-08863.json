@@ -1,0 +1,166 @@
+{
+  "findings": [
+    {
+      "caller_class": "org.apache.ws.commons.schema.SchemaBuilder",
+      "caller_method": "public static void clearCache()",
+      "candidate": "RCM-08863",
+      "category": "concurrency",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "3: invokevirtual #10                 // Method java/lang/ThreadLocal.get:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08863/D1/attempt-1/workspace/xmlschema-core/target/xmlschema-core-2.3.2.jar",
+      "name": "get",
+      "owner": "java/lang/ThreadLocal"
+    },
+    {
+      "caller_class": "org.apache.ws.commons.schema.SchemaBuilder",
+      "caller_method": "public static void initCache()",
+      "candidate": "RCM-08863",
+      "category": "concurrency",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "3: invokevirtual #10                 // Method java/lang/ThreadLocal.get:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08863/D1/attempt-1/workspace/xmlschema-core/target/xmlschema-core-2.3.2.jar",
+      "name": "get",
+      "owner": "java/lang/ThreadLocal"
+    },
+    {
+      "caller_class": "org.apache.ws.commons.schema.SchemaBuilder",
+      "caller_method": "private org.apache.ws.commons.schema.XmlSchema getCachedSchema(java.lang.String, java.lang.String, java.lang.String)",
+      "candidate": "RCM-08863",
+      "category": "concurrency",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "12: invokevirtual #10                 // Method java/lang/ThreadLocal.get:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08863/D1/attempt-1/workspace/xmlschema-core/target/xmlschema-core-2.3.2.jar",
+      "name": "get",
+      "owner": "java/lang/ThreadLocal"
+    },
+    {
+      "caller_class": "org.apache.ws.commons.schema.SchemaBuilder",
+      "caller_method": "private org.apache.ws.commons.schema.XmlSchemaIdentityConstraint handleConstraint(org.w3c.dom.Element, java.lang.Class<? extends org.apache.ws.commons.schema.XmlSchemaIdentityConstraint>)",
+      "candidate": "RCM-08863",
+      "category": "reflection",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "1: invokevirtual #353                // Method java/lang/Class.newInstance:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08863/D1/attempt-1/workspace/xmlschema-core/target/xmlschema-core-2.3.2.jar",
+      "name": "newInstance",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.apache.ws.commons.schema.SchemaBuilder",
+      "caller_method": "private void putCachedSchema(java.lang.String, java.lang.String, java.lang.String, org.apache.ws.commons.schema.XmlSchema)",
+      "candidate": "RCM-08863",
+      "category": "concurrency",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "9: invokevirtual #10                 // Method java/lang/ThreadLocal.get:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08863/D1/attempt-1/workspace/xmlschema-core/target/xmlschema-core-2.3.2.jar",
+      "name": "get",
+      "owner": "java/lang/ThreadLocal"
+    },
+    {
+      "caller_class": "org.apache.ws.commons.schema.XmlSchemaCollection",
+      "caller_method": "public void init()",
+      "candidate": "RCM-08863",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;)Ljava/lang/Class;",
+      "evidence": "744: invokestatic  #100                // Method java/lang/Class.forName:(Ljava/lang/String;)Ljava/lang/Class;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08863/D1/attempt-1/workspace/xmlschema-core/target/xmlschema-core-2.3.2.jar",
+      "name": "forName",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.apache.ws.commons.schema.XmlSchemaCollection",
+      "caller_method": "public void init()",
+      "candidate": "RCM-08863",
+      "category": "reflection",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "750: invokevirtual #101                // Method java/lang/Class.newInstance:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08863/D1/attempt-1/workspace/xmlschema-core/target/xmlschema-core-2.3.2.jar",
+      "name": "newInstance",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.apache.ws.commons.schema.XmlSchemaSerializer",
+      "caller_method": "org.w3c.dom.Element serializeDocumentation(org.w3c.dom.Document, org.apache.ws.commons.schema.XmlSchemaDocumentation, org.apache.ws.commons.schema.XmlSchema)",
+      "candidate": "RCM-08863",
+      "category": "concurrency",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "3: invokevirtual #328                // Method java/lang/ThreadLocal.get:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08863/D1/attempt-1/workspace/xmlschema-core/target/xmlschema-core-2.3.2.jar",
+      "name": "get",
+      "owner": "java/lang/ThreadLocal"
+    },
+    {
+      "caller_class": "org.apache.ws.commons.schema.utils.CollectionFactory",
+      "caller_method": "private static boolean isProtected()",
+      "candidate": "RCM-08863",
+      "category": "concurrency",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "3: invokevirtual #9                  // Method java/lang/ThreadLocal.get:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08863/D1/attempt-1/workspace/xmlschema-core/target/xmlschema-core-2.3.2.jar",
+      "name": "get",
+      "owner": "java/lang/ThreadLocal"
+    },
+    {
+      "caller_class": "org.apache.ws.commons.schema.utils.CollectionFactory",
+      "caller_method": "public static void withSchemaModifiable(java.lang.Runnable)",
+      "candidate": "RCM-08863",
+      "category": "concurrency",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "3: invokevirtual #9                  // Method java/lang/ThreadLocal.get:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08863/D1/attempt-1/workspace/xmlschema-core/target/xmlschema-core-2.3.2.jar",
+      "name": "get",
+      "owner": "java/lang/ThreadLocal"
+    },
+    {
+      "caller_class": "org.apache.ws.commons.schema.utils.NodeNamespaceContext",
+      "caller_method": "public java.util.Iterator<java.lang.String> getPrefixes(java.lang.String)",
+      "candidate": "RCM-08863",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;",
+      "evidence": "26: invokestatic  #54                 // Method java/lang/Class.forName:(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08863/D1/attempt-1/workspace/xmlschema-core/target/xmlschema-core-2.3.2.jar",
+      "name": "forName",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.apache.ws.commons.schema.utils.NodeNamespaceContext",
+      "caller_method": "public java.util.Iterator<java.lang.String> getPrefixes(java.lang.String)",
+      "candidate": "RCM-08863",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "evidence": "43: invokevirtual #57                 // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08863/D1/attempt-1/workspace/xmlschema-core/target/xmlschema-core-2.3.2.jar",
+      "name": "getMethod",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.apache.ws.commons.schema.utils.NodeNamespaceContext",
+      "caller_method": "public java.util.Iterator<java.lang.String> getPrefixes(java.lang.String)",
+      "candidate": "RCM-08863",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "evidence": "69: invokevirtual #57                 // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08863/D1/attempt-1/workspace/xmlschema-core/target/xmlschema-core-2.3.2.jar",
+      "name": "getMethod",
+      "owner": "java/lang/Class"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-08863",
+    "classes_discovered": 166,
+    "classes_failed": 0,
+    "classes_scanned": 166,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T15:27:49Z",
+    "discovered_jars": 5,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 37.912,
+    "error": "",
+    "findings": 13,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08863/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T15:27:11Z",
+    "status": "COMPLETE",
+    "unique_jars": 5,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

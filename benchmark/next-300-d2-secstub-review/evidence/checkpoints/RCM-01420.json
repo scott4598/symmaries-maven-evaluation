@@ -1,0 +1,155 @@
+{
+  "findings": [
+    {
+      "caller_class": "com.github.veithen.cosmos.osgi.runtime.AbstractBundle",
+      "caller_method": "public final java.io.File getDataFile(java.lang.String)",
+      "candidate": "RCM-01420",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;)Ljava/lang/Class;",
+      "evidence": "20: invokestatic  #11                 // Method java/lang/Class.forName:(Ljava/lang/String;)Ljava/lang/Class;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01420/D1/attempt-1/workspace/cosmos-osgi-runtime/target/cosmos-osgi-runtime-0.5.0.jar",
+      "name": "forName",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "com.github.veithen.cosmos.osgi.runtime.BundleImpl",
+      "caller_method": "public java.util.Dictionary<java.lang.String, java.lang.String> getHeaders(java.lang.String)",
+      "candidate": "RCM-01420",
+      "category": "concurrency",
+      "descriptor": "()I",
+      "evidence": "85: invokevirtual #116                // Method java/util/concurrent/atomic/AtomicInteger.getAndIncrement:()I",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01420/D1/attempt-1/workspace/cosmos-osgi-runtime/target/cosmos-osgi-runtime-0.5.0.jar",
+      "name": "getAndIncrement",
+      "owner": "java/util/concurrent/atomic/AtomicInteger"
+    },
+    {
+      "caller_class": "com.github.veithen.cosmos.osgi.runtime.BundleImpl",
+      "caller_method": "public java.util.Dictionary<java.lang.String, java.lang.String> getHeaders(java.lang.String)",
+      "candidate": "RCM-01420",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;)Ljava/lang/Class;",
+      "evidence": "145: invokestatic  #121                // Method java/lang/Class.forName:(Ljava/lang/String;)Ljava/lang/Class;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01420/D1/attempt-1/workspace/cosmos-osgi-runtime/target/cosmos-osgi-runtime-0.5.0.jar",
+      "name": "forName",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "com.github.veithen.cosmos.osgi.runtime.BundleImpl",
+      "caller_method": "public java.util.Dictionary<java.lang.String, java.lang.String> getHeaders(java.lang.String)",
+      "candidate": "RCM-01420",
+      "category": "reflection",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "148: invokevirtual #122                // Method java/lang/Class.newInstance:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01420/D1/attempt-1/workspace/cosmos-osgi-runtime/target/cosmos-osgi-runtime-0.5.0.jar",
+      "name": "newInstance",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "com.github.veithen.cosmos.osgi.runtime.BundleImpl",
+      "caller_method": "static org.slf4j.Logger access$200()",
+      "candidate": "RCM-01420",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "32: invokespecial #181                // Method java/util/concurrent/atomic/AtomicInteger.\"<init>\":()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01420/D1/attempt-1/workspace/cosmos-osgi-runtime/target/cosmos-osgi-runtime-0.5.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/atomic/AtomicInteger"
+    },
+    {
+      "caller_class": "com.github.veithen.cosmos.osgi.testing.CosmosRunner",
+      "caller_method": "<unknown>",
+      "candidate": "RCM-01420",
+      "category": "reflection",
+      "descriptor": "()[Ljava/lang/reflect/Field;",
+      "evidence": "13: invokevirtual #4                  // Method java/lang/Class.getDeclaredFields:()[Ljava/lang/reflect/Field;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01420/D1/attempt-1/workspace/cosmos-testing/target/cosmos-testing-0.5.0.jar",
+      "name": "getDeclaredFields",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "com.github.veithen.cosmos.osgi.testing.CosmosRunner",
+      "caller_method": "<unknown>",
+      "candidate": "RCM-01420",
+      "category": "reflection",
+      "descriptor": "(Z)V",
+      "evidence": "65: invokevirtual #8                  // Method java/lang/reflect/Field.setAccessible:(Z)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01420/D1/attempt-1/workspace/cosmos-testing/target/cosmos-testing-0.5.0.jar",
+      "name": "setAccessible",
+      "owner": "java/lang/reflect/Field"
+    },
+    {
+      "caller_class": "org.osgi.framework.AdminPermission",
+      "caller_method": "private java.util.Map<java.lang.String, java.lang.Object> getProperties()",
+      "candidate": "RCM-01420",
+      "category": "concurrency",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "14: invokevirtual #67                 // Method java/lang/ThreadLocal.get:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01420/D1/attempt-1/workspace/osgi-tests/eclipse-p2-test/target/dependency/org.osgi.framework-1.10.0.jar",
+      "name": "get",
+      "owner": "java/lang/ThreadLocal"
+    },
+    {
+      "caller_class": "org.osgi.framework.FilterImpl$Equal",
+      "caller_method": "java.lang.Object valueOf(java.lang.Class<?>)",
+      "candidate": "RCM-01420",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "evidence": "12: invokevirtual #45                 // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01420/D1/attempt-1/workspace/osgi-tests/eclipse-p2-test/target/dependency/org.osgi.framework-1.10.0.jar",
+      "name": "getMethod",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.osgi.framework.FilterImpl$Equal",
+      "caller_method": "java.lang.Object valueOf(java.lang.Class<?>)",
+      "candidate": "RCM-01420",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "64: invokevirtual #53                 // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01420/D1/attempt-1/workspace/osgi-tests/eclipse-p2-test/target/dependency/org.osgi.framework-1.10.0.jar",
+      "name": "invoke",
+      "owner": "java/lang/reflect/Method"
+    },
+    {
+      "caller_class": "org.osgi.framework.FilterImpl$Equal",
+      "caller_method": "java.lang.Object valueOf(java.lang.Class<?>)",
+      "candidate": "RCM-01420",
+      "category": "reflection",
+      "descriptor": "([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;",
+      "evidence": "84: invokevirtual #56                 // Method java/lang/Class.getConstructor:([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01420/D1/attempt-1/workspace/osgi-tests/eclipse-p2-test/target/dependency/org.osgi.framework-1.10.0.jar",
+      "name": "getConstructor",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.osgi.framework.FilterImpl$Equal",
+      "caller_method": "java.lang.Object valueOf(java.lang.Class<?>)",
+      "candidate": "RCM-01420",
+      "category": "reflection",
+      "descriptor": "([Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "114: invokevirtual #57                 // Method java/lang/reflect/Constructor.newInstance:([Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01420/D1/attempt-1/workspace/osgi-tests/eclipse-p2-test/target/dependency/org.osgi.framework-1.10.0.jar",
+      "name": "newInstance",
+      "owner": "java/lang/reflect/Constructor"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-01420",
+    "classes_discovered": 202,
+    "classes_failed": 0,
+    "classes_scanned": 202,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T14:07:48Z",
+    "discovered_jars": 16,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 43.869,
+    "error": "",
+    "findings": 12,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01420/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T14:07:04Z",
+    "status": "COMPLETE",
+    "unique_jars": 16,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

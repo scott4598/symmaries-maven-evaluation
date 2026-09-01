@@ -1,0 +1,67 @@
+{
+  "findings": [
+    {
+      "caller_class": "io.avaje.prism.internal.APContext",
+      "caller_method": "private static boolean initPreviewEnabled(javax.annotation.processing.ProcessingEnvironment)",
+      "candidate": "RCM-03779",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "evidence": "8: invokevirtual #52                 // Method java/lang/Class.getDeclaredMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03779/D1/attempt-1/workspace/prism-core/target/avaje-prism-core-1.36.jar",
+      "name": "getDeclaredMethod",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "io.avaje.prism.internal.APContext",
+      "caller_method": "private static boolean initPreviewEnabled(javax.annotation.processing.ProcessingEnvironment)",
+      "candidate": "RCM-03779",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "16: invokevirtual #56                 // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03779/D1/attempt-1/workspace/prism-core/target/avaje-prism-core-1.36.jar",
+      "name": "invoke",
+      "owner": "java/lang/reflect/Method"
+    },
+    {
+      "caller_class": "io.avaje.prism.internal.APContext",
+      "caller_method": "private static io.avaje.prism.internal.APContext$Ctx getCtx()",
+      "candidate": "RCM-03779",
+      "category": "concurrency",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "3: invokevirtual #73                 // Method java/lang/ThreadLocal.get:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03779/D1/attempt-1/workspace/prism-core/target/avaje-prism-core-1.36.jar",
+      "name": "get",
+      "owner": "java/lang/ThreadLocal"
+    },
+    {
+      "caller_class": "io.avaje.prism.internal.APContext",
+      "caller_method": "private static io.avaje.prism.internal.APContext$Ctx getCtx()",
+      "candidate": "RCM-03779",
+      "category": "concurrency",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "27: invokevirtual #73                 // Method java/lang/ThreadLocal.get:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03779/D1/attempt-1/workspace/prism-core/target/avaje-prism-core-1.36.jar",
+      "name": "get",
+      "owner": "java/lang/ThreadLocal"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-03779",
+    "classes_discovered": 29,
+    "classes_failed": 0,
+    "classes_scanned": 29,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T14:20:20Z",
+    "discovered_jars": 2,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 6.638,
+    "error": "",
+    "findings": 4,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03779/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T14:20:14Z",
+    "status": "COMPLETE",
+    "unique_jars": 2,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

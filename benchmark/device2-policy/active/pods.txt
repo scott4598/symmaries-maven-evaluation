@@ -1,0 +1,6 @@
+NAME                                 READY   STATUS    RESTARTS       AGE     IP           NODE                    NOMINATED NODE   READINESS GATES
+symproto-api-64d6464496-kvjxr        1/1     Running   12 (26h ago)   16d     10.42.0.58   k3d-symproto-agent-0    <none>           <none>
+symproto-nexus-7f4c4c7f75-47ktm      1/1     Running   0              8d      10.42.1.22   k3d-symproto-server-0   <none>           <none>
+symproto-postgres-5df545bc4d-rcrr2   1/1     Running   4 (26h ago)    16d     10.42.0.57   k3d-symproto-agent-0    <none>           <none>
+symproto-worker-847578997-5mlwn      1/1     Running   0              4m31s   10.42.0.64   k3d-symproto-agent-0    <none>           <none>
+symproto-worker-847578997-sbjfh      1/1     Running   0              4m33s   10.42.1.27   k3d-symproto-server-0   <none>           <none>

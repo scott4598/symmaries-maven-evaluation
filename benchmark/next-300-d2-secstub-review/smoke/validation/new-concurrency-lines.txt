@@ -1,0 +1,11 @@
+boolean java.util.concurrent.ConcurrentMap:containsKey(java.lang.Object){-<~;return *;}
+int java.util.concurrent.LinkedBlockingQueue:drainTo(java.util.Collection,int){-<~;return *;}
+int java.util.concurrent.LinkedBlockingQueue:size(){-<~;return *;}
+java.lang.Object java.util.concurrent.ConcurrentMap:get(java.lang.Object){-<~;return *;}
+java.lang.Object java.util.concurrent.ConcurrentMap:putIfAbsent(java.lang.Object,java.lang.Object){-<~;return *;}
+java.lang.Object java.util.concurrent.ConcurrentMap:remove(java.lang.Object){-<~;return *;}
+java.util.concurrent.ConcurrentHashMap$KeySetView java.util.concurrent.ConcurrentHashMap:newKeySet(){-<~;return *;}
+java.util.concurrent.ConcurrentHashMap(){-<~;.*<~@;}
+java.util.concurrent.CopyOnWriteArrayList(){-<~;.*<~@;}
+java.util.concurrent.LinkedBlockingQueue(){-<~;.*<~@;}
+void java.util.concurrent.LinkedBlockingQueue:clear(){-<~;}

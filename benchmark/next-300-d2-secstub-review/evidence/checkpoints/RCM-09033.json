@@ -1,0 +1,155 @@
+{
+  "findings": [
+    {
+      "caller_class": "org.codehaus.mojo.versions.DisplayPluginUpdatesMojo",
+      "caller_method": "public org.codehaus.mojo.versions.DisplayPluginUpdatesMojo(org.apache.maven.repository.RepositorySystem, org.apache.maven.project.MavenProjectBuilder, org.apache.maven.artifact.metadata.ArtifactMetadataSource, org.apache.maven.artifact.manager.WagonManager, org.apache.maven.artifact.resolver.ArtifactResolver, org.apache.maven.lifecycle.LifecycleExecutor, org.apache.maven.model.interpolation.ModelInterpolator, org.apache.maven.plugin.PluginManager, org.apache.maven.execution.RuntimeInformation)",
+      "candidate": "RCM-09033",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "evidence": "48: invokevirtual #18                 // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-09033/D1/attempt-1/workspace/target/versions-maven-plugin-2.13.0.jar",
+      "name": "getMethod",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.codehaus.mojo.versions.DisplayPluginUpdatesMojo",
+      "caller_method": "public org.codehaus.mojo.versions.DisplayPluginUpdatesMojo(org.apache.maven.repository.RepositorySystem, org.apache.maven.project.MavenProjectBuilder, org.apache.maven.artifact.metadata.ArtifactMetadataSource, org.apache.maven.artifact.manager.WagonManager, org.apache.maven.artifact.resolver.ArtifactResolver, org.apache.maven.lifecycle.LifecycleExecutor, org.apache.maven.model.interpolation.ModelInterpolator, org.apache.maven.plugin.PluginManager, org.apache.maven.execution.RuntimeInformation)",
+      "candidate": "RCM-09033",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "71: invokevirtual #22                 // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-09033/D1/attempt-1/workspace/target/versions-maven-plugin-2.13.0.jar",
+      "name": "invoke",
+      "owner": "java/lang/reflect/Method"
+    },
+    {
+      "caller_class": "org.codehaus.mojo.versions.DisplayPluginUpdatesMojo",
+      "caller_method": "private static boolean getPluginInherited(java.lang.Object)",
+      "candidate": "RCM-09033",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "evidence": "49: invokevirtual #18                 // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-09033/D1/attempt-1/workspace/target/versions-maven-plugin-2.13.0.jar",
+      "name": "getMethod",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.codehaus.mojo.versions.DisplayPluginUpdatesMojo",
+      "caller_method": "private static boolean getPluginInherited(java.lang.Object)",
+      "candidate": "RCM-09033",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "82: invokevirtual #22                 // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-09033/D1/attempt-1/workspace/target/versions-maven-plugin-2.13.0.jar",
+      "name": "invoke",
+      "owner": "java/lang/reflect/Method"
+    },
+    {
+      "caller_class": "org.codehaus.mojo.versions.DisplayPluginUpdatesMojo",
+      "caller_method": "private static boolean getPluginInherited(java.lang.Object)",
+      "candidate": "RCM-09033",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "evidence": "206: invokevirtual #18                 // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-09033/D1/attempt-1/workspace/target/versions-maven-plugin-2.13.0.jar",
+      "name": "getMethod",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.codehaus.mojo.versions.DisplayPluginUpdatesMojo",
+      "caller_method": "private static boolean getPluginInherited(java.lang.Object)",
+      "candidate": "RCM-09033",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "221: invokevirtual #22                 // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-09033/D1/attempt-1/workspace/target/versions-maven-plugin-2.13.0.jar",
+      "name": "invoke",
+      "owner": "java/lang/reflect/Method"
+    },
+    {
+      "caller_class": "org.codehaus.mojo.versions.api.DefaultVersionsHelper",
+      "caller_method": "public org.apache.maven.artifact.versioning.ArtifactVersion createArtifactVersion(java.lang.String)",
+      "candidate": "RCM-09033",
+      "category": "concurrency",
+      "descriptor": "(I)Ljava/util/concurrent/ExecutorService;",
+      "evidence": "1: invokestatic  #197                // Method java/util/concurrent/Executors.newFixedThreadPool:(I)Ljava/util/concurrent/ExecutorService;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-09033/D1/attempt-1/workspace/target/versions-maven-plugin-2.13.0.jar",
+      "name": "newFixedThreadPool",
+      "owner": "java/util/concurrent/Executors"
+    },
+    {
+      "caller_class": "org.codehaus.mojo.versions.api.DefaultVersionsHelper",
+      "caller_method": "public org.apache.maven.artifact.versioning.ArtifactVersion createArtifactVersion(java.lang.String)",
+      "candidate": "RCM-09033",
+      "category": "concurrency",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "82: invokeinterface #205,  1          // InterfaceMethod java/util/concurrent/Future.get:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-09033/D1/attempt-1/workspace/target/versions-maven-plugin-2.13.0.jar",
+      "name": "get",
+      "owner": "java/util/concurrent/Future"
+    },
+    {
+      "caller_class": "org.codehaus.mojo.versions.api.DefaultVersionsHelper",
+      "caller_method": "public org.apache.maven.artifact.versioning.ArtifactVersion createArtifactVersion(java.lang.String)",
+      "candidate": "RCM-09033",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "118: invokeinterface #209,  1          // InterfaceMethod java/util/concurrent/ExecutorService.shutdown:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-09033/D1/attempt-1/workspace/target/versions-maven-plugin-2.13.0.jar",
+      "name": "shutdown",
+      "owner": "java/util/concurrent/ExecutorService"
+    },
+    {
+      "caller_class": "org.codehaus.mojo.versions.api.DefaultVersionsHelper",
+      "caller_method": "public org.apache.maven.artifact.versioning.ArtifactVersion createArtifactVersion(java.lang.String)",
+      "candidate": "RCM-09033",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "174: invokeinterface #209,  1          // InterfaceMethod java/util/concurrent/ExecutorService.shutdown:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-09033/D1/attempt-1/workspace/target/versions-maven-plugin-2.13.0.jar",
+      "name": "shutdown",
+      "owner": "java/util/concurrent/ExecutorService"
+    },
+    {
+      "caller_class": "org.codehaus.mojo.versions.api.DefaultVersionsHelper",
+      "caller_method": "private java.util.concurrent.Future lambda$lookupPluginsUpdates$4(java.util.concurrent.ExecutorService, boolean, org.apache.maven.model.Plugin)",
+      "candidate": "RCM-09033",
+      "category": "concurrency",
+      "descriptor": "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;",
+      "evidence": "9: invokeinterface #287,  2          // InterfaceMethod java/util/concurrent/ExecutorService.submit:(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-09033/D1/attempt-1/workspace/target/versions-maven-plugin-2.13.0.jar",
+      "name": "submit",
+      "owner": "java/util/concurrent/ExecutorService"
+    },
+    {
+      "caller_class": "org.codehaus.mojo.versions.api.DefaultVersionsHelper",
+      "caller_method": "private java.util.concurrent.Future lambda$lookupDependenciesUpdates$2(java.util.concurrent.ExecutorService, boolean, org.apache.maven.model.Dependency)",
+      "candidate": "RCM-09033",
+      "category": "concurrency",
+      "descriptor": "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;",
+      "evidence": "9: invokeinterface #287,  2          // InterfaceMethod java/util/concurrent/ExecutorService.submit:(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-09033/D1/attempt-1/workspace/target/versions-maven-plugin-2.13.0.jar",
+      "name": "submit",
+      "owner": "java/util/concurrent/ExecutorService"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-09033",
+    "classes_discovered": 154,
+    "classes_failed": 0,
+    "classes_scanned": 154,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T15:28:33Z",
+    "discovered_jars": 1,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 36.297,
+    "error": "",
+    "findings": 12,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-09033/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T15:27:56Z",
+    "status": "COMPLETE",
+    "unique_jars": 1,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

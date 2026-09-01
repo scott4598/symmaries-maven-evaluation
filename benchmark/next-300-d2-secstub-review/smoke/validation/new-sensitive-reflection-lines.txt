@@ -1,0 +1,6 @@
+java.lang.Object java.lang.reflect.Constructor:newInstance(java.lang.Object[]){-<~;return *;}
+java.lang.reflect.Constructor java.lang.Class:getConstructor(java.lang.Class[]){-<~;return *;}
+java.lang.reflect.Constructor java.lang.Class:getDeclaredConstructor(java.lang.Class[]){-<~;return *;}
+java.lang.reflect.Method java.lang.Class:getDeclaredMethod(java.lang.String,java.lang.Class[]){-<~;return *;}
+void java.lang.reflect.Constructor:setAccessible(boolean){-<~;}
+void java.lang.reflect.Method:setAccessible(boolean){-<~;}

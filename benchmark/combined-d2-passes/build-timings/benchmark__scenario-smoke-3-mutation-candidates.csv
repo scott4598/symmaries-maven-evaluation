@@ -1,0 +1,12 @@
+candidate_id,relative_source_path,line_number,old_literal,new_literal,occurrence_count,source_line
+RCM-01420,cosmos-osgi-runtime/src/main/java/com/github/veithen/cosmos/osgi/runtime/AbstractBundle.java,90,return true;,return false;,1,return true;
+RCM-01420,cosmos-osgi-runtime/src/main/java/com/github/veithen/cosmos/osgi/runtime/AbstractBundle.java,106,return 0;,return 1;,1,return 0;
+RCM-01420,cosmos-osgi-runtime/src/main/java/com/github/veithen/cosmos/osgi/runtime/BundleContextImpl.java,237,return true;,return false;,1,return true;
+RCM-01420,cosmos-osgi-runtime/src/main/java/com/github/veithen/cosmos/osgi/runtime/BundleImpl.java,558,return true;,return false;,1,return true;
+RCM-01420,cosmos-osgi-runtime/src/main/java/com/github/veithen/cosmos/osgi/runtime/FrameworkImpl.java,58,return 0L;,return 1L;,1,return 0L;
+RCM-01420,cosmos-osgi-runtime/src/main/java/com/github/veithen/cosmos/osgi/runtime/PackageAdminImpl.java,94,return 0;,return 1;,1,return 0;
+RCM-01420,cosmos-osgi-runtime/src/main/java/com/github/veithen/cosmos/osgi/runtime/Service.java,90,return false;,return true;,1,return false;
+RCM-01420,cosmos-osgi-runtime/src/main/java/com/github/veithen/cosmos/osgi/runtime/ServiceReferenceImpl.java,63,return 0;,return 1;,1,return 0;
+RCM-01420,cosmos-osgi-runtime/src/main/java/com/github/veithen/cosmos/osgi/runtime/Tokenizer.java,97,return false;,return true;,2,return false;
+RCM-01420,cosmos-osgi-runtime/src/main/java/com/github/veithen/cosmos/osgi/runtime/Tokenizer.java,100,return true;,return false;,1,return true;
+RCM-01420,cosmos-osgi-runtime/src/main/java/com/github/veithen/cosmos/osgi/runtime/Tokenizer.java,102,return false;,return true;,2,return false;

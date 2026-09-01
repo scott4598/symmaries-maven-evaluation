@@ -1,0 +1,3289 @@
+SecServ/services code
+=====================
+/api/app/config.py
+------------------
+import hashlib
+import json
+import os
+from pathlib import Path
+
+
+DATABASE_URL = os.environ.get(
+    "DATABASE_URL",
+    "postgresql://symproto:symproto123@postgres:5432/symproto",
+)
+
+NEXUS_URL = os.environ.get(
+    "NEXUS_URL",
+    "http://nexus:8081",
+).rstrip("/")
+
+NEXUS_USER = os.environ.get("NEXUS_USER", "svc-scan")
+NEXUS_PASSWORD = os.environ.get("NEXUS_PASSWORD", "scan123")
+
+API_KEYS = {
+    key.strip()
+    for key in os.environ.get("API_KEYS", "demo-key-1").split(",")
+    if key.strip()
+}
+
+POLL_INTERVAL_SECONDS = int(
+    os.environ.get("POLL_INTERVAL_SECONDS", "30")
+)
+
+POLLER_ENABLED = (
+    os.environ.get("POLLER_ENABLED", "true").strip().lower()
+    in {"1", "true", "yes", "on"}
+)
+
+STAGING_REPO = os.environ.get("STAGING_REPO", "staging")
+UPLOADS_REPO = os.environ.get("UPLOADS_REPO", "scan-uploads")
+REPORTS_REPO = os.environ.get("REPORTS_REPO", "scan-reports")
+
+MAX_UPLOAD_MB = int(os.environ.get("MAX_UPLOAD_MB", "100"))
+STALE_RUNNING_MINUTES = int(
+    os.environ.get("STALE_RUNNING_MINUTES", "60")
+)
+
+POLICY_DIR = os.environ.get("POLICY_DIR", "/policy")
+
+JSYMCOMPILER_IDENTITY = os.environ.get(
+    "JSYMCOMPILER_IDENTITY",
+    "jsymcompiler-unknown",
+)
+
+SYRS_IDENTITY = os.environ.get(
+    "SYRS_IDENTITY",
+    "syrs-unknown",
+)
+
+JSYM_EXTRA_ARGS = os.environ.get(
+    "JSYM_EXTRA_ARGS",
+    "",
+).split()
+
+SYRS_TFLAGS = os.environ.get(
+    "SYRS_TFLAGS",
+    "-exceptions,-taints,levels=all,heapdom=deepalias,"
+    "+evil_statics,+sink_statics",
+)
+
+METHOD_HASH_SCHEMA = os.environ.get(
+    "METHOD_HASH_SCHEMA",
+    "bc-v2",
+)
+
+PA_ARCHIVE_SCHEMA = os.environ.get(
+    "PA_ARCHIVE_SCHEMA",
+    "pa-v1",
+)
+
+WORKER_SCHEMA = os.environ.get(
+    "WORKER_SCHEMA",
+    "worker-v3",
+)
+
+
+def compute_policy_tree_sha256() -> str:
+    hasher = hashlib.sha256()
+    policy_dir = Path(POLICY_DIR)
+
+    if not policy_dir.is_dir():
+        hasher.update(b"no-policy-directory")
+        return hasher.hexdigest()
+
+    files = sorted(
+        path
+        for path in policy_dir.rglob("*")
+        if path.is_file()
+    )
+
+    for path in files:
+        relative_path = path.relative_to(policy_dir)
+        hasher.update(str(relative_path).encode("utf-8"))
+        hasher.update(b"\0")
+        hasher.update(path.read_bytes())
+        hasher.update(b"\0")
+
+    return hasher.hexdigest()
+
+
+def compute_analysis_config_key() -> str:
+    identity = {
+        "policy_tree_sha256": compute_policy_tree_sha256(),
+        "jsymcompiler_identity": JSYMCOMPILER_IDENTITY,
+        "syrs_identity": SYRS_IDENTITY,
+        "jsym_extra_args": JSYM_EXTRA_ARGS,
+        "syrs_tflags": SYRS_TFLAGS,
+        "method_hash_schema": METHOD_HASH_SCHEMA,
+        "pa_archive_schema": PA_ARCHIVE_SCHEMA,
+        "worker_schema": WORKER_SCHEMA,
+    }
+
+    encoded = json.dumps(
+        identity,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+
+    return hashlib.sha256(encoded).hexdigest()
+
+
+CONFIG_KEY = compute_analysis_config_key()
+
+
+/api/app/db.py
+------------------
+import psycopg2
+import psycopg2.extras
+
+from . import config
+
+psycopg2.extras.register_uuid()
+
+SCHEMA = """
+CREATE TABLE IF NOT EXISTS scans (
+    id                  uuid PRIMARY KEY,
+    origin              text NOT NULL,
+    group_id             text,
+    artifact_id          text,
+    version              text,
+    jar_sha256           text NOT NULL,
+    config_key           text NOT NULL,
+    policy_sha256        text NOT NULL DEFAULT '',
+    method_hash_schema   text NOT NULL DEFAULT '',
+    pa_archive_schema    text NOT NULL DEFAULT '',
+    status               text NOT NULL DEFAULT 'queued',
+    reuse_mode           text NOT NULL DEFAULT 'full-analysis',
+    reuse_of             uuid,
+    error                text,
+    result_path          text,
+    created_at           timestamptz NOT NULL DEFAULT now(),
+    started_at           timestamptz,
+    finished_at          timestamptz,
+
+    CONSTRAINT scans_reuse_mode_check CHECK (
+        reuse_mode IN (
+            'full-analysis',
+            'previous-analysis',
+            'exact-result'
+        )
+    )
+);
+
+CREATE INDEX IF NOT EXISTS scans_status_idx
+    ON scans (status, created_at);
+
+CREATE INDEX IF NOT EXISTS scans_gav_idx
+    ON scans (
+        group_id,
+        artifact_id,
+        version,
+        status,
+        finished_at DESC
+    );
+
+CREATE INDEX IF NOT EXISTS scans_ga_predecessor_idx
+    ON scans (
+        group_id,
+        artifact_id,
+        config_key,
+        policy_sha256,
+        status,
+        finished_at DESC
+    );
+
+CREATE TABLE IF NOT EXISTS ledger (
+    jar_sha256       text NOT NULL,
+    config_key       text NOT NULL,
+    policy_sha256    text NOT NULL DEFAULT '',
+    scan_id          uuid NOT NULL,
+    result_path      text NOT NULL,
+    created_at       timestamptz NOT NULL DEFAULT now(),
+
+    PRIMARY KEY (
+        jar_sha256,
+        config_key,
+        policy_sha256
+    )
+);
+
+CREATE TABLE IF NOT EXISTS nexus_seen (
+    repository       text NOT NULL,
+    group_id          text NOT NULL,
+    artifact_id       text NOT NULL,
+    version           text NOT NULL,
+    sha256            text NOT NULL,
+    policy_sha256     text NOT NULL DEFAULT '',
+    seen_at           timestamptz NOT NULL DEFAULT now(),
+
+    PRIMARY KEY (
+        repository,
+        group_id,
+        artifact_id,
+        version,
+        sha256,
+        policy_sha256
+    )
+);
+
+ALTER TABLE scans
+    ADD COLUMN IF NOT EXISTS policy_sha256
+    text NOT NULL DEFAULT '';
+
+ALTER TABLE scans
+    ADD COLUMN IF NOT EXISTS method_hash_schema
+    text NOT NULL DEFAULT '';
+
+ALTER TABLE scans
+    ADD COLUMN IF NOT EXISTS pa_archive_schema
+    text NOT NULL DEFAULT '';
+
+ALTER TABLE scans
+    ADD COLUMN IF NOT EXISTS reuse_mode
+    text NOT NULL DEFAULT 'full-analysis';
+
+ALTER TABLE ledger
+    ADD COLUMN IF NOT EXISTS policy_sha256
+    text NOT NULL DEFAULT '';
+
+ALTER TABLE nexus_seen
+    ADD COLUMN IF NOT EXISTS policy_sha256
+    text NOT NULL DEFAULT '';
+
+ALTER TABLE ledger
+    DROP CONSTRAINT IF EXISTS ledger_pkey;
+
+ALTER TABLE ledger
+    ADD PRIMARY KEY (
+        jar_sha256,
+        config_key,
+        policy_sha256
+    );
+
+ALTER TABLE nexus_seen
+    DROP CONSTRAINT IF EXISTS nexus_seen_pkey;
+
+ALTER TABLE nexus_seen
+    ADD PRIMARY KEY (
+        repository,
+        group_id,
+        artifact_id,
+        version,
+        sha256,
+        policy_sha256
+    );
+"""
+
+
+def connect():
+    return psycopg2.connect(config.DATABASE_URL, cursor_factory=psycopg2.extras.RealDictCursor)
+
+
+def init_schema():
+    with connect() as conn, conn.cursor() as cur:
+        cur.execute(SCHEMA)
+
+
+def create_scan(
+    conn,
+    scan_id,
+    origin,
+    gav,
+    sha256,
+    policy_sha256="",
+    reuse=None,
+    reuse_mode="full-analysis",
+):
+    group_id, artifact_id, version = gav
+    reuse_of = reuse["id"] if reuse else None
+
+    with conn.cursor() as cur:
+        cur.execute(
+            """
+            INSERT INTO scans (
+                id,
+                origin,
+                group_id,
+                artifact_id,
+                version,
+                jar_sha256,
+                config_key,
+                policy_sha256,
+                method_hash_schema,
+                pa_archive_schema,
+                status,
+                reuse_mode,
+                reuse_of,
+                result_path,
+                finished_at
+            )
+            VALUES (
+                %s, %s, %s, %s, %s,
+                %s, %s, %s, %s, %s,
+                'queued', %s, %s, NULL, NULL
+            )
+            RETURNING *
+            """,
+            (
+                scan_id,
+                origin,
+                group_id,
+                artifact_id,
+                version,
+                sha256,
+                config.CONFIG_KEY,
+                policy_sha256,
+                config.METHOD_HASH_SCHEMA,
+                config.PA_ARCHIVE_SCHEMA,
+                reuse_mode,
+                reuse_of,
+            ),
+        )
+        return cur.fetchone()
+
+
+def get_scan(conn, scan_id):
+    with conn.cursor() as cur:
+        cur.execute("SELECT * FROM scans WHERE id = %s", (scan_id,))
+        return cur.fetchone()
+
+
+def list_scans(conn, limit=20, status=None):
+    q = "SELECT * FROM scans"
+    params = []
+    if status:
+        q += " WHERE status = %s"
+        params.append(status)
+    q += " ORDER BY created_at DESC LIMIT %s"
+    params.append(min(limit, 100))
+    with conn.cursor() as cur:
+        cur.execute(q, params)
+        return cur.fetchall()
+
+
+def latest_done_for_gav(conn, group_id, artifact_id, version):
+    with conn.cursor() as cur:
+        cur.execute(
+            """SELECT * FROM scans
+               WHERE group_id = %s AND artifact_id = %s AND version = %s
+                 AND status = 'done' AND result_path IS NOT NULL
+               ORDER BY finished_at DESC LIMIT 1""",
+            (group_id, artifact_id, version),
+        )
+        return cur.fetchone()
+
+
+def ledger_lookup(conn, sha256, policy_sha256=""):
+    with conn.cursor() as cur:
+        cur.execute(
+            """SELECT * FROM ledger
+               WHERE jar_sha256 = %s AND config_key = %s AND policy_sha256 = %s""",
+            (sha256, config.CONFIG_KEY, policy_sha256),
+        )
+        return cur.fetchone()
+
+
+def nexus_mark_seen(conn, repo, group_id, artifact_id, version, sha256, policy_sha256=""):
+    """Returns True if this component was newly recorded (i.e. not seen before).
+    The primary key (including the policy hash) makes this safe with concurrent
+    pollers and re-triggers when the policy changes for the same jar."""
+    with conn.cursor() as cur:
+        cur.execute(
+            """INSERT INTO nexus_seen
+                 (repository, group_id, artifact_id, version, sha256, policy_sha256)
+               VALUES (%s, %s, %s, %s, %s, %s)
+               ON CONFLICT DO NOTHING""",
+            (repo, group_id, artifact_id, version, sha256, policy_sha256),
+        )
+        return cur.rowcount == 1
+
+
+def requeue_stale_running(conn, minutes):
+    with conn.cursor() as cur:
+        cur.execute(
+            """UPDATE scans SET status = 'queued', started_at = NULL
+               WHERE status = 'running' AND started_at < now() - %s * interval '1 minute'""",
+            (minutes,),
+        )
+        return cur.rowcount
+
+def exact_result_lookup(
+    conn,
+    group_id,
+    artifact_id,
+    version,
+    jar_sha256,
+    policy_sha256,
+):
+    with conn.cursor() as cur:
+        cur.execute(
+            """
+            SELECT *
+            FROM scans
+            WHERE group_id = %s
+              AND artifact_id = %s
+              AND version = %s
+              AND jar_sha256 = %s
+              AND config_key = %s
+              AND policy_sha256 = %s
+              AND status = 'done'
+              AND result_path IS NOT NULL
+            ORDER BY finished_at DESC
+            LIMIT 1
+            """,
+            (
+                group_id,
+                artifact_id,
+                version,
+                jar_sha256,
+                config.CONFIG_KEY,
+                policy_sha256,
+            ),
+        )
+        return cur.fetchone()
+        
+def latest_compatible_predecessor(
+    conn,
+    group_id,
+    artifact_id,
+    current_version,
+    policy_sha256,
+    exclude_jar_sha256=None,
+):
+    query = """
+        SELECT *
+        FROM scans
+        WHERE group_id = %s
+          AND artifact_id = %s
+          AND version IS DISTINCT FROM %s
+          AND config_key = %s
+          AND policy_sha256 = %s
+          AND method_hash_schema = %s
+          AND pa_archive_schema = %s
+          AND status = 'done'
+          AND result_path IS NOT NULL
+    """
+
+    params = [
+        group_id,
+        artifact_id,
+        current_version,
+        config.CONFIG_KEY,
+        policy_sha256,
+        config.METHOD_HASH_SCHEMA,
+        config.PA_ARCHIVE_SCHEMA,
+    ]
+
+    if exclude_jar_sha256:
+        query += " AND jar_sha256 <> %s"
+        params.append(exclude_jar_sha256)
+
+    query += """
+        ORDER BY finished_at DESC
+        LIMIT 1
+    """
+
+    with conn.cursor() as cur:
+        cur.execute(query, params)
+        return cur.fetchone()
+        
+def validate_explicit_predecessor(
+    conn,
+    previous_scan_id,
+    group_id,
+    artifact_id,
+    policy_sha256,
+):
+    with conn.cursor() as cur:
+        cur.execute(
+            """
+            SELECT *
+            FROM scans
+            WHERE id = %s
+              AND group_id = %s
+              AND artifact_id = %s
+              AND config_key = %s
+              AND policy_sha256 = %s
+              AND method_hash_schema = %s
+              AND pa_archive_schema = %s
+              AND status = 'done'
+              AND result_path IS NOT NULL
+            """,
+            (
+                previous_scan_id,
+                group_id,
+                artifact_id,
+                config.CONFIG_KEY,
+                policy_sha256,
+                config.METHOD_HASH_SCHEMA,
+                config.PA_ARCHIVE_SCHEMA,
+            ),
+        )
+        return cur.fetchone()
+        
+def create_exact_result_scan(
+    conn,
+    scan_id,
+    origin,
+    gav,
+    sha256,
+    policy_sha256,
+    source_scan,
+):
+    group_id, artifact_id, version = gav
+
+    with conn.cursor() as cur:
+        cur.execute(
+            """
+            INSERT INTO scans (
+                id,
+                origin,
+                group_id,
+                artifact_id,
+                version,
+                jar_sha256,
+                config_key,
+                policy_sha256,
+                method_hash_schema,
+                pa_archive_schema,
+                status,
+                reuse_mode,
+                reuse_of,
+                result_path,
+                started_at,
+                finished_at
+            )
+            VALUES (
+                %s, %s, %s, %s, %s,
+                %s, %s, %s, %s, %s,
+                'done',
+                'exact-result',
+                %s,
+                %s,
+                now(),
+                now()
+            )
+            RETURNING *
+            """,
+            (
+                scan_id,
+                origin,
+                group_id,
+                artifact_id,
+                version,
+                sha256,
+                config.CONFIG_KEY,
+                policy_sha256,
+                config.METHOD_HASH_SCHEMA,
+                config.PA_ARCHIVE_SCHEMA,
+                source_scan["id"],
+                source_scan["result_path"],
+            ),
+        )
+        return cur.fetchone()
+        
+
+/api/app/main.py
+------------------
+import hashlib
+import logging
+import uuid
+import xml.etree.ElementTree as ET
+
+from fastapi import Depends, FastAPI, File, Form, Header, HTTPException, UploadFile
+from fastapi.responses import JSONResponse, StreamingResponse
+
+from . import config, db, nexus, poller
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(levelname)s %(message)s")
+log = logging.getLogger("api")
+
+app = FastAPI(title="SymProto scan service", version="0.1")
+
+
+@app.on_event("startup")
+def startup():
+    db.init_schema()
+    if config.POLLER_ENABLED:
+        poller.start()
+        log.info("Nexus poller enabled")
+    else:
+        log.info("Nexus poller disabled")
+    log.info("started; config_key=%s", config.CONFIG_KEY[:12])
+
+
+def require_api_key(x_api_key: str | None = Header(default=None)):
+    if x_api_key not in config.API_KEYS:
+        raise HTTPException(status_code=401, detail="missing or unknown API key")
+
+
+def scan_json(row):
+    messages = {
+        "exact-result": (
+            "This exact project version has already been analysed."
+        ),
+        "previous-analysis": (
+            "A compatible previous analysis was selected "
+            "for incremental analysis."
+        ),
+        "full-analysis": (
+            "No compatible previous analysis was selected; "
+            "a full analysis is required."
+        ),
+    }
+
+    reuse_mode = row.get("reuse_mode") or "full-analysis"
+
+    return {
+        "id": str(row["id"]),
+        "origin": row["origin"],
+        "status": row["status"],
+        "group_id": row["group_id"],
+        "artifact_id": row["artifact_id"],
+        "version": row["version"],
+        "jar_sha256": row["jar_sha256"],
+        "config_key": row["config_key"],
+        "policy_sha256": row["policy_sha256"],
+        "method_hash_schema": row["method_hash_schema"],
+        "pa_archive_schema": row["pa_archive_schema"],
+        "reuse_mode": reuse_mode,
+        "reuse_of": (
+            str(row["reuse_of"])
+            if row["reuse_of"]
+            else None
+        ),
+        "deduplicated": reuse_mode == "exact-result",
+        "incremental": reuse_mode == "previous-analysis",
+        "message": messages[reuse_mode],
+        "error": row["error"],
+        "created_at": (
+            row["created_at"].isoformat()
+            if row["created_at"]
+            else None
+        ),
+        "started_at": (
+            row["started_at"].isoformat()
+            if row["started_at"]
+            else None
+        ),
+        "finished_at": (
+            row["finished_at"].isoformat()
+            if row["finished_at"]
+            else None
+        ),
+    }
+
+
+def gav_from_pom(pom_bytes):
+    """Pull groupId/artifactId/version out of a pom, falling back to the
+    parent section where the project inherits them."""
+    try:
+        root = ET.fromstring(pom_bytes)
+    except ET.ParseError:
+        raise HTTPException(status_code=400, detail="pom is not well-formed XML")
+    ns = root.tag.split("}")[0] + "}" if root.tag.startswith("{") else ""
+
+    def find(parent, tag):
+        el = parent.find(f"{ns}{tag}")
+        return el.text.strip() if el is not None and el.text else None
+
+    parent = root.find(f"{ns}parent")
+    group = find(root, "groupId") or (parent is not None and find(parent, "groupId")) or None
+    artifact = find(root, "artifactId")
+    version = find(root, "version") or (parent is not None and find(parent, "version")) or None
+    return group, artifact, version
+
+
+@app.get("/healthz")
+def healthz():
+    db_ok = True
+    try:
+        with db.connect() as conn, conn.cursor() as cur:
+            cur.execute("SELECT 1")
+    except Exception:
+        db_ok = False
+    return {
+        "status": "ok" if db_ok else "degraded",
+        "database": "up" if db_ok else "down",
+        "nexus": "up" if nexus.status_ok() else "down",
+        "config_key": config.CONFIG_KEY,
+    }
+
+
+@app.post(
+    "/scans",
+    dependencies=[Depends(require_api_key)],
+)
+async def submit_scan(
+    jar: UploadFile = File(...),
+    pom: UploadFile | None = File(default=None),
+    policy: UploadFile | None = File(default=None),
+    previous_scan_id: str | None = Form(default=None),
+    force: bool = False,
+):
+    if force and previous_scan_id:
+        raise HTTPException(
+            status_code=400,
+            detail=(
+                "force=true cannot be combined with "
+                "previous_scan_id"
+            ),
+        )
+
+    jar_bytes = await jar.read()
+
+    if len(jar_bytes) > config.MAX_UPLOAD_MB * 1024 * 1024:
+        raise HTTPException(
+            status_code=413,
+            detail=(
+                f"jar larger than "
+                f"{config.MAX_UPLOAD_MB} MB"
+            ),
+        )
+
+    if jar_bytes[:4] != b"PK\x03\x04":
+        raise HTTPException(
+            status_code=400,
+            detail=(
+                "the jar field does not contain "
+                "a jar/zip file"
+            ),
+        )
+
+    jar_sha256 = hashlib.sha256(jar_bytes).hexdigest()
+    pom_bytes = await pom.read() if pom is not None else None
+    policy_bytes = (
+        await policy.read()
+        if policy is not None
+        else None
+    )
+
+    policy_sha256 = (
+        hashlib.sha256(policy_bytes).hexdigest()
+        if policy_bytes
+        else ""
+    )
+
+    if pom_bytes:
+        gav = gav_from_pom(pom_bytes)
+    else:
+        stem = (
+            jar.filename or "upload.jar"
+        ).rsplit("/", 1)[-1].removesuffix(".jar")
+
+        gav = (
+            "public.upload",
+            stem,
+            jar_sha256[:12],
+        )
+
+    group_id, artifact_id, version = gav
+    parsed_previous_scan_id = parse_optional_uuid(
+        previous_scan_id,
+        "previous_scan_id",
+    )
+
+    scan_id = uuid.uuid4()
+
+    with db.connect() as conn:
+        if not force and parsed_previous_scan_id is None:
+            exact = db.exact_result_lookup(
+                conn,
+                group_id,
+                artifact_id,
+                version,
+                jar_sha256,
+                policy_sha256,
+            )
+
+            if exact:
+                row = db.create_exact_result_scan(
+                    conn,
+                    scan_id,
+                    "api",
+                    gav,
+                    jar_sha256,
+                    policy_sha256,
+                    exact,
+                )
+
+                conn.commit()
+
+                return JSONResponse(
+                    status_code=200,
+                    content=scan_json(row),
+                )
+
+        predecessor = None
+
+        if not force:
+            if parsed_previous_scan_id is not None:
+                predecessor = (
+                    db.validate_explicit_predecessor(
+                        conn,
+                        parsed_previous_scan_id,
+                        group_id,
+                        artifact_id,
+                        policy_sha256,
+                    )
+                )
+
+                if predecessor is None:
+                    raise HTTPException(
+                        status_code=409,
+                        detail=(
+                            "the requested previous scan is "
+                            "missing, unfinished, belongs to a "
+                            "different GA, or is incompatible "
+                            "with the current analysis configuration"
+                        ),
+                    )
+            elif pom_bytes:
+                predecessor = (
+                    db.latest_compatible_predecessor(
+                        conn,
+                        group_id,
+                        artifact_id,
+                        version,
+                        policy_sha256,
+                        exclude_jar_sha256=jar_sha256,
+                    )
+                )
+
+        reuse_mode = (
+            "previous-analysis"
+            if predecessor
+            else "full-analysis"
+        )
+
+        nexus.raw_upload(
+            config.UPLOADS_REPO,
+            f"{scan_id}/input.jar",
+            jar_bytes,
+        )
+
+        if pom_bytes:
+            nexus.raw_upload(
+                config.UPLOADS_REPO,
+                f"{scan_id}/pom.xml",
+                pom_bytes,
+                content_type="application/xml",
+            )
+
+        if policy_bytes:
+            nexus.raw_upload(
+                config.UPLOADS_REPO,
+                f"{scan_id}/policy.xml",
+                policy_bytes,
+                content_type="application/xml",
+            )
+
+        row = db.create_scan(
+            conn,
+            scan_id,
+            "api",
+            gav,
+            jar_sha256,
+            policy_sha256,
+            reuse=predecessor,
+            reuse_mode=reuse_mode,
+        )
+
+        conn.commit()
+
+    return JSONResponse(
+        status_code=202,
+        content=scan_json(row),
+    )
+
+
+@app.get("/scans", dependencies=[Depends(require_api_key)])
+def list_scans(limit: int = 20, status: str | None = None):
+    with db.connect() as conn:
+        rows = db.list_scans(conn, limit=limit, status=status)
+    return {"scans": [scan_json(r) for r in rows]}
+
+
+@app.get("/scans/{scan_id}", dependencies=[Depends(require_api_key)])
+def get_scan(scan_id: uuid.UUID):
+    with db.connect() as conn:
+        row = db.get_scan(conn, scan_id)
+    if row is None:
+        raise HTTPException(status_code=404, detail="unknown scan id")
+    return scan_json(row)
+
+
+def stream_zip(result_path, filename):
+    resp = nexus.raw_stream(config.REPORTS_REPO, result_path)
+    if resp is None:
+        raise HTTPException(status_code=404, detail="result zip is missing from storage")
+    return StreamingResponse(
+        resp.iter_content(chunk_size=65536),
+        media_type="application/zip",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )
+
+
+@app.get("/scans/{scan_id}/summary", dependencies=[Depends(require_api_key)])
+def get_summary(scan_id: uuid.UUID):
+    with db.connect() as conn:
+        row = db.get_scan(conn, scan_id)
+    if row is None:
+        raise HTTPException(status_code=404, detail="unknown scan id")
+    if row["status"] != "done" or not row["result_path"]:
+        raise HTTPException(status_code=409, detail=f"scan is {row['status']}, not done")
+    return stream_zip(row["result_path"], f"symmaries-{scan_id}.zip")
+
+
+@app.get("/reports/{group_id}/{artifact_id}/{version}", dependencies=[Depends(require_api_key)])
+def get_report(group_id: str, artifact_id: str, version: str):
+    with db.connect() as conn:
+        row = db.latest_done_for_gav(conn, group_id, artifact_id, version)
+    if row is None:
+        raise HTTPException(status_code=404, detail="no finished scan for these coordinates")
+    return stream_zip(row["result_path"], f"{artifact_id}-{version}-symmaries.zip")
+
+
+def parse_optional_uuid(
+    value: str | None,
+    field_name: str,
+) -> uuid.UUID | None:
+    if value is None or not value.strip():
+        return None
+
+    try:
+        return uuid.UUID(value.strip())
+    except ValueError:
+        raise HTTPException(
+            status_code=400,
+            detail=f"{field_name} is not a valid UUID",
+        )
+
+
+def gav_from_pom(pom_bytes):
+    try:
+        root = ET.fromstring(pom_bytes)
+    except ET.ParseError:
+        raise HTTPException(
+            status_code=400,
+            detail="pom is not well-formed XML",
+        )
+
+    namespace = (
+        root.tag.split("}")[0] + "}"
+        if root.tag.startswith("{")
+        else ""
+    )
+
+    def find(parent, tag):
+        element = parent.find(f"{namespace}{tag}")
+        if element is None or not element.text:
+            return None
+        return element.text.strip()
+
+    parent = root.find(f"{namespace}parent")
+
+    group_id = (
+        find(root, "groupId")
+        or (
+            find(parent, "groupId")
+            if parent is not None
+            else None
+        )
+    )
+
+    artifact_id = find(root, "artifactId")
+
+    version = (
+        find(root, "version")
+        or (
+            find(parent, "version")
+            if parent is not None
+            else None
+        )
+    )
+
+    if not group_id or not artifact_id or not version:
+        raise HTTPException(
+            status_code=400,
+            detail=(
+                "pom does not provide a complete "
+                "groupId, artifactId and version"
+            ),
+        )
+
+    unresolved = [
+        value
+        for value in (group_id, artifact_id, version)
+        if "${" in value
+    ]
+
+    if unresolved:
+        raise HTTPException(
+            status_code=400,
+            detail=(
+                "pom coordinates contain unresolved properties; "
+                "submit resolved coordinates"
+            ),
+        )
+
+    return group_id, artifact_id, version
+
+/api/app/nexus.py
+------------------
+import requests
+
+from . import config
+
+session = requests.Session()
+session.auth = (config.NEXUS_USER, config.NEXUS_PASSWORD)
+
+
+def status_ok() -> bool:
+    try:
+        r = session.get(f"{config.NEXUS_URL}/service/rest/v1/status", timeout=5)
+        return r.status_code == 200
+    except requests.RequestException:
+        return False
+
+
+def list_components(repository):
+    """Yield all components of a repository, following pagination."""
+    token = None
+    while True:
+        params = {"repository": repository}
+        if token:
+            params["continuationToken"] = token
+        r = session.get(
+            f"{config.NEXUS_URL}/service/rest/v1/components", params=params, timeout=30
+        )
+        r.raise_for_status()
+        body = r.json()
+        yield from body.get("items", [])
+        token = body.get("continuationToken")
+        if not token:
+            return
+
+
+def jar_asset(component):
+    """The main jar asset of a maven component (skips sources/javadoc jars)."""
+    for asset in component.get("assets", []):
+        path = asset.get("path", "")
+        if path.endswith(".jar") and not path.endswith(("-sources.jar", "-javadoc.jar")):
+            return asset
+    return None
+
+
+def policy_sha256(component):
+    """SHA-256 of the sources/sinks policy"""
+    for asset in component.get("assets", []):
+        if asset.get("path", "").endswith("-policy.xml"):
+            return (asset.get("checksum") or {}).get("sha256") or ""
+    return ""
+
+
+def raw_upload(repository, path, data, content_type="application/octet-stream"):
+    r = session.put(
+        f"{config.NEXUS_URL}/repository/{repository}/{path}",
+        data=data,
+        headers={"Content-Type": content_type},
+        timeout=120,
+    )
+    r.raise_for_status()
+
+
+def raw_stream(repository, path):
+    """Open a streaming download from a repository. Returns the response or
+    None when the file does not exist."""
+    r = session.get(
+        f"{config.NEXUS_URL}/repository/{repository}/{path}", stream=True, timeout=60
+    )
+    if r.status_code == 404:
+        return None
+    r.raise_for_status()
+    return r
+
+/api/app/poller.py
+------------------
+"""Watches the staging repository and queues scan jobs.
+
+Runs as a background thread inside the API service. Every POLL_INTERVAL_SECONDS
+it lists the staging repository through the Nexus components API (the listing
+includes each asset's SHA-256, so nothing is downloaded here), records
+components it has not seen before, checks the dedup ledger and inserts a scan
+job. It also requeues running jobs whose worker died.
+"""
+
+import logging
+import threading
+import time
+import uuid
+
+from . import config, db, nexus
+
+log = logging.getLogger("poller")
+
+
+def poll_once():
+    with db.connect() as conn:
+        requeued = db.requeue_stale_running(conn, config.STALE_RUNNING_MINUTES)
+        if requeued:
+            log.warning("requeued %d stale running scan(s)", requeued)
+
+        for component in nexus.list_components(config.STAGING_REPO):
+            asset = nexus.jar_asset(component)
+            if asset is None:
+                continue
+            group = component.get("group") or ""
+            artifact = component.get("name") or ""
+            version = component.get("version") or ""
+            sha256 = (asset.get("checksum") or {}).get("sha256")
+            if not sha256:
+                continue
+            
+            policy_sha256 = nexus.policy_sha256(component)
+
+            new = db.nexus_mark_seen(
+                conn,
+                config.STAGING_REPO,
+                group,
+                artifact,
+                version,
+                sha256,
+                policy_sha256,
+            )
+
+            if not new:
+                continue
+
+            exact = db.exact_result_lookup(
+                conn,
+                group,
+                artifact,
+                version,
+                sha256,
+                policy_sha256,
+            )
+
+            scan_id = uuid.uuid4()
+
+            if exact:
+                scan = db.create_exact_result_scan(
+                    conn,
+                    scan_id,
+                    "nexus",
+                    (group, artifact, version),
+                    sha256,
+                    policy_sha256,
+                    exact,
+                )
+
+                conn.commit()
+
+                log.info(
+                    "recorded exact-result scan %s for %s:%s:%s "
+                    "using result from %s",
+                    scan["id"],
+                    group,
+                    artifact,
+                    version,
+                    exact["id"],
+                )
+
+                continue
+
+            existing_gav = db.latest_done_for_gav(
+                conn,
+                group,
+                artifact,
+                version,
+            )
+
+            if (
+                existing_gav
+                and existing_gav["jar_sha256"] != sha256
+                and not version.endswith("-SNAPSHOT")
+            ):
+                log.error(
+                    "immutable GAV collision for %s:%s:%s: "
+                    "previous sha=%s, submitted sha=%s",
+                    group,
+                    artifact,
+                    version,
+                    existing_gav["jar_sha256"][:12],
+                    sha256[:12],
+                )
+
+                scan = db.create_scan(
+                    conn,
+                    scan_id,
+                    "nexus",
+                    (group, artifact, version),
+                    sha256,
+                    policy_sha256,
+                    reuse=None,
+                    reuse_mode="full-analysis",
+                )
+
+                with conn.cursor() as cur:
+                    cur.execute(
+                        """
+                        UPDATE scans
+                        SET status = 'failed',
+                            error = %s,
+                            finished_at = now()
+                        WHERE id = %s
+                        """,
+                        (
+                            "non-SNAPSHOT GAV was redeployed "
+                            "with different JAR bytes",
+                            scan["id"],
+                        ),
+                    )
+
+                conn.commit()
+                continue
+
+            predecessor = db.latest_compatible_predecessor(
+                conn,
+                group,
+                artifact,
+                version,
+                policy_sha256,
+                exclude_jar_sha256=sha256,
+            )
+
+            reuse_mode = (
+                "previous-analysis"
+                if predecessor
+                else "full-analysis"
+            )
+
+            scan = db.create_scan(
+                conn,
+                scan_id,
+                "nexus",
+                (group, artifact, version),
+                sha256,
+                policy_sha256,
+                reuse=predecessor,
+                reuse_mode=reuse_mode,
+            )
+
+            conn.commit()
+
+            log.info(
+                "queued %s scan %s for %s:%s:%s "
+                "(sha %s, predecessor %s)",
+                reuse_mode,
+                scan["id"],
+                group,
+                artifact,
+                version,
+                sha256[:12],
+                (
+                    predecessor["id"]
+                    if predecessor
+                    else "none"
+                ),
+            )
+
+
+def run_forever():
+    while True:
+        try:
+            poll_once()
+        except Exception:
+            log.exception("poll cycle failed; retrying next interval")
+        time.sleep(config.POLL_INTERVAL_SECONDS)
+
+
+def start():
+    t = threading.Thread(target=run_forever, name="nexus-poller", daemon=True)
+    t.start()
+    return t
+
+/api/app/__init__.py
+------------------
+
+
+/worker/worker.py
+------------------
+"""Scan worker.
+
+Claims one job at a time from the database queue and processes it.
+Fetch the jar (and pom) -> resolve dependencies -> run JSymCompiler + syrs
+-> zip the output -> upload the zip -> publish to trusted (Nexus-origin
+jobs only) -> record the result in the dedup ledger.
+
+Multiple workers can run in parallel so job claiming uses row locking
+(FOR UPDATE SKIP LOCKED), so no job is ever processed twice.
+"""
+
+import datetime
+import glob
+import json
+import logging
+import os
+import re
+import shutil
+import subprocess
+import tempfile
+import time
+import zipfile
+from pathlib import Path
+
+import psycopg2
+import psycopg2.extras
+import requests
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s worker %(levelname)s %(message)s")
+log = logging.getLogger("worker")
+psycopg2.extras.register_uuid()
+
+DATABASE_URL = os.environ.get(
+    "DATABASE_URL", "postgresql://symproto:symproto123@postgres:5432/symproto"
+)
+NEXUS_URL = os.environ.get("NEXUS_URL", "http://nexus:8081").rstrip("/")
+NEXUS_AUTH = (os.environ.get("NEXUS_USER", "svc-scan"), os.environ.get("NEXUS_PASSWORD", "scan123"))
+
+STAGING_REPO = os.environ.get("STAGING_REPO", "staging")
+TRUSTED_REPO = os.environ.get("TRUSTED_REPO", "trusted")
+UPLOADS_REPO = os.environ.get("UPLOADS_REPO", "scan-uploads")
+REPORTS_REPO = os.environ.get("REPORTS_REPO", "scan-reports")
+
+POLICY_DIR = os.environ.get("POLICY_DIR", "/policy")
+JSYM_JAR = os.environ.get("JSYM_JAR", "/app/JSymCompiler.jar")
+JSYM_EXTRA_ARGS = os.environ.get("JSYM_EXTRA_ARGS", "").split()
+
+SYRS_TFLAGS = os.environ.get(
+    "SYRS_TFLAGS",
+    "-exceptions,-taints,levels=all,heapdom=deepalias,+evil_statics,+sink_statics",
+)
+SYRS_TIMEOUT = os.environ.get("SYRS_TIMEOUT", "5m")
+SCAN_TIMEOUT_SECONDS = int(os.environ.get("SCAN_TIMEOUT_SECONDS", "1800"))
+DEPS_TIMEOUT_SECONDS = int(os.environ.get("DEPS_TIMEOUT_SECONDS", "300"))
+IDLE_SLEEP_SECONDS = int(os.environ.get("IDLE_SLEEP_SECONDS", "5"))
+MAVEN_SETTINGS = "/opt/symproto/maven-settings.xml"
+
+METHOD_HASH_SCHEMA = os.environ.get(
+    "METHOD_HASH_SCHEMA",
+    "bc-v2",
+)
+
+PA_ARCHIVE_SCHEMA = os.environ.get(
+    "PA_ARCHIVE_SCHEMA",
+    "pa-v1",
+)
+
+PA_FAILURE_MODE = os.environ.get(
+    "PA_FAILURE_MODE",
+    "strict",
+).strip().lower()
+
+if PA_FAILURE_MODE not in {"strict", "fallback-full"}:
+    raise RuntimeError(
+        "PA_FAILURE_MODE must be 'strict' or 'fallback-full'"
+    )
+
+session = requests.Session()
+session.auth = NEXUS_AUTH
+
+def claim_job(conn):
+    with conn.cursor() as cur:
+        cur.execute(
+            """WITH j AS (
+                   SELECT id FROM scans WHERE status = 'queued'
+                   ORDER BY created_at LIMIT 1
+                   FOR UPDATE SKIP LOCKED
+               )
+               UPDATE scans s SET status = 'running', started_at = now()
+               FROM j WHERE s.id = j.id
+               RETURNING s.*"""
+        )
+        row = cur.fetchone()
+    conn.commit()
+    return row
+
+
+def finish(conn, scan_id, result_path):
+    with conn.cursor() as cur:
+        cur.execute(
+            """UPDATE scans SET status = 'done', result_path = %s, finished_at = now()
+               WHERE id = %s""",
+            (result_path, scan_id),
+        )
+    conn.commit()
+
+
+def fail(conn, scan_id, message):
+    with conn.cursor() as cur:
+        cur.execute(
+            """UPDATE scans SET status = 'failed', error = %s, finished_at = now()
+               WHERE id = %s""",
+            (message[:2000], scan_id),
+        )
+    conn.commit()
+
+
+def ledger_insert(conn, sha256, config_key, policy_sha256, scan_id, result_path):
+    with conn.cursor() as cur:
+        cur.execute(
+            """INSERT INTO ledger (jar_sha256, config_key, policy_sha256, scan_id, result_path)
+               VALUES (%s, %s, %s, %s, %s) ON CONFLICT DO NOTHING""",
+            (sha256, config_key, policy_sha256, scan_id, result_path),
+        )
+    conn.commit()
+
+
+def get_scan(conn, scan_id):
+    with conn.cursor() as cur:
+        cur.execute("SELECT * FROM scans WHERE id = %s", (scan_id,))
+        return cur.fetchone()
+
+def download(repo, path, dest):
+    r = session.get(f"{NEXUS_URL}/repository/{repo}/{path}", stream=True, timeout=120)
+    if r.status_code == 404:
+        return False
+    r.raise_for_status()
+    with open(dest, "wb") as f:
+        shutil.copyfileobj(r.raw, f)
+    return True
+
+
+def upload(repo, path, file_path):
+    with open(file_path, "rb") as f:
+        r = session.put(f"{NEXUS_URL}/repository/{repo}/{path}", data=f, timeout=300)
+    r.raise_for_status()
+
+
+def maven_path(job, suffix):
+    group = job["group_id"].replace(".", "/")
+    a, v = job["artifact_id"], job["version"]
+    return f"{group}/{a}/{v}/{a}-{v}{suffix}"
+
+
+def fetch_input(job, work):
+    """Download the jar (and pom when available). Returns the pom path or None."""
+    jar = work / "input.jar"
+    pom = work / "pom.xml"
+    policy = work / "policy.xml"
+    if job["origin"] == "nexus":
+        if not download(STAGING_REPO, maven_path(job, ".jar"), jar):
+            raise RuntimeError("jar disappeared from staging")
+        has_pom = download(STAGING_REPO, maven_path(job, ".pom"), pom)
+        has_policy = download(STAGING_REPO, maven_path(job, "-policy.xml"), policy)
+    else:
+        if not download(UPLOADS_REPO, f"{job['id']}/input.jar", jar):
+            raise RuntimeError("uploaded jar not found in scan-uploads")
+        has_pom = download(UPLOADS_REPO, f"{job['id']}/pom.xml", pom)
+        has_policy = download(UPLOADS_REPO, f"{job['id']}/policy.xml", policy)
+    return (pom if has_pom else None), (policy if has_policy else None)
+
+
+def publish_to_trusted(job, jar, pom, policy, result_zip):
+    """One multipart call to the components API. jar + pom + the result zip
+    as a classifier artifact, all under the same coordinates."""
+    fields = {
+        "maven2.groupId": (None, job["group_id"]),
+        "maven2.artifactId": (None, job["artifact_id"]),
+        "maven2.version": (None, job["version"]),
+        "maven2.generate-pom": (None, "false" if pom else "true"),
+        "maven2.asset1": ("input.jar", open(jar, "rb")),
+        "maven2.asset1.extension": (None, "jar"),
+        "maven2.asset2": ("symmaries.zip", open(result_zip, "rb")),
+        "maven2.asset2.extension": (None, "zip"),
+        "maven2.asset2.classifier": (None, "symmaries"),
+    }
+    n = 3
+    if pom:
+        fields[f"maven2.asset{n}"] = ("pom.xml", open(pom, "rb"))
+        fields[f"maven2.asset{n}.extension"] = (None, "pom")
+        n += 1
+    if policy:
+        fields[f"maven2.asset{n}"] = ("policy.xml", open(policy, "rb"))
+        fields[f"maven2.asset{n}.extension"] = (None, "xml")
+        fields[f"maven2.asset{n}.classifier"] = (None, "policy")
+        n += 1
+    r = session.post(
+        f"{NEXUS_URL}/service/rest/v1/components",
+        params={"repository": TRUSTED_REPO},
+        files=fields,
+        timeout=300,
+    )
+    r.raise_for_status()
+
+def resolve_dependencies(pom, work):
+    """Use Maven to copy the pom's dependencies into work/deps. Resolution
+    goes through the in-cluster Nexus group. Failure is not fatal: the scan
+    still runs, just with less type information."""
+    deps_dir = work / "deps"
+    deps_dir.mkdir(exist_ok=True)
+    cmd = [
+        "mvn", "-q", "-B", "-s", MAVEN_SETTINGS, "-f", str(pom),
+        "dependency:copy-dependencies",
+        f"-DoutputDirectory={deps_dir}",
+        "-DincludeScope=runtime",
+    ]
+    try:
+        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=DEPS_TIMEOUT_SECONDS)
+        if proc.returncode != 0:
+            log.warning("dependency resolution failed:\n%s", proc.stdout[-2000:])
+    except subprocess.TimeoutExpired:
+        log.warning("dependency resolution timed out after %ss", DEPS_TIMEOUT_SECONDS)
+    jars = sorted(glob.glob(str(deps_dir / "*.jar")))
+    return ":".join(jars)
+
+
+def declare_dummy_source_fields(out):
+    """This is a work-around for a bug in JSymCompiler. The frontend models declared 
+    field sources as reads of static fields on a generated dummyClass, but never declares those fields in
+    types.classes so the engine then rejects every method containing such a
+    read. Collect the dummy field names actually used and declare them."""
+    fields = set()
+    for meth in (out / "Meth").glob("*.meth"):
+        for name in re.findall(r"dummyClass\.(highSource\w+)\b(?!\s*\()", meth.read_text()):
+            fields.add(name)
+    if not fields:
+        return
+    decls = "".join(f"static int  {name}; " for name in sorted(fields))
+    types = out / "types.classes"
+    content = types.read_text().replace(
+        "dummyClass  <: java.lang.Object{}",
+        "dummyClass  <: java.lang.Object{" + decls + "}",
+    )
+    types.write_text(content)
+    log.info("declared dummy source fields: %s", ", ".join(sorted(fields)))
+
+PA_FILES = (
+    "methodHashmap.json",
+    "combined.meth",
+    "results.secsums",
+)
+
+def extract_and_validate_pa_files(
+    zip_path,
+    work,
+    job,
+    source_scan,
+):
+    pa_dir = work / "pa"
+    pa_dir.mkdir(exist_ok=True)
+
+    with zipfile.ZipFile(zip_path) as zip_file:
+        by_name = {
+            Path(name).name: name
+            for name in zip_file.namelist()
+        }
+
+        info_member = by_name.get("scan-info.json")
+
+        if info_member is None:
+            raise RuntimeError(
+                "previous-analysis archive has no scan-info.json"
+            )
+
+        with zip_file.open(info_member) as stream:
+            try:
+                scan_info = json.load(stream)
+            except json.JSONDecodeError as exception:
+                raise RuntimeError(
+                    "previous-analysis scan-info.json is invalid"
+                ) from exception
+
+        expected = {
+            "config_key": job["config_key"],
+            "policy_sha256": job.get(
+                "policy_sha256",
+                "",
+            ),
+            "method_hash_schema": METHOD_HASH_SCHEMA,
+            "pa_archive_schema": PA_ARCHIVE_SCHEMA,
+        }
+
+        for field, expected_value in expected.items():
+            actual_value = scan_info.get(field)
+
+            if actual_value != expected_value:
+                raise RuntimeError(
+                    "previous-analysis archive is incompatible: "
+                    f"{field} expected {expected_value!r}, "
+                    f"found {actual_value!r}"
+                )
+
+        if (
+            source_scan["group_id"] != job["group_id"]
+            or source_scan["artifact_id"]
+            != job["artifact_id"]
+        ):
+            raise RuntimeError(
+                "previous-analysis scan belongs to a different GA"
+            )
+
+        extracted_paths = []
+
+        for filename in PA_FILES:
+            member = by_name.get(filename)
+
+            if member is None:
+                raise RuntimeError(
+                    "previous-analysis archive is missing "
+                    f"{filename}"
+                )
+
+            target = pa_dir / filename
+
+            with zip_file.open(member) as source:
+                with open(target, "wb") as destination:
+                    shutil.copyfileobj(
+                        source,
+                        destination,
+                    )
+
+            if target.stat().st_size == 0:
+                raise RuntimeError(
+                    "previous-analysis archive contains an "
+                    f"empty {filename}"
+                )
+
+            extracted_paths.append(target)
+
+    return extracted_paths
+
+
+def run_analyzer(work, classpath, policy, pa_files=None):
+    out = work / "out"
+    out.mkdir(exist_ok=True)
+    (out / "logs").mkdir(exist_ok=True)
+
+    if policy is not None:
+        ss = policy
+        policy_source = "artifact"
+    else:
+        default = Path(POLICY_DIR) / "sources-and-sinks.xml"
+        if default.exists():
+            ss = default
+            policy_source = "central-default"
+        else:
+            raise RuntimeError(
+                "no sources/sinks policy supplied with the artifact; deploy a "
+                "'-policy.xml' sidecar next to the jar or upload one via the API "
+                )
+    log.info("policy source: %s (%s)", policy_source, ss)
+
+
+    cmd = ["java", "-jar", JSYM_JAR, str(work / "input.jar"), "-o", str(out),
+           "-ss", str(ss)]
+    for stub in sorted(Path(POLICY_DIR).glob("*.secstubs")):
+        cmd += ["-tf", str(stub)]
+    if classpath:
+        cmd += ["-cp", classpath]
+    if pa_files:
+        cmd += ["-pa", str(pa_files[0]), str(pa_files[1]), str(pa_files[2])]
+    cmd += JSYM_EXTRA_ARGS
+
+    log.info("frontend: %s", " ".join(cmd))
+    proc = subprocess.run(cmd, capture_output=True, text=True,
+                          timeout=SCAN_TIMEOUT_SECONDS, cwd=str(out))
+    (out / "logs" / "frontend-stdout.log").write_text(proc.stdout)
+    (out / "logs" / "frontend-stderr.log").write_text(proc.stderr)
+    if not (out / "Meth" / "all.meth_files").exists():
+        tail = (proc.stdout + "\n" + proc.stderr)[-1500:]
+        raise RuntimeError(f"frontend produced no method files (exit {proc.returncode}): {tail}")
+
+    declare_dummy_source_fields(out) # Need to fix this in JSymCompiler, but this is a workaround for now.
+
+    env = dict(os.environ, OCAMLRUNPARAM="h=1G") # Invoking syrs without +runSyrs now.
+    types_cmd = ["syrs", "-ll", "w", "-tf", SYRS_TFLAGS,
+                 str(out / "types.classes"),
+                 "-o", str(out / "types.classes_bin"),
+                 "-o", str(out / "types.class_stats")]
+    (out / "Syrs").mkdir(exist_ok=True)
+    analyze_cmd = ["syrs", "-ll", "w", "--oflags", "+scfg", "-tf", SYRS_TFLAGS,
+                   str(out / "types.classes_bin"),
+                   str(out / "Meth" / "all.secstubs"),
+                   str(out / "Meth" / "all.meth_files"),
+                   "-rf", "-dr", "-rf", "cuddmem=2GiB",
+                   "-pf", f"timeout={SYRS_TIMEOUT}",
+                   "--methskip-cond", "300", "--safe-walk",
+                   "-o", str(out / "results.secsums"),
+                   "-o", str(out / "results.meth_stats")]
+    for name, cmd in (("types", types_cmd), ("analysis", analyze_cmd)):
+        log.info("engine %s pass", name)
+        proc = subprocess.run(cmd, capture_output=True, text=True,
+                              timeout=SCAN_TIMEOUT_SECONDS, cwd=str(out), env=env)
+        (out / "logs" / f"engine-{name}.log").write_text(proc.stdout + "\n" + proc.stderr)
+        if proc.returncode != 0:
+            tail = (proc.stdout + "\n" + proc.stderr)[-1500:]
+            raise RuntimeError(f"engine {name} pass failed (exit {proc.returncode}): {tail}")
+
+    if not glob.glob(str(out / "*.secsums")):
+        raise RuntimeError("engine completed but produced no .secsums output")
+    return out, policy_source
+
+
+def make_zip(job, out_dir, work, config_key, started_at, policy_source):
+    info = {
+        "scan_id": str(job["id"]),
+        "group_id": job["group_id"],
+        "artifact_id": job["artifact_id"],
+        "version": job["version"],
+        "jar_sha256": job["jar_sha256"],
+        "config_key": config_key,
+        "policy_sha256": job.get(
+            "policy_sha256",
+            "",
+        ),
+        "method_hash_schema": METHOD_HASH_SCHEMA,
+        "pa_archive_schema": PA_ARCHIVE_SCHEMA,
+        "reuse_mode": job.get(
+            "reuse_mode",
+            "full-analysis",
+        ),
+        "reuse_of": (
+            str(job["reuse_of"])
+            if job.get("reuse_of")
+            else None
+        ),
+        "policy_source": policy_source,
+        "started_at": started_at.isoformat(),
+        "finished_at": datetime.datetime.now(
+            datetime.timezone.utc
+        ).isoformat(),
+    }
+    (out_dir / "scan-info.json").write_text(json.dumps(info, indent=2))
+
+    zip_path = work / "symmaries.zip"
+    with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
+        for f in sorted(out_dir.rglob("*")):
+            if f.is_file():
+                zf.write(f, f.relative_to(out_dir))
+    return zip_path
+
+def process(conn, job):
+    started = datetime.datetime.now(
+        datetime.timezone.utc
+    )
+
+    with tempfile.TemporaryDirectory(
+        prefix="scan-"
+    ) as temporary_directory:
+        work = Path(temporary_directory)
+
+        result_path = (
+            f"{job['id']}/symmaries.zip"
+        )
+
+        pom, policy = fetch_input(job, work)
+
+        reuse_mode = job.get(
+            "reuse_mode",
+            "full-analysis",
+        )
+
+        if reuse_mode == "exact-result":
+            raise RuntimeError(
+                "exact-result scans must not be queued"
+            )
+
+        if reuse_mode == "previous-analysis":
+            if not job["reuse_of"]:
+                raise RuntimeError(
+                    "previous-analysis scan has no reuse_of"
+                )
+
+            source_scan = get_scan(
+                conn,
+                job["reuse_of"],
+            )
+
+            if (
+                not source_scan
+                or source_scan["status"] != "done"
+                or not source_scan["result_path"]
+            ):
+                raise RuntimeError(
+                    "previous scan is missing, unfinished, "
+                    "or has no results"
+                )
+
+            previous_zip = work / "previous-analysis.zip"
+
+            downloaded = download(
+                REPORTS_REPO,
+                source_scan["result_path"],
+                previous_zip,
+            )
+
+            if not downloaded:
+                raise RuntimeError(
+                    "previous-analysis result ZIP is missing"
+                )
+
+            try:
+                pa_files = extract_and_validate_pa_files(
+                    previous_zip,
+                    work,
+                    job,
+                    source_scan,
+                )
+
+                log.info(
+                    "scan %s: running JSymCompiler with -pa "
+                    "from scan %s",
+                    job["id"],
+                    source_scan["id"],
+                )
+
+                zip_path = run_incremental_analysis_for_job(
+                    job,
+                    work,
+                    pom,
+                    policy,
+                    pa_files,
+                    started,
+                )
+
+            except Exception:
+                if PA_FAILURE_MODE == "strict":
+                    raise
+
+                log.exception(
+                    "scan %s: previous-analysis reuse failed; "
+                    "falling back to full analysis",
+                    job["id"],
+                )
+
+                # Remove any partial output produced by the failed -pa run.
+                shutil.rmtree(
+                    work / "out",
+                    ignore_errors=True,
+                )
+
+                # Persist the actual execution mode before starting the fallback.
+                set_reuse_mode(
+                    conn,
+                    job["id"],
+                    "full-analysis",
+                    None,
+                )
+
+                # Keep the in-memory job consistent with the database row.
+                job["reuse_mode"] = "full-analysis"
+                job["reuse_of"] = None
+
+                zip_path = run_full_analysis_for_job(
+                    job,
+                    work,
+                    pom,
+                    policy,
+                    started,
+                )
+
+        elif reuse_mode == "full-analysis":
+            zip_path = run_full_analysis_for_job(
+                job,
+                work,
+                pom,
+                policy,
+                started,
+            )
+
+        else:
+            raise RuntimeError(
+                f"unknown reuse_mode: {reuse_mode}"
+            )
+
+        upload(
+            REPORTS_REPO,
+            result_path,
+            zip_path,
+        )
+
+        if job["origin"] == "nexus":
+            publish_to_trusted(
+                job,
+                work / "input.jar",
+                pom,
+                policy,
+                zip_path,
+            )
+
+        ledger_insert(
+            conn,
+            job["jar_sha256"],
+            job["config_key"],
+            job.get("policy_sha256", ""),
+            job["id"],
+            result_path,
+        )
+
+        finish(
+            conn,
+            job["id"],
+            result_path,
+        )
+
+        log.info(
+            "scan %s done using %s",
+            job["id"],
+            job.get(
+                "reuse_mode",
+                "full-analysis",
+            ),
+        )
+
+
+def main():
+    log.info("worker starting; analyzer jar: %s", JSYM_JAR)
+    while True:
+        try:
+            conn = psycopg2.connect(DATABASE_URL, cursor_factory=psycopg2.extras.RealDictCursor)
+        except psycopg2.OperationalError as e:
+            log.warning("database not reachable (%s); retrying", e)
+            time.sleep(IDLE_SLEEP_SECONDS)
+            continue
+        try:
+            while True:
+                job = claim_job(conn)
+                if job is None:
+                    time.sleep(IDLE_SLEEP_SECONDS)
+                    continue
+                log.info("claimed scan %s (%s:%s:%s)", job["id"],
+                         job["group_id"], job["artifact_id"], job["version"])
+                try:
+                    process(conn, job)
+                except Exception as e:
+                    log.exception("scan %s failed", job["id"])
+                    conn.rollback()
+                    fail(conn, job["id"], str(e))
+        except psycopg2.Error:
+            log.exception("database error; reconnecting")
+            time.sleep(IDLE_SLEEP_SECONDS)
+        finally:
+            conn.close()
+            
+def run_full_analysis_for_job(
+    job,
+    work,
+    pom,
+    policy,
+    started,
+):
+    classpath = (
+        resolve_dependencies(pom, work)
+        if pom
+        else ""
+    )
+
+    out_dir, policy_source = run_analyzer(
+        work,
+        classpath,
+        policy,
+    )
+
+    zip_path = make_zip(
+        job,
+        out_dir,
+        work,
+        job["config_key"],
+        started,
+        policy_source,
+    )
+    return zip_path
+    
+def run_incremental_analysis_for_job(
+    job,
+    work,
+    pom,
+    policy,
+    pa_files,
+    started,
+):
+    classpath = (
+        resolve_dependencies(pom, work)
+        if pom
+        else ""
+    )
+
+    out_dir, policy_source = run_analyzer(
+        work,
+        classpath,
+        policy,
+        pa_files=pa_files,
+    )
+
+    zip_path = make_zip(
+        job,
+        out_dir,
+        work,
+        job["config_key"],
+        started,
+        policy_source,
+    )
+
+    return zip_path
+    
+def set_reuse_mode(
+    conn,
+    scan_id,
+    reuse_mode,
+    reuse_of=None,
+):
+    with conn.cursor() as cur:
+        cur.execute(
+            """
+            UPDATE scans
+            SET reuse_mode = %s,
+                reuse_of = %s
+            WHERE id = %s
+            """,
+            (
+                reuse_mode,
+                reuse_of,
+                scan_id,
+            ),
+        )
+
+    conn.commit()
+
+
+if __name__ == "__main__":
+    main()
+    
+    
+    
+SymmMavenPlugin (separate repo)
+===============================
+SymmMojo.java
+-------------
+package com.symmaries;
+
+import com.eclipsesource.json.Json;
+import com.eclipsesource.json.JsonObject;
+import com.eclipsesource.json.JsonValue;
+import org.apache.http.client.config.RequestConfig;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+import org.apache.maven.plugin.AbstractMojo;
+import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
+import org.apache.maven.plugins.annotations.ResolutionScope;
+import org.apache.maven.project.MavenProject;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.time.Instant;
+import java.util.Locale;
+
+@Mojo(
+        name = "analyse",
+        defaultPhase = LifecyclePhase.PACKAGE,
+        requiresDependencyResolution = ResolutionScope.RUNTIME,
+        threadSafe = true
+)
+public class SymmMojo extends AbstractMojo {
+
+    @Parameter(
+            defaultValue = "${project}",
+            required = true,
+            readonly = true
+    )
+    private MavenProject project;
+
+    /**
+     * From a Docker build container, use:
+     * http://host.docker.internal:8000
+     *
+     * For host-side Maven, override with:
+     * -Dsymmaries.apiUrl=http://localhost:8000
+     */
+    @Parameter(
+            property = "symmaries.apiUrl",
+            defaultValue = "http://host.docker.internal:8000"
+    )
+    private String apiUrl;
+
+    /**
+     * Prefer the SYMMARIES_API_KEY environment variable.
+     * This parameter remains available for local/manual testing.
+     */
+    @Parameter(property = "symmaries.apiKey")
+    private String apiKey;
+
+    @Parameter(
+            property = "symmaries.skip",
+            defaultValue = "false"
+    )
+    private boolean skip;
+
+    @Parameter(
+            property = "symmaries.failOnError",
+            defaultValue = "true"
+    )
+    private boolean failOnError;
+
+    /**
+     * If true, submit the scan, save the scan metadata and return without
+     * polling or downloading the summary.
+     */
+    @Parameter(
+            property = "symmaries.submitOnly",
+            defaultValue = "false"
+    )
+    private boolean submitOnly;
+
+    /**
+     * Bypass server-side deduplication and request a fresh scan.
+     */
+    @Parameter(
+            property = "symmaries.force",
+            defaultValue = "false"
+    )
+    private boolean force;
+
+    @Parameter(
+            property = "symmaries.timeoutSeconds",
+            defaultValue = "1800"
+    )
+    private long timeoutSeconds;
+
+    @Parameter(
+            property = "symmaries.pollIntervalSeconds",
+            defaultValue = "5"
+    )
+    private long pollIntervalSeconds;
+
+    @Parameter(
+            property = "symmaries.connectTimeoutSeconds",
+            defaultValue = "15"
+    )
+    private int connectTimeoutSeconds;
+
+    @Parameter(
+            property = "symmaries.requestTimeoutSeconds",
+            defaultValue = "60"
+    )
+    private int requestTimeoutSeconds;
+
+    /**
+     * The current API accepts only JAR files. POM, WAR, RAR and ZIP
+     * artifacts are skipped unless the API is extended later.
+     */
+    @Parameter(
+            property = "symmaries.skipUnsupportedPackaging",
+            defaultValue = "true"
+    )
+    private boolean skipUnsupportedPackaging;
+
+    @Parameter(
+            property = "symmaries.outputDirectory",
+            defaultValue = "${project.build.directory}/symmaries"
+    )
+    private File outputDirectory;
+
+    /**
+     * Explicit application policy file to upload.
+     *
+     * When unset, the plugin searches the project for
+     * src/main/symproto/sources-and-sinks.xml.
+     */
+    @Parameter(property = "symmaries.policyFile")
+    private File policyFile;
+	
+	/**
+	 * Explicit completed scan to use as the previous-analysis
+	 * predecessor. Primarily intended for controlled experiments.
+	 */
+	@Parameter(property = "symmaries.previousScanId")
+	private String previousScanId;
+
+    @Override
+    public void execute() throws MojoExecutionException {
+        if (skip) {
+            getLog().info("Symmaries analysis skipped.");
+            return;
+        }
+
+        try {
+            executePipeline();
+        } catch (MojoExecutionException exception) {
+            if (failOnError) {
+                throw exception;
+            }
+
+            getLog().warn(
+                    "Symmaries analysis failed in advisory mode: "
+                            + exception.getMessage()
+            );
+
+            if (getLog().isDebugEnabled()) {
+                getLog().debug(exception);
+            }
+        }
+    }
+
+    private void executePipeline() throws MojoExecutionException {
+        validateConfiguration();
+
+        File artifactFile = resolveJarArtifact();
+
+        if (artifactFile == null) {
+            return;
+        }
+
+        File pomFile = project.getFile();
+        //File policyFile = findPolicyFile(project.getBasedir());
+        File resolvedPolicyFile = resolvePolicyFile();
+
+        ensureOutputDirectory();
+
+        RequestConfig requestConfig = RequestConfig.custom()
+                .setConnectTimeout(connectTimeoutSeconds * 1000)
+                .setConnectionRequestTimeout(connectTimeoutSeconds * 1000)
+                .setSocketTimeout(requestTimeoutSeconds * 1000)
+                .build();
+
+        try (
+                CloseableHttpClient httpClient = HttpClients.custom()
+                        .setDefaultRequestConfig(requestConfig)
+                        .build()
+        ) {
+            Submission submission = submitScan(
+                    httpClient,
+                    artifactFile,
+                    pomFile,
+                    //policyFile
+                    resolvedPolicyFile
+            );
+
+            writeScanMetadata(
+                    submission,
+                    artifactFile,
+                    //policyFile,
+                    resolvedPolicyFile,
+                    submission.initialStatus,
+                    null
+            );
+
+            if (submitOnly) {
+                getLog().info(
+                        "Symmaries scan submitted in submit-only mode. "
+                                + "Scan ID: "
+                                + submission.scanId
+                );
+                return;
+            }
+
+            JsonObject completedScan = waitForCompletion(
+                    httpClient,
+                    submission
+            );
+
+            String completedStatus = getOptionalString(
+                    completedScan,
+                    "status"
+            );
+
+            writeScanMetadata(
+                    submission,
+                    artifactFile,
+                    //policyFile,
+                    resolvedPolicyFile,
+                    completedStatus,
+                    completedScan
+            );
+
+            downloadSummary(
+                    httpClient,
+                    submission.scanId
+            );
+        } catch (IOException exception) {
+            throw new MojoExecutionException(
+                    "Symmaries API communication failed",
+                    exception
+            );
+        }
+    }
+
+    private void validateConfiguration()
+            throws MojoExecutionException {
+
+        if (apiUrl == null || apiUrl.trim().isEmpty()) {
+            throw new MojoExecutionException(
+                    "symmaries.apiUrl is required"
+            );
+        }
+
+        apiUrl = stripTrailingSlash(apiUrl.trim());
+
+        String environmentApiKey =
+                System.getenv("SYMMARIES_API_KEY");
+
+        if (
+                (apiKey == null || apiKey.trim().isEmpty())
+                        && environmentApiKey != null
+                        && !environmentApiKey.trim().isEmpty()
+        ) {
+            apiKey = environmentApiKey.trim();
+        }
+
+        if (apiKey == null || apiKey.trim().isEmpty()) {
+            throw new MojoExecutionException(
+                    "No Symmaries API key supplied. Set the "
+                            + "SYMMARIES_API_KEY environment variable or "
+                            + "-Dsymmaries.apiKey."
+            );
+        }
+
+        if (timeoutSeconds <= 0) {
+            throw new MojoExecutionException(
+                    "symmaries.timeoutSeconds must be greater than zero"
+            );
+        }
+
+        if (pollIntervalSeconds <= 0) {
+            throw new MojoExecutionException(
+                    "symmaries.pollIntervalSeconds must be greater than zero"
+            );
+        }
+		
+		if (force && previousScanId != null && !previousScanId.trim().isEmpty()) {
+			throw new MojoExecutionException(
+					"symmaries.force cannot be combined with "
+							+ "symmaries.previousScanId"
+			);
+		}
+    }
+
+    private File resolveJarArtifact()
+            throws MojoExecutionException {
+
+        String packaging = project.getPackaging();
+
+        if ("pom".equalsIgnoreCase(packaging)) {
+            getLog().info(
+                    "Skipping POM/aggregator project: "
+                            + project.getId()
+            );
+            return null;
+        }
+
+        File artifactFile = null;
+
+        if (project.getArtifact() != null) {
+            artifactFile = project.getArtifact().getFile();
+        }
+
+        if (
+                artifactFile == null
+                        || !artifactFile.isFile()
+        ) {
+            String message =
+                    "Main Maven artifact is unavailable for "
+                            + project.getId();
+
+            if (skipUnsupportedPackaging) {
+                getLog().warn(message + "; skipping module.");
+                return null;
+            }
+
+            throw new MojoExecutionException(message);
+        }
+
+        if (
+                !artifactFile.getName()
+                        .toLowerCase(Locale.ROOT)
+                        .endsWith(".jar")
+        ) {
+            String message =
+                    "The Symmaries API currently accepts JAR files only. "
+                            + "Resolved artifact was: "
+                            + artifactFile.getAbsolutePath();
+
+            if (skipUnsupportedPackaging) {
+                getLog().info(message + "; skipping module.");
+                return null;
+            }
+
+            throw new MojoExecutionException(message);
+        }
+
+        long maximumBytes = 100L * 1024L * 1024L;
+
+        if (artifactFile.length() > maximumBytes) {
+            throw new MojoExecutionException(
+                    "Artifact exceeds the current 100 MB API upload "
+                            + "limit: "
+                            + artifactFile.getAbsolutePath()
+                            + " ("
+                            + artifactFile.length()
+                            + " bytes)"
+            );
+        }
+
+        return artifactFile;
+    }
+
+    private Submission submitScan(
+            CloseableHttpClient httpClient,
+            File artifactFile,
+            File pomFile,
+            File policyFile
+    ) throws IOException, MojoExecutionException {
+
+        String submitUrl =
+                apiUrl
+                        + "/scans"
+                        + (force ? "?force=true" : "");
+
+        getLog().info(
+                "Submitting artifact to Symmaries: "
+                        + artifactFile.getAbsolutePath()
+        );
+
+        getLog().info(
+                "Symmaries API URL: "
+                        + submitUrl
+        );
+
+        HttpPost request = new HttpPost(submitUrl);
+        request.addHeader("X-Api-Key", apiKey);
+
+        MultipartEntityBuilder multipart =
+                MultipartEntityBuilder.create();
+
+        multipart.addPart(
+                "jar",
+                new FileBody(
+                        artifactFile,
+                        ContentType.APPLICATION_OCTET_STREAM
+                )
+        );
+
+        if (pomFile != null && pomFile.isFile()) {
+            multipart.addPart(
+                    "pom",
+                    new FileBody(
+                            pomFile,
+                            ContentType.APPLICATION_XML
+                    )
+            );
+        } else {
+            getLog().warn(
+                    "Project POM is unavailable. Dependency resolution "
+                            + "during analysis may be less precise."
+            );
+        }
+
+        if (policyFile != null && policyFile.isFile()) {
+            getLog().info(
+                    "Attaching application policy: "
+                            + policyFile.getAbsolutePath()
+            );
+
+            multipart.addPart(
+                    "policy",
+                    new FileBody(
+                            policyFile,
+                            ContentType.APPLICATION_OCTET_STREAM
+                    )
+            );
+        } else {
+            getLog().warn(
+                    "No application policy found at "
+                            + "src/main/symproto/sources-and-sinks.xml"
+            );
+        }
+		
+		if (
+				previousScanId != null
+						&& !previousScanId.trim().isEmpty()
+		) {
+			multipart.addTextBody(
+					"previous_scan_id",
+					previousScanId.trim(),
+					ContentType.TEXT_PLAIN
+			);
+		}
+
+        request.setEntity(multipart.build());
+
+        try (
+                CloseableHttpResponse response =
+                        httpClient.execute(request)
+        ) {
+            int code =
+                    response.getStatusLine().getStatusCode();
+
+            String responseBody =
+                    response.getEntity() == null
+                            ? ""
+                            : EntityUtils.toString(
+                            response.getEntity(),
+                            StandardCharsets.UTF_8
+                    );
+
+            if (code != 200 && code != 202) {
+                throw new MojoExecutionException(
+                        "Symmaries submission failed with HTTP "
+                                + code
+                                + ". Response: "
+                                + responseBody
+                );
+            }
+
+            JsonObject json =
+                    parseJsonObject(
+                            responseBody,
+                            "submission response"
+                    );
+
+            String scanId =
+                    getRequiredString(json, "id");
+
+            String status =
+                    getRequiredString(json, "status");
+
+            boolean deduplicated =
+                    getOptionalBoolean(
+                            json,
+                            "deduplicated",
+                            code == 200
+                    );
+
+            String jarSha256 =
+                    getOptionalString(
+                            json,
+                            "jar_sha256"
+                    );
+
+            String createdAt =
+                    getOptionalString(
+                            json,
+                            "created_at"
+                    );
+					
+			String reuseMode = getOptionalString(
+							json,
+							"reuse_mode"
+					);
+
+					String reuseOf = getOptionalString(
+							json,
+							"reuse_of"
+					);
+
+					String message = getOptionalString(
+							json,
+							"message"
+					);
+
+            getLog().info(
+					"Symmaries scan accepted. Scan ID: "
+							+ scanId
+							+ ", status: "
+							+ status
+							+ ", reuse mode: "
+							+ reuseMode
+							+ ", predecessor: "
+							+ (reuseOf == null ? "none" : reuseOf)
+			);
+
+			if (message != null && !message.trim().isEmpty()) {
+				getLog().info(message);
+			}
+
+            return new Submission(
+					scanId,
+					status,
+					deduplicated,
+					jarSha256,
+					createdAt,
+					code,
+					reuseMode,
+					reuseOf,
+					message
+			);
+        }
+    }
+
+    private JsonObject waitForCompletion(
+            CloseableHttpClient httpClient,
+            Submission submission
+    ) throws IOException, MojoExecutionException {
+
+        String currentStatus =
+                submission.initialStatus;
+
+        if ("done".equalsIgnoreCase(currentStatus)) {
+			JsonObject alreadyDone = new JsonObject();
+
+			alreadyDone.add("id", submission.scanId);
+			alreadyDone.add("status", "done");
+			alreadyDone.add(
+					"deduplicated",
+					submission.deduplicated
+			);
+			alreadyDone.add(
+					"reuse_mode",
+					submission.reuseMode == null
+							? ""
+							: submission.reuseMode
+			);
+			alreadyDone.add(
+					"reuse_of",
+					submission.reuseOf == null
+							? ""
+							: submission.reuseOf
+			);
+			alreadyDone.add(
+					"message",
+					submission.message == null
+							? ""
+							: submission.message
+			);
+
+			return alreadyDone;
+		}
+
+        long deadline =
+                System.currentTimeMillis()
+                        + timeoutSeconds * 1000L;
+
+        while (true) {
+            if (
+                    "failed".equalsIgnoreCase(currentStatus)
+                            || "error".equalsIgnoreCase(currentStatus)
+            ) {
+                throw new MojoExecutionException(
+                        "Symmaries backend reported scan failure for "
+                                + submission.scanId
+                );
+            }
+
+            if (System.currentTimeMillis() > deadline) {
+                throw new MojoExecutionException(
+                        "Timed out after "
+                                + timeoutSeconds
+                                + " seconds waiting for Symmaries scan "
+                                + submission.scanId
+                );
+            }
+
+            sleepBeforePoll(currentStatus);
+
+            HttpGet request = new HttpGet(
+                    apiUrl
+                            + "/scans/"
+                            + submission.scanId
+            );
+
+            request.addHeader("X-Api-Key", apiKey);
+
+            try (
+                    CloseableHttpResponse response =
+                            httpClient.execute(request)
+            ) {
+                int code =
+                        response.getStatusLine().getStatusCode();
+
+                String responseBody =
+                        response.getEntity() == null
+                                ? ""
+                                : EntityUtils.toString(
+                                response.getEntity(),
+                                StandardCharsets.UTF_8
+                        );
+
+                if (code != 200) {
+                    throw new MojoExecutionException(
+                            "Symmaries status request failed with HTTP "
+                                    + code
+                                    + ". Response: "
+                                    + responseBody
+                    );
+                }
+
+                JsonObject json =
+                        parseJsonObject(
+                                responseBody,
+                                "status response"
+                        );
+
+                currentStatus =
+                        getRequiredString(
+                                json,
+                                "status"
+                        );
+
+                String backendError =
+                        getOptionalString(
+                                json,
+                                "error"
+                        );
+
+                if (
+                        backendError != null
+                                && !backendError.trim().isEmpty()
+                ) {
+                    throw new MojoExecutionException(
+                            "Symmaries backend error: "
+                                    + backendError
+                    );
+                }
+
+                if ("done".equalsIgnoreCase(currentStatus)) {
+                    getLog().info(
+                            "Symmaries scan completed: "
+                                    + submission.scanId
+                    );
+                    return json;
+                }
+
+                if ("failed".equalsIgnoreCase(currentStatus)) {
+                    throw new MojoExecutionException(
+                            "Symmaries scan failed: "
+                                    + submission.scanId
+                    );
+                }
+            }
+        }
+    }
+
+    private void sleepBeforePoll(
+            String currentStatus
+    ) throws MojoExecutionException {
+
+        getLog().info(
+                "Symmaries scan status is ["
+                        + currentStatus
+                        + "]. Waiting "
+                        + pollIntervalSeconds
+                        + " seconds."
+        );
+
+        try {
+            Thread.sleep(
+                    pollIntervalSeconds * 1000L
+            );
+        } catch (InterruptedException exception) {
+            Thread.currentThread().interrupt();
+
+            throw new MojoExecutionException(
+                    "Symmaries polling was interrupted",
+                    exception
+            );
+        }
+    }
+
+    private void downloadSummary(
+            CloseableHttpClient httpClient,
+            String scanId
+    ) throws IOException, MojoExecutionException {
+
+        HttpGet request = new HttpGet(
+                apiUrl
+                        + "/scans/"
+                        + scanId
+                        + "/summary"
+        );
+
+        request.addHeader("X-Api-Key", apiKey);
+
+        File outputFile = new File(
+                outputDirectory,
+                project.getArtifactId()
+                        + "-"
+                        + project.getVersion()
+                        + "-"
+                        + scanId
+                        + "-symmaries.zip"
+        );
+
+        try (
+                CloseableHttpResponse response =
+                        httpClient.execute(request)
+        ) {
+            int code =
+                    response.getStatusLine().getStatusCode();
+
+            if (code != 200) {
+                String responseBody =
+                        response.getEntity() == null
+                                ? ""
+                                : EntityUtils.toString(
+                                response.getEntity(),
+                                StandardCharsets.UTF_8
+                        );
+
+                throw new MojoExecutionException(
+                        "Symmaries summary download failed with HTTP "
+                                + code
+                                + ". Response: "
+                                + responseBody
+                );
+            }
+
+            try (
+                    InputStream input =
+                            response.getEntity().getContent();
+                    FileOutputStream output =
+                            new FileOutputStream(outputFile)
+            ) {
+                byte[] buffer = new byte[8192];
+                int bytesRead;
+
+                while (
+                        (bytesRead = input.read(buffer)) != -1
+                ) {
+                    output.write(
+                            buffer,
+                            0,
+                            bytesRead
+                    );
+                }
+            }
+        }
+
+        getLog().info(
+                "Symmaries summary saved to: "
+                        + outputFile.getAbsolutePath()
+        );
+    }
+
+    private void writeScanMetadata(
+            Submission submission,
+            File artifactFile,
+            File policyFile,
+            String currentStatus,
+            JsonObject statusResponse
+    ) throws MojoExecutionException {
+
+        JsonObject metadata = new JsonObject();
+
+		String finalReuseMode = submission.reuseMode;
+		String finalReuseOf = submission.reuseOf;
+
+		if (statusResponse != null) {
+			String responseReuseMode = getOptionalString(
+					statusResponse,
+					"reuse_mode"
+			);
+
+			String responseReuseOf = getOptionalString(
+					statusResponse,
+					"reuse_of"
+			);
+
+			if (
+					responseReuseMode != null
+							&& !responseReuseMode.trim().isEmpty()
+			) {
+				finalReuseMode = responseReuseMode;
+			}
+
+			if (responseReuseOf != null) {
+				finalReuseOf = responseReuseOf;
+			}
+		}
+        metadata.add("scan_id", submission.scanId);
+        metadata.add(
+                "status",
+                currentStatus == null
+                        ? "unknown"
+                        : currentStatus
+        );
+
+        metadata.add(
+                "deduplicated",
+                submission.deduplicated
+        );
+
+        metadata.add(
+                "submission_http_status",
+                submission.httpStatus
+        );
+
+        metadata.add(
+                "group_id",
+                project.getGroupId()
+        );
+
+        metadata.add(
+                "artifact_id",
+                project.getArtifactId()
+        );
+
+        metadata.add(
+                "version",
+                project.getVersion()
+        );
+
+        metadata.add(
+                "packaging",
+                project.getPackaging()
+        );
+
+        metadata.add(
+                "artifact_path",
+                artifactFile.getAbsolutePath()
+        );
+
+        metadata.add(
+                "jar_sha256",
+                submission.jarSha256 == null
+                        ? ""
+                        : submission.jarSha256
+        );
+
+        metadata.add(
+                "policy_path",
+                policyFile == null
+                        ? ""
+                        : policyFile.getAbsolutePath()
+        );
+
+        metadata.add(
+                "force",
+                force
+        );
+
+        metadata.add(
+                "submit_only",
+                submitOnly
+        );
+
+        metadata.add(
+                "api_url",
+                apiUrl
+        );
+
+        metadata.add(
+                "client_recorded_at",
+                Instant.now().toString()
+        );
+
+        metadata.add(
+                "server_created_at",
+                submission.createdAt == null
+                        ? ""
+                        : submission.createdAt
+        );
+		
+		metadata.add(
+				"reuse_mode",
+				finalReuseMode == null
+						? ""
+						: finalReuseMode
+		);
+
+		metadata.add(
+				"reuse_of",
+				finalReuseOf == null
+						? ""
+						: finalReuseOf
+		);
+
+		metadata.add(
+				"server_message",
+				submission.message == null
+						? ""
+						: submission.message
+		);
+
+        if (statusResponse != null) {
+            addOptionalField(
+                    metadata,
+                    statusResponse,
+                    "started_at"
+            );
+
+            addOptionalField(
+                    metadata,
+                    statusResponse,
+                    "finished_at"
+            );
+
+            addOptionalField(
+                    metadata,
+                    statusResponse,
+                    "origin"
+            );
+
+            addOptionalField(
+                    metadata,
+                    statusResponse,
+                    "error"
+            );
+        }
+
+        File metadataFile = new File(
+                outputDirectory,
+                project.getArtifactId()
+                        + "-"
+                        + project.getVersion()
+                        + "-"
+                        + submission.scanId
+                        + "-scan.json"
+        );
+
+        try {
+            Files.write(
+                    metadataFile.toPath(),
+                    metadata.toString()
+                            .getBytes(StandardCharsets.UTF_8)
+            );
+        } catch (IOException exception) {
+            throw new MojoExecutionException(
+                    "Unable to write Symmaries scan metadata: "
+                            + metadataFile.getAbsolutePath(),
+                    exception
+            );
+        }
+    }
+
+    private void ensureOutputDirectory()
+            throws MojoExecutionException {
+
+        if (outputDirectory.isDirectory()) {
+            return;
+        }
+
+        if (!outputDirectory.mkdirs()) {
+            throw new MojoExecutionException(
+                    "Unable to create Symmaries output directory: "
+                            + outputDirectory.getAbsolutePath()
+            );
+        }
+    }
+
+    private File findPolicyFile(
+            File baseDirectory
+    ) {
+        File expected = new File(
+                baseDirectory,
+                "src"
+                        + File.separator
+                        + "main"
+                        + File.separator
+                        + "symproto"
+                        + File.separator
+                        + "sources-and-sinks.xml"
+        );
+
+        if (expected.isFile()) {
+            return expected;
+        }
+
+        File[] rootCandidates =
+                baseDirectory.listFiles(
+                        (directory, name) -> {
+                            String normalised =
+                                    name.toLowerCase(Locale.ROOT);
+
+                            return normalised.contains("sources")
+                                    && normalised.contains("sinks")
+                                    && normalised.endsWith(".xml");
+                        }
+                );
+
+        if (
+                rootCandidates != null
+                        && rootCandidates.length > 0
+        ) {
+            return rootCandidates[0];
+        }
+
+        return null;
+    }
+
+    private File resolvePolicyFile()
+            throws MojoExecutionException {
+
+        if (policyFile != null) {
+            File explicitPolicy;
+
+            if (policyFile.isAbsolute()) {
+                explicitPolicy = policyFile;
+            } else {
+                explicitPolicy = new File(
+                        project.getBasedir(),
+                        policyFile.getPath()
+                );
+            }
+
+            if (!explicitPolicy.isFile()) {
+                throw new MojoExecutionException(
+                        "Configured Symmaries policy file "
+                                + "does not exist: "
+                                + explicitPolicy.getAbsolutePath()
+                );
+            }
+
+            getLog().info(
+                    "Using configured Symmaries policy: "
+                            + explicitPolicy.getAbsolutePath()
+            );
+
+            return explicitPolicy;
+        }
+
+        return findPolicyFile(
+                project.getBasedir()
+        );
+    }
+
+    private JsonObject parseJsonObject(
+            String body,
+            String description
+    ) throws MojoExecutionException {
+
+        try {
+            return Json.parse(body).asObject();
+        } catch (RuntimeException exception) {
+            throw new MojoExecutionException(
+                    "Unable to parse Symmaries "
+                            + description
+                            + ": "
+                            + body,
+                    exception
+            );
+        }
+    }
+
+    private String getRequiredString(
+            JsonObject json,
+            String field
+    ) throws MojoExecutionException {
+
+        String value = getOptionalString(
+                json,
+                field
+        );
+
+        if (value == null || value.trim().isEmpty()) {
+            throw new MojoExecutionException(
+                    "Symmaries response is missing required field: "
+                            + field
+            );
+        }
+
+        return value;
+    }
+
+    private String getOptionalString(
+            JsonObject json,
+            String field
+    ) {
+        JsonValue value = json.get(field);
+
+        if (value == null || value.isNull()) {
+            return null;
+        }
+
+        try {
+            return value.asString();
+        } catch (RuntimeException exception) {
+            return value.toString();
+        }
+    }
+
+    private boolean getOptionalBoolean(
+            JsonObject json,
+            String field,
+            boolean defaultValue
+    ) {
+        JsonValue value = json.get(field);
+
+        if (value == null || value.isNull()) {
+            return defaultValue;
+        }
+
+        try {
+            return value.asBoolean();
+        } catch (RuntimeException exception) {
+            return defaultValue;
+        }
+    }
+
+    private void addOptionalField(
+            JsonObject destination,
+            JsonObject source,
+            String field
+    ) {
+        String value = getOptionalString(
+                source,
+                field
+        );
+
+        destination.add(
+                field,
+                value == null ? "" : value
+        );
+    }
+
+    private String stripTrailingSlash(
+            String value
+    ) {
+        while (
+                value.endsWith("/")
+                        && value.length() > 1
+        ) {
+            value = value.substring(
+                    0,
+                    value.length() - 1
+            );
+        }
+
+        return value;
+    }
+
+    private static final class Submission {
+        private final String scanId;
+        private final String initialStatus;
+        private final boolean deduplicated;
+        private final String jarSha256;
+        private final String createdAt;
+        private final int httpStatus;
+		private final String reuseMode;
+		private final String reuseOf;
+		private final String message;
+
+		private Submission(
+				String scanId,
+				String initialStatus,
+				boolean deduplicated,
+				String jarSha256,
+				String createdAt,
+				int httpStatus,
+				String reuseMode,
+				String reuseOf,
+				String message
+		) {
+			this.scanId = scanId;
+			this.initialStatus = initialStatus;
+			this.deduplicated = deduplicated;
+			this.jarSha256 = jarSha256;
+			this.createdAt = createdAt;
+			this.httpStatus = httpStatus;
+			this.reuseMode = reuseMode;
+			this.reuseOf = reuseOf;
+			this.message = message;
+		}
+    }
+}

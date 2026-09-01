@@ -1,0 +1,4 @@
+candidate_id,module_path,artifact_selector,mapping_status,notes
+RCM-01420,cosmos-osgi-runtime,main,D1_VERIFIED_JAR,cosmos-osgi-runtime-0.5.0.jar
+RCM-01341,.,main,D1_VERIFIED_JAR,maven-turbo-builder-1.0.jar
+RCM-00141,mariaDB4j,main,D1_VERIFIED_JAR,mariaDB4j-3.3.1.jar

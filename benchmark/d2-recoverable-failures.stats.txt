@@ -1,0 +1,4 @@
+total=11
+category_FRONTEND_NO_METHOD_FILES=6
+category_SUBMISSION_NOT_REACHED=4
+category_TIMEOUT=1

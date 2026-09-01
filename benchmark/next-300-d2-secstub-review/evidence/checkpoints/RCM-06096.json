@@ -1,0 +1,111 @@
+{
+  "findings": [
+    {
+      "caller_class": "nl.basjes.modbus.device.plc4j.ModbusDevicePlc4j",
+      "caller_method": "private final java.lang.String getAddressClassTag(nl.basjes.modbus.device.api.AddressClass)",
+      "candidate": "RCM-06096",
+      "category": "concurrency",
+      "descriptor": "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;",
+      "evidence": "201: invokevirtual #235                // Method java/util/concurrent/CompletableFuture.get:(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06096/D1/attempt-1/workspace/modbus-api-parent/modbus-api-plc4j/target/modbus-api-plc4j-0.6.0.jar",
+      "name": "get",
+      "owner": "java/util/concurrent/CompletableFuture"
+    },
+    {
+      "caller_class": "nl.basjes.modbus.schema.shaded.org.antlr.v4.runtime.Recognizer$1",
+      "caller_method": "nl.basjes.modbus.schema.shaded.org.antlr.v4.runtime.Recognizer$1(nl.basjes.modbus.schema.shaded.org.antlr.v4.runtime.Recognizer)",
+      "candidate": "RCM-06096",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "6: invokespecial #17                 // Method java/util/concurrent/CopyOnWriteArrayList.\"<init>\":()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06096/D1/attempt-1/workspace/modbus-schema-device/target/modbus-schema-device-0.6.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/CopyOnWriteArrayList"
+    },
+    {
+      "caller_class": "nl.basjes.modbus.schema.shaded.org.antlr.v4.runtime.atn.PredictionContext",
+      "caller_method": "protected nl.basjes.modbus.schema.shaded.org.antlr.v4.runtime.atn.PredictionContext(int)",
+      "candidate": "RCM-06096",
+      "category": "concurrency",
+      "descriptor": "()I",
+      "evidence": "8: invokevirtual #31                 // Method java/util/concurrent/atomic/AtomicInteger.getAndIncrement:()I",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06096/D1/attempt-1/workspace/modbus-schema-device/target/modbus-schema-device-0.6.0.jar",
+      "name": "getAndIncrement",
+      "owner": "java/util/concurrent/atomic/AtomicInteger"
+    },
+    {
+      "caller_class": "nl.basjes.modbus.schema.shaded.org.antlr.v4.runtime.atn.PredictionContext",
+      "caller_method": "public java.lang.String[] toStrings(nl.basjes.modbus.schema.shaded.org.antlr.v4.runtime.Recognizer<?, ?>, nl.basjes.modbus.schema.shaded.org.antlr.v4.runtime.atn.PredictionContext, int)",
+      "candidate": "RCM-06096",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "20: invokespecial #472                // Method java/util/concurrent/atomic/AtomicInteger.\"<init>\":()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06096/D1/attempt-1/workspace/modbus-schema-device/target/modbus-schema-device-0.6.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/atomic/AtomicInteger"
+    },
+    {
+      "caller_class": "nl.basjes.modbus.schema.shaded.org.antlr.v4.runtime.misc.ParseCancellationException",
+      "caller_method": "public nl.basjes.modbus.schema.shaded.org.antlr.v4.runtime.misc.ParseCancellationException()",
+      "candidate": "RCM-06096",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "1: invokespecial #9                  // Method java/util/concurrent/CancellationException.\"<init>\":()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06096/D1/attempt-1/workspace/modbus-schema-device/target/modbus-schema-device-0.6.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/CancellationException"
+    },
+    {
+      "caller_class": "nl.basjes.modbus.schema.shaded.org.antlr.v4.runtime.misc.ParseCancellationException",
+      "caller_method": "public nl.basjes.modbus.schema.shaded.org.antlr.v4.runtime.misc.ParseCancellationException(java.lang.String)",
+      "candidate": "RCM-06096",
+      "category": "concurrency",
+      "descriptor": "(Ljava/lang/String;)V",
+      "evidence": "2: invokespecial #14                 // Method java/util/concurrent/CancellationException.\"<init>\":(Ljava/lang/String;)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06096/D1/attempt-1/workspace/modbus-schema-device/target/modbus-schema-device-0.6.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/CancellationException"
+    },
+    {
+      "caller_class": "nl.basjes.modbus.schema.shaded.org.antlr.v4.runtime.misc.ParseCancellationException",
+      "caller_method": "public nl.basjes.modbus.schema.shaded.org.antlr.v4.runtime.misc.ParseCancellationException(java.lang.Throwable)",
+      "candidate": "RCM-06096",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "1: invokespecial #9                  // Method java/util/concurrent/CancellationException.\"<init>\":()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06096/D1/attempt-1/workspace/modbus-schema-device/target/modbus-schema-device-0.6.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/CancellationException"
+    },
+    {
+      "caller_class": "nl.basjes.modbus.schema.shaded.org.antlr.v4.runtime.misc.ParseCancellationException",
+      "caller_method": "public nl.basjes.modbus.schema.shaded.org.antlr.v4.runtime.misc.ParseCancellationException(java.lang.String, java.lang.Throwable)",
+      "candidate": "RCM-06096",
+      "category": "concurrency",
+      "descriptor": "(Ljava/lang/String;)V",
+      "evidence": "2: invokespecial #14                 // Method java/util/concurrent/CancellationException.\"<init>\":(Ljava/lang/String;)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06096/D1/attempt-1/workspace/modbus-schema-device/target/modbus-schema-device-0.6.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/CancellationException"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-06096",
+    "classes_discovered": 575,
+    "classes_failed": 0,
+    "classes_scanned": 575,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T14:27:58Z",
+    "discovered_jars": 9,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 133.962,
+    "error": "",
+    "findings": 8,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06096/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T14:25:44Z",
+    "status": "COMPLETE",
+    "unique_jars": 9,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

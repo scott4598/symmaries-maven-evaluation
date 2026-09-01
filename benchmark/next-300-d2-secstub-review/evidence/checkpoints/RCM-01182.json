@@ -1,0 +1,100 @@
+{
+  "findings": [
+    {
+      "caller_class": "com.github.marschall.maven.jfr.JfrEventListener",
+      "caller_method": "com.github.marschall.maven.jfr.JfrEventListener()",
+      "candidate": "RCM-01182",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "9: invokespecial #3                  // Method java/util/concurrent/ConcurrentHashMap.\"<init>\":()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01182/D1/attempt-1/workspace/target/jfr-maven-extension-0.2.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/ConcurrentHashMap"
+    },
+    {
+      "caller_class": "com.github.marschall.maven.jfr.JfrEventListener",
+      "caller_method": "com.github.marschall.maven.jfr.JfrEventListener()",
+      "candidate": "RCM-01182",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "20: invokespecial #3                  // Method java/util/concurrent/ConcurrentHashMap.\"<init>\":()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01182/D1/attempt-1/workspace/target/jfr-maven-extension-0.2.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/ConcurrentHashMap"
+    },
+    {
+      "caller_class": "com.github.marschall.maven.jfr.JfrEventListener",
+      "caller_method": "public void projectStarted(org.apache.maven.execution.ExecutionEvent)",
+      "candidate": "RCM-01182",
+      "category": "concurrency",
+      "descriptor": "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "45: invokeinterface #15,  3           // InterfaceMethod java/util/concurrent/ConcurrentMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01182/D1/attempt-1/workspace/target/jfr-maven-extension-0.2.0.jar",
+      "name": "put",
+      "owner": "java/util/concurrent/ConcurrentMap"
+    },
+    {
+      "caller_class": "com.github.marschall.maven.jfr.JfrEventListener",
+      "caller_method": "private void stopProject(org.apache.maven.project.MavenProject)",
+      "candidate": "RCM-01182",
+      "category": "concurrency",
+      "descriptor": "(Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "5: invokeinterface #17,  2           // InterfaceMethod java/util/concurrent/ConcurrentMap.remove:(Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01182/D1/attempt-1/workspace/target/jfr-maven-extension-0.2.0.jar",
+      "name": "remove",
+      "owner": "java/util/concurrent/ConcurrentMap"
+    },
+    {
+      "caller_class": "com.github.marschall.maven.jfr.JfrEventListener",
+      "caller_method": "public void mojoStarted(org.apache.maven.execution.ExecutionEvent)",
+      "candidate": "RCM-01182",
+      "category": "concurrency",
+      "descriptor": "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "23: invokeinterface #15,  3           // InterfaceMethod java/util/concurrent/ConcurrentMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01182/D1/attempt-1/workspace/target/jfr-maven-extension-0.2.0.jar",
+      "name": "put",
+      "owner": "java/util/concurrent/ConcurrentMap"
+    },
+    {
+      "caller_class": "com.github.marschall.maven.jfr.JfrEventListener",
+      "caller_method": "private void stopMojo(org.apache.maven.plugin.MojoExecution)",
+      "candidate": "RCM-01182",
+      "category": "concurrency",
+      "descriptor": "(Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "5: invokeinterface #17,  2           // InterfaceMethod java/util/concurrent/ConcurrentMap.remove:(Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01182/D1/attempt-1/workspace/target/jfr-maven-extension-0.2.0.jar",
+      "name": "remove",
+      "owner": "java/util/concurrent/ConcurrentMap"
+    },
+    {
+      "caller_class": "com.github.marschall.maven.jfr.JfrEventListener",
+      "caller_method": "public void forkStarted(org.apache.maven.execution.ExecutionEvent)",
+      "candidate": "RCM-01182",
+      "category": "concurrency",
+      "descriptor": "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "23: invokeinterface #15,  3           // InterfaceMethod java/util/concurrent/ConcurrentMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01182/D1/attempt-1/workspace/target/jfr-maven-extension-0.2.0.jar",
+      "name": "put",
+      "owner": "java/util/concurrent/ConcurrentMap"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-01182",
+    "classes_discovered": 5,
+    "classes_failed": 0,
+    "classes_scanned": 5,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T14:04:14Z",
+    "discovered_jars": 1,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 1.088,
+    "error": "",
+    "findings": 7,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01182/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T14:04:13Z",
+    "status": "COMPLETE",
+    "unique_jars": 1,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

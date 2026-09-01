@@ -1,0 +1,45 @@
+{
+  "findings": [
+    {
+      "caller_class": "org.metricshub.ssh.SshClient",
+      "caller_method": "public void close()",
+      "candidate": "RCM-10080",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "54: invokevirtual #466                // Method java/lang/Thread.start:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10080/D1/attempt-1/workspace/target/ssh-java-1.0.03.jar",
+      "name": "start",
+      "owner": "java/lang/Thread"
+    },
+    {
+      "caller_class": "org.metricshub.ssh.SshClient",
+      "caller_method": "public void close()",
+      "candidate": "RCM-10080",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "146: invokevirtual #472                // Method java/lang/Thread.interrupt:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10080/D1/attempt-1/workspace/target/ssh-java-1.0.03.jar",
+      "name": "interrupt",
+      "owner": "java/lang/Thread"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-10080",
+    "classes_discovered": 5,
+    "classes_failed": 0,
+    "classes_scanned": 5,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T15:39:37Z",
+    "discovered_jars": 1,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 1.146,
+    "error": "",
+    "findings": 2,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10080/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T15:39:36Z",
+    "status": "COMPLETE",
+    "unique_jars": 1,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

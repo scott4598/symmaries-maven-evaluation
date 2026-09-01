@@ -1,0 +1,56 @@
+{
+  "findings": [
+    {
+      "caller_class": "io.github.jmkeyes.spring.boot.thrift.server.ThriftControllerRegistrar",
+      "caller_method": "private org.springframework.boot.web.servlet.ServletRegistrationBean<?> generateServletRegistration(java.lang.Class<?>)",
+      "candidate": "RCM-04672",
+      "category": "reflection",
+      "descriptor": "([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;",
+      "evidence": "114: invokevirtual #185                // Method java/lang/Class.getConstructor:([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-04672/D1/attempt-1/workspace/target/thrift-spring-boot-starter-2.0.0.jar",
+      "name": "getConstructor",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "io.github.jmkeyes.spring.boot.thrift.server.ThriftControllerRegistrar",
+      "caller_method": "private org.apache.thrift.protocol.TProtocolFactory getThriftProtocolFactory(java.lang.Class<?>)",
+      "candidate": "RCM-04672",
+      "category": "reflection",
+      "descriptor": "([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;",
+      "evidence": "41: invokevirtual #185                // Method java/lang/Class.getConstructor:([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-04672/D1/attempt-1/workspace/target/thrift-spring-boot-starter-2.0.0.jar",
+      "name": "getConstructor",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "io.github.jmkeyes.spring.boot.thrift.server.ThriftControllerRegistrar",
+      "caller_method": "private org.apache.thrift.protocol.TProtocolFactory getThriftProtocolFactory(java.lang.Class<?>)",
+      "candidate": "RCM-04672",
+      "category": "reflection",
+      "descriptor": "([Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "48: invokevirtual #256                // Method java/lang/reflect/Constructor.newInstance:([Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-04672/D1/attempt-1/workspace/target/thrift-spring-boot-starter-2.0.0.jar",
+      "name": "newInstance",
+      "owner": "java/lang/reflect/Constructor"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-04672",
+    "classes_discovered": 5,
+    "classes_failed": 0,
+    "classes_scanned": 5,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T14:23:36Z",
+    "discovered_jars": 1,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 1.08,
+    "error": "",
+    "findings": 3,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-04672/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T14:23:35Z",
+    "status": "COMPLETE",
+    "unique_jars": 1,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

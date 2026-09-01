@@ -1,0 +1,45 @@
+{
+  "findings": [
+    {
+      "caller_class": "org.apache.maven.plugins.enforcer.internal.EnforcerRuleManager",
+      "caller_method": "private org.apache.maven.enforcer.rule.api.EnforcerLevel getRuleLevelFromConfig(org.codehaus.plexus.configuration.PlexusConfiguration)",
+      "candidate": "RCM-07084",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;)Ljava/lang/Class;",
+      "evidence": "202: invokestatic  #247                // Method java/lang/Class.forName:(Ljava/lang/String;)Ljava/lang/Class;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07084/D1/attempt-1/workspace/maven-enforcer-plugin/target/maven-enforcer-plugin-3.6.0.jar",
+      "name": "forName",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "org.apache.maven.plugins.enforcer.internal.EnforcerRuleManager",
+      "caller_method": "private org.apache.maven.enforcer.rule.api.EnforcerLevel getRuleLevelFromConfig(org.codehaus.plexus.configuration.PlexusConfiguration)",
+      "candidate": "RCM-07084",
+      "category": "reflection",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "205: invokevirtual #253                // Method java/lang/Class.newInstance:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07084/D1/attempt-1/workspace/maven-enforcer-plugin/target/maven-enforcer-plugin-3.6.0.jar",
+      "name": "newInstance",
+      "owner": "java/lang/Class"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-07084",
+    "classes_discovered": 86,
+    "classes_failed": 0,
+    "classes_scanned": 86,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T15:14:37Z",
+    "discovered_jars": 4,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 19.648,
+    "error": "",
+    "findings": 2,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07084/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T15:14:17Z",
+    "status": "COMPLETE",
+    "unique_jars": 4,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

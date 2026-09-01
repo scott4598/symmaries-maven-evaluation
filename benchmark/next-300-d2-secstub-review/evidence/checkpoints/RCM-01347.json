@@ -1,0 +1,100 @@
+{
+  "findings": [
+    {
+      "caller_class": "com.github.seregamorph.testdistribution.maven.SplitMojo",
+      "caller_method": "public com.github.seregamorph.testdistribution.maven.SplitMojo()",
+      "candidate": "RCM-01347",
+      "category": "reflection",
+      "descriptor": "([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;",
+      "evidence": "70: invokevirtual #318                // Method java/lang/Class.getConstructor:([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01347/D1/attempt-1/workspace/test-distribution-maven-plugin/target/test-distribution-maven-plugin-0.10.jar",
+      "name": "getConstructor",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "com.github.seregamorph.testdistribution.maven.SplitMojo",
+      "caller_method": "public com.github.seregamorph.testdistribution.maven.SplitMojo()",
+      "candidate": "RCM-01347",
+      "category": "reflection",
+      "descriptor": "([Ljava/lang/Object;)Ljava/lang/Object;",
+      "evidence": "77: invokevirtual #324                // Method java/lang/reflect/Constructor.newInstance:([Ljava/lang/Object;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01347/D1/attempt-1/workspace/test-distribution-maven-plugin/target/test-distribution-maven-plugin-0.10.jar",
+      "name": "newInstance",
+      "owner": "java/lang/reflect/Constructor"
+    },
+    {
+      "caller_class": "com.github.seregamorph.testdistribution.spring.ClassUtils",
+      "caller_method": "private static java.lang.Class<?> classForName(java.lang.String, boolean, java.lang.ClassLoader)",
+      "candidate": "RCM-01347",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;",
+      "evidence": "3: invokestatic  #27                 // Method java/lang/Class.forName:(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01347/D1/attempt-1/workspace/test-distribution-spring-provider/target/test-distribution-spring-provider-0.10.jar",
+      "name": "forName",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "com.github.seregamorph.testdistribution.spring.SpringDistributionProvider",
+      "caller_method": "public java.util.List<java.util.List<java.lang.String>> split(java.util.List<java.lang.String>, com.github.seregamorph.testdistribution.TestDistributionParameters)",
+      "candidate": "RCM-01347",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;",
+      "evidence": "31: invokestatic  #30                 // Method java/lang/Class.forName:(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01347/D1/attempt-1/workspace/test-distribution-spring-provider/target/test-distribution-spring-provider-0.10.jar",
+      "name": "forName",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "com.github.seregamorph.testdistribution.spring.SpringDistributionProvider",
+      "caller_method": "public java.util.List<java.util.List<java.lang.String>> split(java.util.List<java.lang.String>, com.github.seregamorph.testdistribution.TestDistributionParameters)",
+      "candidate": "RCM-01347",
+      "category": "reflection",
+      "descriptor": "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;",
+      "evidence": "43: invokestatic  #30                 // Method java/lang/Class.forName:(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01347/D1/attempt-1/workspace/test-distribution-spring-provider/target/test-distribution-spring-provider-0.10.jar",
+      "name": "forName",
+      "owner": "java/lang/Class"
+    },
+    {
+      "caller_class": "com.github.seregamorph.testdistribution.spring.SpringDistributionProvider",
+      "caller_method": "public java.util.List<java.util.List<java.lang.String>> split(java.util.List<java.lang.String>, com.github.seregamorph.testdistribution.TestDistributionParameters)",
+      "candidate": "RCM-01347",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "108: invokespecial #65                 // Method java/util/concurrent/atomic/AtomicInteger.\"<init>\":()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01347/D1/attempt-1/workspace/test-distribution-spring-provider/target/test-distribution-spring-provider-0.10.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/atomic/AtomicInteger"
+    },
+    {
+      "caller_class": "com.github.seregamorph.testdistribution.spring.SpringDistributionProvider",
+      "caller_method": "private static com.github.seregamorph.testdistribution.spring.SpringDistributionProvider$TestClasses lambda$split$0(java.util.concurrent.atomic.AtomicInteger, org.springframework.test.context.MergedContextConfiguration)",
+      "candidate": "RCM-01347",
+      "category": "concurrency",
+      "descriptor": "()I",
+      "evidence": "5: invokevirtual #220                // Method java/util/concurrent/atomic/AtomicInteger.incrementAndGet:()I",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01347/D1/attempt-1/workspace/test-distribution-spring-provider/target/test-distribution-spring-provider-0.10.jar",
+      "name": "incrementAndGet",
+      "owner": "java/util/concurrent/atomic/AtomicInteger"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-01347",
+    "classes_discovered": 19,
+    "classes_failed": 0,
+    "classes_scanned": 19,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T14:06:45Z",
+    "discovered_jars": 3,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 4.213,
+    "error": "",
+    "findings": 7,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01347/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T14:06:41Z",
+    "status": "COMPLETE",
+    "unique_jars": 3,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

@@ -1,0 +1,93 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "3"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"name":"symproto-worker","namespace":"symproto"},"spec":{"replicas":2,"selector":{"matchLabels":{"app":"worker"}},"template":{"metadata":{"labels":{"app":"worker"}},"spec":{"containers":[{"env":[{"name":"DATABASE_URL","value":"postgresql://symproto:symproto123@postgres:5432/symproto"},{"name":"NEXUS_URL","value":"http://nexus:8081"},{"name":"NEXUS_USER","value":"svc-scan"},{"name":"NEXUS_PASSWORD","value":"scan123"},{"name":"POLICY_DIR","value":"/policy"},{"name":"SCAN_TIMEOUT_SECONDS","value":"1800"},{"name":"JSYM_EXTRA_ARGS","value":""}],"image":"k3d-symproto-registry:5000/symproto-worker:0.7","imagePullPolicy":"IfNotPresent","name":"worker","resources":{"limits":{"cpu":"2","memory":"3Gi"},"requests":{"cpu":"1","memory":"1536Mi"}},"volumeMounts":[{"mountPath":"/policy","name":"policy","readOnly":true}]}],"volumes":[{"configMap":{"name":"symproto-policy"},"name":"policy"}]}}}}
+  creationTimestamp: "2026-07-23T15:07:21Z"
+  generation: 3
+  name: symproto-worker
+  namespace: symproto
+  resourceVersion: "44531"
+  uid: d503c907-b3eb-4911-bb2f-07f2c91075e8
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 2
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: worker
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/restartedAt: "2026-08-08T18:35:53+01:00"
+      labels:
+        app: worker
+    spec:
+      containers:
+      - env:
+        - name: DATABASE_URL
+          value: postgresql://symproto:symproto123@postgres:5432/symproto
+        - name: NEXUS_URL
+          value: http://nexus:8081
+        - name: NEXUS_USER
+          value: svc-scan
+        - name: NEXUS_PASSWORD
+          value: scan123
+        - name: POLICY_DIR
+          value: /policy
+        - name: SCAN_TIMEOUT_SECONDS
+          value: "1800"
+        - name: JSYM_EXTRA_ARGS
+        image: k3d-symproto-registry:5000/symproto-worker:0.7
+        imagePullPolicy: IfNotPresent
+        name: worker
+        resources:
+          limits:
+            cpu: "2"
+            memory: 3Gi
+          requests:
+            cpu: "1"
+            memory: 1536Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /policy
+          name: policy
+          readOnly: true
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: symproto-policy
+        name: policy
+status:
+  availableReplicas: 2
+  conditions:
+  - lastTransitionTime: "2026-08-07T15:16:04Z"
+    lastUpdateTime: "2026-08-07T15:16:04Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2026-07-23T15:07:21Z"
+    lastUpdateTime: "2026-08-08T17:35:56Z"
+    message: ReplicaSet "symproto-worker-847578997" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 3
+  readyReplicas: 2
+  replicas: 2
+  terminatingReplicas: 0
+  updatedReplicas: 2

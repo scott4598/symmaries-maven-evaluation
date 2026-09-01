@@ -1,0 +1,9 @@
+baseline_lines=986
+proposal_lines=1004
+new_lines=18
+missing_baseline_lines=0
+prohibited_reflection_lines=0
+sensitive_reflection_lines=6
+concurrency_lines=11
+exception_lines=0
+collection_lines=1

@@ -1,0 +1,78 @@
+{
+  "findings": [
+    {
+      "caller_class": "com.fasterxml.uuid.UUIDTimer",
+      "caller_method": "protected void slowDown(long, long)",
+      "candidate": "RCM-00800",
+      "category": "concurrency",
+      "descriptor": "(J)V",
+      "evidence": "86: invokestatic  #61                 // Method java/lang/Thread.sleep:(J)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-00800/D1/attempt-1/workspace/target/java-uuid-generator-4.2.0.jar",
+      "name": "sleep",
+      "owner": "java/lang/Thread"
+    },
+    {
+      "caller_class": "com.fasterxml.uuid.impl.TimeBasedEpochGenerator",
+      "caller_method": "public com.fasterxml.uuid.impl.TimeBasedEpochGenerator(java.util.Random)",
+      "candidate": "RCM-00800",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "24: invokespecial #8                  // Method java/util/concurrent/locks/ReentrantLock.\"<init>\":()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-00800/D1/attempt-1/workspace/target/java-uuid-generator-4.2.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/locks/ReentrantLock"
+    },
+    {
+      "caller_class": "com.fasterxml.uuid.impl.TimeBasedEpochGenerator",
+      "caller_method": "public java.util.UUID generate()",
+      "candidate": "RCM-00800",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "4: invokeinterface #13,  1           // InterfaceMethod java/util/concurrent/locks/Lock.lock:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-00800/D1/attempt-1/workspace/target/java-uuid-generator-4.2.0.jar",
+      "name": "lock",
+      "owner": "java/util/concurrent/locks/Lock"
+    },
+    {
+      "caller_class": "com.fasterxml.uuid.impl.TimeBasedEpochGenerator",
+      "caller_method": "public java.util.UUID generate()",
+      "candidate": "RCM-00800",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "154: invokeinterface #22,  1           // InterfaceMethod java/util/concurrent/locks/Lock.unlock:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-00800/D1/attempt-1/workspace/target/java-uuid-generator-4.2.0.jar",
+      "name": "unlock",
+      "owner": "java/util/concurrent/locks/Lock"
+    },
+    {
+      "caller_class": "com.fasterxml.uuid.impl.TimeBasedEpochGenerator",
+      "caller_method": "public java.util.UUID generate()",
+      "candidate": "RCM-00800",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "167: invokeinterface #22,  1           // InterfaceMethod java/util/concurrent/locks/Lock.unlock:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-00800/D1/attempt-1/workspace/target/java-uuid-generator-4.2.0.jar",
+      "name": "unlock",
+      "owner": "java/util/concurrent/locks/Lock"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-00800",
+    "classes_discovered": 29,
+    "classes_failed": 0,
+    "classes_scanned": 29,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T13:44:05Z",
+    "discovered_jars": 2,
+    "duplicate_jars": 1,
+    "elapsed_seconds": 6.967,
+    "error": "",
+    "findings": 5,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-00800/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T13:43:58Z",
+    "status": "COMPLETE",
+    "unique_jars": 1,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

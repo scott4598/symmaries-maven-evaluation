@@ -1,0 +1,5 @@
+plugin_branch=ReuseUpdate
+plugin_commit=fe598adeca1d0c243017d0bcd5cf6670af377677
+plugin_version=0.1.1-pilot
+plugin_jar=/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/benchmark/maven-seed/com/symmaries/symmaries-maven-plugin/0.1.1-pilot/symmaries-maven-plugin-0.1.1-pilot.jar
+4090e057af394cb4e1c4f4b09fed76c37293f02199c5564f1b2d9e5fcba3dc47  /home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/benchmark/maven-seed/com/symmaries/symmaries-maven-plugin/0.1.1-pilot/symmaries-maven-plugin-0.1.1-pilot.jar

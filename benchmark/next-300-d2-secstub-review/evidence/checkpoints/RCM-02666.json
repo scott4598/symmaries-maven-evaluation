@@ -1,0 +1,45 @@
+{
+  "findings": [
+    {
+      "caller_class": "org.apache.maven.search.api.transport.Java11HttpClientTransport",
+      "caller_method": "public org.apache.maven.search.api.transport.Java11HttpClientTransport(java.time.Duration, java.net.http.HttpClient)",
+      "candidate": "RCM-02666",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "139: invokevirtual #155                // Method java/lang/Thread.interrupt:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02666/D1/attempt-1/workspace/search-api/target/search-api-1.0.2.jar",
+      "name": "interrupt",
+      "owner": "java/lang/Thread"
+    },
+    {
+      "caller_class": "org.apache.maven.search.api.transport.Java11HttpClientTransport",
+      "caller_method": "public org.apache.maven.search.api.transport.Java11HttpClientTransport(java.time.Duration, java.net.http.HttpClient)",
+      "candidate": "RCM-02666",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "135: invokevirtual #155                // Method java/lang/Thread.interrupt:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02666/D1/attempt-1/workspace/search-api/target/search-api-1.0.2.jar",
+      "name": "interrupt",
+      "owner": "java/lang/Thread"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-02666",
+    "classes_discovered": 45,
+    "classes_failed": 0,
+    "classes_scanned": 45,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T14:19:20Z",
+    "discovered_jars": 4,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 9.636,
+    "error": "",
+    "findings": 2,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02666/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T14:19:11Z",
+    "status": "COMPLETE",
+    "unique_jars": 4,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

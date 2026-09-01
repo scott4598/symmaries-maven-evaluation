@@ -1,0 +1,4 @@
+attempt=1
+total=5
+status_FAIL_BUILD=2
+status_PASS=3

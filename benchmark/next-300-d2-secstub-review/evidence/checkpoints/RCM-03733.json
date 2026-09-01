@@ -1,0 +1,78 @@
+{
+  "findings": [
+    {
+      "caller_class": "io.avaje.logback.encoder.ShortenedThrowableConverter",
+      "caller_method": "public io.avaje.logback.encoder.ShortenedThrowableConverter()",
+      "candidate": "RCM-03733",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "9: invokespecial #13                 // Method java/util/concurrent/atomic/AtomicInteger.\"<init>\":()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03733/D1/attempt-1/workspace/target/avaje-logback-encoder-0.12.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/atomic/AtomicInteger"
+    },
+    {
+      "caller_class": "io.avaje.logback.encoder.ShortenedThrowableConverter",
+      "caller_method": "private boolean isExcludedByEvaluator(ch.qos.logback.classic.spi.ILoggingEvent)",
+      "candidate": "RCM-03733",
+      "category": "concurrency",
+      "descriptor": "()I",
+      "evidence": "50: invokevirtual #277                // Method java/util/concurrent/atomic/AtomicInteger.incrementAndGet:()I",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03733/D1/attempt-1/workspace/target/avaje-logback-encoder-0.12.jar",
+      "name": "incrementAndGet",
+      "owner": "java/util/concurrent/atomic/AtomicInteger"
+    },
+    {
+      "caller_class": "io.avaje.logback.encoder.abbreviator.CachingAbbreviator",
+      "caller_method": "public io.avaje.logback.encoder.abbreviator.CachingAbbreviator(ch.qos.logback.classic.pattern.Abbreviator)",
+      "candidate": "RCM-03733",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "9: invokespecial #9                  // Method java/util/concurrent/ConcurrentHashMap.\"<init>\":()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03733/D1/attempt-1/workspace/target/avaje-logback-encoder-0.12.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/ConcurrentHashMap"
+    },
+    {
+      "caller_class": "io.avaje.logback.encoder.abbreviator.CachingAbbreviator",
+      "caller_method": "public java.lang.String abbreviate(java.lang.String)",
+      "candidate": "RCM-03733",
+      "category": "concurrency",
+      "descriptor": "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;",
+      "evidence": "19: invokeinterface #30,  3           // InterfaceMethod java/util/concurrent/ConcurrentMap.computeIfAbsent:(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03733/D1/attempt-1/workspace/target/avaje-logback-encoder-0.12.jar",
+      "name": "computeIfAbsent",
+      "owner": "java/util/concurrent/ConcurrentMap"
+    },
+    {
+      "caller_class": "io.avaje.logback.encoder.abbreviator.CachingAbbreviator",
+      "caller_method": "public void clear()",
+      "candidate": "RCM-03733",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "4: invokeinterface #38,  1           // InterfaceMethod java/util/concurrent/ConcurrentMap.clear:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03733/D1/attempt-1/workspace/target/avaje-logback-encoder-0.12.jar",
+      "name": "clear",
+      "owner": "java/util/concurrent/ConcurrentMap"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-03733",
+    "classes_discovered": 20,
+    "classes_failed": 0,
+    "classes_scanned": 20,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T14:19:47Z",
+    "discovered_jars": 1,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 4.475,
+    "error": "",
+    "findings": 5,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03733/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T14:19:42Z",
+    "status": "COMPLETE",
+    "unique_jars": 1,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

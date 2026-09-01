@@ -1,0 +1,2 @@
+candidate_id,jdk_requested,status,exit_code,duration_seconds,failure_category,maven_version,java_version,java_home,module_path,log_path
+RCM-07217,8,PASS,0,17.843,,[1mApache Maven 3.6.3[m,"openjdk version ""1.8.0_492""",/usr/lib/jvm/java-8-openjdk-amd64,.,results/d1-validation-runs/RCM-07217/D1/attempt-4/maven.log

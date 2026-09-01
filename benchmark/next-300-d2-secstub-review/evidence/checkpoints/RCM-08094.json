@@ -1,0 +1,100 @@
+{
+  "findings": [
+    {
+      "caller_class": "org.apache.sling.maven.feature.launcher.ProcessTracker",
+      "caller_method": "public org.apache.sling.maven.feature.launcher.ProcessTracker()",
+      "candidate": "RCM-08094",
+      "category": "concurrency",
+      "descriptor": "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;",
+      "evidence": "149: invokevirtual #151                // Method java/util/concurrent/CompletableFuture.get:(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08094/D1/attempt-1/workspace/target/feature-launcher-maven-plugin-1.0.4.jar",
+      "name": "get",
+      "owner": "java/util/concurrent/CompletableFuture"
+    },
+    {
+      "caller_class": "org.apache.sling.maven.feature.launcher.StartMojo",
+      "caller_method": "public org.apache.sling.maven.feature.launcher.StartMojo()",
+      "candidate": "RCM-08094",
+      "category": "concurrency",
+      "descriptor": "(I)V",
+      "evidence": "1259: invokespecial #439                // Method java/util/concurrent/CountDownLatch.\"<init>\":(I)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08094/D1/attempt-1/workspace/target/feature-launcher-maven-plugin-1.0.4.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/CountDownLatch"
+    },
+    {
+      "caller_class": "org.apache.sling.maven.feature.launcher.StartMojo",
+      "caller_method": "public org.apache.sling.maven.feature.launcher.StartMojo()",
+      "candidate": "RCM-08094",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "1297: invokevirtual #452                // Method java/lang/Thread.start:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08094/D1/attempt-1/workspace/target/feature-launcher-maven-plugin-1.0.4.jar",
+      "name": "start",
+      "owner": "java/lang/Thread"
+    },
+    {
+      "caller_class": "org.apache.sling.maven.feature.launcher.StartMojo",
+      "caller_method": "public org.apache.sling.maven.feature.launcher.StartMojo()",
+      "candidate": "RCM-08094",
+      "category": "concurrency",
+      "descriptor": "(JLjava/util/concurrent/TimeUnit;)Z",
+      "evidence": "1330: invokevirtual #467                // Method java/util/concurrent/CountDownLatch.await:(JLjava/util/concurrent/TimeUnit;)Z",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08094/D1/attempt-1/workspace/target/feature-launcher-maven-plugin-1.0.4.jar",
+      "name": "await",
+      "owner": "java/util/concurrent/CountDownLatch"
+    },
+    {
+      "caller_class": "org.apache.sling.maven.feature.launcher.StartMojo",
+      "caller_method": "public org.apache.sling.maven.feature.launcher.StartMojo()",
+      "candidate": "RCM-08094",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "1413: invokevirtual #517                // Method java/lang/Thread.interrupt:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08094/D1/attempt-1/workspace/target/feature-launcher-maven-plugin-1.0.4.jar",
+      "name": "interrupt",
+      "owner": "java/lang/Thread"
+    },
+    {
+      "caller_class": "org.apache.sling.maven.feature.launcher.StartMojo$1",
+      "caller_method": "public void run()",
+      "candidate": "RCM-08094",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "51: invokevirtual #60                 // Method java/util/concurrent/CountDownLatch.countDown:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08094/D1/attempt-1/workspace/target/feature-launcher-maven-plugin-1.0.4.jar",
+      "name": "countDown",
+      "owner": "java/util/concurrent/CountDownLatch"
+    },
+    {
+      "caller_class": "org.apache.sling.maven.feature.launcher.StopMojo",
+      "caller_method": "public org.apache.sling.maven.feature.launcher.StopMojo()",
+      "candidate": "RCM-08094",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "133: invokevirtual #92                 // Method java/lang/Thread.interrupt:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08094/D1/attempt-1/workspace/target/feature-launcher-maven-plugin-1.0.4.jar",
+      "name": "interrupt",
+      "owner": "java/lang/Thread"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-08094",
+    "classes_discovered": 8,
+    "classes_failed": 0,
+    "classes_scanned": 8,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T15:26:51Z",
+    "discovered_jars": 1,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 1.908,
+    "error": "",
+    "findings": 7,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08094/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T15:26:49Z",
+    "status": "COMPLETE",
+    "unique_jars": 1,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

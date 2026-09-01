@@ -1,0 +1,4 @@
+candidate_id,module_path,artifact_selector,mapping_status,notes
+RCM-00039,logback-access-common,main,D1_VERIFIED_JAR,logback-access-common-2.0.4.jar
+RCM-00129,.,main,D1_VERIFIED_JAR,reload4j-1.2.18.5.jar
+RCM-00183,mrm-servlet,main,D1_VERIFIED_JAR,mrm-servlet-1.4.2.jar

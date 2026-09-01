@@ -1,0 +1,990 @@
+java.lang.String javax.servlet.ServletContext:getInitParameter(java.lang.String){-<~;return new(%(*));}
+java.lang.String javax.servlet.ServletConfig:getInitParameter(java.lang.String){-<~;return new(%(*));}
+java.lang.String javax.servlet.ServletContext:getInitParameter(java.lang.String){-<~;return new(%(*));}
+void android.content.SharedPreferences:registerOnSharedPreferenceChangeListener(android.content.SharedPreferences.OnSharePreferenceChangeListener){-<~;.*<~@;}
+org.hibernate.Transaction org.hibernate.Session:getTransaction(){-<~;return .*;}
+org.springframework.security.config.annotation.authentication.configurers.provisioning.JdbcUserDetailsManagerConfigurer org.springframework.security.config.annotation.authentication.configurers.provisioning.JdbcUserDetailsManagerConfigurer:dataSource(javax.sql.DataSource){.*<~@;}
+java.util.regex.Pattern java.util.regex.Pattern:compile(java.lang.String){-<~;return *;}
+java.util.regex.Pattern java.util.regex.Pattern:compile(java.lang.String,int){-<~;return *;}
+java.util.Iterator java.util.AbstractCollection:iterator(){-<~;return new(.*);}
+java.util.Iterator java.util.TreeMap$EntrySet:iterator(){-<~;return new(.*);}
+java.util.Iterator java.util.TreeMap$KeySet:iterator(){-<~;return new(.*);}
+java.util.Iterator java.util.ArrayList:iterator(){-<~;return .*;}
+java.util.Iterator java.util.Collection:iterator(){.*<~@;return .*;}
+java.lang.Object java.lang.reflect.Method:invoke(java.lang.Object,java.lang.Object[]){-<~;@<~@;return *;}
+void org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver:setCache(boolean){.*<~@;}
+void org.hibernate.Hibernate:initialize(java.lang.Object){-<~;}
+java.lang.reflect.Type java.lang.Class:getGenericSuperclass(){-<~;return .*;}
+org.hibernate.cfg.AnnotationConfiguration org.hibernate.cfg.AnnotationConfiguration:configure(){.*<~@;}
+org.hibernate.cfg.Configuration org.hibernate.cfg.Configuration:configure(){.*<~@;}
+void org.apache.log4j.PropertyConfigurator:configure(java.util.Properties){-<~;}
+java.lang.String java.net.HttpURLConnection:getResponseMessage(){-<~;return .*;}
+void android.os.Bundle:putString(java.lang.String,java.lang.String){-<~;.*<~@;}
+android.content.SharedPreferences.Editor android.content.SharedPreferences.Editor:putString(java.lang.String,java.lang.String){-<~;.*<~@;return @;}
+java.lang.String javax.servlet.http.HttpServletRequest:getParameter(java.lang.String){-<~;return new(%(*));}
+void org.apache.shiro.authz.SimpleAuthorizationInfo:setRoles(java.util.Set){.*<~@;}
+double java.math.BigDecimal:doubleValue(){-<~;return new(.*);}
+double java.math.BigInteger:doubleValue(){-<~;return new(.*);}
+double java.lang.Byte:doubleValue(){-<~;return new(.*);}
+double java.lang.Double:doubleValue(){-<~;return new(.*);}
+double java.lang.Float:doubleValue(){-<~;return new(.*);}
+double java.lang.Integer:doubleValue(){-<~;return new(.*);}
+double java.lang.Long:doubleValue(){-<~;return new(.*);}
+double java.lang.Short:doubleValue(){-<~;return new(.*);}
+double java.util.concurrent.atomic.AtomicInteger:doubleValue(){-<~;return new(.*);}
+double java.util.concurrent.atomic.AtomicLong:doubleValue(){-<~;return new(.*);}
+double java.lang.Double:doubleValue(){-<~;return .*;}
+double java.lang.Math:min(double,double){-<~;return @;}
+float java.lang.Math:min(float,float){-<~;return @;}
+int java.lang.Math:min(int,int){-<~;return @;}
+long java.lang.Math:min(long,long){-<~;return @;}
+java.lang.String android.os.Bundle:getString(java.lang.String){-<~;return *;}
+java.lang.String android.os.Bundle:getString(java.lang.String,java.lang.String){-<~;return *;}
+java.lang.String android.content.SharedPreferences:getString(java.lang.String,java.lang.String){-<~;return *;}
+java.lang.String java.sql.ResultSet:getString(int){-<~;return *;}
+java.lang.String java.sql.ResultSet:getString(java.lang.String){-<~;return *;}
+java.lang.String android.content.Intent:getAction(){-<~;return .*;}
+java.lang.String java.lang.System:getProperty(java.lang.String){-<~;return *;}
+java.lang.String java.util.Properties:getProperty(java.lang.String){-<~;return *;}
+void java.util.Properties:load(java.io.InputStream){.*<~@;}
+java.lang.Object org.hibernate.Session:load(java.lang.Class,java.io.Serializable){-<~;return *;}
+org.springframework.security.config.annotation.authentication.configurers.provisioning.JdbcUserDetailsManagerConfigurer org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder:jdbcAuthentication(){.*<~@;return .*;}
+int java.util.Random:nextInt(){-<~;}
+int java.util.Random:nextInt(int){-<~;return *;}
+void java.sql.Connection:setAutoCommit(boolean){.*<~@;}
+java.lang.String java.util.regex.Matcher:group(){-<~;return .*;}
+java.lang.String java.util.regex.Matcher:group(int){-<~;return *;}
+java.lang.String java.util.regex.Matcher:group(java.lang.String){-<~;return *;}
+org.hibernate.criterion.Example org.hibernate.criterion.Example:create(java.lang.Object){-<~;return new(%(*));}
+java.lang.Class java.lang.Object:getClass(){-<~;return .*;}
+boolean android.support.v7.app.ActionBarActivity:onOptionsItemSelected(android.view.MenuItem){-<~;return new;}
+java.util.Date java.text.DateFormat:parse(java.lang.String){-<~;return *;}
+int android.os.Bundle:getInt(java.lang.String){-<~;return *;}
+int android.os.Bundle:getInt(java.lang.String,int){-<~;return *;}
+int java.sql.ResultSet:getInt(int){-<~;return *;}
+int java.sql.ResultSet:getInt(java.lang.String){-<~;return *;}
+java.lang.String java.lang.Throwable:getMessage(){-<~;return .*;}
+org.springframework.web.util.UriComponentsBuilder org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder:fromMethodName(java.lang.Class,java.lang.String,java.lang.Object[]){-<~;}
+boolean org.springframework.util.StringUtils:hasLength(java.lang.String){-<~;return *;}
+org.hibernate.Session org.hibernate.SessionFactory:getCurrentSession(){-<~;return .*;}
+org.hibernate.classic.Session org.hibernate.SessionFactory:getCurrentSession(){-<~;return .*;}
+boolean org.hibernate.Transaction:wasCommitted(){.*<~@;}
+freemarker.template.Configuration org.springframework.web.servlet.view.freemarker.FreeMarkerConfig:getConfiguration(){-<~;return .*;}
+org.hibernate.criterion.Projection org.hibernate.criterion.Projections:rowCount(){-<~;return *;}
+void android.widget.Button:setOnClickListener(android.view.View.OnClickListener){-<~;.*<~@;}
+void android.app.Activity:onPause(){-<~;.*<~@;}
+void org.springframework.mail.javamail.MimeMessageHelper:addInline(java.lang.String,org.springframework.core.io.Resource){.*<~@;}
+java.lang.String android.content.Intent:getStringExtra(java.lang.String){-<~;return *;}
+void org.apache.commons.dbcp.BasicDataSource:setTestWhileIdle(boolean){.*<~@;}
+org.hibernate.Query org.hibernate.Session:createQuery(java.lang.String){.*<~@;return new(%(*));}
+org.hibernate.Query org.hibernate.classic.Session:createQuery(java.lang.String){.*<~@;return new(%(*));}
+void android.app.ListFragment:setListAdapter(android.widget.ListAdapter){-<~;.*<~@;}
+void android.app.Activity:startActivityForResult(android.content.Intent,int){-<~;.*<~@;}
+void android.app.Activity:startActivityForResult(android.content.Intent,int,android.os.Bundle){-<~;.*<~@;}
+java.text.DateFormat java.text.DateFormat:getDateTimeInstance(int,int,java.util.Locale){-<~;return *;}
+void android.os.Parcel:setDataPosition(int){-<~;.*<~@;}
+boolean java.util.regex.Matcher:matches(){-<~;return .*;}
+java.util.regex.Matcher java.util.regex.Pattern:matcher(java.lang.CharSequence){-<~;return *;}
+java.net.URLConnection java.net.URL:openConnection(){-<~;return .*;}
+java.net.URLConnection java.net.URL:openConnection(java.net.Proxy){-<~;return *;}
+org.apache.poi.hssf.usermodel.HSSFRow org.apache.poi.hssf.usermodel.HSSFSheet:createRow(int){.*<~@;return .*;}
+java.util.Set java.util.AbstractMap:entrySet(){-<~;return new(.*);}
+java.util.Set java.util.Attributes:entrySet(){-<~;return new(.*);}
+java.util.Set java.util.Hashtable:entrySet(){-<~;return new(.*);}
+java.util.Set java.util.jar.Attributes:entrySet(){-<~;return new(.*);}
+java.util.Set android.os.Bundle:keySet(){-<~;return .*;}
+java.util.Set java.util.AbstractMap:keySet(){-<~;return new(.*);}
+java.util.Set java.util.Attributes:keySet(){-<~;return new(.*);}
+java.util.Set java.util.Hashtable:keySet(){-<~;return new(.*);}
+java.util.Set java.util.jar.Attributes:keySet(){-<~;return new(.*);}
+java.util.Set java.util.Map:keySet(){-<~;return .*;}
+void org.springframework.web.servlet.view.InternalResourceViewResolver:setPrefix(java.lang.String){.*<~@;}
+void org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver:setPrefix(java.lang.String){.*<~@;}
+java.util.Date java.util.Calendar:getTime(){-<~;return .*;}
+long java.util.Date:getTime(){-<~;return .*;}
+void org.apache.shiro.realm.AuthorizingRealm:clearCachedAuthorizationInfo(org.apache.shiro.subject.PrincipalCollection){.*<~@;}
+org.apache.shiro.subject.Subject org.apache.shiro.SecurityUtils:getSubject(){-<~;return new(%(*));}
+void android.app.Activity:onStop(){-<~;.*<~@;}
+android.widget.Toast android.widget.Toast:makeText(android.content.Context,int,int){-<~;return *;}
+android.widget.Toast android.widget.Toast:makeText(android.content.Context,java.lang.CharSequence,int){-<~;return *;}
+java.lang.Object java.util.Hashtable$Entry:getValue(){-<~;return .*;}
+java.lang.Object java.util.WeakHashMap$Entry:getValue(){-<~;return .*;}
+java.lang.Object java.util.LinkedHashMap$Entry:getValue(){-<~;return .*;}
+java.lang.Object java.util.concurrent.ConcurrentHashMap$Node:getValue(){-<~;return .*;}
+java.lang.Object java.util.Map$Entry:getValue(){-<~;return .*;}
+void org.apache.commons.dbcp.BasicDataSource:setMaxIdle(int){.*<~@;}
+org.hibernate.criterion.SimpleExpression org.hibernate.criterion.Restrictions:like(java.lang.String,java.lang.Object){@<~@;return new(%(*));}
+org.hibernate.criterion.SimpleExpression org.hibernate.criterion.Restrictions:like(java.lang.String,java.lang.String,org.hibernate.criterion.MatchMode){@<~@;return new(%(*));}
+java.lang.String android.telephony.TelephonyManager:getSimSerialNumber(){-<~;return .*;}
+java.lang.String java.net.URLConnection:getContentEncoding(){-<~;return .*;}
+void org.apache.commons.dbcp.BasicDataSource:setUsername(java.lang.String){.*<~@;}
+void org.springframework.jdbc.datasource.DriverManagerDataSource:setUsername(java.lang.String){.*<~@;}
+static int java.lang.Integer:parseInt(java.lang.String){-<~;return @;}
+static int java.lang.Integer:parseInt(java.lang.String,int){-<~;return @;}
+void android.os.Messenger:send(android.os.Message){-<~;}
+void org.springframework.mail.javamail.JavaMailSenderImpl:send(javax.mail.internet.MimeMessage){-<~;.*<~@;output_L;}
+void org.springframework.mail.MailSender:send(org.springframework.mail.SimpleMailMessage){-<~;}
+void org.springframework.mail.javamail.JavaMailSender:send(javax.mail.internet.MimeMessage){-<~;}
+java.lang.CharSequence android.widget.Button:getHint(){-<~;return .*;}
+android.content.Intent android.content.Intent:setClassName(java.lang.String,java.lang.String){-<~;.*<~@;return @;}
+java.lang.Object org.apache.shiro.realm.AuthorizingRealm:getAvailablePrincipal(org.apache.shiro.subject.PrincipalCollection){-<~;return *;}
+void org.apache.commons.dbcp.BasicDataSource:setUrl(java.lang.String){.*<~@;}
+void org.springframework.jdbc.datasource.DriverManagerDataSource:setUrl(java.lang.String){.*<~@;}
+java.util.Collection java.util.AbstractMap:values(){-<~;return new(.*);}
+java.util.Collection java.util.Attributes:values(){-<~;return new(.*);}
+java.util.Collection java.util.Hashtable:values(){-<~;return new(.*);}
+java.util.Collection java.util.jar.Attributes:values(){-<~;return new(.*);}
+java.util.Collection java.util.HashMap:values(){-<~;}
+void android.app.Activity:onSaveInstanceState(android.os.Bundle){-<~;@<~@;}
+void android.app.Fragment:onSaveInstanceState(android.os.Bundle){-<~;@<~@;}
+android.content.Intent android.view.ContextThemeWrapper:registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter){-<~;.*<~@;return *;}
+android.content.Intent android.view.ContextThemeWrapper:registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,int){-<~;.*<~@;return *;}
+android.content.Intent android.view.ContextThemeWrapper:registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler,int){-<~;.*<~@;return *;}
+android.content.Intent android.view.ContextThemeWrapper:registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler){-<~;.*<~@;return *;}
+void org.springframework.mail.javamail.MimeMessageHelper:setFrom(java.lang.String){.*<~@;}
+org.springframework.boot.builder.SpringApplicationBuilder org.springframework.boot.builder.SpringApplicationBuilder:sources(java.lang.Class[]){.*<~@;}
+java.lang.reflect.Field[] java.lang.Class:getDeclaredFields(){-<~;return .*;}
+int java.sql.PreparedStatement:executeUpdate(){-<~;return .*;}
+int org.hibernate.Query:executeUpdate(){-<~;return *;}
+org.springframework.web.servlet.ModelAndView org.springframework.web.servlet.ModelAndView:addObject(java.lang.Object){.*<~@;}
+org.springframework.web.servlet.ModelAndView org.springframework.web.servlet.ModelAndView:addObject(java.lang.String,java.lang.Object){.*<~@;}
+void android.widget.ListView:setChoiceMode(int){-<~;.*<~@;}
+java.lang.String java.beans.FeatureDescriptor:getDisplayName(){-<~;return .*;}
+java.lang.String java.lang.Class:getName(){-<~;return .*;}
+java.lang.String java.lang.Package:getName(){-<~;return .*;}
+java.lang.String java.lang.reflect.Field:getName(){-<~;return .*;}
+java.lang.String org.apache.shiro.realm.AuthorizingRealm:getName(){-<~;return .*;}
+java.lang.String org.springframework.security.core.Authentication:getName(){-<~;return .*;}
+void org.apache.shiro.authc.UsernamePasswordToken:setRememberMe(boolean){.*<~@;}
+void java.lang.Thread:start(){-<~;}
+java.lang.Process java.lang.ProcessBuilder:start(){-<~;return .*;}
+void org.apache.activemq.broker.BrokerService:start(){.*<~@;}
+android.content.pm.PackageManager android.content.Context:getPackageManager(){-<~;return .*;}
+java.lang.String org.springframework.web.multipart.MultipartFile:getOriginalFilename(){-<~;return .*;}
+java.lang.String[] org.springframework.web.context.WebApplicationContext:getBeanDefinitionNames(){-<~;return .*;}
+android.location.Location android.location.LocationManager:getLastKnownLocation(java.lang.String){-<~;return *;}
+void org.apache.commons.dbcp.BasicDataSource:addConnectionProperty(java.lang.String,java.lang.String){.*<~@;}
+boolean java.util.AbstractCollection:removeAll(java.util.Collection){-<~;.*<~L;return new(*);}
+boolean org.springframework.util.StringUtils:hasText(java.lang.String){-<~;return *;}
+void android.content.IntentFilter:addAction(java.lang.String){-<~;.*<~@;}
+java.lang.String java.lang.String:substring(int){-<~;return *;}
+java.lang.String java.lang.String:substring(int,int){-<~;return *;}
+boolean java.lang.Boolean:booleanValue(){-<~;return .*;}
+java.lang.String java.lang.String:trim(){-<~;return .*;}
+java.lang.reflect.Type[] java.lang.reflect.ParameterizedType:getActualTypeArguments(){-<~;return .*;}
+java.lang.Thread java.lang.Thread:currentThread(){-<~;return *;}
+org.hibernate.Query org.hibernate.Query:setParameter(int,java.lang.Object){.*<~@;}
+org.hibernate.Query org.hibernate.Query:setParameter(java.lang.String,java.lang.Object){.*<~@;}
+void java.io.PrintWriter:print(java.lang.String){.*<~@;output_L;}
+void org.springframework.mail.SimpleMailMessage:setTo(java.lang.String){.*<~@;}
+void org.springframework.mail.javamail.MimeMessageHelper:setTo(java.lang.String){.*<~@;}
+boolean java.lang.Boolean:parseBoolean(java.lang.String){-<~;return *;}
+int java.net.HttpURLConnection:getResponseCode(){-<~;return .*;}
+void org.springframework.web.servlet.view.InternalResourceViewResolver:setViewClass(java.lang.Class){.*<~@;}
+void org.apache.commons.dbcp.BasicDataSource:setMaxWait(long){.*<~@;}
+void java.net.URLConnection:setRequestProperty(java.lang.String,java.lang.String){.*<~@;}
+void java.io.ObjectOutputStream:writeObject(java.lang.Object){-<~;.*<~@;}
+void org.apache.shiro.authz.SimpleAuthorizationInfo:setStringPermissions(java.util.Set){.*<~@;}
+org.hibernate.Query org.hibernate.Session:getNamedQuery(java.lang.String){-<~;return *;}
+java.util.TimeZone java.util.TimeZone:getTimeZone(java.lang.String){-<~;return *;}
+void android.app.Activity:startActivity(android.content.Intent){-<~;.*<~@;}
+void android.app.Activity:startActivity(android.content.Intent,android.os.Bundle){-<~;.*<~@;}
+boolean java.util.Iterator:hasNext(){-<~;return new(.*);}
+boolean com.mongodb.QueryResultIterator:hasNext(){-<~;return new(.*);}
+boolean java.sql.Connection:isClosed(){-<~;return .*;}
+java.util.List android.content.pm.PackageManager:queryIntentActivities(android.content.Intent,int){-<~;return *;}
+void android.app.Activity:onPostCreate(android.os.Bundle){-<~;.*<~@;}
+java.lang.String[] javax.servlet.http.HttpServletRequest:getParameterValues(java.lang.String){-<~;return new(%(*));}
+android.os.Parcel android.os.Parcel:obtain(){-<~;*<~@;return new_h;}
+boolean java.util.AbstractMap:containsKey(java.lang.Object){-<~;return new(.*);}
+boolean java.util.Attributes:containsKey(java.lang.Object){-<~;return new(.*);}
+boolean java.util.Hashtable:containsKey(java.lang.Object){-<~;return new(.*);}
+boolean java.util.jar.Attributes:containsKey(java.lang.Object){-<~;return new(.*);}
+boolean java.util.Map:containsKey(java.lang.Object){-<~;return *;}
+java.lang.String android.telephony.TelephonyManager:getDeviceId(){-<~;return *;}
+java.lang.String android.telephony.TelephonyManager:getDeviceId(int){-<~;return *;}
+android.content.Context android.content.ContentProvider:getContext(){-<~;return .*;}
+org.springframework.security.core.context.SecurityContext org.springframework.security.core.context.SecurityContextHolder:getContext(){-<~;return *;}
+boolean java.sql.ResultSet:getBoolean(int){-<~;return *;}
+boolean java.sql.ResultSet:getBoolean(java.lang.String){-<~;return *;}
+void android.app.Activity:setContentView(android.view.View,android.view.ViewGroup.LayoutParams){-<~;.*<~@;}
+void android.app.Activity:setContentView(android.view.View){-<~;.*<~@;}
+void android.app.Activity:setContentView(int){-<~;.*<~@;}
+void android.support.v4.app.FragmentActivity:setContentView(android.view.View,android.view.ViewGroup.LayoutParams){-<~;.*<~@;}
+void android.support.v4.app.FragmentActivity:setContentView(android.view.View){-<~;.*<~@;}
+void android.support.v4.app.FragmentActivity:setContentView(int){-<~;.*<~@;}
+void android.support.v7.app.ActionBarActivity:setContentView(android.view.View,android.view.ViewGroup.LayoutParams){-<~;.*<~@;}
+void android.support.v7.app.ActionBarActivity:setContentView(android.view.View){-<~;.*<~@;}
+void android.support.v7.app.ActionBarActivity:setContentView(int){-<~;.*<~@;}
+void org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean:setDataSource(javax.sql.DataSource){.*<~@;}
+java.lang.String android.view.ContextThemeWrapper:getPackageName(){-<~;return .*;}
+org.apache.commons.logging.Log org.apache.commons.logging.LogFactory:getLog(java.lang.Class){-<~;return *;}
+org.springframework.context.ConfigurableApplicationContext org.springframework.boot.SpringApplication:run(java.lang.Object,java.lang.String[]){-<~;return *;}
+org.springframework.context.ConfigurableApplicationContext org.springframework.boot.SpringApplication:run(java.lang.String[]){-<~;return *;}
+android.app.FragmentTransaction android.app.FragmentTransaction:add(android.app.Fragment,java.lang.String){-<~;*<~@;return @;}
+android.app.FragmentTransaction android.app.FragmentTransaction:add(int,android.app.Fragment,java.lang.String){-<~;*<~@;return @;}
+android.app.FragmentTransaction android.support.v4.app.FragmentTransaction:add(android.app.Fragment,java.lang.String){-<~;*<~@;return @;}
+android.app.FragmentTransaction android.support.v4.app.FragmentTransaction:add(int,android.app.Fragment,java.lang.String){-<~;*<~@;return @;}
+void java.util.AbstractList:add(int,java.lang.Object){-<~;.*<~@;}
+void java.util.ArrayList:add(int,java.lang.Object){-<~;.*<~@;}
+void java.util.LinkedList:add(int,java.lang.Object){-<~;.*<~@;}
+void java.util.Stack:add(int,java.lang.Object){-<~;.*<~@;}
+void java.util.concurrent.CopyOnWriteArrayList:add(int,java.lang.Object){-<~;.*<~@;}
+boolean java.util.AbstractCollection:add(java.lang.Object){-<~;.*<~@;return new(*);}
+boolean java.util.Collection:add(java.lang.Object){.*<~@;return *;}
+void java.util.GregorianCalendar:add(int,int){.*<~@;}
+org.hibernate.Criteria org.hibernate.Criteria:add(org.hibernate.criterion.Criterion){.*<~@;}
+org.hibernate.criterion.ProjectionList org.hibernate.criterion.ProjectionList:add(org.hibernate.criterion.Projection){.*<~@;}
+void org.apache.commons.beanutils.BeanUtils:copyProperties(java.lang.Object,java.lang.Object){@<~@;}
+java.util.List java.util.Arrays:asList(java.lang.Object[]){-<~;return *;}
+android.os.Bundle android.content.Intent:getExtras(){-<~;return .*;}
+java.sql.Connection java.sql.DriverManager:getConnection(java.lang.String,java.lang.String,java.lang.String){-<~;return *;}
+java.sql.Connection org.apache.commons.dbcp.BasicDataSource:getConnection(){-<~;return .*;}
+javax.servlet.http.HttpServletResponse org.apache.struts2.ServletActionContext:getResponse(){-<~;return new(%(*));}
+java.lang.Class java.lang.Class:forName(java.lang.String){-<~;return *;}
+java.lang.Class java.lang.Class:forName(java.lang.String,boolean,java.lang.ClassLoader){-<~;return *;}
+org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration:addResourceLocations(java.lang.String[]){.*<~@;}
+java.sql.PreparedStatement java.sql.Connection:prepareStatement(java.lang.String){.*<~@;return .*;}
+void android.widget.TextView:setText(int){-<~;.*<~@;}
+void android.widget.TextView:setText(java.lang.CharSequence){-<~;.*<~@;}
+void android.widget.TextView:setText(java.lang.CharSequence,android.widget.TextView.BufferType){-<~;.*<~@;}
+void android.widget.TextView:setText(int,android.widget.TextView.BufferType){-<~;.*<~@;}
+void android.widget.TextView:setText(char[],int,int){-<~;.*<~@;}
+void org.springframework.mail.SimpleMailMessage:setText(java.lang.String){.*<~@;}
+void org.springframework.mail.javamail.MimeMessageHelper:setText(java.lang.String){.*<~@;}
+int java.util.Date:getDate(){-<~;return .*;}
+java.sql.Date java.sql.ResultSet:getDate(int){-<~;return *;}
+java.sql.Date java.sql.ResultSet:getDate(java.lang.String){-<~;return *;}
+java.lang.String java.lang.Class:getSimpleName(){-<~;return .*;}
+android.net.Uri android.content.Intent:getData(){-<~;return .*;}
+void android.widget.Toast:show(){-<~;output_⊥;}
+java.util.concurrent.ScheduledFuture java.util.concurrent.ScheduledExecutorService:scheduleWithFixedDelay(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit){.*<~@;return .*;}
+int java.lang.Math:abs(int){-<~;return *;}
+android.os.AsyncTask android.os.AsyncTask:execute(java.lang.Object[]){-<~;return @;}
+void android.os.AsyncTask:execute(java.lang.Runnable){-<~;}
+void java.util.concurrent.ExecutorService:execute(java.lang.Runnable){-<~;}
+org.springframework.security.config.annotation.authentication.configurers.provisioning.JdbcUserDetailsManagerConfigurer org.springframework.security.config.annotation.authentication.configurers.provisioning.JdbcUserDetailsManagerConfigurer:usersByUsernameQuery(java.lang.String){.*<~@;}
+void org.hibernate.Session:saveOrUpdate(java.lang.Object){.*<~@;}
+void org.hibernate.classic.Session:saveOrUpdate(java.lang.Object){.*<~@;}
+org.springframework.web.context.WebApplicationContext org.springframework.web.context.support.WebApplicationContextUtils:getWebApplicationContext(javax.servlet.ServletContext){-<~;return *;}
+void java.net.HttpURLConnection:disconnect(){.*<~@;}
+void android.os.Parcel:writeValue(java.lang.Object){-<~;.*<~@;}
+java.lang.Object org.hibernate.Criteria:uniqueResult(){-<~;return new(%(*));}
+java.lang.Object org.hibernate.Query:uniqueResult(){-<~;return new(%(*));}
+byte java.lang.Byte:parseByte(java.lang.String){-<~;}
+void java.sql.PreparedStatement:setInt(int,int){.*<~@;}
+java.util.List org.springframework.validation.BindingResult:getFieldErrors(){-<~;return .*;}
+void android.os.RemoteException:printStackTrace(){-<~;output_⊥;}
+void java.lang.Throwable:printStackTrace(){-<~;output_⊥;}
+void java.lang.Throwable:printStackTrace(java.io.PrintStream){-<~;output_⊥;}
+void java.lang.Throwable:printStackTrace(java.io.PrintWriter){-<~;output_⊥;}
+void java.lang.InvocationTargetException:printStackTrace(){-<~;output_⊥;}
+void java.lang.InvocationTargetException:printStackTrace(java.io.PrintStream){-<~;output_⊥;}
+void java.lang.InvocationTargetException:printStackTrace(java.io.PrintWriter){-<~;output_⊥;}
+void java.lang.IllegalAccessException:printStackTrace(){-<~;output_⊥;}
+void java.lang.IllegalAccessException:printStackTrace(java.io.PrintStream){-<~;output_⊥;}
+void java.lang.IllegalAccessException:printStackTrace(java.io.PrintWriter){-<~;output_⊥;}
+void java.lang.IllegalArgumentException:printStackTrace(){-<~;output_⊥;}
+void java.lang.IllegalArgumentException:printStackTrace(java.io.PrintStream){-<~;output_⊥;}
+void java.lang.IllegalArgumentException:printStackTrace(java.io.PrintWriter){-<~;output_⊥;}
+void java.lang.InstantiationException:printStackTrace(){-<~;output_⊥;}
+void java.lang.InstantiationException:printStackTrace(java.io.PrintStream){-<~;output_⊥;}
+void java.lang.InstantiationException:printStackTrace(java.io.PrintWriter){-<~;output_⊥;}
+void java.lang.InterruptedException:printStackTrace(){-<~;output_⊥;}
+void java.lang.InterruptedException:printStackTrace(java.io.PrintStream){-<~;output_⊥;}
+void java.lang.InterruptedException:printStackTrace(java.io.PrintWriter){-<~;output_⊥;}
+void java.lang.NoSuchMethodException:printStackTrace(){-<~;output_⊥;}
+void java.lang.NoSuchMethodException:printStackTrace(java.io.PrintStream){-<~;output_⊥;}
+void java.lang.NoSuchMethodException:printStackTrace(java.io.PrintWriter){-<~;output_⊥;}
+void java.lang.ReflectiveOperationException:printStackTrace(){-<~;output_⊥;}
+void java.lang.ReflectiveOperationException:printStackTrace(java.io.PrintStream){-<~;output_⊥;}
+void java.lang.ReflectiveOperationException:printStackTrace(java.io.PrintWriter){-<~;output_⊥;}
+void org.hibernate.HibernateException:printStackTrace(){-<~;output_L;}
+javax.mail.internet.MimeMessage org.springframework.mail.javamail.JavaMailSenderImpl:createMimeMessage(){-<~;return new(.*);}
+javax.mail.internet.MimeMessage org.springframework.mail.javamail.JavaMailSender:createMimeMessage(){-<~;}
+java.util.Calendar java.util.Calendar:getInstance(){-<~;return new(%(*));}
+android.content.SharedPreferences.Editor android.content.SharedPreferences:edit(){-<~;return .*;}
+void android.os.Parcel:unmarshall(byte[],int,int){-<~;.*<~@;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,android.os.Parcelable){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,long[]){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,byte){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,double[]){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,boolean[]){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,java.lang.CharSequence){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,int){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,char[]){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,byte[]){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,android.os.Parcelable[]){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,android.os.Bundle){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,java.lang.CharSequence[]){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,float[]){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,double){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,int[]){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,java.lang.String[]){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,short[]){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,boolean){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,java.lang.String){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,long){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,char){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,java.io.Serializable){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,float){-<~;.*<~@;return @;}
+android.content.Intent android.content.Intent:putExtra(java.lang.String,short){-<~;.*<~@;return @;}
+org.hibernate.Session org.hibernate.SessionFactory:openSession(){.*<~@;return .*;}
+org.hibernate.classic.Session org.hibernate.SessionFactory:openSession(){.*<~@;return .*;}
+org.apache.ibatis.session.SqlSession org.apache.ibatis.session.SqlSessionFactory:openSession(){-<~;return .*;}
+java.lang.Object org.springframework.jdbc.core.JdbcTemplate:queryForObject(java.lang.String,org.springframework.jdbc.core.RowMapper,java.lang.Object[]){-<~;return *;}
+java.net.URI org.springframework.web.util.UriComponents:toUri(){-<~;return .*;}
+void android.app.Application:unregisterActivityLifecycleCallbacks(android.app.Application.ActivityLifecycleCallbacks){-<~;.*<~@;}
+java.lang.Object org.hibernate.classic.Session:merge(java.lang.Object){-<~;return *;}
+org.hibernate.criterion.PropertyProjection org.hibernate.criterion.Projections:property(java.lang.String){-<~;return *;}
+void org.apache.commons.dbcp.BasicDataSource:setValidationQuery(java.lang.String){.*<~@;}
+int org.joda.time.DateTime:getYear(){-<~;return new_L;}
+int java.util.Date:getYear(){-<~;return .*;}
+int java.lang.String:lastIndexOf(int){-<~;return *;}
+void org.springframework.boot.SpringApplication:setBannerMode(org.springframework.boot.Banner$Mode){.*<~@;}
+java.io.InputStream java.net.URL:openStream(){.*<~@;return .*;}
+java.lang.String java.lang.Enum:name(){-<~;return .*;}
+void java.text.DateFormat:setLenient(boolean){.*<~@;}
+void android.os.Handler:handleMessage(android.os.Message){-<~;}
+boolean org.apache.shiro.web.filter.PathMatchingFilter:onPreHandle(javax.servlet.ServletRequest,javax.servlet.ServletResponse,java.lang.Object){-<~;return *;}
+void org.apache.commons.dbcp.BasicDataSource:setDriverClassName(java.lang.String){.*<~@;}
+void org.springframework.jdbc.datasource.DriverManagerDataSource:setDriverClassName(java.lang.String){.*<~@;}
+java.beans.PropertyDescriptor[] java.beans.BeanInfo:getPropertyDescriptors(){-<~;return .*;}
+org.apache.poi.hssf.usermodel.HSSFSheet org.apache.poi.hssf.usermodel.HSSFWorkbook:createSheet(java.lang.String){.*<~@;return .*;}
+boolean org.hibernate.Session:isOpen(){-<~;return .*;}
+org.springframework.security.config.annotation.authentication.configurers.provisioning.JdbcUserDetailsManagerConfigurer org.springframework.security.config.annotation.authentication.configurers.provisioning.JdbcUserDetailsManagerConfigurer:authoritiesByUsernameQuery(java.lang.String){.*<~@;}
+int java.lang.Integer:intValue(){-<~;return .*;}
+int java.math.BigDecimal:intValue(){-<~;return new(.*);}
+int java.math.BigInteger:intValue(){-<~;return new(.*);}
+int java.lang.Byte:intValue(){-<~;return new(.*);}
+int java.lang.Double:intValue(){-<~;return new(.*);}
+int java.lang.Float:intValue(){-<~;return new(.*);}
+int java.lang.Integer:intValue(){-<~;return new(.*);}
+int java.lang.Long:intValue(){-<~;return new(.*);}
+int java.lang.Short:intValue(){-<~;return new(.*);}
+int java.util.concurrent.atomic.AtomicInteger:intValue(){-<~;return new(.*);}
+int java.util.concurrent.atomic.AtomicLong:intValue(){-<~;return new(.*);}
+void org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter:addInterceptors(org.springframework.web.servlet.config.annotation.InterceptorRegistry){.*<~@;}
+double android.location.Location:getLongitude(){-<~;return .*;}
+long org.springframework.web.multipart.MultipartFile:getSize(){-<~;return .*;}
+java.lang.Class[] java.lang.Class:getInterfaces(){-<~;return .*;}
+void java.lang.Thread:sleep(long){-<~;}
+void java.lang.Thread:sleep(long,int){-<~;}
+void java.util.concurrent.TimeUnit:sleep(long){.*<~@;}
+org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry:addResourceHandler(java.lang.String[]){.*<~@;return .*;}
+boolean android.view.ContextThemeWrapper:bindService(android.content.Intent,int,java.util.concurrent.Executor,android.content.ServiceConnection){-<~;*<~@;return *;}
+boolean android.view.ContextThemeWrapper:bindService(android.content.Intent,android.content.ServiceConnection,int){-<~;*<~@;return *;}
+java.lang.reflect.Method java.lang.Class:getMethod(java.lang.String,java.lang.Class[]){-<~;return *;}
+boolean java.lang.String:endsWith(java.lang.String){-<~;return *;}
+java.lang.StringBuilder java.lang.StringBuilder:append(boolean){-<~;.*<~@;return @;}
+java.lang.StringBuilder java.lang.StringBuilder:append(char){-<~;.*<~@;return @;}
+java.lang.StringBuilder java.lang.StringBuilder:append(char[]){-<~;.*<~@;return @;}
+java.lang.StringBuilder java.lang.StringBuilder:append(char[],int,int){-<~;.*<~@;return @;}
+java.lang.StringBuilder java.lang.StringBuilder:append(double){-<~;.*<~@;return @;}
+java.lang.StringBuilder java.lang.StringBuilder:append(int){-<~;.*<~@;return @;}
+java.lang.StringBuilder java.lang.StringBuilder:append(java.lang.Object){-<~;.*<~@;return @;}
+java.lang.StringBuilder java.lang.StringBuilder:append(java.lang.String){-<~;.*<~@;return @;}
+java.lang.StringBuilder java.lang.StringBuilder:append(java.lang.StringBuffer){-<~;.*<~@;return @;}
+java.lang.Object org.apache.ibatis.session.SqlSession:getMapper(java.lang.Class){-<~;return *;}
+void org.apache.commons.dbcp.BasicDataSource:setPassword(java.lang.String){.*<~@;}
+void org.springframework.jdbc.datasource.DriverManagerDataSource:setPassword(java.lang.String){.*<~@;}
+void java.lang.String:getChars(int,int,char[],int){-<~;@<~@;}
+org.hibernate.service.ServiceRegistry org.hibernate.service.ServiceRegistryBuilder:buildServiceRegistry(){-<~;return .*;}
+org.hibernate.Criteria org.hibernate.Criteria:createAlias(java.lang.String,java.lang.String){.*<~@;}
+org.hibernate.Criteria org.hibernate.Criteria:createAlias(java.lang.String,java.lang.String,int){.*<~@;}
+org.hibernate.Criteria org.hibernate.Criteria:createAlias(java.lang.String,java.lang.String,org.hibernate.sql.JoinType){.*<~@;}
+void android.app.Activity:onRestoreInstanceState(android.os.Bundle){-<~;.*<~@;}
+java.lang.Object android.os.Parcel:readValue(java.lang.ClassLoader){-<~;return *;}
+java.lang.Object java.util.Enumeration:nextElement(){.*<~@;return .*;}
+void java.io.FileInputStream:close(){-<~;.*<~@;}
+void java.io.FileOutputStream:close(){-<~;.*<~@;}
+void java.io.ObjectOutputStream:close(){-<~;.*<~@;}
+void java.io.ObjectInputStream:close(){-<~;.*<~@;}
+void java.util.Formatter:close(){-<~;.*<~@;}
+void java.io.FilterInputStream:close(){-<~;.*<~L;}
+void java.io.FilterOuptutStream:close(){-<~;.*<~L;}
+void java.io.FilterOutputStream:close(){.*<~@;}
+void java.sql.Connection:close(){.*<~@;}
+void java.sql.ResultSet:close(){.*<~@;}
+void java.sql.Statement:close(){.*<~@;}
+java.sql.Connection org.hibernate.Session:close(){.*<~@;return *;}
+void org.hibernate.Session:close(){.*<~@;}
+void org.hibernate.SessionFactory:close(){.*<~@;}
+void org.apache.commons.dbcp.BasicDataSource:close(){.*<~@;}
+void org.springframework.context.support.ClassPathXmlApplicationContext:close(){.*<~@;}
+java.lang.ProcessBuilder java.lang.ProcessBuilder:command(java.lang.String[]){.*<~@;}
+java.lang.ProcessBuilder java.lang.ProcessBuilder:command(java.lang.String[]){-<~;.*<~@;return @;}
+void java.util.AbstractList:remove(int){-<~;.*<~@;}
+void java.util.ArrayList:remove(int){-<~;.*<~@;}
+void java.util.LinkedList:remove(int){-<~;.*<~@;}
+void java.util.Stack:remove(int){-<~;.*<~@;}
+void java.util.concurrent.CopyOnWriteArrayList:remove(int){-<~;.*<~@;}
+boolean java.util.AbstractCollection:remove(java.lang.Object){-<~;.*<~L;return new(*);}
+java.lang.Object java.util.AbstractMap:remove(java.lang.Object){-<~;.*<~L;return .*;}
+java.lang.Object java.util.Attributes:remove(java.lang.Object){-<~;.*<~L;return .*;}
+java.lang.Object java.util.Hashtable:remove(java.lang.Object){-<~;.*<~L;return .*;}
+java.lang.Object java.util.jar.Attributes:remove(java.lang.Object){-<~;.*<~L;return .*;}
+boolean java.util.List:remove(java.lang.Object){.*<~@;return *;}
+void java.lang.ThreadLocal:remove(){.*<~@;}
+void android.app.Application:onTerminate(){-<~;.*<~@;}
+boolean org.joda.time.DateTime:isBeforeNow(){-<~;return new(.*);}
+void org.hibernate.Session:update(java.lang.Object){.*<~@;}
+void org.hibernate.classic.Session:update(java.lang.Object){.*<~@;}
+int org.springframework.jdbc.core.JdbcTemplate:update(java.lang.String){-<~;return *;}
+int org.springframework.jdbc.core.JdbcTemplate:update(java.lang.String,java.lang.Object[]){-<~;return *;}
+static void java.lang.System:arraycopy(java.lang.Object,int,java.lang.Object,int,int){@<~@;}
+void java.lang.System:arraycopy(java.lang.Object,int,java.lang.Object,int,int){-<~;@<~@;}
+java.util.List org.springframework.jdbc.core.JdbcTemplate:query(java.lang.String,org.springframework.jdbc.core.RowMapper){-<~;return *;}
+java.util.List org.springframework.jdbc.core.JdbcTemplate:query(java.lang.String,org.springframework.jdbc.core.RowMapper,java.lang.Object[]){-<~;return *;}
+org.apache.log4j.Logger org.apache.log4j.Logger:getLogger(java.lang.Class){-<~;return new(%(*));}
+org.apache.log4j.Logger org.apache.log4j.Logger:getLogger(java.lang.String){-<~;return new(%(*));}
+void org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer:enable(){.*<~@;}
+java.util.concurrent.Future java.util.concurrent.ExecutorService:submit(java.lang.Runnable){output_L;return new(*);}
+org.hibernate.criterion.SimpleExpression org.hibernate.criterion.Restrictions:le(java.lang.String,java.lang.Object){@<~@;return new(%(*));}
+void org.springframework.web.servlet.view.AbstractView:setContentType(java.lang.String){.*<~@;}
+void org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver:setContentType(java.lang.String){.*<~@;}
+void android.app.Activity:onCreate(android.os.Bundle,android.os.PersistableBundle){-<~;.*<~@;}
+void android.app.Activity:onCreate(android.os.Bundle){-<~;.*<~@;}
+void android.app.Application:onCreate(){-<~;.*<~@;}
+void android.app.ListFragment:onCreate(android.os.Bundle){-<~;.*<~@;}
+void android.support.v4.app.FragmentActivity:onCreate(android.os.Bundle){-<~;.*<~@;}
+void android.support.v7.app.ActionBarActivity:onCreate(android.os.Bundle){-<~;.*<~@;}
+void org.apache.log4j.Logger:debug(java.lang.Object){-<~;output_L;}
+void org.apache.log4j.Logger:debug(java.lang.Object,java.lang.Throwable){-<~;output_L;}
+void org.hibernate.classic.Session:persist(java.lang.Object){.*<~@;}
+java.util.List org.springframework.jdbc.core.JdbcTemplate:queryForList(java.lang.String){-<~;return *;}
+java.util.List org.springframework.jdbc.core.JdbcTemplate:queryForList(java.lang.String,java.lang.Object[]){-<~;return *;}
+java.util.List java.util.AbstractList:subList(int,int){-<~;return new(*);}
+java.util.List java.util.ArrayList:subList(int,int){-<~;return new(*);}
+java.util.List java.util.LinkedList:subList(int,int){-<~;return new(*);}
+java.util.List java.util.Stack:subList(int,int){-<~;return new(*);}
+java.util.List java.util.concurrent.CopyOnWriteArrayList:subList(int,int){-<~;return new(*);}
+java.util.List java.util.List:subList(int,int){-<~;return *;}
+float java.lang.Float:floatValue(){-<~;return .*;}
+float java.math.BigDecimal:floatValue(){-<~;return new(.*);}
+float java.math.BigInteger:floatValue(){-<~;return new(.*);}
+float java.lang.Byte:floatValue(){-<~;return new(.*);}
+float java.lang.Double:floatValue(){-<~;return new(.*);}
+float java.lang.Float:floatValue(){-<~;return new(.*);}
+float java.lang.Integer:floatValue(){-<~;return new(.*);}
+float java.lang.Long:floatValue(){-<~;return new(.*);}
+float java.lang.Short:floatValue(){-<~;return new(.*);}
+float java.util.concurrent.atomic.AtomicInteger:floatValue(){-<~;return new(.*);}
+float java.util.concurrent.atomic.AtomicLong:floatValue(){-<~;return new(.*);}
+boolean java.lang.String:startsWith(java.lang.String){-<~;return *;}
+boolean java.lang.String:startsWith(java.lang.String,int){-<~;return *;}
+org.apache.activemq.broker.TransportConnector org.apache.activemq.broker.BrokerService:addConnector(java.lang.String){.*<~@;return .*;}
+void java.io.FileOutputStream:write(byte[]){-<~;.*<~@;}
+void java.io.FileOutputStream:write(byte[],int,int){-<~;.*<~@;}
+void java.io.FileOutputStream:write(int){-<~;.*<~@;}
+void java.io.ByteArrayOutputStream:write(byte[],int,int){-<~;.*<~@;}
+void java.io.ByteArrayOutputStream:write(int){-<~;.*<~@;}
+void java.io.FilterOutputStream:write(byte[]){.*<~@;output_L;}
+void java.io.Writer:write(java.lang.String){.*<~@;output_L;}
+void android.view.ContextThemeWrapper:unbindService(android.content.ServiceConnection){-<~;*<~@;}
+int java.io.FileInputStream:read(){-<~;.*<~@;return .*;}
+int java.io.FileInputStream:read(byte[]){-<~;*<~@;return *;}
+int java.io.FileInputStream:read(byte[],int,int){-<~;*<~@;return *;}
+int java.util.Date:getMonth(){-<~;return .*;}
+android.app.Activity android.app.Fragment:getActivity(){-<~;return .*;}
+android.app.Activity android.app.ListFragment:getActivity(){-<~;return .*;}
+void org.springframework.web.multipart.MultipartFile:transferTo(java.io.File){*<~@;}
+javax.servlet.http.Cookie[] javax.servlet.http.HttpServletRequest:getCookies(){-<~;return new(%(*));}
+boolean java.util.AbstractCollection:containsAll(java.util.Collection){-<~;return new(*);}
+boolean java.util.TreeMap$EntrySet:containsAll(java.util.Collection){-<~;return new(*);}
+boolean java.util.TreeMap$KeySet:containsAll(java.util.Collection){-<~;return new(*);}
+boolean org.joda.time.DateTime:isAfter(long){-<~;return new(*);}
+boolean org.joda.time.DateTime:isAfter(org.joda.time.ReadableInstant){-<~;return new(*);}
+java.lang.Object org.apache.ibatis.session.SqlSession:selectOne(java.lang.String){-<~;return *;}
+java.lang.String javax.servlet.http.HttpServletRequest:getHeader(java.lang.String){-<~;return new(%(*));}
+int java.util.Date:compareTo(java.util.Date){-<~;return *;}
+boolean org.apache.shiro.subject.Subject:isAuthenticated(){-<~;return .*;}
+java.lang.String java.lang.String:replaceAll(java.lang.String,java.lang.String){.*<~@;}
+void android.telephony.SmsManager:sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent){-<~;}
+boolean java.util.AbstractList:addAll(int,java.util.Collection){-<~;.*<~@;return new(*);}
+boolean java.util.ArrayList:addAll(int,java.util.Collection){-<~;.*<~@;return new(*);}
+boolean java.util.LinkedList:addAll(int,java.util.Collection){-<~;.*<~@;return new(*);}
+boolean java.util.Stack:addAll(int,java.util.Collection){-<~;.*<~@;return new(*);}
+boolean java.util.concurrent.CopyOnWriteArrayList:addAll(int,java.util.Collection){-<~;.*<~@;return new(*);}
+boolean java.util.AbstractCollection:addAll(java.util.Collection){-<~;.*<~@;return new(*);}
+boolean java.util.AbstractCollection:addAll(java.util.Collection){.*<~@;return *;}
+boolean java.util.ArrayList:addAll(java.util.Collection){.*<~@;return *;}
+boolean java.util.List:addAll(java.util.Collection){.*<~@;return *;}
+void java.net.HttpURLConnection:setRequestMethod(java.lang.String){-<~;.*<~@;}
+android.telephony.SmsManager android.telephony.SmsManager:getDefault(){-<~;return .*;}
+java.util.Enumeration javax.servlet.ServletConfig:getInitParameterNames(){-<~;return new(%(*));}
+org.hibernate.Query org.hibernate.Query:setReadOnly(boolean){.*<~@;}
+boolean org.joda.time.DateTime:isAfterNow(){-<~;return new(.*);}
+java.io.FileOutputStream android.view.ContextThemeWrapper:openFileOutput(java.lang.String,int){-<~;return *;}
+int java.util.AbstractList:indexOf(java.lang.Object){-<~;return new(*);}
+int java.util.ArrayList:indexOf(java.lang.Object){-<~;return new(*);}
+int java.util.LinkedList:indexOf(java.lang.Object){-<~;return new(*);}
+int java.util.Stack:indexOf(java.lang.Object){-<~;return new(*);}
+int java.util.concurrent.CopyOnWriteArrayList:indexOf(java.lang.Object){-<~;return new(*);}
+int java.lang.String:indexOf(int){-<~;return *;}
+int java.lang.String:indexOf(java.lang.String){-<~;return *;}
+int java.util.List:indexOf(java.lang.Object){-<~;return *;}
+void android.app.Activity:onDestroy(){-<~;.*<~@;}
+org.hibernate.criterion.Order org.hibernate.criterion.Order:desc(java.lang.String){-<~;return new(%(*));}
+void android.app.ListFragment:setArguments(android.os.Bundle){-<~;.*<~@;}
+void android.location.Criteria:setAccuracy(int){-<~;.*<~@;}
+java.lang.Object org.apache.shiro.subject.PrincipalCollection:getPrimaryPrincipal(){-<~;return .*;}
+void org.apache.commons.dbcp.BasicDataSource:setDefaultTransactionIsolation(int){.*<~@;}
+javax.servlet.http.HttpServletRequest org.apache.struts2.ServletActionContext:getRequest(){-<~;return new(%(*));}
+int java.lang.String:length(){-<~;return .*;}
+int java.util.BitSet:length(){-<~;return .*;}
+long java.io.File:length(){-<~;return .*;}
+java.beans.BeanInfo java.beans.Introspector:getBeanInfo(java.lang.Class){-<~;return *;}
+boolean java.lang.String:equalsIgnoreCase(java.lang.String){-<~;return *;}
+long java.lang.Math:round(double){-<~;return *;}
+java.util.Date org.joda.time.DateTime:toDate(){-<~;return new(.*);}
+boolean java.util.AbstractCollection:retainAll(java.util.Collection){-<~;.*<~L;return new(*);}
+void org.apache.commons.logging.Log:info(java.lang.Object){-<~;output_L;}
+void org.apache.log4j.Logger:info(java.lang.Object){-<~;output_L;}
+void org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer:setTemplateLoaderPath(java.lang.String){.*<~@;}
+org.hibernate.SessionFactory org.springframework.orm.hibernate3.HibernateTemplate:getSessionFactory(){-<~;return .*;}
+android.content.Intent android.content.Intent:setType(java.lang.String){-<~;.*<~@;return @;}
+org.springframework.web.context.request.RequestAttributes org.springframework.web.context.request.RequestContextHolder:currentRequestAttributes(){-<~;return new(%(*));}
+void java.net.HttpURLConnection:setDoInput(boolean){-<~;.*<~@;}
+java.util.Formatter java.util.Formatter:format(java.lang.String,java.lang.Object){-<~;*<~@;return @;}
+java.util.Formatter java.util.Formatter:format(java.util.Locale,java.lang.String,java.lang.Object){-<~;*<~@;return @;}
+java.lang.String java.lang.String:format(java.lang.String,java.lang.Object[]){-<~;return *;}
+java.lang.String java.text.DateFormat:format(java.util.Date){@<~@;return *;}
+android.content.Intent android.content.Intent:setComponent(android.content.ComponentName){-<~;.*<~@;return @;}
+java.sql.ResultSet java.sql.PreparedStatement:executeQuery(){-<~;return new(%(*));}
+java.sql.ResultSet java.sql.Statement:executeQuery(java.lang.String){-<~;return new(%(*));}
+void org.apache.log4j.Logger:warn(java.lang.Object){-<~;output_L;}
+android.app.FragmentManager android.support.v7.app.ActionBarActivity:getSupportFragmentManager(){-<~;return .*;}
+java.io.OutputStream java.net.URLConnection:getOutputStream(){-<~;return .*;}
+void android.app.Fragment:onActivityCreated(android.os.Bundle){-<~;.*<~@;}
+void java.text.DateFormat:setTimeZone(java.util.TimeZone){.*<~@;}
+boolean org.apache.shiro.web.filter.authc.FormAuthenticationFilter:onLoginSuccess(org.apache.shiro.authc.AuthenticationToken,org.apache.shiro.subject.Subject,javax.servlet.ServletRequest,javax.servlet.ServletResponse){@<~@;return *;}
+char[] java.lang.String:toCharArray(){-<~;return .*;}
+boolean java.util.Random:nextBoolean(){-<~;return new;}
+void org.springframework.mail.javamail.MimeMessageHelper:setSubject(java.lang.String){.*<~@;}
+boolean org.joda.time.DateTime:isEqualNow(){-<~;return new(.*);}
+boolean org.apache.commons.lang3.StringUtils:isNotBlank(java.lang.CharSequence){-<~;return *;}
+void org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean:setHibernateProperties(java.util.Properties){.*<~@;}
+java.lang.Object java.lang.reflect.Array:newInstance(java.lang.Class,int[]){-<~;return *;}
+java.lang.Object java.lang.reflect.Array:newInstance(java.lang.Class,int){-<~;return *;}
+java.lang.Object java.lang.Class:newInstance(){-<~;}
+void org.springframework.orm.hibernate4.HibernateTransactionManager:setSessionFactory(org.hibernate.SessionFactory){.*<~@;}
+void org.springframework.web.servlet.view.InternalResourceViewResolver:setSuffix(java.lang.String){.*<~@;}
+void org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver:setSuffix(java.lang.String){.*<~@;}
+java.util.UUID java.util.UUID:randomUUID(){-<~;return new(%(*));}
+android.content.Intent android.content.Intent:addCategory(java.lang.String){-<~;.*<~@;return @;}
+int java.util.AbstractCollection:size(){-<~;return new(.*);}
+int java.util.AbstractMap:size(){-<~;return new(.*);}
+int java.util.Attributes:size(){-<~;return new(.*);}
+int java.util.Hashtable:size(){-<~;return new(.*);}
+int java.util.jar.Attributes:size(){-<~;return new(.*);}
+int java.util.Collection:size(){-<~;return .*;}
+int java.util.List:size(){-<~;return .*;}
+void android.app.Application:registerComponentCallbacks(android.content.ComponentCallbacks){-<~;.*<~@;}
+void org.apache.commons.dbcp.BasicDataSource:setTestOnBorrow(boolean){.*<~@;}
+java.lang.Object java.util.AbstractList:set(int,java.lang.Object){-<~;.*<~@;return .*;}
+java.lang.Object java.util.ArrayList:set(int,java.lang.Object){-<~;.*<~@;return .*;}
+java.lang.Object java.util.LinkedList:set(int,java.lang.Object){-<~;.*<~@;return .*;}
+java.lang.Object java.util.Stack:set(int,java.lang.Object){-<~;.*<~@;return .*;}
+java.lang.Object java.util.concurrent.CopyOnWriteArrayList:set(int,java.lang.Object){-<~;.*<~@;return .*;}
+void java.lang.ThreadLocal:set(java.lang.Object){.*<~@;}
+void java.util.BitSet:set(int){.*<~@;}
+void org.apache.commons.logging.Log:error(java.lang.Object){-<~;output_L;}
+void org.apache.log4j.Logger:error(java.lang.Object){-<~;output_L;}
+void org.apache.log4j.Logger:error(java.lang.Object,java.lang.Throwable){-<~;output_L;}
+java.lang.Object java.lang.Object:clone(){-<~;return new(.*);}
+java.lang.Object java.lang.Object:clone(){-<~;}
+android.os.Bundle android.app.Fragment:getArguments(){-<~;return .*;}
+android.text.Editable android.widget.EditText:getText(){-<~;return .*;}
+org.hibernate.criterion.Order org.hibernate.criterion.Order:asc(java.lang.String){-<~;return new(%(*));}
+void android.location.LocationManager:requestLocationUpdates(java.lang.String,long,float,android.location.LocationListener){-<~;*<~@;}
+void android.location.LocationManager:requestLocationUpdates(long,float,android.location.Criteria,android.location.LocationListener,android.os.Looper){-<~;*<~@;}
+void android.location.LocationManager:requestLocationUpdates(long,float,android.location.Criteria,android.app.PendingIntent){-<~;*<~@;}
+void android.location.LocationManager:requestLocationUpdates(java.lang.String,long,float,android.location.LocationListener,android.os.Looper){-<~;*<~@;}
+void android.location.LocationManager:requestLocationUpdates(java.lang.String,long,float,android.app.PendingIntent){-<~;*<~@;}
+void android.os.Bundle:putInt(java.lang.String,int){-<~;.*<~@;}
+void android.os.Bundle:putInt(java.lang.String,int[]){-<~;.*<~@;}
+java.lang.Object org.apache.shiro.authc.AuthenticationToken:getPrincipal(){-<~;return .*;}
+java.lang.Object org.apache.shiro.subject.Subject:getPrincipal(){-<~;return .*;}
+boolean java.lang.String:equals(java.lang.Object){-<~;return *;}
+boolean java.util.AbstractCollection:equals(java.lang.Object){-<~;return new(*);}
+boolean java.util.AbstractMap:equals(java.lang.Object){-<~;return new(*);}
+boolean java.util.Attributes:equals(java.lang.Object){-<~;return new(*);}
+boolean java.util.Hashtable:equals(java.lang.Object){-<~;return new(*);}
+boolean java.util.jar.Attributes:equals(java.lang.Object){-<~;return new(*);}
+boolean java.lang.Byte:equals(java.lang.Object){-<~;return *;}
+boolean java.lang.Enum:equals(java.lang.Object){-<~;return *;}
+boolean java.lang.Integer:equals(java.lang.Object){-<~;return *;}
+boolean java.lang.Long:equals(java.lang.Object){-<~;return *;}
+boolean java.lang.Object:equals(java.lang.Object){-<~;return *;}
+boolean java.sql.Timestamp:equals(java.sql.Timestamp){-<~;return *;}
+boolean java.util.Date:equals(java.lang.Object){-<~;return *;}
+boolean java.util.List:equals(java.lang.Object){-<~;return *;}
+boolean java.util.Set:equals(java.lang.Object){-<~;return *;}
+void android.app.Application:unregisterComponentCallbacks(android.content.ComponentCallbacks){-<~;.*<~@;}
+void java.sql.PreparedStatement:setString(int,java.lang.String){.*<~@;}
+org.hibernate.Query org.hibernate.Query:setString(java.lang.String,java.lang.String){.*<~@;}
+void java.util.LinkedList:addLast(java.lang.Object){.*<~@;}
+void java.util.LinkedList:addLast(java.lang.Object){.*<~@;}
+android.content.Intent android.content.Intent:setAction(java.lang.String){-<~;.*<~@;return @;}
+void android.app.Activity:finish(){-<~;.*<~@;}
+void org.apache.shiro.subject.Subject:logout(){.*<~@;}
+java.lang.String java.lang.String:replace(java.lang.CharSequence,java.lang.CharSequence){.*<~@;}
+java.lang.Object android.os.Bundle:get(java.lang.String){-<~;return *;}
+java.lang.Object java.util.AbstractList:get(int){-<~;return .*;}
+java.lang.Object java.util.ArrayList:get(int){-<~;return .*;}
+java.lang.Object java.util.LinkedList:get(int){-<~;return .*;}
+java.lang.Object java.util.Stack:get(int){-<~;return .*;}
+java.lang.Object java.util.concurrent.CopyOnWriteArrayList:get(int){-<~;return .*;}
+java.lang.Object java.util.AbstractMap:get(java.lang.Object){-<~;return new(.*);}
+java.lang.Object java.util.Attributes:get(java.lang.Object){-<~;return new(.*);}
+java.lang.Object java.util.Hashtable:get(java.lang.Object){-<~;return new(.*);}
+java.lang.Object java.util.jar.Attributes:get(java.lang.Object){-<~;return new(.*);}
+boolean java.util.BitSet:get(int){-<~;return *;}
+int java.util.Calendar:get(int){-<~;return *;}
+java.lang.Object java.lang.ThreadLocal:get(){-<~;return .*;}
+java.lang.Object org.hibernate.Session:get(java.lang.Class,java.io.Serializable){-<~;return *;}
+java.lang.Object org.hibernate.classic.Session:get(java.lang.Class,java.io.Serializable){-<~;return *;}
+void org.apache.commons.dbcp.BasicDataSource:setMinIdle(int){.*<~@;}
+void android.app.Fragment:onAttach(android.app.Activity){-<~;.*<~@;}
+void android.app.Fragment:onAttach(android.content.Context){-<~;.*<~@;}
+void android.app.ListFragment:onAttach(android.app.Activity){-<~;.*<~@;}
+void android.app.ListFragment:onAttach(android.content.Context){-<~;.*<~@;}
+void android.view.ContextThemeWrapper:attachBaseContext(android.content.Context){-<~;.*<~@;}
+void android.app.Activity:onResume(){-<~;.*<~@;}
+void java.util.AbstractList:clear(){.*<~L;}
+void java.util.ArrayList:clear(){.*<~L;}
+void java.util.LinkedList:clear(){.*<~L;}
+void java.util.Stack:clear(){.*<~L;}
+void java.util.concurrent.CopyOnWriteArrayList:clear(){.*<~L;}
+void java.util.AbstractCollection:clear(){.*<~L;}
+void java.util.AbstractMap:clear(){.*<~L;}
+void java.util.Attributes:clear(){.*<~L;}
+void java.util.Hashtable:clear(){.*<~L;}
+void java.util.jar.Attributes:clear(){.*<~L;}
+void java.util.List:clear(){.*<~@;}
+void org.hibernate.Session:clear(){.*<~@;}
+void org.hibernate.classic.Session:clear(){.*<~@;}
+java.net.URL java.net.URI:toURL(){-<~;return .*;}
+long java.lang.Long:parseLong(java.lang.String){-<~;return *;}
+boolean java.util.Enumeration:hasMoreElements(){-<~;return .*;}
+org.hibernate.criterion.ProjectionList org.hibernate.criterion.Projections:projectionList(){-<~;return *;}
+java.lang.StackTraceElement[] java.lang.Throwable:getStackTrace(){-<~;return .*;}
+java.lang.Object java.io.ObjectInputStream:readObject(){-<~;.*<~@;return .*;}
+java.lang.Object[] java.util.AbstractCollection:toArray(){-<~;return new(.*);}
+java.lang.Object[] java.util.TreeMap$EntrySet:toArray(){-<~;return new(.*);}
+java.lang.Object[] java.util.TreeMap$KeySet:toArray(){-<~;return new(.*);}
+java.lang.Object[] java.util.AbstractCollection:toArray(java.lang.Object[]){-<~;return *;}
+java.lang.Object[] java.util.TreeMap$EntrySet:toArray(java.lang.Object[]){-<~;return *;}
+java.lang.Object[] java.util.TreeMap$KeySet:toArray(java.lang.Object[]){-<~;return *;}
+void org.apache.commons.dbcp.BasicDataSource:setInitialSize(int){.*<~@;}
+java.lang.Object java.util.Properties:setProperty(java.lang.String,java.lang.String){.*<~@;return *;}
+java.lang.String java.lang.System:setProperty(java.lang.String,java.lang.String){*<~@;return *;}
+byte[] java.io.ByteArrayOutputStream:toByteArray(){-<~;return .*;}
+double android.location.Location:getLatitude(){-<~;return .*;}
+byte java.lang.Number:byteValue(){-<~;return new(.*);}
+byte java.math.BigDecimal:byteValue(){-<~;return new(.*);}
+byte java.math.BigInteger:byteValue(){-<~;return new(.*);}
+byte java.lang.Byte:byteValue(){-<~;return new(.*);}
+byte java.lang.Double:byteValue(){-<~;return new(.*);}
+byte java.lang.Float:byteValue(){-<~;return new(.*);}
+byte java.lang.Integer:byteValue(){-<~;return new(.*);}
+byte java.lang.Long:byteValue(){-<~;return new(.*);}
+byte java.lang.Short:byteValue(){-<~;return new(.*);}
+byte java.util.concurrent.atomic.AtomicInteger:byteValue(){-<~;return new(.*);}
+byte java.util.concurrent.atomic.AtomicLong:byteValue(){-<~;return new(.*);}
+void org.hibernate.Session:flush(){.*<~@;}
+void org.hibernate.classic.Session:flush(){.*<~@;}
+void org.apache.shiro.subject.Subject:login(org.apache.shiro.authc.AuthenticationToken){.*<~@;}
+double java.lang.Double:parseDouble(java.lang.String){-<~;return *;}
+java.io.FileInputStream android.view.ContextThemeWrapper:openFileInput(java.lang.String){-<~;return *;}
+org.hibernate.Query org.hibernate.Query:setParameterList(java.lang.String,java.util.Collection){.*<~@;}
+java.lang.Object org.springframework.context.ApplicationContext:getBean(java.lang.String){-<~;return *;}
+java.lang.Object org.springframework.context.support.ClassPathXmlApplicationContext:getBean(java.lang.Class){-<~;return *;}
+static java.lang.Long java.lang.Long:valueOf(long){-<~;return @;}
+static java.lang.String java.lang.String:valueOf(boolean){-<~;return new(@);}
+static java.lang.String java.lang.String:valueOf(char){-<~;return new(@);}
+static java.lang.String java.lang.String:valueOf(char[]){-<~;return new(@);}
+static java.lang.String java.lang.String:valueOf(char[],int,int){-<~;return new(@);}
+static java.lang.String java.lang.String:valueOf(double){-<~;return new(@);}
+static java.lang.String java.lang.String:valueOf(float){-<~;return new(@);}
+static java.lang.String java.lang.String:valueOf(int){-<~;return new(@);}
+static java.lang.String java.lang.String:valueOf(long){-<~;return new(@);}
+static java.lang.String java.lang.String:valueOf(java.lang.Object){-<~;return new(@);}
+static java.lang.Integer java.lang.Integer:valueOf(int){-<~;return new(@);}
+static java.lang.Integer java.lang.Integer:valueOf(java.lang.String){-<~;return new(@);}
+static java.lang.Integer java.lang.Integer:valueOf(java.lang.String,int){-<~;return new(@);}
+static java.lang.Float java.lang.Float:valueOf(float){-<~;return new(@);}
+static java.lang.Float java.lang.Float:valueOf(java.lang.String){-<~;return new(@);}
+java.lang.Boolean java.lang.Boolean:valueOf(boolean){-<~;return *;}
+java.lang.Byte java.lang.Byte:valueOf(byte){-<~;return *;}
+java.lang.Byte java.lang.Byte:valueOf(java.lang.String){-<~;return *;}
+java.lang.Enum java.lang.Enum:valueOf(java.lang.Class,java.lang.String){-<~;return *;}
+java.lang.Long java.lang.Long:valueOf(long){-<~;return *;}
+java.lang.Double java.lang.Double:valueOf(double){-<~;return *;}
+java.lang.Double java.lang.Double:valueOf(java.lang.String){-<~;return *;}
+org.hibernate.criterion.SimpleExpression org.hibernate.criterion.Restrictions:eq(java.lang.String,java.lang.Object){@<~@;return new(%(*));}
+org.hibernate.Criteria org.hibernate.Session:createCriteria(java.lang.Class){.*<~@;}
+org.hibernate.Criteria org.hibernate.Session:createCriteria(java.lang.Class,java.lang.String){.*<~@;}
+org.hibernate.Criteria org.hibernate.classic.Session:createCriteria(java.lang.String){.*<~@;}
+android.app.FragmentManager android.app.ListFragment:getFragmentManager(){-<~;return .*;}
+android.app.FragmentManager android.support.v4.app.FragmentActivity:getFragmentManager(){-<~;return .*;}
+java.lang.String java.lang.StringBuffer:toString(){return new;}
+java.lang.String android.widget.EditText:toString(){-<~;return .*;}
+java.lang.String android.net.Uri:toString(){-<~;return .*;}
+java.lang.String android.text.Editable:toString(){-<~;return .*;}
+java.lang.String java.lang.StringBuffer:toString(){-<~;return .*;}
+java.lang.String java.lang.StringBuilder:toString(){-<~;return .*;}
+java.lang.String java.io.ByteArrayOutputStream:toString(){-<~;return .*;}
+java.lang.String java.io.ByteArrayOutputStream:toString(java.lang.String){-<~;return *;}
+java.lang.String java.lang.Object:toString(){-<~;return .*;}
+java.lang.String java.lang.Double:toString(){-<~;return .*;}
+java.lang.String java.lang.CharSequence:toString(){-<~;return .*;}
+java.lang.String java.util.Arrays:toString(boolean[]){-<~;return *;}
+java.lang.String java.util.Arrays:toString(byte[]){-<~;return *;}
+java.lang.String java.util.Arrays:toString(char[]){-<~;return *;}
+java.lang.String java.util.Arrays:toString(double[]){-<~;return *;}
+java.lang.String java.util.Arrays:toString(float[]){-<~;return *;}
+java.lang.String java.util.Arrays:toString(int[]){-<~;return *;}
+java.lang.String java.util.Arrays:toString(long[]){-<~;return *;}
+java.lang.String java.util.Arrays:toString(java.lang.Object[]){-<~;return *;}
+java.lang.String java.util.Arrays:toString(short[]){-<~;return *;}
+java.lang.String org.joda.time.DateTime:toString(org.joda.time.format.DateTimeFormatter){-<~;return new(*);}
+java.lang.String java.lang.Integer:toString(){-<~;return .*;}
+java.lang.String java.lang.Integer:toString(int){-<~;return *;}
+java.lang.String java.lang.Long:toString(){-<~;return .*;}
+java.lang.String java.lang.String:toString(){-<~;return .*;}
+java.lang.String java.lang.Throwable:toString(){-<~;return .*;}
+java.lang.String java.util.UUID:toString(){-<~;return .*;}
+java.lang.String org.hibernate.HibernateException:toString(){-<~;return .*;}
+java.lang.String org.apache.shiro.crypto.hash.Md5Hash:toString(){-<~;return .*;}
+org.hibernate.boot.registry.StandardServiceRegistry org.hibernate.boot.registry.StandardServiceRegistryBuilder:build(){-<~;return .*;}
+org.apache.ibatis.session.SqlSessionFactory org.apache.ibatis.session.SqlSessionFactoryBuilder:build(java.io.InputStream){-<~;return *;}
+org.springframework.web.util.UriComponents org.springframework.web.util.UriComponentsBuilder:build(){-<~;return .*;}
+void java.util.Calendar:setTime(java.util.Date){.*<~@;}
+boolean java.util.AbstractCollection:isEmpty(){-<~;return new(.*);}
+boolean java.util.AbstractMap:isEmpty(){-<~;return new(.*);}
+boolean java.util.Attributes:isEmpty(){-<~;return new(.*);}
+boolean java.util.Hashtable:isEmpty(){-<~;return new(.*);}
+boolean java.util.jar.Attributes:isEmpty(){-<~;return new(.*);}
+boolean java.util.Collection:isEmpty(){-<~;return .*;}
+boolean java.util.List:isEmpty(){-<~;return .*;}
+boolean java.util.Set:isEmpty(){-<~;return .*;}
+boolean org.apache.shiro.util.CollectionUtils:isEmpty(java.util.Collection){-<~;return *;}
+boolean org.springframework.util.CollectionUtils:isEmpty(java.util.Collection){-<~;return *;}
+boolean org.springframework.util.StringUtils:isEmpty(java.lang.Object){-<~;return *;}
+boolean org.springframework.web.multipart.MultipartFile:isEmpty(){-<~;return .*;}
+java.util.Enumeration javax.servlet.http.HttpServletRequest:getHeaderNames(){-<~;return new(%(*));}
+java.util.Enumeration javax.servlet.http.HttpServletRequest:getHeaderNames(){-<~;return new(%(*));}
+org.hibernate.Criteria org.hibernate.Criteria:setMaxResults(int){.*<~@;}
+org.hibernate.Query org.hibernate.Query:setMaxResults(int){.*<~@;}
+long java.math.BigDecimal:longValue(){-<~;return new(.*);}
+long java.math.BigInteger:longValue(){-<~;return new(.*);}
+long java.lang.Byte:longValue(){-<~;return new(.*);}
+long java.lang.Double:longValue(){-<~;return new(.*);}
+long java.lang.Float:longValue(){-<~;return new(.*);}
+long java.lang.Integer:longValue(){-<~;return new(.*);}
+long java.lang.Long:longValue(){-<~;return new(.*);}
+long java.lang.Short:longValue(){-<~;return new(.*);}
+long java.util.concurrent.atomic.AtomicInteger:longValue(){-<~;return new(.*);}
+long java.util.concurrent.atomic.AtomicLong:longValue(){-<~;return new(.*);}
+long java.lang.Long:longValue(){-<~;return .*;}
+void java.sql.PreparedStatement:setBoolean(int,boolean){.*<~@;}
+java.lang.Object java.util.AbstractMap:put(java.lang.Object,java.lang.Object){-<~;.*<~@;return .*;}
+java.lang.Object java.util.Attributes:put(java.lang.Object,java.lang.Object){-<~;.*<~@;return .*;}
+java.lang.Object java.util.Hashtable:put(java.lang.Object,java.lang.Object){-<~;.*<~@;return .*;}
+java.lang.Object java.util.jar.Attributes:put(java.lang.Object,java.lang.Object){-<~;.*<~@;return .*;}
+void java.util.concurrent.BlockingQueue:put(java.lang.Object){.*<~@;}
+java.lang.Object org.springframework.ui.ModelMap:put(java.lang.Object,java.lang.Object){.*<~@;return *;}
+java.util.concurrent.ExecutorService java.util.concurrent.Executors:newCachedThreadPool(){-<~;return .*;}
+java.util.concurrent.ExecutorService java.util.concurrent.Executors:newCachedThreadPool(java.util.concurrent.ThreadFactory){-<~;return *;}
+boolean org.apache.shiro.web.servlet.AdviceFilter:preHandle(javax.servlet.ServletRequest,javax.servlet.ServletResponse){-<~;return *;}
+void android.app.Application:registerActivityLifecycleCallbacks(android.app.Application.ActivityLifecycleCallbacks){-<~;.*<~@;}
+int org.springframework.jdbc.core.JdbcTemplate:queryForInt(java.lang.String){-<~;return *;}
+org.hibernate.Criteria org.hibernate.Criteria:setProjection(org.hibernate.criterion.Projection){.*<~@;}
+void org.apache.commons.dbcp.BasicDataSource:setPoolPreparedStatements(boolean){.*<~@;}
+void java.util.AbstractMap:putAll(java.util.Map){-<~;.*<~@;}
+void java.util.Attributes:putAll(java.util.Map){-<~;.*<~@;}
+void java.util.Hashtable:putAll(java.util.Map){-<~;.*<~@;}
+void java.util.jar.Attributes:putAll(java.util.Map){-<~;.*<~@;}
+boolean java.util.AbstractMap:containsValue(java.lang.Object){-<~;return new(.*);}
+boolean java.util.Attributes:containsValue(java.lang.Object){-<~;return new(.*);}
+boolean java.util.Hashtable:containsValue(java.lang.Object){-<~;return new(.*);}
+boolean java.util.jar.Attributes:containsValue(java.lang.Object){-<~;return new(.*);}
+org.hibernate.Criteria org.hibernate.Criteria:addOrder(org.hibernate.criterion.Order){.*<~@;}
+void android.os.Parcel:recycle(){-<~;.*<~@;}
+int org.joda.time.DateTime:getMonthOfYear(){-<~;return new_L;}
+java.io.InputStream javax.sql.rowset.serial.SerialBlob:getBinaryStream(){-<~;return @;}
+java.io.InputStream javax.sql.rowset.serial.SerialBlob:getBinaryStream(long,long){-<~;return new(*);}
+void android.widget.Button:setHint(java.lang.CharSequence){-<~;.*<~@;}
+void android.widget.Button:setHint(int){-<~;.*<~@;}
+java.sql.SQLException org.hibernate.exception.ConstraintViolationException:getSQLException(){-<~;return .*;}
+java.util.List org.hibernate.Criteria:list(){-<~;return .*;}
+java.util.List org.hibernate.Query:list(){-<~;return .*;}
+java.lang.String android.location.LocationManager:getBestProvider(android.location.Criteria,boolean){-<~;return *;}
+java.lang.Class java.lang.Class:getSuperclass(){-<~;return .*;}
+void java.sql.PreparedStatement:setTimestamp(int,java.sql.Timestamp){.*<~@;}
+void org.springframework.http.HttpHeaders:setLocation(java.net.URI){.*<~@;}
+short java.lang.Number:shortValue(){-<~;return new(.*);}
+short java.math.BigDecimal:shortValue(){-<~;return new(.*);}
+short java.math.BigInteger:shortValue(){-<~;return new(.*);}
+short java.lang.Byte:shortValue(){-<~;return new(.*);}
+short java.lang.Double:shortValue(){-<~;return new(.*);}
+short java.lang.Float:shortValue(){-<~;return new(.*);}
+short java.lang.Integer:shortValue(){-<~;return new(.*);}
+short java.lang.Long:shortValue(){-<~;return new(.*);}
+short java.lang.Short:shortValue(){-<~;return new(.*);}
+short java.util.concurrent.atomic.AtomicInteger:shortValue(){-<~;return new(.*);}
+short java.util.concurrent.atomic.AtomicLong:shortValue(){-<~;return new(.*);}
+android.app.Fragment android.app.FragmentManager:findFragmentById(int){-<~;return *;}
+java.lang.Object org.apache.shiro.authc.AuthenticationToken:getCredentials(){-<~;return .*;}
+java.lang.String java.net.URLEncoder:encode(java.lang.String){@<~@;return *;}
+java.lang.String java.net.URLEncoder:encode(java.lang.String,java.lang.String){@<~@;return *;}
+int android.util.Log:v(java.lang.String,java.lang.String){-<~;return *;output_⊥;}
+int android.util.Log:v(java.lang.String,java.lang.String,java.lang.Throwable){-<~;return *;output_⊥;}
+java.lang.ClassLoader java.lang.Class:getClassLoader(){-<~;return .*;}
+java.io.InputStream java.net.URLConnection:getInputStream(){-<~;return .*;}
+java.lang.ClassLoader java.lang.Thread:getContextClassLoader(){-<~;return .*;}
+boolean org.springframework.validation.BindingResult:hasErrors(){-<~;return .*;}
+java.sql.Statement java.sql.Connection:createStatement(){.*<~@;return .*;}
+org.springframework.web.context.request.RequestAttributes org.springframework.web.context.request.RequestContextHolder:getRequestAttributes(){-<~;return new(%(*));}
+java.io.Serializable org.hibernate.Session:save(java.lang.Object){.*<~@;return *;}
+java.io.Serializable org.hibernate.classic.Session:save(java.lang.Object){.*<~@;return *;}
+void org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer:setFreemarkerSettings(java.util.Properties){.*<~@;}
+char java.lang.String:charAt(int){-<~;return *;}
+int android.util.Log:i(java.lang.String,java.lang.String){-<~;return *;output_⊥;}
+int android.util.Log:i(java.lang.String,java.lang.String,java.lang.Throwable){-<~;return *;output_⊥;}
+java.lang.Package java.lang.Class:getPackage(){-<~;return .*;}
+org.hibernate.SessionFactory org.hibernate.cfg.AnnotationConfiguration:buildSessionFactory(){-<~;return new(%(*));}
+org.hibernate.SessionFactory org.hibernate.cfg.Configuration:buildSessionFactory(org.hibernate.service.ServiceRegistry){-<~;return new(%(*));}
+int android.util.Log:e(java.lang.String,java.lang.String){-<~;return *;output_⊥;}
+int android.util.Log:e(java.lang.String,java.lang.String,java.lang.Throwable){-<~;return *;output_⊥;}
+int android.util.Log:d(java.lang.String,java.lang.String){-<~;return *;output_⊥;}
+int android.util.Log:d(java.lang.String,java.lang.String,java.lang.Throwable){-<~;return *;output_⊥;}
+void org.springframework.validation.BindingResult:rejectValue(java.lang.String,java.lang.String,java.lang.String){.*<~@;}
+java.util.Properties org.hibernate.cfg.Configuration:getProperties(){-<~;return .*;}
+void android.view.ContextThemeWrapper:sendBroadcast(android.content.Intent){-<~;}
+void android.view.ContextThemeWrapper:sendBroadcast(android.content.Intent,java.lang.String){-<~;}
+android.view.View android.view.LayoutInflater:inflate(int,android.view.ViewGroup){-<~;return *;}
+android.view.View android.view.LayoutInflater:inflate(org.xmlpull.v1.XmlPullParser,android.view.ViewGroup){-<~;return *;}
+android.view.View android.view.LayoutInflater:inflate(int,android.view.ViewGroup,boolean){-<~;return *;}
+android.view.View android.view.LayoutInflater:inflate(org.xmlpull.v1.XmlPullParser,android.view.ViewGroup,boolean){-<~;return *;}
+void android.view.MenuInflater:inflate(int,android.view.Menu){-<~;@<~@;}
+java.lang.String android.telephony.TelephonyManager:getSubscriberId(){-<~;return .*;}
+void org.apache.commons.dbcp.BasicDataSource:setMaxActive(int){.*<~@;}
+java.util.Enumeration javax.servlet.http.HttpServletRequest:getHeaders(java.lang.String){-<~;return new(%(*));}
+org.hibernate.Criteria org.hibernate.Criteria:setFirstResult(int){.*<~@;}
+org.hibernate.Query org.hibernate.Query:setFirstResult(int){.*<~@;}
+byte[] android.os.Parcel:marshall(){-<~;return .*;}
+android.content.Context android.view.ContextThemeWrapper:getApplicationContext(){-<~;return .*;}
+android.content.Context android.support.v7.app.ActionBarActivity:getApplicationContext(){-<~;return .*;}
+int android.view.MenuItem:getItemId(){-<~;return .*;}
+java.util.concurrent.ScheduledExecutorService java.util.concurrent.Executors:newSingleThreadScheduledExecutor(){-<~;return new(%(*));}
+boolean org.apache.log4j.Logger:isDebugEnabled(){-<~;return .*;}
+java.lang.Object android.content.Context:getSystemService(java.lang.String){-<~;return *;}
+java.lang.Object android.content.Context:getSystemService(java.lang.Class){-<~;return *;}
+java.lang.Object android.app.Service:getSystemService(java.lang.String){-<~;return *;}
+java.lang.Object android.app.Activity:getSystemService(java.lang.String){-<~;return *;}
+java.lang.Object android.support.v4.app.FragmentActivity:getSystemService(java.lang.String){-<~;return *;}
+java.lang.Object android.support.v7.app.ActionBarActivity:getSystemService(java.lang.String){-<~;return *;}
+int java.util.AbstractCollection:hashCode(){-<~;return new(.*);}
+int java.util.AbstractMap:hashCode(){-<~;return new(.*);}
+int java.util.Attributes:hashCode(){-<~;return new(.*);}
+int java.util.Hashtable:hashCode(){-<~;return new(.*);}
+int java.util.jar.Attributes:hashCode(){-<~;return new(.*);}
+int java.lang.Byte:hashCode(){-<~;return .*;}
+int java.lang.Integer:hashCode(){-<~;return .*;}
+int java.lang.Long:hashCode(){-<~;return .*;}
+int java.lang.String:hashCode(){-<~;return .*;}
+int java.sql.Timestamp:hashCode(){-<~;return .*;}
+int java.util.Date:hashCode(){-<~;}
+int java.util.List:hashCode(){-<~;return .*;}
+int java.util.Set:hashCode(){-<~;return .*;}
+android.content.ComponentName android.view.ContextThemeWrapper:startService(android.content.Intent){-<~;return *;}
+void android.app.Activity:onRestart(){-<~;.*<~@;}
+boolean org.apache.shiro.web.filter.authc.FormAuthenticationFilter:executeLogin(javax.servlet.ServletRequest,javax.servlet.ServletResponse){-<~;return *;}
+void java.beans.PropertyEditorSupport:setValue(java.lang.Object){.*<~@;}
+org.hibernate.boot.registry.StandardServiceRegistryBuilder org.hibernate.boot.registry.StandardServiceRegistryBuilder:applySettings(java.util.Map){.*<~@;}
+org.hibernate.service.ServiceRegistryBuilder org.hibernate.service.ServiceRegistryBuilder:applySettings(java.util.Map){.*<~@;}
+org.hibernate.criterion.Criterion org.hibernate.criterion.Restrictions:ilike(java.lang.String,java.lang.Object){@<~@;return *;}
+org.hibernate.criterion.Criterion org.hibernate.criterion.Restrictions:ilike(java.lang.String,java.lang.String,org.hibernate.criterion.MatchMode){@<~@;return *;}
+void org.apache.poi.hssf.usermodel.HSSFCell:setCellValue(org.apache.poi.ss.usermodel.RichTextString){.*<~@;}
+int java.lang.Enum:ordinal(){-<~;return .*;}
+org.springframework.security.core.Authentication org.springframework.security.core.context.SecurityContext:getAuthentication(){-<~;return .*;}
+boolean android.content.Intent:hasExtra(java.lang.String){-<~;return *;}
+void org.hibernate.Session:delete(java.lang.Object){.*<~@;}
+void org.hibernate.classic.Session:delete(java.lang.Object){.*<~@;}
+java.lang.Object java.util.Hashtable$Entry:getKey(){-<~;return .*;}
+java.lang.Object java.util.LinkedHashMap$Entry:getKey(){-<~;return .*;}
+java.lang.Object java.util.WeakHashMap$Entry:getKey(){-<~;return .*;}
+java.lang.Object java.util.concurrent.ConcurrentHashMap$Node:getKey(){-<~;return .*;}
+org.springframework.ui.Model org.springframework.ui.Model:addAttribute(java.lang.String,java.lang.Object){.*<~@;}
+org.springframework.ui.ModelMap org.springframework.ui.ModelMap:addAttribute(java.lang.String,java.lang.Object){.*<~@;}
+org.hibernate.criterion.Projection org.hibernate.criterion.PropertyProjection:as(java.lang.String){-<~;}
+android.view.MenuInflater android.app.Activity:getMenuInflater(){-<~;return .*;}
+android.view.MenuInflater android.support.v4.app.FragmentActivity:getMenuInflater(){-<~;return .*;}
+android.view.MenuInflater android.support.v7.app.ActionBarActivity:getMenuInflater(){-<~;return .*;}
+boolean android.content.SharedPreferences.Editor:commit(){-<~;*<~@;return *;}
+int android.app.FragmentTransaction:commit(){-<~;*<~@;return .*;}
+int android.support.v4.app.FragmentTransaction:commit(){-<~;*<~@;return .*;}
+void java.sql.Connection:commit(){.*<~@;}
+void org.hibernate.Transaction:commit(){.*<~@;}
+void org.springframework.web.servlet.ModelAndView:setViewName(java.lang.String){.*<~@;}
+boolean org.joda.time.DateTime:isEqual(long){-<~;return new(*);}
+boolean org.joda.time.DateTime:isEqual(org.joda.time.ReadableInstant){-<~;return new(*);}
+android.app.FragmentTransaction android.app.FragmentManager:beginTransaction(){-<~;return .*;}
+android.app.FragmentTransaction android.support.v4.app.FragmentManager:beginTransaction(){-<~;return .*;}
+org.hibernate.Transaction org.hibernate.Session:beginTransaction(){.*<~@;return .*;}
+boolean org.joda.time.DateTime:isBefore(long){-<~;return new(*);}
+boolean org.joda.time.DateTime:isBefore(org.joda.time.ReadableInstant){-<~;return new(*);}
+java.lang.String java.lang.String:concat(java.lang.String){-<~;return *;}
+org.apache.poi.hssf.usermodel.HSSFCell org.apache.poi.hssf.usermodel.HSSFRow:createCell(int,int){.*<~@;return .*;}
+java.lang.Object java.util.Iterator:next(){-<~;.*<~@;return .*;}
+java.lang.Object com.mongodb.QueryResultIterator:next(){-<~;.*<~@;return .*;}
+boolean java.sql.ResultSet:next(){.*<~@;return .*;}
+boolean java.util.Calendar:after(java.lang.Object){-<~;return *;}
+double java.lang.Math:sqrt(double){-<~;return *;}
+org.hibernate.Query org.hibernate.Query:setLong(java.lang.String,long){.*<~@;}
+void org.hibernate.classic.Session:lock(java.lang.Object,org.hibernate.LockMode){.*<~@;}
+byte[] java.lang.String:getBytes(){-<~;return .*;}
+byte[] java.lang.String:getBytes(java.lang.String){-<~;return *;}
+void java.net.URLConnection:setDoOutput(boolean){.*<~@;}
+boolean java.lang.String:contains(java.lang.CharSequence){-<~;return *;}
+boolean java.util.AbstractCollection:contains(java.lang.Object){-<~;return new(*);}
+boolean java.util.TreeMap$EntrySet:contains(java.lang.Object){-<~;return new(*);}
+boolean java.util.TreeMap$KeySet:contains(java.lang.Object){-<~;return new(*);}
+java.lang.Object android.app.Activity:findViewById(int){-<~;return *;}
+android.content.SharedPreferences android.view.ContextThemeWrapper:getSharedPreferences(java.lang.String,int){-<~;return *;}
+double java.lang.Math:random(){-<~;return new;}
+void org.hibernate.Transaction:rollback(){.*<~@;}
+void java.net.HttpURLConnection:connect(){-<~;.*<~@;}
+java.io.InputStream java.lang.ClassLoader:getResourceAsStream(java.lang.String){-<~;return *;}
+java.io.InputStream org.apache.ibatis.io.Resources:getResourceAsStream(java.lang.String){-<~;return *;}
+void java.io.PrintStream:println(){-<~;output_l;}
+void java.io.PrintStream:println(boolean){-<~;output_l;}
+void java.io.PrintStream:println(char){-<~;output_l;}
+void java.io.PrintStream:println(char[]){-<~;output_l;}
+void java.io.PrintStream:println(double){-<~;output_l;}
+void java.io.PrintStream:println(int){-<~;output_l;}
+void java.io.PrintStream:println(java.lang.Object){-<~;output_l;}
+void java.io.PrintStream:println(java.lang.String){-<~;output_l;}
+void java.io.PrintWriter:println(java.lang.String){.*<~@;output_L;}
+android.widget.ListView android.app.ListFragment:getListView(){-<~;return .*;}
+java.util.Map javax.servlet.http.HttpServletRequest:getParameterMap(){-<~;return new(%(*));}
+void android.app.Activity:onStart(){-<~;.*<~@;}
+void android.app.Fragment:onStart(){-<~;.*<~@;}
+void android.app.ListFragment:onStart(){-<~;.*<~@;}
+void org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer:setDefaultEncoding(java.lang.String){.*<~@;}
+java.net.URL(java.lang.String){-<~;*<~@;}
+android.app.Activity(){-<~;.*<~@;}
+android.app.Application(){-<~;.*<~@;}
+android.app.Fragment(){-<~;.*<~@;}
+android.app.FragmentManager(){-<~;.*<~@;}
+android.app.FragmentTransaction(){-<~;.*<~@;}
+android.app.ListFragment(){-<~;.*<~@;}
+java.util.Properties(java.io.InputStream){-<~;.*<~@;}
+void java.io.PrintStream:println(int ){-<~;output_l;-<~;output_L;}
+java.lang.Object(){-<~;.*<~@;}
+static void dummyClass:lowSink(int){-<~; output_⊥;}
+static int dummyClass:highSource(){ -<~; return new_h }
+

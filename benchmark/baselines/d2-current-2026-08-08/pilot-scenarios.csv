@@ -1,0 +1,10 @@
+scenario_id,nexus_routing,symmaries_enabled,ingestion_path,force_scan,submit_only,fail_on_error,cache_state,workspace_state
+D1,true,false,none,false,false,true,cold,clean
+D2,true,true,api,false,false,true,cold,clean
+D3,true,true,api,true,false,true,cold,clean
+D4,true,false,nexus-staging,false,false,true,cold,clean
+D5,true,true,api,false,false,true,warm,clean
+D6,true,true,api,true,false,true,warm,clean
+D7,true,true,api,true,true,true,warm,clean
+D8A,true,true,api,true,false,true,warm,clean
+D8B,true,true,api,true,false,false,warm,clean

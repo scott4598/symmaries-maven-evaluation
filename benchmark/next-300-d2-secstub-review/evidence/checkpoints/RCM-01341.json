@@ -1,0 +1,243 @@
+{
+  "findings": [
+    {
+      "caller_class": "com.github.seregamorph.maven.turbo.CurrentProjectExecution",
+      "caller_method": "static void ifPresent(java.util.function.Consumer<com.github.seregamorph.maven.turbo.CurrentProjectExecution>)",
+      "candidate": "RCM-01341",
+      "category": "concurrency",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "3: invokevirtual #53                 // Method java/lang/ThreadLocal.get:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01341/D1/attempt-1/workspace/target/maven-turbo-builder-1.0.jar",
+      "name": "get",
+      "owner": "java/lang/ThreadLocal"
+    },
+    {
+      "caller_class": "com.github.seregamorph.maven.turbo.OrderedCallable",
+      "caller_method": "public int compareTo(com.github.seregamorph.maven.turbo.OrderedCallable)",
+      "candidate": "RCM-01341",
+      "category": "concurrency",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "4: invokeinterface #23,  1           // InterfaceMethod java/util/concurrent/Callable.call:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01341/D1/attempt-1/workspace/target/maven-turbo-builder-1.0.jar",
+      "name": "call",
+      "owner": "java/util/concurrent/Callable"
+    },
+    {
+      "caller_class": "com.github.seregamorph.maven.turbo.OrderedFutureTask",
+      "caller_method": "com.github.seregamorph.maven.turbo.OrderedFutureTask(com.github.seregamorph.maven.turbo.OrderedCallable<T>)",
+      "candidate": "RCM-01341",
+      "category": "concurrency",
+      "descriptor": "(Ljava/util/concurrent/Callable;)V",
+      "evidence": "2: invokespecial #1                  // Method java/util/concurrent/FutureTask.\"<init>\":(Ljava/util/concurrent/Callable;)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01341/D1/attempt-1/workspace/target/maven-turbo-builder-1.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/FutureTask"
+    },
+    {
+      "caller_class": "com.github.seregamorph.maven.turbo.SignalingExecutorCompletionService",
+      "caller_method": "com.github.seregamorph.maven.turbo.SignalingExecutorCompletionService(java.util.concurrent.ExecutorService)",
+      "candidate": "RCM-01341",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "20: invokespecial #23                 // Method java/util/concurrent/LinkedBlockingQueue.\"<init>\":()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01341/D1/attempt-1/workspace/target/maven-turbo-builder-1.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/LinkedBlockingQueue"
+    },
+    {
+      "caller_class": "com.github.seregamorph.maven.turbo.SignalingExecutorCompletionService",
+      "caller_method": "static void signal(org.apache.maven.project.MavenProject)",
+      "candidate": "RCM-01341",
+      "category": "concurrency",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "3: invokevirtual #32                 // Method java/lang/ThreadLocal.get:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01341/D1/attempt-1/workspace/target/maven-turbo-builder-1.0.jar",
+      "name": "get",
+      "owner": "java/lang/ThreadLocal"
+    },
+    {
+      "caller_class": "com.github.seregamorph.maven.turbo.SignalingExecutorCompletionService",
+      "caller_method": "java.util.concurrent.Future<org.apache.maven.project.MavenProject> submit(int, java.util.concurrent.Callable<org.apache.maven.project.MavenProject>)",
+      "candidate": "RCM-01341",
+      "category": "concurrency",
+      "descriptor": "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;",
+      "evidence": "24: invokeinterface #60,  2           // InterfaceMethod java/util/concurrent/ExecutorService.submit:(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01341/D1/attempt-1/workspace/target/maven-turbo-builder-1.0.jar",
+      "name": "submit",
+      "owner": "java/util/concurrent/ExecutorService"
+    },
+    {
+      "caller_class": "com.github.seregamorph.maven.turbo.SignalingExecutorCompletionService",
+      "caller_method": "java.util.concurrent.Future<org.apache.maven.project.MavenProject> submit(int, java.util.concurrent.Callable<org.apache.maven.project.MavenProject>)",
+      "candidate": "RCM-01341",
+      "category": "concurrency",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "4: invokeinterface #64,  1           // InterfaceMethod java/util/concurrent/BlockingQueue.take:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01341/D1/attempt-1/workspace/target/maven-turbo-builder-1.0.jar",
+      "name": "take",
+      "owner": "java/util/concurrent/BlockingQueue"
+    },
+    {
+      "caller_class": "com.github.seregamorph.maven.turbo.SignalingExecutorCompletionService",
+      "caller_method": "java.util.concurrent.Future<org.apache.maven.project.MavenProject> submit(int, java.util.concurrent.Callable<org.apache.maven.project.MavenProject>)",
+      "candidate": "RCM-01341",
+      "category": "concurrency",
+      "descriptor": "(Z)V",
+      "evidence": "5: invokespecial #76                 // Method java/util/concurrent/atomic/AtomicBoolean.\"<init>\":(Z)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01341/D1/attempt-1/workspace/target/maven-turbo-builder-1.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/atomic/AtomicBoolean"
+    },
+    {
+      "caller_class": "com.github.seregamorph.maven.turbo.SignalingExecutorCompletionService",
+      "caller_method": "java.util.concurrent.Future<org.apache.maven.project.MavenProject> submit(int, java.util.concurrent.Callable<org.apache.maven.project.MavenProject>)",
+      "candidate": "RCM-01341",
+      "category": "concurrency",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "23: invokeinterface #85,  1           // InterfaceMethod java/util/concurrent/Callable.call:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01341/D1/attempt-1/workspace/target/maven-turbo-builder-1.0.jar",
+      "name": "call",
+      "owner": "java/util/concurrent/Callable"
+    },
+    {
+      "caller_class": "com.github.seregamorph.maven.turbo.SignalingExecutorCompletionService",
+      "caller_method": "java.util.concurrent.Future<org.apache.maven.project.MavenProject> submit(int, java.util.concurrent.Callable<org.apache.maven.project.MavenProject>)",
+      "candidate": "RCM-01341",
+      "category": "concurrency",
+      "descriptor": "()Z",
+      "evidence": "33: invokevirtual #89                 // Method java/util/concurrent/atomic/AtomicBoolean.get:()Z",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01341/D1/attempt-1/workspace/target/maven-turbo-builder-1.0.jar",
+      "name": "get",
+      "owner": "java/util/concurrent/atomic/AtomicBoolean"
+    },
+    {
+      "caller_class": "com.github.seregamorph.maven.turbo.SignalingExecutorCompletionService",
+      "caller_method": "java.util.concurrent.Future<org.apache.maven.project.MavenProject> submit(int, java.util.concurrent.Callable<org.apache.maven.project.MavenProject>)",
+      "candidate": "RCM-01341",
+      "category": "concurrency",
+      "descriptor": "(Ljava/lang/Object;)Z",
+      "evidence": "47: invokeinterface #96,  2           // InterfaceMethod java/util/concurrent/BlockingQueue.add:(Ljava/lang/Object;)Z",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01341/D1/attempt-1/workspace/target/maven-turbo-builder-1.0.jar",
+      "name": "add",
+      "owner": "java/util/concurrent/BlockingQueue"
+    },
+    {
+      "caller_class": "com.github.seregamorph.maven.turbo.SignalingExecutorCompletionService",
+      "caller_method": "java.util.concurrent.Future<org.apache.maven.project.MavenProject> submit(int, java.util.concurrent.Callable<org.apache.maven.project.MavenProject>)",
+      "candidate": "RCM-01341",
+      "category": "concurrency",
+      "descriptor": "(Ljava/lang/Object;)Z",
+      "evidence": "74: invokeinterface #96,  2           // InterfaceMethod java/util/concurrent/BlockingQueue.add:(Ljava/lang/Object;)Z",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01341/D1/attempt-1/workspace/target/maven-turbo-builder-1.0.jar",
+      "name": "add",
+      "owner": "java/util/concurrent/BlockingQueue"
+    },
+    {
+      "caller_class": "com.github.seregamorph.maven.turbo.SignalingExecutorCompletionService",
+      "caller_method": "private void lambda$submit$0(java.util.concurrent.atomic.AtomicBoolean, org.apache.maven.project.MavenProject)",
+      "candidate": "RCM-01341",
+      "category": "concurrency",
+      "descriptor": "(ZZ)Z",
+      "evidence": "3: invokevirtual #116                // Method java/util/concurrent/atomic/AtomicBoolean.compareAndSet:(ZZ)Z",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01341/D1/attempt-1/workspace/target/maven-turbo-builder-1.0.jar",
+      "name": "compareAndSet",
+      "owner": "java/util/concurrent/atomic/AtomicBoolean"
+    },
+    {
+      "caller_class": "com.github.seregamorph.maven.turbo.SignalingExecutorCompletionService",
+      "caller_method": "private void lambda$submit$0(java.util.concurrent.atomic.AtomicBoolean, org.apache.maven.project.MavenProject)",
+      "candidate": "RCM-01341",
+      "category": "concurrency",
+      "descriptor": "(Ljava/lang/Object;)Z",
+      "evidence": "38: invokeinterface #96,  2           // InterfaceMethod java/util/concurrent/BlockingQueue.add:(Ljava/lang/Object;)Z",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01341/D1/attempt-1/workspace/target/maven-turbo-builder-1.0.jar",
+      "name": "add",
+      "owner": "java/util/concurrent/BlockingQueue"
+    },
+    {
+      "caller_class": "com.github.seregamorph.maven.turbo.SignalingExecutorCompletionService$Try$2",
+      "caller_method": "com.github.seregamorph.maven.turbo.SignalingExecutorCompletionService$Try$2(java.lang.Throwable)",
+      "candidate": "RCM-01341",
+      "category": "concurrency",
+      "descriptor": "(Ljava/lang/Throwable;)V",
+      "evidence": "8: invokespecial #15                 // Method java/util/concurrent/ExecutionException.\"<init>\":(Ljava/lang/Throwable;)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01341/D1/attempt-1/workspace/target/maven-turbo-builder-1.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/ExecutionException"
+    },
+    {
+      "caller_class": "com.github.seregamorph.maven.turbo.TurboBuilder",
+      "caller_method": "static boolean isTurboBuilder(org.apache.maven.execution.MavenSession)",
+      "candidate": "RCM-01341",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "127: invokespecial #115                // Method java/util/concurrent/PriorityBlockingQueue.\"<init>\":()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01341/D1/attempt-1/workspace/target/maven-turbo-builder-1.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/PriorityBlockingQueue"
+    },
+    {
+      "caller_class": "com.github.seregamorph.maven.turbo.TurboBuilder",
+      "caller_method": "static boolean isTurboBuilder(org.apache.maven.execution.MavenSession)",
+      "candidate": "RCM-01341",
+      "category": "concurrency",
+      "descriptor": "()V",
+      "evidence": "267: invokeinterface #174,  1          // InterfaceMethod java/util/concurrent/ExecutorService.shutdown:()V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01341/D1/attempt-1/workspace/target/maven-turbo-builder-1.0.jar",
+      "name": "shutdown",
+      "owner": "java/util/concurrent/ExecutorService"
+    },
+    {
+      "caller_class": "com.github.seregamorph.maven.turbo.TurboBuilder",
+      "caller_method": "static boolean isTurboBuilder(org.apache.maven.execution.MavenSession)",
+      "candidate": "RCM-01341",
+      "category": "concurrency",
+      "descriptor": "(JLjava/util/concurrent/TimeUnit;)Z",
+      "evidence": "280: invokeinterface #183,  4          // InterfaceMethod java/util/concurrent/ExecutorService.awaitTermination:(JLjava/util/concurrent/TimeUnit;)Z",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01341/D1/attempt-1/workspace/target/maven-turbo-builder-1.0.jar",
+      "name": "awaitTermination",
+      "owner": "java/util/concurrent/ExecutorService"
+    },
+    {
+      "caller_class": "com.github.seregamorph.maven.turbo.TurboBuilder",
+      "caller_method": "private void multiThreadedProjectTaskSegmentBuild(org.apache.maven.lifecycle.internal.builder.multithreaded.ConcurrencyDependencyGraph, org.apache.maven.lifecycle.internal.ReactorContext, org.apache.maven.execution.MavenSession, com.github.seregamorph.maven.turbo.SignalingExecutorCompletionService, org.apache.maven.lifecycle.internal.TaskSegment, java.util.Map<org.apache.maven.project.MavenProject, org.apache.maven.lifecycle.internal.ProjectSegment>)",
+      "candidate": "RCM-01341",
+      "category": "concurrency",
+      "descriptor": "()Ljava/lang/Object;",
+      "evidence": "351: invokeinterface #252,  1          // InterfaceMethod java/util/concurrent/Future.get:()Ljava/lang/Object;",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01341/D1/attempt-1/workspace/target/maven-turbo-builder-1.0.jar",
+      "name": "get",
+      "owner": "java/util/concurrent/Future"
+    },
+    {
+      "caller_class": "com.github.seregamorph.maven.turbo.TurboBuilder$1",
+      "caller_method": "com.github.seregamorph.maven.turbo.TurboBuilder$1(com.github.seregamorph.maven.turbo.TurboBuilder, int, int, long, java.util.concurrent.TimeUnit, java.util.concurrent.BlockingQueue, java.util.concurrent.ThreadFactory)",
+      "candidate": "RCM-01341",
+      "category": "concurrency",
+      "descriptor": "(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/ThreadFactory;)V",
+      "evidence": "16: invokespecial #7                  // Method java/util/concurrent/ThreadPoolExecutor.\"<init>\":(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/ThreadFactory;)V",
+      "jar": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01341/D1/attempt-1/workspace/target/maven-turbo-builder-1.0.jar",
+      "name": "<init>",
+      "owner": "java/util/concurrent/ThreadPoolExecutor"
+    }
+  ],
+  "statistics": {
+    "candidate": "RCM-01341",
+    "classes_discovered": 18,
+    "classes_failed": 0,
+    "classes_scanned": 18,
+    "classes_timed_out": 0,
+    "completed_at": "2026-08-10T14:06:26Z",
+    "discovered_jars": 1,
+    "duplicate_jars": 0,
+    "elapsed_seconds": 3.951,
+    "error": "",
+    "findings": 20,
+    "input_path": "/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01341/D1/attempt-1/workspace",
+    "started_at": "2026-08-10T14:06:23Z",
+    "status": "COMPLETE",
+    "unique_jars": 1,
+    "unreadable_jars": 0
+  },
+  "version": 1
+}

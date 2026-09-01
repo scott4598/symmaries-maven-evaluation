@@ -1,0 +1,4 @@
+candidate_id,status,exit_code,duration_seconds,scan_id,scan_status,failure_category,log_path
+RCM-00039,FAIL_BUILD,1,17.176,ed88d12a-a319-4ba2-b76c-c334e4a26fe4,queued,MAVEN_OR_PLUGIN_FAILURE,results/d2-smoke-runs/RCM-00039/D2/attempt-1/maven.log
+RCM-00129,FAIL_BUILD,1,32.712,7aa8e56c-e3ec-4a8b-9349-9e1f390de14a,queued,MAVEN_OR_PLUGIN_FAILURE,results/d2-smoke-runs/RCM-00129/D2/attempt-1/maven.log
+RCM-00183,FAIL_BUILD,1,25.474,0b9e7aef-88c0-4290-b8b9-786a2348efb0,queued,MAVEN_OR_PLUGIN_FAILURE,results/d2-smoke-runs/RCM-00183/D2/attempt-1/maven.log

@@ -1,0 +1,21 @@
+Candidate compatibility secstub generation attempt
+
+Population:
+  118 D1-passing, D2-accepted candidate workspaces.
+
+Observed runtime:
+  Approximately 19 hours.
+
+Observed behaviour:
+  - generator repeatedly invoked javap
+  - generator spent most time waiting in pipe_read
+  - approximately six minutes accumulated Python CPU time
+  - no final candidate-generated all.secstubs file
+  - no final method-inventory.tsv
+  - worker containers repeatedly OOM-killed Syrs processes
+
+Decision:
+  Stop the unbounded compatibility-secstub generation stage.
+  Preserve the attempt as evidence.
+  Continue D2 using the previously validated baseline all.secstubs
+  after workers and queued scans have been checked.

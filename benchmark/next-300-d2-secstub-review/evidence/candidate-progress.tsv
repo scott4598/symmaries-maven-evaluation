@@ -1,0 +1,119 @@
+candidate	input_path	started_at	completed_at	status	discovered_jars	unique_jars	duplicate_jars	unreadable_jars	classes_discovered	classes_scanned	classes_timed_out	classes_failed	findings	elapsed_seconds	error
+RCM-00029	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-00029/D1/attempt-1/workspace	2026-08-10T13:42:31Z	2026-08-10T13:42:38Z	COMPLETE	3	3	0	0	28	28	0	0	0	7.031	
+RCM-00045	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-00045/D1/attempt-1/workspace	2026-08-10T13:42:38Z	2026-08-10T13:42:44Z	COMPLETE	3	3	0	0	29	29	0	0	6	6.749	
+RCM-00141	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-00141/D1/attempt-1/workspace	2026-08-10T13:42:45Z	2026-08-10T13:43:28Z	PARTIAL_FAILURE	7	7	0	0	182	181	0	1	39	43.826	
+RCM-00474	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-00474/D1/attempt-1/workspace	2026-08-10T13:43:28Z	2026-08-10T13:43:43Z	COMPLETE	2	1	1	0	61	61	0	0	6	14.407	
+RCM-00611	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-00611/D1/attempt-1/workspace	2026-08-10T13:43:43Z	2026-08-10T13:43:58Z	COMPLETE	14	7	7	0	67	67	0	0	0	15.297	
+RCM-00800	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-00800/D1/attempt-1/workspace	2026-08-10T13:43:58Z	2026-08-10T13:44:05Z	COMPLETE	2	1	1	0	29	29	0	0	5	6.967	
+RCM-00924	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-00924/D1/attempt-1/workspace	2026-08-10T13:44:05Z	2026-08-10T13:54:05Z	PARTIAL_TIMEOUT	21	20	1	0	8748	2517	0	0	429	600.254	candidate timeout reached
+RCM-01073	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01073/D1/attempt-1/workspace	2026-08-10T13:54:05Z	2026-08-10T13:54:07Z	COMPLETE	1	1	0	0	7	7	0	0	0	1.614	
+RCM-01143	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01143/D1/attempt-1/workspace	2026-08-10T13:54:07Z	2026-08-10T14:04:07Z	PARTIAL_TIMEOUT	32	32	0	0	3538	2575	0	0	1107	600.033	candidate timeout reached
+RCM-01178	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01178/D1/attempt-1/workspace	2026-08-10T14:04:07Z	2026-08-10T14:04:11Z	COMPLETE	1	1	0	0	17	17	0	0	2	3.999	
+RCM-01180	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01180/D1/attempt-1/workspace	2026-08-10T14:04:11Z	2026-08-10T14:04:13Z	COMPLETE	1	1	0	0	7	7	0	0	0	1.685	
+RCM-01182	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01182/D1/attempt-1/workspace	2026-08-10T14:04:13Z	2026-08-10T14:04:14Z	COMPLETE	1	1	0	0	5	5	0	0	7	1.088	
+RCM-01186	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01186/D1/attempt-1/workspace	2026-08-10T14:04:14Z	2026-08-10T14:04:16Z	COMPLETE	1	1	0	0	10	10	0	0	0	1.94	
+RCM-01214	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01214/D1/attempt-1/workspace	2026-08-10T14:04:16Z	2026-08-10T14:04:35Z	COMPLETE	1	1	0	0	87	87	0	0	4	19.521	
+RCM-01225	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01225/D1/attempt-1/workspace	2026-08-10T14:04:35Z	2026-08-10T14:06:23Z	COMPLETE	6	6	0	0	476	476	0	0	55	107.236	
+RCM-01341	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01341/D1/attempt-1/workspace	2026-08-10T14:06:23Z	2026-08-10T14:06:26Z	COMPLETE	1	1	0	0	18	18	0	0	20	3.951	
+RCM-01344	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01344/D1/attempt-1/workspace	2026-08-10T14:06:26Z	2026-08-10T14:06:41Z	COMPLETE	11	11	0	0	64	64	0	0	23	14.223	
+RCM-01347	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01347/D1/attempt-1/workspace	2026-08-10T14:06:41Z	2026-08-10T14:06:45Z	COMPLETE	3	3	0	0	19	19	0	0	7	4.213	
+RCM-01361	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01361/D1/attempt-1/workspace	2026-08-10T14:06:45Z	2026-08-10T14:06:48Z	COMPLETE	1	1	0	0	14	14	0	0	1	3.182	
+RCM-01378	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01378/D1/attempt-1/workspace	2026-08-10T14:06:48Z	2026-08-10T14:07:04Z	COMPLETE	1	1	0	0	68	68	0	0	0	15.834	
+RCM-01420	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01420/D1/attempt-1/workspace	2026-08-10T14:07:04Z	2026-08-10T14:07:48Z	COMPLETE	16	16	0	0	202	202	0	0	12	43.869	
+RCM-01434	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01434/D1/attempt-1/workspace	2026-08-10T14:07:48Z	2026-08-10T14:07:49Z	COMPLETE	1	1	0	0	5	5	0	0	0	1.111	
+RCM-01449	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01449/D1/attempt-1/workspace	2026-08-10T14:07:49Z	2026-08-10T14:07:50Z	COMPLETE	1	1	0	0	4	4	0	0	0	0.865	
+RCM-01451	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01451/D1/attempt-1/workspace	2026-08-10T14:07:50Z	2026-08-10T14:07:51Z	COMPLETE	1	1	0	0	4	4	0	0	0	0.888	
+RCM-01685	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-01685/D1/attempt-1/workspace	2026-08-10T14:07:51Z	2026-08-10T14:07:51Z	COMPLETE	1	1	0	0	3	3	0	0	1	0.694	
+RCM-02430	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02430/D1/attempt-1/workspace	2026-08-10T14:07:51Z	2026-08-10T14:08:12Z	COMPLETE	1	1	0	0	88	88	0	0	12	20.73	
+RCM-02454	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02454/D1/attempt-1/workspace	2026-08-10T14:08:12Z	2026-08-10T14:08:41Z	COMPLETE	11	11	0	0	131	131	0	0	109	29.048	
+RCM-02542	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02542/D1/attempt-1/workspace	2026-08-10T14:08:41Z	2026-08-10T14:09:01Z	COMPLETE	3	3	0	0	88	88	0	0	0	20.272	
+RCM-02543	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02543/D1/attempt-1/workspace	2026-08-10T14:09:01Z	2026-08-10T14:19:02Z	PARTIAL_TIMEOUT	51	50	1	0	16168	2458	0	0	231	600.171	candidate timeout reached
+RCM-02550	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02550/D1/attempt-1/workspace	2026-08-10T14:19:02Z	2026-08-10T14:19:08Z	COMPLETE	2	2	0	0	28	28	0	0	3	6.415	
+RCM-02631	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02631/D1/attempt-1/workspace	2026-08-10T14:19:08Z	2026-08-10T14:19:11Z	COMPLETE	2	2	0	0	11	11	0	0	0	2.45	
+RCM-02666	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-02666/D1/attempt-1/workspace	2026-08-10T14:19:11Z	2026-08-10T14:19:20Z	COMPLETE	4	4	0	0	45	45	0	0	2	9.636	
+RCM-03010	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03010/D1/attempt-1/workspace	2026-08-10T14:19:20Z	2026-08-10T14:19:30Z	COMPLETE	9	9	0	0	42	42	0	0	17	9.336	
+RCM-03019	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03019/D1/attempt-1/workspace	2026-08-10T14:19:30Z	2026-08-10T14:19:31Z	COMPLETE	2	2	0	0	7	7	0	0	0	1.61	
+RCM-03216	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03216/D1/attempt-1/workspace	2026-08-10T14:19:31Z	2026-08-10T14:19:42Z	COMPLETE	1	1	0	0	49	49	0	0	0	10.519	
+RCM-03465	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03465/D1/attempt-1/workspace	2026-08-10T14:19:42Z	2026-08-10T14:19:42Z	COMPLETE	1	1	0	0	3	3	0	0	0	0.649	
+RCM-03733	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03733/D1/attempt-1/workspace	2026-08-10T14:19:42Z	2026-08-10T14:19:47Z	COMPLETE	1	1	0	0	20	20	0	0	5	4.475	
+RCM-03767	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03767/D1/attempt-1/workspace	2026-08-10T14:19:47Z	2026-08-10T14:20:14Z	COMPLETE	4	4	0	0	123	123	0	0	61	26.722	
+RCM-03779	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-03779/D1/attempt-1/workspace	2026-08-10T14:20:14Z	2026-08-10T14:20:20Z	COMPLETE	2	2	0	0	29	29	0	0	4	6.638	
+RCM-04368	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-04368/D1/attempt-1/workspace	2026-08-10T14:20:20Z	2026-08-10T14:20:24Z	COMPLETE	2	2	0	0	16	16	0	0	1	3.506	
+RCM-04493	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-04493/D1/attempt-1/workspace	2026-08-10T14:20:24Z	2026-08-10T14:23:34Z	COMPLETE	4	4	0	0	828	828	0	0	342	190.122	
+RCM-04654	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-04654/D1/attempt-1/workspace	2026-08-10T14:23:34Z	2026-08-10T14:23:35Z	COMPLETE	1	1	0	0	4	4	0	0	0	0.997	
+RCM-04656	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-04656/D1/attempt-1/workspace	2026-08-10T14:23:35Z	2026-08-10T14:23:35Z	COMPLETE	1	1	0	0	1	1	0	0	0	0.232	
+RCM-04672	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-04672/D1/attempt-1/workspace	2026-08-10T14:23:35Z	2026-08-10T14:23:36Z	COMPLETE	1	1	0	0	5	5	0	0	3	1.08	
+RCM-05001	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-05001/D1/attempt-1/workspace	2026-08-10T14:23:36Z	2026-08-10T14:23:45Z	COMPLETE	1	1	0	0	36	36	0	0	11	8.436	
+RCM-05014	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-05014/D1/attempt-1/workspace	2026-08-10T14:23:45Z	2026-08-10T14:23:57Z	COMPLETE	5	5	0	0	51	51	0	0	22	11.971	
+RCM-05282	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-05282/D1/attempt-1/workspace	2026-08-10T14:23:57Z	2026-08-10T14:24:44Z	COMPLETE	3	3	0	0	203	203	0	0	3	46.974	
+RCM-05325	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-05325/D1/attempt-1/workspace	2026-08-10T14:24:44Z	2026-08-10T14:24:47Z	COMPLETE	1	1	0	0	13	13	0	0	29	2.976	
+RCM-05509	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-05509/D1/attempt-1/workspace	2026-08-10T14:24:47Z	2026-08-10T14:25:38Z	COMPLETE	3	2	1	0	227	227	0	0	38	51.798	
+RCM-05634	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-05634/D1/attempt-1/workspace	2026-08-10T14:25:38Z	2026-08-10T14:25:41Z	COMPLETE	1	1	0	0	12	12	0	0	4	2.739	
+RCM-05727	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-05727/D1/attempt-1/workspace	2026-08-10T14:25:41Z	2026-08-10T14:25:42Z	COMPLETE	1	1	0	0	2	2	0	0	0	0.425	
+RCM-05731	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-05731/D1/attempt-1/workspace	2026-08-10T14:25:42Z	2026-08-10T14:25:43Z	COMPLETE	1	1	0	0	8	8	0	0	1	1.758	
+RCM-05876	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-05876/D1/attempt-1/workspace	2026-08-10T14:25:43Z	2026-08-10T14:25:44Z	COMPLETE	1	1	0	0	3	3	0	0	0	0.68	
+RCM-06096	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06096/D1/attempt-1/workspace	2026-08-10T14:25:44Z	2026-08-10T14:27:58Z	COMPLETE	9	9	0	0	575	575	0	0	8	133.962	
+RCM-06402	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06402/D1/attempt-1/workspace	2026-08-10T14:27:58Z	2026-08-10T14:37:58Z	PARTIAL_TIMEOUT	79	19	60	0	4338	2191	0	0	407	600.072	candidate timeout reached
+RCM-06436	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06436/D1/attempt-1/workspace	2026-08-10T14:37:58Z	2026-08-10T14:47:58Z	PARTIAL_TIMEOUT	5017	515	4502	0	92482	2511	0	0	340	600.101	candidate timeout reached
+RCM-06479	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06479/D1/attempt-1/workspace	2026-08-10T14:47:58Z	2026-08-10T14:48:23Z	COMPLETE	1	1	0	0	102	102	0	0	0	24.569	
+RCM-06505	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06505/D1/attempt-1/workspace	2026-08-10T14:48:23Z	2026-08-10T14:48:34Z	COMPLETE	5	5	0	0	48	48	0	0	2	10.803	
+RCM-06509	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06509/D1/attempt-1/workspace	2026-08-10T14:48:34Z	2026-08-10T14:50:28Z	COMPLETE	1	1	0	0	473	473	0	0	0	114.55	
+RCM-06520	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06520/D1/attempt-1/workspace	2026-08-10T14:50:28Z	2026-08-10T14:52:05Z	COMPLETE	7	7	0	0	417	417	0	0	808	96.695	
+RCM-06539	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06539/D1/attempt-1/workspace	2026-08-10T14:52:05Z	2026-08-10T14:52:17Z	COMPLETE	3	3	0	0	53	53	0	0	108	12.223	
+RCM-06543	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06543/D1/attempt-1/workspace	2026-08-10T14:52:17Z	2026-08-10T14:52:35Z	COMPLETE	1	1	0	0	79	79	0	0	244	17.726	
+RCM-06573	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06573/D1/attempt-1/workspace	2026-08-10T14:52:35Z	2026-08-10T14:54:02Z	COMPLETE	2	2	0	0	368	368	0	0	129	87.586	
+RCM-06943	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06943/D1/attempt-1/workspace	2026-08-10T14:54:02Z	2026-08-10T15:04:03Z	PARTIAL_TIMEOUT	837	109	728	0	15209	2409	0	0	2222	600.113	candidate timeout reached
+RCM-06957	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06957/D1/attempt-1/workspace	2026-08-10T15:04:03Z	2026-08-10T15:14:03Z	PARTIAL_TIMEOUT	66	66	0	2	63381	2306	0	0	552	600.154	candidate timeout reached
+RCM-06971	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-06971/D1/attempt-1/workspace	2026-08-10T15:14:03Z	2026-08-10T15:14:12Z	COMPLETE	16	16	0	0	42	42	0	0	6	9.675	
+RCM-07010	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07010/D1/attempt-1/workspace	2026-08-10T15:14:12Z	2026-08-10T15:14:17Z	COMPLETE	3	3	0	0	22	22	0	0	2	4.899	
+RCM-07084	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07084/D1/attempt-1/workspace	2026-08-10T15:14:17Z	2026-08-10T15:14:37Z	COMPLETE	4	4	0	0	86	86	0	0	2	19.648	
+RCM-07196	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07196/D1/attempt-1/workspace	2026-08-10T15:14:37Z	2026-08-10T15:14:41Z	COMPLETE	1	1	0	0	15	15	0	0	0	3.619	
+RCM-07254	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07254/D1/attempt-1/workspace	2026-08-10T15:14:41Z	2026-08-10T15:14:57Z	COMPLETE	1	1	0	0	72	72	0	0	12	16.62	
+RCM-07268	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07268/D1/attempt-1/workspace	2026-08-10T15:14:57Z	2026-08-10T15:14:59Z	COMPLETE	1	1	0	0	9	9	0	0	0	2.107	
+RCM-07273	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07273/D1/attempt-1/workspace	2026-08-10T15:14:59Z	2026-08-10T15:15:00Z	COMPLETE	1	1	0	0	4	4	0	0	0	1.021	
+RCM-07351	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07351/D1/attempt-1/workspace	2026-08-10T15:15:00Z	2026-08-10T15:15:01Z	COMPLETE	1	1	0	0	3	3	0	0	0	0.791	
+RCM-07408	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07408/D1/attempt-1/workspace	2026-08-10T15:15:01Z	2026-08-10T15:15:06Z	COMPLETE	1	1	0	0	22	22	0	0	0	5.19	
+RCM-07480	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07480/D1/attempt-1/workspace	2026-08-10T15:15:06Z	2026-08-10T15:15:16Z	COMPLETE	2	2	0	0	42	42	0	0	13	9.485	
+RCM-07516	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07516/D1/attempt-1/workspace	2026-08-10T15:15:16Z	2026-08-10T15:15:17Z	COMPLETE	1	1	0	0	4	4	0	0	0	0.84	
+RCM-07533	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07533/D1/attempt-1/workspace	2026-08-10T15:15:17Z	2026-08-10T15:15:21Z	COMPLETE	2	2	0	0	21	21	0	0	0	4.581	
+RCM-07567	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07567/D1/attempt-1/workspace	2026-08-10T15:15:21Z	2026-08-10T15:24:12Z	COMPLETE	2	2	0	0	2063	2063	0	0	683	530.914	
+RCM-07660	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07660/D1/attempt-1/workspace	2026-08-10T15:24:12Z	2026-08-10T15:24:15Z	COMPLETE	6	2	4	0	11	11	0	0	0	2.582	
+RCM-07668	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07668/D1/attempt-1/workspace	2026-08-10T15:24:15Z	2026-08-10T15:24:24Z	COMPLETE	1	1	0	0	42	42	0	0	0	9.287	
+RCM-07697	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07697/D1/attempt-1/workspace	2026-08-10T15:24:24Z	2026-08-10T15:24:28Z	COMPLETE	1	1	0	0	18	18	0	0	0	3.951	
+RCM-07711	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07711/D1/attempt-1/workspace	2026-08-10T15:24:28Z	2026-08-10T15:24:28Z	COMPLETE	1	1	0	0	0	0	0	0	0	0.003	
+RCM-07714	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07714/D1/attempt-1/workspace	2026-08-10T15:24:28Z	2026-08-10T15:24:46Z	COMPLETE	1	1	0	0	78	78	0	0	19	17.846	
+RCM-07997	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-07997/D1/attempt-1/workspace	2026-08-10T15:24:46Z	2026-08-10T15:26:49Z	COMPLETE	4	4	0	0	518	518	0	0	634	122.873	
+RCM-08094	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08094/D1/attempt-1/workspace	2026-08-10T15:26:49Z	2026-08-10T15:26:51Z	COMPLETE	1	1	0	0	8	8	0	0	7	1.908	
+RCM-08095	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08095/D1/attempt-1/workspace	2026-08-10T15:26:51Z	2026-08-10T15:26:52Z	COMPLETE	1	1	0	0	5	5	0	0	0	1.218	
+RCM-08673	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08673/D1/attempt-1/workspace	2026-08-10T15:26:52Z	2026-08-10T15:27:11Z	COMPLETE	1	1	0	0	78	78	0	0	10	18.658	
+RCM-08863	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08863/D1/attempt-1/workspace	2026-08-10T15:27:11Z	2026-08-10T15:27:49Z	COMPLETE	5	5	0	0	166	166	0	0	13	37.912	
+RCM-08872	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08872/D1/attempt-1/workspace	2026-08-10T15:27:49Z	2026-08-10T15:27:56Z	COMPLETE	1	1	0	0	36	36	0	0	10	7.873	
+RCM-08879	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-08879/D1/attempt-1/workspace	2026-08-10T15:27:56Z	2026-08-10T15:27:56Z	COMPLETE	1	1	0	0	0	0	0	0	0	0.001	
+RCM-09033	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-09033/D1/attempt-1/workspace	2026-08-10T15:27:56Z	2026-08-10T15:28:33Z	COMPLETE	1	1	0	0	154	154	0	0	12	36.297	
+RCM-09227	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-09227/D1/attempt-1/workspace	2026-08-10T15:28:33Z	2026-08-10T15:28:36Z	COMPLETE	3	3	0	0	15	15	0	0	1	3.214	
+RCM-09229	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-09229/D1/attempt-1/workspace	2026-08-10T15:28:36Z	2026-08-10T15:28:37Z	COMPLETE	1	1	0	0	3	3	0	0	0	0.635	
+RCM-10001	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10001/D1/attempt-1/workspace	2026-08-10T15:28:37Z	2026-08-10T15:38:37Z	PARTIAL_TIMEOUT	107	55	52	0	19210	2407	0	0	847	600.068	candidate timeout reached
+RCM-10060	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10060/D1/attempt-1/workspace	2026-08-10T15:38:37Z	2026-08-10T15:38:37Z	COMPLETE	2	2	0	0	0	0	0	0	0	0.013	
+RCM-10061	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10061/D1/attempt-1/workspace	2026-08-10T15:38:37Z	2026-08-10T15:39:36Z	COMPLETE	1	1	0	0	252	252	0	0	57	59.034	
+RCM-10075	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10075/D1/attempt-1/workspace	2026-08-10T15:39:36Z	2026-08-10T15:39:36Z	COMPLETE	1	1	0	0	1	1	0	0	0	0.261	
+RCM-10080	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10080/D1/attempt-1/workspace	2026-08-10T15:39:36Z	2026-08-10T15:39:37Z	COMPLETE	1	1	0	0	5	5	0	0	2	1.146	
+RCM-10088	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10088/D1/attempt-1/workspace	2026-08-10T15:39:37Z	2026-08-10T15:39:43Z	COMPLETE	1	1	0	0	26	26	0	0	22	5.971	
+RCM-10089	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10089/D1/attempt-1/workspace	2026-08-10T15:39:43Z	2026-08-10T15:39:46Z	COMPLETE	1	1	0	0	11	11	0	0	0	2.57	
+RCM-10104	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10104/D1/attempt-1/workspace	2026-08-10T15:39:46Z	2026-08-10T15:39:46Z	COMPLETE	1	1	0	0	1	1	0	0	1	0.218	
+RCM-10140	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10140/D1/attempt-1/workspace	2026-08-10T15:39:46Z	2026-08-10T15:41:45Z	COMPLETE	1	1	0	0	520	520	0	0	10	119.394	
+RCM-10193	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10193/D1/attempt-1/workspace	2026-08-10T15:41:45Z	2026-08-10T15:41:52Z	COMPLETE	1	1	0	0	30	30	0	0	7	6.812	
+RCM-10355	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10355/D1/attempt-1/workspace	2026-08-10T15:41:52Z	2026-08-10T15:51:52Z	PARTIAL_TIMEOUT	247	175	72	0	53756	2274	0	0	314	600.226	candidate timeout reached
+RCM-10386	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10386/D1/attempt-1/workspace	2026-08-10T15:51:52Z	2026-08-10T16:01:53Z	PARTIAL_TIMEOUT	731	336	395	0	104157	2524	0	0	1553	600.137	candidate timeout reached
+RCM-10400	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10400/D1/attempt-1/workspace	2026-08-10T16:01:53Z	2026-08-10T16:02:50Z	COMPLETE	1	1	0	0	248	248	0	0	56	57.274	
+RCM-10418	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10418/D1/attempt-1/workspace	2026-08-10T16:02:50Z	2026-08-10T16:02:51Z	COMPLETE	1	1	0	0	4	4	0	0	0	0.989	
+RCM-10460	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10460/D1/attempt-1/workspace	2026-08-10T16:02:51Z	2026-08-10T16:02:51Z	COMPLETE	1	1	0	0	1	1	0	0	0	0.263	
+RCM-10527	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10527/D1/attempt-1/workspace	2026-08-10T16:02:51Z	2026-08-10T16:02:56Z	COMPLETE	1	1	0	0	20	20	0	0	0	4.536	
+RCM-10605	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10605/D1/attempt-1/workspace	2026-08-10T16:02:56Z	2026-08-10T16:02:56Z	COMPLETE	1	1	0	0	0	0	0	0	0	0.011	
+RCM-10638	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10638/D1/attempt-1/workspace	2026-08-10T16:02:56Z	2026-08-10T16:02:56Z	COMPLETE	1	1	0	0	0	0	0	0	0	0.011	
+RCM-10720	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10720/D1/attempt-1/workspace	2026-08-10T16:02:56Z	2026-08-10T16:02:56Z	COMPLETE	1	1	0	0	0	0	0	0	0	0.113	
+RCM-10724	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10724/D1/attempt-1/workspace	2026-08-10T16:02:56Z	2026-08-10T16:02:56Z	COMPLETE	1	1	0	0	0	0	0	0	0	0.002	
+RCM-10726	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10726/D1/attempt-1/workspace	2026-08-10T16:02:56Z	2026-08-10T16:02:56Z	COMPLETE	1	1	0	0	0	0	0	0	0	0.003	
+RCM-10787	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10787/D1/attempt-1/workspace	2026-08-10T16:02:56Z	2026-08-10T16:02:56Z	COMPLETE	1	1	0	0	1	1	0	0	0	0.221	
+RCM-10866	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10866/D1/attempt-1/workspace	2026-08-10T16:02:56Z	2026-08-10T16:04:24Z	COMPLETE	3	2	1	0	362	362	0	0	70	87.541	
+RCM-10986	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-10986/D1/attempt-1/workspace	2026-08-10T16:04:24Z	2026-08-10T16:04:34Z	COMPLETE	1	1	0	0	47	47	0	0	0	10.537	
+RCM-11024	/home/lnk85/SymmariesProjectBits/symmaries-maven-evaluation/work/pilot/RCM-11024/D1/attempt-1/workspace	2026-08-10T16:04:34Z	2026-08-10T16:04:49Z	COMPLETE	7	7	0	0	67	67	0	0	0	14.615	
